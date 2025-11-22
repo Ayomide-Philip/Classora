@@ -50,7 +50,7 @@ Add or adjust these tokens in your design system or Tailwind config as needed.
 1. **Important / Starred courses:** Users can mark any course as important (star/bookmark). Class reps may be granted permission to mark courses important for their class.
 2. **Reminders & notifications:** Create one-off and recurring reminders for exams, assignments, important classes, and resources. Reminders can be scheduled, snoozed, and set with custom priority and expiration. Delivery channels include in-app, email, and optional push notifications (configurable per user). Calendar sync (Google) for reminders and events.
 3. **Dashboard & analytics:** Personalized dashboard showing upcoming reminders, important announcements, and course activity. Analytics on user engagement, announcement views, and resource downloads.
-4. **Search & filtering:** Advanced search across classes, announcements, and resources with filters for importance, date, and type.
+4. **Search & filtering:** Advanced search across classes, announcements, and resources with filters for importance, date, and type. Also in spp google Map access to search for venue location for classes.
 5. **Collaboration & comments:** Commenting on announcements and resources for class discussions. Threaded replies and mentions.
 6. **Notifications & digests:** Daily/weekly digest emails summarizing important items and upcoming reminders.
 7. **Offline & sync:** Local caching for basic read access and queued actions while offline.
