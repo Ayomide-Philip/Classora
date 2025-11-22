@@ -57,10 +57,11 @@ Add or adjust these tokens in your design system or Tailwind config as needed.
 
 ## Tech stack
 
-- Frontend: React + TypeScript (or preferred framework), Tailwind or CSS-in-JS
-- Backend: Node.js + Express (or preferred), REST or GraphQL API
-- Database: PostgreSQL (SQLite for local dev)
-- Tooling: Vite / Webpack, ESLint, Prettier, Husky, Jest/Testing Library
+- **Fullstack:** Next.js (React) for frontend and backend API routes
+- **Styling:** Tailwind CSS, CSS Modules
+- Database: MongoDB (or preferred), Mongoose (or preferred ORM)
+- **Authentication:** JWT or OAuth2
+- **Notifications:** Nodemailer for email, Web Push API for push notifications
 
 ## Repository layout
 
@@ -68,7 +69,6 @@ Add or adjust these tokens in your design system or Tailwind config as needed.
   - /components — reusable UI components
   - /pages — top-level routes
   - /services — API clients and data layer
-  - /styles — global styles and design tokens
 - /server — backend API
   - /controllers
   - /models
