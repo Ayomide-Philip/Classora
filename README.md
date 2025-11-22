@@ -23,6 +23,20 @@ Classboard (redesigned) is a modern web application for managing classes, announ
 
 This app provides the typical Classboard functionality (class and user management, announcements, resources, and schedules) and extends it with productivity-focused features: the ability to mark courses as important, let class reps manage importance for their course members and also let each members set their own importance, and set reminders/notifications for important dates and course updates.
 
+**Colors Used**
+
+- `public/mockup-classboard.svg`, `public/mockup-classboard-dark.svg`, and `public/mockup-classboard-mobile.svg` use the following palette used across mockups:
+- **Primary gradient:** `#6C5CE7` → `#00B894` (main accent gradient used for headers/marks)
+- **Light background:** `#F5F7FF` (page background)
+- **Card / surface:** `#FFFFFF` (card backgrounds)
+- **Subtle stroke / panel border:** `#EEF3FB`
+- **Muted text:** `#6B7280`
+- **Accent variants:** `#FFD166`, `#74C0FC`, `#9B59B6`, `#00B894`, `#FF7675`, `#74D680` (used for course chips and icons)
+- **Dark-mode background:** `#071023` / `#0B1422`
+- **Dark-mode accent gradient:** `#7C5CFF` → `#00D389`
+
+Add or adjust these tokens in your design system or Tailwind config as needed.
+
 ## Key features
 
 1.  **Class Management and user enrollment:** Classes would be managed and created by class reps and admins. Users can enroll in classes via unique codes or invitations. Lecturers are also created and assigned to classes by class reps/admins.
