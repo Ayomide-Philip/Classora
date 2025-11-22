@@ -52,7 +52,7 @@ Add or adjust these tokens in your design system or Tailwind config as needed.
 5. **Collaboration & comments:** Commenting on announcements and resources for class discussions. Threaded replies and mentions.
 6. **Notifications & digests:** Daily/weekly digest emails summarizing important items and upcoming reminders.
 7. **Offline & sync:** Local caching for basic read access and queued actions while offline.
-8. **Import/export:** Import course lists and export schedules/reminders as ICS or CSV.
+8. **Import/export:** Import course lists and export schedules/reminders as CSV.
 
 ## **Tech stack**
 
