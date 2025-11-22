@@ -55,6 +55,7 @@ Add or adjust these tokens in your design system or Tailwind config as needed.
 6. **Notifications & digests:** Daily/weekly digest emails summarizing important items and upcoming reminders.
 7. **Offline & sync:** Local caching for basic read access and queued actions while offline.
 8. **Import/export:** Import course lists and export schedules/reminders as CSV.
+9. **Chat System:** A minimalistic chat system for proper communication with course mates.
 
 ## **Tech stack**
 
