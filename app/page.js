@@ -1,4 +1,4 @@
-import Toggle from "@/componets/toggle";
+import Toggle from "@/components/toggle";
 
 export default function Home() {
   return (
