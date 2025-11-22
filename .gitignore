@@ -45,3 +45,5 @@ certificates
 .idea
 
 .vscode
+
+.venv
