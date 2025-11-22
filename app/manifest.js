@@ -10,12 +10,12 @@ export default function manifest() {
     theme_color: "#000000",
     icons: [
       {
-        src: "/images/Classora_Logo.png",
+        src: "/images/Classora_Logo_withbg.png",
         sizes: "192x192",
         type: "image/png",
       },
       {
-        src: "/images/Classora_Logo.png",
+        src: "/images/Classora_Logo_withbg.png",
         sizes: "512x512",
         type: "image/png",
       },
