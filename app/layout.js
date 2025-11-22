@@ -12,8 +12,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Important Board",
-  shortTitle: "IBoard",
+  title: {
+    default: "Classora - Teach more, manage less",
+    template: "%s | Classora",
+  },
   description: "A friendly classroom dashboard",
 };
 
