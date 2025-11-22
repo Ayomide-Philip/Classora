@@ -1,8 +1,8 @@
-# Classboard (redesigned)
+# **Classboard (redesigned)**
 
 Classboard (redesigned) is a modern web application for managing classes, announcements, schedules, and shared resources with advanced prioritization and reminder features for students and class representatives.
 
-## Table of contents
+## **Table of contents**
 
 - Project overview
 - Key features
@@ -19,11 +19,11 @@ Classboard (redesigned) is a modern web application for managing classes, announ
 - License
 - Contact
 
-## Project overview
+## **Project overview**
 
 This app provides the typical Classboard functionality (class and user management, announcements, resources, and schedules) and extends it with productivity-focused features: the ability to mark courses as important, let class reps manage importance for their course members and also let each members set their own importance, and set reminders/notifications for important dates and course updates.
 
-**Colors Used**
+## **Colors Used**
 
 - `public/mockup-classboard.svg`, `public/mockup-classboard-dark.svg`, and `public/mockup-classboard-mobile.svg` use the following palette used across mockups:
 - **Primary gradient:** `#6C5CE7` → `#00B894` (main accent gradient used for headers/marks)
