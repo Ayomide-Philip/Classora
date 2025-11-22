@@ -8,7 +8,6 @@ Classboard (redesigned) is a modern web application for managing classes, announ
 - Key features
 - Advanced features
 - Tech stack
-- Repository layout
 - Getting started
 - Development
 - Testing & linting
@@ -63,24 +62,6 @@ Add or adjust these tokens in your design system or Tailwind config as needed.
 - **Authentication:** JWT or OAuth2
 - **Notifications:** Nodemailer for email, Web Push API for push notifications
 
-## **Repository layout**
-
-- /src — frontend source code
-  - /components — reusable UI components
-  - /pages — top-level routes
-  - /services — API clients and data layer
-- /server — backend API
-  - /controllers
-  - /models
-  - /routes
-  - /jobs — background jobs (reminders, digests)
-- /migrations — DB migrations
-- /scripts — helper scripts
-- README.md — this file
-- .env.example — required environment variables
-
-Adjust layout to match the actual repo if different.
-
 ## Getting started (local)
 
 1. Clone the repo
@@ -88,18 +69,12 @@ Adjust layout to match the actual repo if different.
 2. Install dependencies
    cd classboard-redesigned
    npm install
-   (or yarn)
 3. Copy environment example and edit
    cp .env.example .env
    - Configure DATABASE_URL, PORT, email provider, and push credentials if used
 4. Start the app (development)
    npm run dev
 5. Open http://localhost:3000 (or configured port)
-
-If frontend/backend are separate:
-
-- Start backend: cd server && npm run dev
-- Start frontend: cd src && npm run dev
 
 ## Development
 
