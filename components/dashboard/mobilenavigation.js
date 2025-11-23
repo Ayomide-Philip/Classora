@@ -35,7 +35,7 @@ export default function MobileNavigation() {
             Classora
           </p>
           <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
-            Faculty Portal
+            Board
           </p>
         </div>
       </div>
@@ -68,7 +68,7 @@ export default function MobileNavigation() {
                     Classora
                   </p>
                   <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
-                    Faculty Portal
+                    Board
                   </p>
                 </div>
               </div>

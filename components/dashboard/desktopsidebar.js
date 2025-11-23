@@ -42,13 +42,13 @@ export default function DesktopSidebar() {
                   Classora
                 </p>
                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                  Faculty Portal
+                  Board
                 </p>
               </div>
             )}
           </div>
           <button
-            className="flex h-10 w-10 items-center justify-center rounded-full border-slate-200 text-slate-500 dark:border-white/10 dark:text-slate-200"
+            className="cursor-pointer flex h-10 w-10 items-center justify-center rounded-full border-slate-200 text-slate-500 dark:border-white/10 dark:text-slate-200"
             onClick={() => setCollapsed((prev) => !prev)}
             aria-label="Collapse sidebar"
           >

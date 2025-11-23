@@ -6,7 +6,6 @@ export default function Layout({ children }) {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:bg-[radial-gradient(circle_at_top,#13294b,#050912_75%)] dark:text-slate-100">
       <div className="flex flex-col lg:flex-row">
-        {/* navigation bar */}
         <DesktopSidebar />
         <MobileNavigation />
 
