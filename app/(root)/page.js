@@ -31,9 +31,8 @@ export default function Home() {
             </h1>
 
             <p className="text-lg md:text-xl  max-w-2xl leading-relaxed text-black dark:text-white/90">
-              The all-in-one ecosystem for students and educators. Manage
-              classes, engage communities, and find venues—all in one beautiful
-              interface.
+              Classora is your all in one academic command center. Manage
+              classes, connect instantly, and explore your campus with ease.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
@@ -41,7 +40,7 @@ export default function Home() {
                 href="/auth/register"
                 className="h-12 px-8 rounded-full bg-indigo-600 text-white font-medium flex items-center gap-2 hover:bg-indigo-700 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-indigo-500/25"
               >
-                Start for free
+                Get Started
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
