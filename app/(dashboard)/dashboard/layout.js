@@ -18,7 +18,7 @@ export default function Layout({ children }) {
                   Hey Eleanor 👋
                 </p>
                 <h1 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
-                  Classora Dashboard
+                  Classora Board
                 </h1>
               </div>
               <div className="flex flex-wrap items-center gap-3">

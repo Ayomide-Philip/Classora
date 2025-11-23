@@ -1,5 +1,6 @@
 "use client";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 import {
   FiCalendar,
@@ -57,7 +58,7 @@ export default function DesktopSidebar() {
 
         <nav className="mt-10 flex-1 space-y-2 ">
           {sidebarLinks.map(({ icon: Icon, label, active }) => (
-            <button
+            <Link
               key={label}
               className={`group flex w-full items-center cursor-pointer ${
                 collapsed ? "justify-center" : "justify-start"
@@ -66,6 +67,7 @@ export default function DesktopSidebar() {
                   ? "bg-slate-900/5 text-slate-900 dark:bg-linear-to-br from-slate-100/95 to-emerald-200/90 dark:text-slate-900"
                   : "text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/5"
               }`}
+              href="#"
             >
               <Icon
                 className={`text-base  ${
@@ -75,7 +77,7 @@ export default function DesktopSidebar() {
                 }`}
               />
               {!collapsed && <span>{label}</span>}
-            </button>
+            </Link>
           ))}
         </nav>
       </div>
