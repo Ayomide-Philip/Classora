@@ -1,6 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ThemesProvider from "@/components/themesprovider";
+import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
+import InstallButton from "@/components/InstallButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +29,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased dark:bg-black dark:text-white`}
       >
-        <ThemesProvider>{children}</ThemesProvider>
+        <ThemesProvider>
+          <ServiceWorkerRegister />
+          <InstallButton />
+          {children}
+        </ThemesProvider>
       </body>
     </html>
   );

@@ -5,7 +5,7 @@ export default function manifest() {
     short_name: "Classora",
     description:
       "A friendly classroom dashboard that helps teachers and students manage coursework and communication with ease.",
-    start_url: "/?source=pwa",
+    start_url: "./?source=pwa",
     scope: "/",
     display: "standalone",
     orientation: "portrait-primary",
