@@ -9,6 +9,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import Toggle from "@/components/toggle";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -17,16 +18,11 @@ export default function Home() {
       <nav className="fixed top-0 w-full z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            {/* <div className="w-8 h-8 rounded-lg bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold">
-              C
-            </div>
-            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-600">
-              Classora
-            </span> */}
-            <img
+            <Image
               src="/images/Classora_Logo.png"
               alt="Classora Logo"
-              className="w-30 h-30 rounded-lg"
+              width={130}
+              height={130}
             />
           </div>
 
@@ -78,10 +74,10 @@ export default function Home() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
               </span>
-              v2.0 is now live
+              v1.0 is comming soon
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight max-w-4xl bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/70">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight max-w-4xl bg-clip-text text-transparent bg-linear-to-b from-foreground to-foreground/70">
               Teach more, <br className="hidden md:block" />
               <span className="text-indigo-500">Manage less.</span>
             </h1>
@@ -110,7 +106,7 @@ export default function Home() {
 
             {/* Hero Image / Preview */}
             <div className="mt-16 relative w-full max-w-5xl aspect-video rounded-xl border border-border bg-secondary/20 overflow-hidden shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 via-purple-500/10 to-pink-500/10" />
+              <div className="absolute inset-0 bg-linear-to-tr from-indigo-500/10 via-purple-500/10 to-pink-500/10" />
               <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/50">
                 [Dashboard Preview Placeholder]
               </div>
@@ -170,7 +166,7 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-20 md:py-32">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="rounded-3xl bg-gradient-to-br from-indigo-600 to-purple-700 p-8 md:p-16 text-center text-white overflow-hidden relative">
+          <div className="rounded-3xl bg-linear-to-br from-indigo-600 to-purple-700 p-8 md:p-16 text-center text-white overflow-hidden relative">
             <div className="absolute top-0 left-0 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
             <div className="relative z-10">
               <h2 className="text-3xl md:text-5xl font-bold mb-6">
