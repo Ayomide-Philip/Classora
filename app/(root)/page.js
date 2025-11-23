@@ -67,11 +67,11 @@ export default function Home() {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Everything you need to succeed
+              Goodbye Confusion
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Classora brings together all the tools you need to manage your
-              educational journey effectively.
+              Classora ensures you always know what’s happening, where it’s
+              happening, and when it matters.
             </p>
           </div>
 
