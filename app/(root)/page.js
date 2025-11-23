@@ -46,17 +46,19 @@ export default function Home() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
               </span>
-              v1.0 is comming soon
+              v1.0 launching soon
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight max-w-4xl bg-clip-text text-transparent bg-linear-to-b from-foreground to-foreground/70">
-              Teach more, <br className="hidden md:block" />
-              <span className="text-indigo-500">Manage less.</span>
+              Your Academic Life, <br className="hidden md:block" />
+              <span className="text-indigo-500">Unified.</span>
             </h1>
 
             <p className="text-lg md:text-xl  max-w-2xl leading-relaxed text-black dark:text-white/90">
-              Classora is your all in one academic command center. Manage
-              classes, connect instantly, and explore your campus with ease.
+              Classora is the command center for modern education. Manage your
+              classes, collaborate in real-time, and navigate your campus—all
+              from one powerful platform. Spend less time managing. More time
+              learning.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
@@ -71,7 +73,7 @@ export default function Home() {
                 href="#demo"
                 className="h-12 px-8 rounded-full border border-border bg-background hover:bg-secondary/50 font-medium flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
               >
-                View Demo
+                Explore Features
               </Link>
             </div>
 
@@ -91,11 +93,13 @@ export default function Home() {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Goodbye Confusion
+              Stay Informed. Stay Ahead.
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Classora ensures you always know what’s happening, where it’s
-              happening, and when it matters.
+              In a world of scattered tools and missed messages, Classora gives
+              you clarity. Everything you need—schedules, resources,
+              conversations, and notifications—lives in one place, so you're
+              always in the loop and never caught off guard.
             </p>
           </div>
 
@@ -103,32 +107,32 @@ export default function Home() {
             <FeatureCard
               icon={<BookOpen className="w-6 h-6 text-blue-500" />}
               title="Class Management"
-              description="Organize rosters, resources, and schedules in one intuitive dashboard."
+              description="Your complete academic hub. Organize rosters, assignments, and schedules with an intuitive dashboard designed to keep you in control—no spreadsheets, no chaos."
             />
             <FeatureCard
               icon={<Users className="w-6 h-6 text-purple-500" />}
               title="Community Engagement"
-              description="Foster collaboration with built-in forums and discussion boards."
+              description="Build stronger connections. Participate in forums, spark discussions, and collaborate with peers and instructors—all within a thoughtfully designed space for meaningful exchange."
             />
             <FeatureCard
               icon={<MessageCircle className="w-6 h-6 text-green-500" />}
               title="Real-time Chat"
-              description="Instant communication with typing indicators and read receipts."
+              description="Communication without friction. Instant chat with typing indicators, read receipts, and threaded conversations that keep you connected when it matters most."
             />
             <FeatureCard
               icon={<MapPin className="w-6 h-6 text-red-500" />}
               title="Venue Mapping"
-              description="Find and navigate to class locations with interactive maps."
+              description="Never get lost on campus. Interactive maps guide you to lecture halls, study spaces, and events—so you can spend less time wandering and more time engaging."
             />
             <FeatureCard
               icon={<Bell className="w-6 h-6 text-yellow-500" />}
               title="Smart Reminders"
-              description="Never miss a deadline with automated notifications and calendar sync."
+              description="Deadlines don't slip through the cracks. Automated notifications and calendar sync ensure you're always prepared, always on time, and always one step ahead."
             />
             <FeatureCard
               icon={<CheckCircle2 className="w-6 h-6 text-indigo-500" />}
               title="Advanced Analytics"
-              description="Track progress and engagement with detailed insights."
+              description="Insight-driven progress. Track engagement, measure growth, and gain clarity on your academic journey with detailed, actionable data that helps you improve."
             />
           </div>
         </div>
@@ -171,11 +175,12 @@ export default function Home() {
             <div className="absolute top-0 left-0 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
             <div className="relative z-10">
               <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                Ready to transform your learning experience?
+                Ready to take control of your academic experience?
               </h2>
               <p className="text-indigo-100 text-lg mb-8 max-w-2xl mx-auto">
-                Join thousands of students and educators who are already using
-                Classora to teach more and manage less.
+                Join thousands of students and educators who trust Classora to
+                simplify their workflow, strengthen their connections, and
+                elevate their learning.
               </p>
               <Link
                 href="/auth/register"
