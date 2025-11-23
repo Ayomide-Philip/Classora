@@ -1,4 +1,4 @@
-# Classora Redesign – Expanded Student Ecosystem
+# Classora – Teach more, Manage less! 
 
 ## 1. Executive Summary and Strategic Objective
 
