@@ -10,6 +10,9 @@ import FAQ from "@/components/landing/FAQ";
 import CTA from "@/components/landing/CTA";
 
 export default function Home() {
+  setTimeout(() => {
+    console.log("Simulating async operation...");
+  }, 100000);
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-indigo-500/20">
       <Hero />
