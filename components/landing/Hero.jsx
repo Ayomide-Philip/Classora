@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-4 overflow-hidden">
+    <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-4 overflow-hidden bg-[url('/images/hero-bg.jpg')] dark:bg-none bg-no-repeat bg-center bg-cover">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-indigo-500/20 via-background to-background" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl -z-10 opacity-30 blur-3xl">
@@ -57,13 +57,9 @@ export default function Hero() {
               See How It Works
             </Link>
           </div>
-          <p className="text-xs text-muted-foreground mt-2">
-            No credit card required
-          </p>
 
-          {/* Hero Image / Preview */}
           <div className="mt-16 relative w-full max-w-6xl aspect-video rounded-xl border border-border bg-secondary/20 overflow-hidden shadow-2xl group">
-            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 via-purple-500/10 to-pink-500/10" />
+            <div className="absolute inset-0 bg-linear-to-tr from-indigo-500/10 via-purple-500/10 to-pink-500/10" />
             <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/50 font-medium text-lg">
               [Dashboard Preview Placeholder]
             </div>

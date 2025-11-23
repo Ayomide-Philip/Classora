@@ -83,7 +83,28 @@ export default function manifest() {
         src: "/icons/icon-512.png",
         sizes: "512x512",
         type: "image/png",
-        purpose: "any maskable",
+        purpose: "any",
+      },
+      {
+        src: "/icons/icon-512-maskable.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable",
+      },
+    ],
+    screenshots: [
+      {
+        src: "/images/Classora_Logo_withbg.png",
+        sizes: "1400x900",
+        type: "image/png",
+        label: "Desktop mockup",
+        form_factor: "wide",
+      },
+      {
+        src: "/images/Classora_Logo_withbg.png",
+        sizes: "360x800",
+        type: "image/png",
+        label: "Mobile mockup",
       },
     ],
   };

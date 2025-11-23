@@ -29,11 +29,11 @@ export default function ProblemSection() {
                         <ul className="space-y-4">
                             <li className="flex items-start gap-3 text-muted-foreground">
                                 <X className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
-                                <span>Missed announcements in buried emails</span>
+                                <span>Missed announcements in WhatsApp chats</span>
                             </li>
                             <li className="flex items-start gap-3 text-muted-foreground">
                                 <X className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
-                                <span>"What room is this in?" panic</span>
+                                <span>"What venue is the class in?" panic</span>
                             </li>
                             <li className="flex items-start gap-3 text-muted-foreground">
                                 <X className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
