@@ -29,8 +29,8 @@ export default function Personas() {
                     />
                     <PersonaCard
                         icon={<Building2 className="w-8 h-8 text-blue-500" />}
-                        role="For Administrators"
-                        quote="A connected campus is an engaged campus. Classora gives us the insights we need to support student success."
+                        role="For Class Representatives"
+                        quote="A connected campus is an engaged campus. Classora gives us the support we need in managing our classes efficently"
                         feature="Campus-wide Analytics"
                     />
                 </div>

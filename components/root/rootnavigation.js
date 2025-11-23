@@ -8,7 +8,7 @@ export default function RootNavigation() {
         <div className="flex items-center gap-2">
           <Link href="/">
             <Image
-              src="/images/Classora_Logo.png"
+              src="/images/Classora_Logo_nobg.png"
               alt="Classora Logo"
               width={120}
               height={120}
@@ -40,13 +40,13 @@ export default function RootNavigation() {
         <div className="flex items-center gap-4">
           <Toggle />
           <Link
-            href="/auth/login"
+            href="/login"
             className="hidden md:block text-sm font-medium hover:text-primary transition-colors"
           >
             Sign In
           </Link>
           <Link
-            href="/auth/register"
+            href="/register"
             className="px-4 py-2 rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity"
           >
             Get Started
