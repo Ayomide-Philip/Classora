@@ -12,6 +12,7 @@ export default function RootNavigation() {
               alt="Classora Logo"
               width={120}
               height={120}
+              loading="eager"
             />
           </Link>
         </div>

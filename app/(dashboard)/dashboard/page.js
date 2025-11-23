@@ -1,5 +1,4 @@
-import { FiTrendingUp } from "react-icons/fi";
-
+import { FiTrendingUp, FiSearch, FiBell } from "react-icons/fi";
 const stats = [
   {
     label: "Total Classes",
@@ -57,150 +56,174 @@ const assignments = [
 
 export default function Page() {
   return (
-    <div className="flex flex-col space-y-6 w-full px-4">
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-        {stats.map((card) => (
-          <div
-            key={card.label}
-            className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/70"
-          >
-            <div
-              className={`inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-linear-to-br ${card.color} text-slate-900`}
-            >
-              <FiTrendingUp />
-            </div>
-            <p className="mt-4 text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
-              {card.label}
-            </p>
-            <div className="mt-2 text-2xl font-semibold text-slate-900 dark:text-slate-100">
-              {card.value}
-            </div>
-            <p className="text-sm text-slate-500 dark:text-slate-400">
-              {card.delta}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      <div className="rounded-4xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/70">
-        <div className="flex flex-wrap items-center justify-between gap-3">
+    <>
+      <header className="bloack md:hidden border border-slate-200 bg-white px-6 py-5 shadow-xl dark:border-slate-800/70 dark:bg-slate-900/75 dark:shadow-2xl dark:shadow-slate-950/40">
+        <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
-              On-going courses
-            </h2>
             <p className="text-sm text-slate-500 dark:text-slate-400">
-              Stay updated with upcoming events
+              Hey Eleanor 👋
             </p>
+            <h1 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+              Classora Dashboard
+            </h1>
           </div>
-          <button className="rounded-full border border-slate-300 px-4 py-2 text-sm text-slate-600 dark:border-slate-700 dark:text-slate-200">
-            View all
-          </button>
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="relative">
+              <FiSearch className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500" />
+              <input
+                type="text"
+                placeholder="Search courses, students..."
+                className="w-60 rounded-full border border-slate-300 bg-slate-50 py-2 pl-10 pr-4 text-sm text-slate-900 placeholder:text-slate-400 dark:border-slate-800 dark:bg-slate-900/70 dark:text-slate-100 dark:placeholder:text-slate-500"
+              />
+            </div>
+          </div>
         </div>
-        <div className="mt-6 grid gap-4 lg:grid-cols-3">
-          {courses.map((course) => (
+      </header>
+      <div className="flex flex-col space-y-6 w-full px-4">
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          {stats.map((card) => (
             <div
-              key={course.title}
-              className="rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-950/40"
+              key={card.label}
+              className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/70"
             >
-              <div className="flex items-center justify-between">
-                <h3 className="text-base font-semibold text-slate-900 dark:text-slate-100">
-                  {course.title}
-                </h3>
-                <span
-                  className={`rounded-full px-3 py-1 text-xs font-medium ${course.color}`}
-                >
-                  {course.badge}
-                </span>
+              <div
+                className={`inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-linear-to-br ${card.color} text-slate-900`}
+              >
+                <FiTrendingUp />
               </div>
-              <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">
-                {course.nextEvent}
+              <p className="mt-4 text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                {card.label}
               </p>
-              <div className="mt-6 h-1 rounded-full bg-slate-200 dark:bg-slate-800">
-                <div className="h-full w-2/3 rounded-full bg-linear-to-br from-emerald-400 to-cyan-400" />
+              <div className="mt-2 text-2xl font-semibold text-slate-900 dark:text-slate-100">
+                {card.value}
               </div>
+              <p className="text-sm text-slate-500 dark:text-slate-400">
+                {card.delta}
+              </p>
             </div>
           ))}
         </div>
-      </div>
 
-      <div className="grid gap-4 lg:grid-cols-2">
         <div className="rounded-4xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/70">
-          <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
-              Activity
-            </h3>
-            <span className="text-xs text-slate-500 dark:text-slate-400">
-              Recent events
-            </span>
-          </div>
-          <ul className="mt-6 space-y-4">
-            {activityFeed.map((item) => (
-              <li key={item.text} className="flex items-start gap-3">
-                <span className="mt-1 h-2 w-2 rounded-full bg-linear-to-br from-emerald-400 to-cyan-400" />
-                <div>
-                  <p className="text-sm font-medium text-slate-900 dark:text-slate-100">
-                    {item.text}
-                  </p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
-                    {item.time}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="rounded-4xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/70">
-          <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
-              Upcoming deadlines
-            </h3>
-            <button className="text-xs text-slate-500 dark:text-slate-400">
-              See calendar
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+                On-going courses
+              </h2>
+              <p className="text-sm text-slate-500 dark:text-slate-400">
+                Stay updated with upcoming events
+              </p>
+            </div>
+            <button className="rounded-full border border-slate-300 px-4 py-2 text-sm text-slate-600 dark:border-slate-700 dark:text-slate-200">
+              View all
             </button>
           </div>
-          <div className="mt-6 space-y-3">
-            {assignments.map((item) => (
+          <div className="mt-6 grid gap-4 lg:grid-cols-3">
+            {courses.map((course) => (
               <div
-                key={item.course}
-                className="flex items-center justify-between rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm dark:border-slate-800 dark:bg-slate-950/40"
+                key={course.title}
+                className="rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-950/40"
               >
-                <div>
-                  <p className="font-medium text-slate-900 dark:text-slate-100">
-                    {item.course}
-                  </p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
-                    Due {item.due}
-                  </p>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-base font-semibold text-slate-900 dark:text-slate-100">
+                    {course.title}
+                  </h3>
+                  <span
+                    className={`rounded-full px-3 py-1 text-xs font-medium ${course.color}`}
+                  >
+                    {course.badge}
+                  </span>
                 </div>
-                <button className="rounded-full border border-slate-300 px-3 py-1 text-xs text-slate-600 dark:border-slate-700 dark:text-slate-200">
-                  Review
-                </button>
+                <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">
+                  {course.nextEvent}
+                </p>
+                <div className="mt-6 h-1 rounded-full bg-slate-200 dark:bg-slate-800">
+                  <div className="h-full w-2/3 rounded-full bg-linear-to-br from-emerald-400 to-cyan-400" />
+                </div>
               </div>
             ))}
           </div>
         </div>
-      </div>
 
-      <div className="rounded-4xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/70">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
-            Performance overview
-          </h3>
-          <div className="flex gap-2 text-xs text-slate-500 dark:text-slate-400">
-            <button className="rounded-full border border-slate-300 px-3 py-1 dark:border-slate-700">
-              Weekly
-            </button>
-            <button className="rounded-full border border-slate-300 px-3 py-1 dark:border-slate-700">
-              Monthly
-            </button>
+        <div className="grid gap-4 lg:grid-cols-2">
+          <div className="rounded-4xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/70">
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+                Activity
+              </h3>
+              <span className="text-xs text-slate-500 dark:text-slate-400">
+                Recent events
+              </span>
+            </div>
+            <ul className="mt-6 space-y-4">
+              {activityFeed.map((item) => (
+                <li key={item.text} className="flex items-start gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-linear-to-br from-emerald-400 to-cyan-400" />
+                  <div>
+                    <p className="text-sm font-medium text-slate-900 dark:text-slate-100">
+                      {item.text}
+                    </p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      {item.time}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-4xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/70">
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+                Upcoming deadlines
+              </h3>
+              <button className="text-xs text-slate-500 dark:text-slate-400">
+                See calendar
+              </button>
+            </div>
+            <div className="mt-6 space-y-3">
+              {assignments.map((item) => (
+                <div
+                  key={item.course}
+                  className="flex items-center justify-between rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm dark:border-slate-800 dark:bg-slate-950/40"
+                >
+                  <div>
+                    <p className="font-medium text-slate-900 dark:text-slate-100">
+                      {item.course}
+                    </p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      Due {item.due}
+                    </p>
+                  </div>
+                  <button className="rounded-full border border-slate-300 px-3 py-1 text-xs text-slate-600 dark:border-slate-700 dark:text-slate-200">
+                    Review
+                  </button>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-        <div className="mt-6 h-48 rounded-3xl border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-950/30">
-          <div className="flex h-full items-center justify-center text-slate-500 dark:text-slate-500">
-            <p className="text-sm">Add your chart component here</p>
+
+        <div className="rounded-4xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/70">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+              Performance overview
+            </h3>
+            <div className="flex gap-2 text-xs text-slate-500 dark:text-slate-400">
+              <button className="rounded-full border border-slate-300 px-3 py-1 dark:border-slate-700">
+                Weekly
+              </button>
+              <button className="rounded-full border border-slate-300 px-3 py-1 dark:border-slate-700">
+                Monthly
+              </button>
+            </div>
+          </div>
+          <div className="mt-6 h-48 rounded-3xl border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-950/30">
+            <div className="flex h-full items-center justify-center text-slate-500 dark:text-slate-500">
+              <p className="text-sm">Add your chart component here</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

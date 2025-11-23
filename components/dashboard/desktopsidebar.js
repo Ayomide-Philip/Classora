@@ -59,7 +59,7 @@ export default function DesktopSidebar() {
           {sidebarLinks.map(({ icon: Icon, label, active }) => (
             <button
               key={label}
-              className={`group flex w-full items-center ${
+              className={`group flex w-full items-center cursor-pointer ${
                 collapsed ? "justify-center" : "justify-start"
               } gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition ${
                 active

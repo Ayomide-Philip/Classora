@@ -92,14 +92,5 @@ export default function manifest() {
         purpose: "maskable",
       },
     ],
-    screenshots: [
-      {
-        src: "/images/desktop-screenshot.png",
-        sizes: "1400x900",
-        type: "image/png",
-        label: "Desktop mockup",
-        form_factor: "wide",
-      },
-    ],
   };
 }

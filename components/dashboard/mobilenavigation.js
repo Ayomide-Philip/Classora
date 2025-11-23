@@ -59,11 +59,18 @@ export default function MobileNavigation() {
           />
           <div className="absolute right-0 top-0 h-full w-72 bg-white text-slate-900 shadow-2xl dark:bg-slate-900 dark:text-slate-100">
             <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4 dark:border-slate-800">
-              <div>
-                <p className="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                  Navigation
-                </p>
-                <p className="text-sm font-semibold">Quick links</p>
+              <div className="flex items-center gap-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-linear-to-br from-emerald-400 to-cyan-400 text-base font-semibold text-white dark:text-slate-900">
+                  CB
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                    Classora
+                  </p>
+                  <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+                    Faculty Portal
+                  </p>
+                </div>
               </div>
               <button
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-500 dark:border-slate-700 dark:text-slate-200"
