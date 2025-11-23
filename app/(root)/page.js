@@ -8,63 +8,11 @@ import {
   ArrowRight,
   CheckCircle2,
 } from "lucide-react";
-import Toggle from "@/components/toggle";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/20">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Image
-              src="/images/Classora_Logo.png"
-              alt="Classora Logo"
-              width={130}
-              height={130}
-            />
-          </div>
-
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
-            <Link
-              href="#features"
-              className="hover:text-foreground transition-colors"
-            >
-              Features
-            </Link>
-            <Link
-              href="#testimonials"
-              className="hover:text-foreground transition-colors"
-            >
-              Testimonials
-            </Link>
-            <Link
-              href="#pricing"
-              className="hover:text-foreground transition-colors"
-            >
-              Pricing
-            </Link>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <Toggle />
-            <Link
-              href="/auth/login"
-              className="hidden md:block text-sm font-medium hover:text-primary transition-colors"
-            >
-              Sign In
-            </Link>
-            <Link
-              href="/auth/register"
-              className="px-4 py-2 rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity"
-            >
-              Get Started
-            </Link>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-32 px-4 bg-[url('/images/hero-bg.jpg')] dark:bg-none bg-no-repeat bg-center bg-cover">
         <div className="container mx-auto max-w-6xl">
@@ -186,96 +134,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="border-t border-border py-12 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-6 rounded bg-indigo-600 flex items-center justify-center text-white text-xs font-bold">
-                  C
-                </div>
-                <span className="font-bold">Classora</span>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Empowering education through technology.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Product</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>
-                  <Link href="#" className="hover:text-foreground">
-                    Features
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-foreground">
-                    Pricing
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-foreground">
-                    Changelog
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>
-                  <Link href="#" className="hover:text-foreground">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-foreground">
-                    Careers
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-foreground">
-                    Blog
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>
-                  <Link href="#" className="hover:text-foreground">
-                    Privacy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-foreground">
-                    Terms
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-border/50 text-sm text-muted-foreground">
-            <p>
-              © {new Date().getFullYear()} Classora Inc. All rights reserved.
-            </p>
-            <div className="flex gap-4 mt-4 md:mt-0">
-              <Link href="#" className="hover:text-foreground">
-                Twitter
-              </Link>
-              <Link href="#" className="hover:text-foreground">
-                GitHub
-              </Link>
-              <Link href="#" className="hover:text-foreground">
-                Discord
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
