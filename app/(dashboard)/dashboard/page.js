@@ -15,6 +15,8 @@ import {
   FiTrendingUp,
   FiSearch,
   FiBell,
+  FiMenu,
+  FiX,
 } from "react-icons/fi";
 
 const sidebarLinks = [
@@ -84,14 +86,15 @@ const assignments = [
 
 export default function Page() {
   const [collapsed, setCollapsed] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-slate-50 px-4 py-10 text-slate-900 dark:bg-slate-950 dark:bg-[radial-gradient(circle_at_top,#13294b,#050912_75%)] dark:text-slate-100">
-      <div className="mx-auto flex max-w-6xl flex-col gap-6 lg:flex-row">
+    <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:bg-[radial-gradient(circle_at_top,#13294b,#050912_75%)] dark:text-slate-100">
+      <div className="flex flex-col lg:flex-row">
         {/* desktop sidebar */}
         <aside
-          className={`hidden lg:flex rounded-4xl border border-slate-200 bg-white text-slate-900 shadow-xl transition-[width] duration-300 dark:border-slate-800/80 dark:bg-slate-900/80 dark:text-slate-100 dark:backdrop-blur ${
-            collapsed ? "w-[90px]" : "w-[260px]"
+          className={`hidden lg:flex pt-3 border border-slate-200 bg-white text-slate-900 shadow-xl transition-[width] duration-300 dark:border-slate-800/80 dark:bg-slate-900/80 dark:text-slate-100 dark:backdrop-blur ${
+            collapsed ? "w-[100px]" : "w-[260px]"
           }`}
         >
           <div className="flex w-full flex-col px-4">
@@ -120,18 +123,20 @@ export default function Page() {
               </button>
             </div>
 
-            <nav className="mt-10 flex-1 space-y-2">
+            <nav className="mt-10 flex-1 space-y-2 ">
               {sidebarLinks.map(({ icon: Icon, label, active }) => (
                 <button
                   key={label}
-                  className={`group flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition ${
+                  className={`group flex w-full items-center ${
+                    collapsed ? "justify-center" : "justify-start"
+                  } gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition ${
                     active
                       ? "bg-slate-900/5 text-slate-900 dark:bg-linear-to-br from-slate-100/95 to-emerald-200/90 dark:text-slate-900"
                       : "text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/5"
                   }`}
                 >
                   <Icon
-                    className={`text-base ${
+                    className={`text-base  ${
                       active
                         ? "text-slate-900"
                         : "text-slate-500 dark:text-slate-300"
@@ -164,8 +169,76 @@ export default function Page() {
           </div>
         </aside>
 
-        <section className="flex-1 space-y-6">
-          <header className="rounded-4xl border border-slate-200 bg-white px-6 py-5 shadow-xl dark:border-slate-800/70 dark:bg-slate-900/75 dark:shadow-2xl dark:shadow-slate-950/40">
+        <section className="flex flex-col space-y-6 w-full">
+          <div className="flex items-center justify-between rounded-3xl border border-slate-200 bg-white px-4 py-3 shadow-md dark:border-slate-800 dark:bg-slate-900/80 lg:hidden">
+            <div className="flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-linear-to-br from-emerald-400 to-cyan-400 text-base font-semibold text-white dark:text-slate-900">
+                CB
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                  Classora
+                </p>
+                <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+                  Faculty Portal
+                </p>
+              </div>
+            </div>
+            <button
+              className="flex h-10 w-10 items-center justify-center rounded-2xl border border-slate-200 text-slate-600 dark:border-slate-700 dark:text-slate-200"
+              aria-label="Open navigation menu"
+              onClick={() => setMobileNavOpen(true)}
+            >
+              <FiMenu />
+            </button>
+          </div>
+          {mobileNavOpen && (
+            <div
+              className="fixed inset-0 z-40 bg-slate-900/60 backdrop-blur-sm lg:hidden"
+              role="dialog"
+              aria-modal="true"
+            >
+              <button
+                className="absolute inset-0 w-full h-full cursor-default"
+                aria-label="Close navigation menu"
+                onClick={() => setMobileNavOpen(false)}
+              />
+              <div className="absolute right-0 top-0 h-full w-72 bg-white text-slate-900 shadow-2xl dark:bg-slate-900 dark:text-slate-100">
+                <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4 dark:border-slate-800">
+                  <div>
+                    <p className="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                      Navigation
+                    </p>
+                    <p className="text-sm font-semibold">Quick links</p>
+                  </div>
+                  <button
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-500 dark:border-slate-700 dark:text-slate-200"
+                    onClick={() => setMobileNavOpen(false)}
+                    aria-label="Close navigation"
+                  >
+                    <FiX />
+                  </button>
+                </div>
+                <nav className="px-4 py-4 space-y-2">
+                  {sidebarLinks.map(({ icon: Icon, label, active }) => (
+                    <button
+                      key={label}
+                      className={`flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition ${
+                        active
+                          ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
+                          : "text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/5"
+                      }`}
+                      onClick={() => setMobileNavOpen(false)}
+                    >
+                      <Icon />
+                      <span>{label}</span>
+                    </button>
+                  ))}
+                </nav>
+              </div>
+            </div>
+          )}
+          <header className="border border-slate-200 bg-white px-6 py-5 shadow-xl dark:border-slate-800/70 dark:bg-slate-900/75 dark:shadow-2xl dark:shadow-slate-950/40">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>
                 <p className="text-sm text-slate-500 dark:text-slate-400">
