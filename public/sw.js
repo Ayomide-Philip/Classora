@@ -3,7 +3,7 @@ self.addEventListener("push", function (event) {
     const data = event.data.json();
     const options = {
       body: data.body,
-      icon: data.icon || "/images/icon.png",
+      icon: data.icon || "/images/Classora_Logo.png",
       badge: "/badge.png",
       vibrate: [100, 50, 100],
       data: {

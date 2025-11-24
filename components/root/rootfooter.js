@@ -104,7 +104,7 @@ export default function Footer() {
 
         <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2025 Classora Inc. All rights reserved.
+            © {new Date().getFullYear()} Classora Inc. All rights reserved.
           </p>
 
           <div className="flex items-center gap-6">

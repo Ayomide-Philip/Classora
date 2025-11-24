@@ -11,7 +11,6 @@ export default function PWAInstallPrompt() {
 
   useEffect(() => {
     const handler = (e) => {
-
       // Check if user dismissed the prompt recently
       const dismissedAt = localStorage.getItem("pwa_prompt_dismissed");
       if (dismissedAt) {
