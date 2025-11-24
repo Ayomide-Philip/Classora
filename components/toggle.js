@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
 
-export default function Toggle() {
+export default function Toggle({ buttondesign }) {
   const [mounted, setMounted] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
 
@@ -22,7 +22,7 @@ export default function Toggle() {
         onClick={() => {
           resolvedTheme === "dark" ? setTheme("light") : setTheme("dark");
         }}
-        className="cursor-pointer"
+        className={`cursor-pointer ${buttondesign}`}
       >
         {resolvedTheme === "dark" ? (
           <Sun className="w-6 h-6" />
