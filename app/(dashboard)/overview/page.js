@@ -30,30 +30,8 @@ export default function Page() {
       </header>
       <div className="flex flex-col space-y-6 w-full px-4 mb-10">
         <OverviewStats />
-
         <OverviewAnnoucement />
-
         <OverviewActivity />
-        {/* <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/70">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
-              Performance overview
-            </h3>
-            <div className="flex gap-2 text-xs text-slate-500 dark:text-slate-400">
-              <button className="rounded-full border border-slate-300 px-3 py-1 dark:border-slate-700">
-                Weekly
-              </button>
-              <button className="rounded-full border border-slate-300 px-3 py-1 dark:border-slate-700">
-                Monthly
-              </button>
-            </div>
-          </div>
-          <div className="mt-6 h-48 rounded-3xl border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-950/30">
-            <div className="flex h-full items-center justify-center text-slate-500 dark:text-slate-500">
-              <p className="text-sm">Add your chart component here</p>
-            </div>
-          </div>
-        </div> */}
       </div>
     </>
   );

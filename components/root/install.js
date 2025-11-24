@@ -5,16 +5,13 @@ export default function InstallWebApp() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
 
   useEffect(() => {
-    // Listen for the 'beforeinstallprompt' event
     const handleBeforeInstallPrompt = (e) => {
-      // Prevent the default install prompt
       e.preventDefault();
-      setDeferredPrompt(e); // Store the event
+      setDeferredPrompt(e);
     };
 
     window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
 
-    // Cleanup listener on unmount
     return () => {
       window.removeEventListener(
         "beforeinstallprompt",
@@ -25,7 +22,6 @@ export default function InstallWebApp() {
 
   const handleInstallClick = () => {
     if (deferredPrompt) {
-      // Show the install prompt
       deferredPrompt.prompt();
       deferredPrompt.userChoice.then((choiceResult) => {
         if (choiceResult.outcome === "accepted") {
@@ -40,7 +36,7 @@ export default function InstallWebApp() {
   return (
     <button
       onClick={handleInstallClick}
-      className="h-12 px-6 rounded-lg bg-foreground text-background font-medium flex items-center gap-2 hover:opacity-90 transition-opacity"
+      className="h-12 cursor-pointer px-6 rounded-lg bg-foreground hover:bg-background border hover:text-foreground text-background font-medium flex items-center gap-2 hover:opacity-90 transition-opacity"
     >
       Download Web App
     </button>

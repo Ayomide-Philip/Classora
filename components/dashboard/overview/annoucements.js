@@ -51,7 +51,7 @@ export default async function OverviewAnnoucement() {
             <p className="mt-4 text-sm h-full text-slate-500 dark:text-slate-400">
               {course.nextEvent}
             </p>
-            <div className="flex justify-end text-sm">
+            <div className="flex justify-end text-sm mt-3">
               <span>
                 {new Date().toLocaleDateString("en-Us", {
                   hour: "2-digit",

@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 export default function MobileNavigation() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const pathname = usePathname();
-  console.log(pathname);
 
   return (
     <div className="flex items-center justify-between border border-slate-200 bg-white px-4 py-3 shadow-md dark:border-slate-800 dark:bg-slate-900/80 lg:hidden">

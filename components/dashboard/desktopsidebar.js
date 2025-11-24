@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 export default function DesktopSidebar() {
   const [collapsed, setCollapsed] = useState(false);
   const pathname = usePathname();
-  console.log(pathname);
+
   return (
     <aside
       className={`hidden lg:flex min-h-screen pt-3 border border-slate-200 bg-white text-slate-900 shadow-xl transition-[width] duration-300 dark:border-slate-800/80 dark:bg-slate-900/80 dark:text-slate-100 dark:backdrop-blur ${
