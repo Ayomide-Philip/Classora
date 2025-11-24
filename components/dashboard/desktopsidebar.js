@@ -13,7 +13,7 @@ import {
 } from "react-icons/fi";
 
 const sidebarLinks = [
-  { icon: FiGrid, label: "Dashboard", active: true },
+  { icon: FiGrid, label: "Overview", active: true },
   { icon: FiLayers, label: "Courses" },
   { icon: FiUsers, label: "Students" },
   { icon: FiMail, label: "Messages" },
