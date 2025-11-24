@@ -20,7 +20,10 @@ export default function InstallButton() {
       setDeferredPrompt(null);
     }
 
-    window.addEventListener("pwa:beforeinstallprompt", handleBeforeInstallPrompt);
+    window.addEventListener(
+      "pwa:beforeinstallprompt",
+      handleBeforeInstallPrompt
+    );
     window.addEventListener("appinstalled", handleInstalled);
 
     // In case the browser already provided the event to window
@@ -30,7 +33,10 @@ export default function InstallButton() {
     }
 
     return () => {
-      window.removeEventListener("pwa:beforeinstallprompt", handleBeforeInstallPrompt);
+      window.removeEventListener(
+        "pwa:beforeinstallprompt",
+        handleBeforeInstallPrompt
+      );
       window.removeEventListener("appinstalled", handleInstalled);
     };
   }, []);
@@ -46,10 +52,12 @@ export default function InstallButton() {
       setVisible(false);
       window.deferredPWAInstallPrompt = null;
       setDeferredPrompt(null);
-      window.dispatchEvent(new CustomEvent('pwa:install-choice', { detail: choice }));
-      console.log('PWA install choice', choice);
+      window.dispatchEvent(
+        new CustomEvent("pwa:install-choice", { detail: choice })
+      );
+      console.log("PWA install choice", choice);
     } catch (err) {
-      console.warn('PWA prompt error', err);
+      console.warn("PWA prompt error", err);
     }
   }
 
@@ -60,7 +68,7 @@ export default function InstallButton() {
       onClick={onInstallClick}
       aria-label="Install Classora"
       className="fixed bottom-6 right-6 z-50 md:hidden inline-flex items-center px-4 py-2 rounded-lg shadow-lg bg-[#6C5CE7] text-white text-sm font-medium"
-      style={{ backdropFilter: 'saturate(120%) blur(6px)' }}
+      style={{ backdropFilter: "saturate(120%) blur(6px)" }}
     >
       Install
     </button>
