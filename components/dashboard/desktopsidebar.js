@@ -2,25 +2,7 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import {
-  FiCalendar,
-  FiGrid,
-  FiLayers,
-  FiMail,
-  FiPieChart,
-  FiSettings,
-  FiUsers,
-} from "react-icons/fi";
-
-const sidebarLinks = [
-  { icon: FiGrid, label: "Overview", active: true },
-  { icon: FiLayers, label: "Courses" },
-  { icon: FiUsers, label: "Students" },
-  { icon: FiMail, label: "Messages" },
-  { icon: FiCalendar, label: "Calendar" },
-  { icon: FiPieChart, label: "Analytics" },
-  { icon: FiSettings, label: "Settings" },
-];
+import { sidebarLinks } from "./navigationLinks";
 
 export default function DesktopSidebar() {
   const [collapsed, setCollapsed] = useState(false);
