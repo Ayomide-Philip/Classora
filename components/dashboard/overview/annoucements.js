@@ -2,7 +2,8 @@ export default async function OverviewAnnoucement() {
   const courses = [
     {
       title: "Physics 101",
-      nextEvent: "Quiz • Fri 10:00 AM",
+      nextEvent:
+        "Lorem Lorem ipsum tae Lorem ipsum tae Lorem ipsum tae Lorem ipsum tae  ipsum tae Lorem ipsum tae Lorem ipsum tae Lorem ipsum tae Lorem ipsum tae Lorem ipsum tae ",
       badge: "Lab",
       color: "bg-emerald-500/20 text-emerald-200",
     },
@@ -24,10 +25,10 @@ export default async function OverviewAnnoucement() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
-            On-going courses
+            Annoucements
           </h2>
           <p className="text-sm text-slate-500 dark:text-slate-400">
-            Stay updated with upcoming events
+            Here are the list of all the latest annoucements in the past days
           </p>
         </div>
         <button className="rounded-full border border-slate-300 px-4 py-2 text-sm text-slate-600 dark:border-slate-700 dark:text-slate-200">
@@ -38,7 +39,7 @@ export default async function OverviewAnnoucement() {
         {courses.map((course) => (
           <div
             key={course.title}
-            className="rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-950/40"
+            className="rounded-2xl border flex flex-col justify-between border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-950/40"
           >
             <div className="flex items-center justify-between">
               <h3 className="text-base font-semibold text-slate-900 dark:text-slate-100">
@@ -50,11 +51,15 @@ export default async function OverviewAnnoucement() {
                 {course.badge}
               </span>
             </div>
-            <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">
+            <p className="mt-4 text-sm h-full text-slate-500 dark:text-slate-400">
               {course.nextEvent}
             </p>
-            <div className="mt-6 h-1 rounded-full bg-slate-200 dark:bg-slate-800">
-              <div className="h-full w-2/3 rounded-full bg-linear-to-br from-emerald-400 to-cyan-400" />
+            <div className="flex justify-end text-sm">
+              {new Date().toLocaleDateString("en-Us", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric",
+              })}
             </div>
           </div>
         ))}
