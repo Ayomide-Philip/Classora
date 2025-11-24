@@ -1,26 +1,7 @@
 "use client";
-import {
-  FiMenu,
-  FiX,
-  FiCalendar,
-  FiGrid,
-  FiLayers,
-  FiMail,
-  FiPieChart,
-  FiSettings,
-  FiUsers,
-} from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
 import { useState } from "react";
-
-const sidebarLinks = [
-  { icon: FiGrid, label: "Dashboard", active: true },
-  { icon: FiLayers, label: "Courses" },
-  { icon: FiUsers, label: "Students" },
-  { icon: FiMail, label: "Messages" },
-  { icon: FiCalendar, label: "Calendar" },
-  { icon: FiPieChart, label: "Analytics" },
-  { icon: FiSettings, label: "Settings" },
-];
+import { sidebarLinks } from "./navigationLinks";
 
 export default function MobileNavigation() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);

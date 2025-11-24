@@ -5,19 +5,16 @@ export default async function OverviewAnnoucement() {
       nextEvent:
         "Lorem Lorem ipsum tae Lorem ipsum tae Lorem ipsum tae Lorem ipsum tae  ipsum tae Lorem ipsum tae Lorem ipsum tae Lorem ipsum tae Lorem ipsum tae Lorem ipsum tae ",
       badge: "Lab",
-      color: "bg-emerald-500/20 text-emerald-200",
     },
     {
       title: "Advanced Algebra",
       nextEvent: "Homework 7 due",
       badge: "Assignments",
-      color: "bg-sky-500/20 text-sky-200",
     },
     {
       title: "World History",
       nextEvent: "Parent note posted",
       badge: "Updates",
-      color: "bg-purple-500/20 text-purple-200",
     },
   ];
   return (
@@ -28,7 +25,7 @@ export default async function OverviewAnnoucement() {
             Annoucements
           </h2>
           <p className="text-sm text-slate-500 dark:text-slate-400">
-            Here are the list of all the latest annoucements in the past days
+            Here are the latest annoucements in the past days
           </p>
         </div>
         <button className="rounded-full border border-slate-300 px-4 py-2 text-sm text-slate-600 dark:border-slate-700 dark:text-slate-200">
@@ -46,7 +43,7 @@ export default async function OverviewAnnoucement() {
                 {course.title}
               </h3>
               <span
-                className={`rounded-full px-3 py-1 text-xs font-medium ${course.color}`}
+                className={`rounded-full px-3 py-1 text-xs font-medium bg-indigo-600 text-white`}
               >
                 {course.badge}
               </span>
@@ -55,11 +52,15 @@ export default async function OverviewAnnoucement() {
               {course.nextEvent}
             </p>
             <div className="flex justify-end text-sm">
-              {new Date().toLocaleDateString("en-Us", {
-                day: "2-digit",
-                month: "short",
-                year: "numeric",
-              })}
+              <span>
+                {new Date().toLocaleDateString("en-Us", {
+                  hour: "2-digit",
+                  minute: "numeric",
+                  day: "2-digit",
+                  month: "short",
+                  year: "numeric",
+                })}
+              </span>
             </div>
           </div>
         ))}
