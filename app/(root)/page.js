@@ -8,7 +8,6 @@ import MobileShowcase from "@/components/landing/MobileShowcase";
 import FAQ from "@/components/landing/FAQ";
 import CTA from "@/components/landing/CTA";
 import Testimonial from "@/components/landing/testimonials";
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-indigo-500/20">

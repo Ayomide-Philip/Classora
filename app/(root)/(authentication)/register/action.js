@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { __NEXT_PRIVATE_ORIGIN } from "@/libs/config";
+import { BASE_URL } from "@/libs/config";
 
 export default async function RegisterAction(formData) {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -8,8 +8,6 @@ export default async function RegisterAction(formData) {
   const password = formData.get("password");
   const confirmPassword = formData.get("confirmPassword");
   const username = formData.get("username");
-
-  console.log(name, username, email, password, confirmPassword);
 
   if (!name || name.trim() === "") return toast.error("Name is required");
   if (!email || email.trim() === "") return toast.error("Email is required");
@@ -33,7 +31,8 @@ export default async function RegisterAction(formData) {
   if (!name.trim().includes(" "))
     return toast.error("Your FullName is required");
 
-  if (!email || email.trim()) return toast.error("Email address is required");
+  if (!email || email.trim() === "")
+    return toast.error("Email address is required");
 
   if (!emailRegex.test(email)) return toast.error("Invalid email address");
 
@@ -46,7 +45,7 @@ export default async function RegisterAction(formData) {
     return toast.error("Passwords do not match");
 
   try {
-    const request = await fetch(`${__NEXT_PRIVATE_ORIGIN}/api/auth/register`, {
+    const request = await fetch(`${BASE_URL}/api/auth/register`, {
       method: "POST",
       body: JSON.stringify({
         name,
@@ -58,8 +57,20 @@ export default async function RegisterAction(formData) {
         "Content-Type": "application/json",
       },
     });
+
+    const response = await request.json();
+    console.log(response);
+
+    if (!request.ok || response.error) {
+      return toast.error(
+        response.error || "Registration failed. Please try again."
+      );
+    }
+
+    toast.success("Registration successful! Please log in.");
+    window.location.href = "/login";
   } catch (error) {
-    console.error("Registration error:", error);
+    console.error(error);
     toast.error("An error occurred during registration. Please try again.");
   }
 }

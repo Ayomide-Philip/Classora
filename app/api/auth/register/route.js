@@ -108,7 +108,12 @@ export async function POST(req) {
       password: await hashPassword(password),
     });
     return NextResponse.json(
-      { message: "Account Successfully created", user },
+      {
+        message: "Account Successfully created",
+        user: {
+          id: user._id,
+        },
+      },
       {
         status: 201,
       }
