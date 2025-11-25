@@ -1,3 +1,5 @@
+"use client";
+import { signIn } from "next-auth/react";
 import { BsGoogle } from "react-icons/bs";
 
 export default function Page() {
@@ -13,7 +15,6 @@ export default function Page() {
             type="email"
             id="email"
             name="email"
-            required
             className=" w-full border-b-2 border-gray-300 dark:border-gray-600 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400 text-gray-900 dark:text-gray-100 bg-transparent py-3 px-1"
             placeholder="Input your Email address"
           />
@@ -30,7 +31,6 @@ export default function Page() {
             type="password"
             id="password"
             name="password"
-            required
             className=" w-full border-b-2 border-gray-300 dark:border-gray-600  focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400 text-gray-900 dark:text-gray-100 bg-transparent py-3 px-1"
             placeholder="Password"
           />
@@ -56,7 +56,14 @@ export default function Page() {
         </div>
 
         <button
-          type="submit"
+          onClick={(e) => {
+            e.preventDefault();
+            signIn("credentials", {
+              email: "a@gmail.com",
+              password: "12345678",
+              redirectTo: "/overview",
+            });
+          }}
           className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl font-semibold transition duration-300 shadow-lg"
         >
           Sign In

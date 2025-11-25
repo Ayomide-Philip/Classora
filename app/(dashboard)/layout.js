@@ -1,8 +1,11 @@
+import { auth } from "@/auth";
 import DesktopSidebar from "@/components/dashboard/desktopsidebar";
 import MobileNavigation from "@/components/dashboard/mobilenavigation";
 import Toggle from "@/components/toggle";
 import { FiSearch, FiBell } from "react-icons/fi";
-export default function Layout({ children }) {
+export default async function Layout({ children }) {
+  const session = await auth();
+  console.log(session);
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:bg-[radial-gradient(circle_at_top,#13294b,#050912_75%)] dark:text-slate-100">
       <div className="flex flex-col lg:flex-row">
