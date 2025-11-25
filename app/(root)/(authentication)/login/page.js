@@ -1,11 +1,15 @@
 "use client";
+import { Eye, EyeClosed } from "lucide-react";
 import { signIn } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BsGoogle } from "react-icons/bs";
 import { toast } from "react-toastify";
 export default function Page() {
   const error = useSearchParams().has("error");
+  const [showPassword, setShowPassword] = useState(false);
+  const [inputedEmail, setInputedEmail] = useState("");
+  const [inputedPassword, setInputedPassword] = useState("");
 
   useEffect(() => {
     if (error) {
@@ -13,13 +17,35 @@ export default function Page() {
     }
   }, [error]);
 
+  function handleLogin(e) {
+    e.preventDefault();
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    // check if nothing is inputed into the email field
+    if (inputedEmail === "" || inputedEmail.trim() == "")
+      return toast.error("Email is required");
+
+    if (!emailRegex.test(inputedEmail))
+      return toast.error("Invalid Email Address");
+
+    if (inputedPassword.length == 0) return toast.error("Password is Required");
+
+    if (inputedPassword.length < 8)
+      return toast.error("At least 8 character is required");
+
+    signIn("credentials", {
+      email: inputedEmail,
+      password: inputedPassword,
+      redirectTo: "/overview",
+    });
+  }
+
   return (
     <div className="p-10 sm:p-16 flex flex-col justify-center bg-white dark:bg-gray-800">
       <h2 className="text-3xl font-extrabold text-gray-800 dark:text-gray-100 mb-8 text-center">
         Sign In
       </h2>
 
-      <form className="space-y-6">
+      <form className="space-y-6" onSubmit={handleLogin}>
         <div className="relative">
           <input
             type="email"
@@ -27,34 +53,40 @@ export default function Page() {
             name="email"
             className=" w-full border-b-2 border-gray-300 dark:border-gray-600 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400 text-gray-900 dark:text-gray-100 bg-transparent py-3 px-1"
             placeholder="Input your Email address"
+            onChange={(e) => {
+              setInputedEmail(e.target.value);
+            }}
           />
-          {/* <label
-                  htmlFor="email"
-                  className="absolute left-1 top-3 text-gray-500 dark:text-gray-300 text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sm"
-                >
-                  Email address
-                </label> */}
         </div>
 
         <div className="relative">
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             id="password"
             name="password"
             className=" w-full border-b-2 border-gray-300 dark:border-gray-600  focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400 text-gray-900 dark:text-gray-100 bg-transparent py-3 px-1"
-            placeholder="Password"
+            placeholder="Input your Password"
+            onChange={(e) => {
+              setInputedPassword(e.target.value);
+            }}
           />
-          {/* <label
-                  htmlFor="password"
-                  className="absolute left-1 top-2 text-gray-500 dark:text-gray-300 text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sm"
-                >
-                  Password
-                </label> */}
+          <div
+            onClick={() => {
+              setShowPassword(!showPassword);
+            }}
+            className="absolute right-0 top-3.5 text-gray-500 dark:text-gray-300 cursor-pointer"
+          >
+            {showPassword ? <EyeClosed /> : <Eye />}
+          </div>
         </div>
 
         <div className="flex md:flex-row flex-col items-center justify-between text-sm">
           <label className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
-            <input type="checkbox" className="accent-indigo-600" />
+            <input
+              type="checkbox"
+              className="accent-indigo-600"
+              defaultChecked
+            />
             Remember me
           </label>
           <a
@@ -66,15 +98,8 @@ export default function Page() {
         </div>
 
         <button
-          onClick={(e) => {
-            e.preventDefault();
-            signIn("credentials", {
-              email: "a@gmail.com",
-              password: "1234567",
-              redirectTo: "/overview",
-            });
-          }}
-          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl font-semibold transition duration-300 shadow-lg"
+          type="submit"
+          className="w-full cursor-pointer bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl font-semibold transition duration-300 shadow-lg"
         >
           Sign In
         </button>
