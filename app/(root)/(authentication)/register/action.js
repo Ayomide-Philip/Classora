@@ -6,12 +6,25 @@ export default async function RegisterAction(formData) {
   const email = formData.get("email");
   const password = formData.get("password");
   const confirmPassword = formData.get("confirmPassword");
-  console.log(name, email, password, confirmPassword);
+  const username = formData.get("username");
 
-  if (!name) return toast.error("Name is required");
-  if (!email) return toast.error("Email is required");
-  if (!password) return toast.error("Password is required");
-  if (!confirmPassword) return toast.error("Password is required");
+  console.log(name, username, email, password, confirmPassword);
+
+  if (!name || name.trim() === "") return toast.error("Name is required");
+  if (!email || email.trim() === "") return toast.error("Email is required");
+  if (
+    !password ||
+    password.trim() === "" ||
+    !confirmPassword ||
+    confirmPassword.trim() === ""
+  )
+    return toast.error("Password is required");
+
+  if (!username || username.trim() === "")
+    return toast.error("Username is required");
+
+  if (username.length < 5)
+    return toast.error("Username should be at least 5 characters");
 
   if (name.length < 5)
     return toast.error("Name should be at least 5 characters");
@@ -22,4 +35,18 @@ export default async function RegisterAction(formData) {
   if (!email || email.trim()) return toast.error("Email address is required");
 
   if (!emailRegex.test(email)) return toast.error("Invalid email address");
+
+  if (!password || !confirmPassword) return toast.error("Password is required");
+
+  if (password.length < 8)
+    return toast.error("At least 8 character is required");
+
+  if (password !== confirmPassword)
+    return toast.error("Passwords do not match");
+
+  try {
+  } catch (error) {
+    console.error("Registration error:", error);
+    toast.error("An error occurred during registration. Please try again.");
+  }
 }

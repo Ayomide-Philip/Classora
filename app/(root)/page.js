@@ -6,7 +6,6 @@ import FeatureGrid from "@/components/landing/FeatureGrid";
 import Ecosystem from "@/components/landing/Ecosystem";
 import Personas from "@/components/landing/Personas";
 import MobileShowcase from "@/components/landing/MobileShowcase";
-import Security from "@/components/landing/Security";
 import FAQ from "@/components/landing/FAQ";
 import CTA from "@/components/landing/CTA";
 

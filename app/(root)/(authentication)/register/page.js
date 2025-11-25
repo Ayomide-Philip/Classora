@@ -7,17 +7,7 @@ import Form from "next/form";
 export default function Page() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
-  // async function handleSubmit(e) {
-  //   e.preventDefault();
-
-  //   console.log(name, email, password, confirmPassword);
-  //   await RegisterAction({ name, email, password, confirmPassword });
-  // }
+  
   return (
     <div className="p-10 sm:p-16 flex flex-col justify-center bg-white dark:bg-gray-800">
       <h2 className="text-3xl font-extrabold text-gray-800 dark:text-gray-100 mb-8 text-center">
@@ -33,9 +23,17 @@ export default function Page() {
             required
             className="w-full border-b-2 border-gray-300 dark:border-gray-600 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400 text-gray-900 dark:text-gray-100 bg-transparent py-3 px-1"
             placeholder="Full name"
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
+          />
+        </div>
+
+        <div className="relative">
+          <input
+            type="text"
+            id="username"
+            name="username"
+            className="w-full border-b-2 border-gray-300 dark:border-gray-600 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400 text-gray-900 dark:text-gray-100 bg-transparent py-3 px-1"
+            placeholder="Username"
+            required
           />
         </div>
 
@@ -47,9 +45,6 @@ export default function Page() {
             required
             className="w-full border-b-2 border-gray-300 dark:border-gray-600 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400 text-gray-900 dark:text-gray-100 bg-transparent py-3 px-1"
             placeholder="Email address"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
           />
         </div>
 
@@ -61,9 +56,6 @@ export default function Page() {
             required
             className="w-full border-b-2 border-gray-300 dark:border-gray-600 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400 text-gray-900 dark:text-gray-100 bg-transparent py-3 px-1"
             placeholder="Password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
           />
           <div
             onClick={() => {
@@ -82,9 +74,6 @@ export default function Page() {
             name="confirmPassword"
             className="w-full border-b-2 border-gray-300 dark:border-gray-600 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400 text-gray-900 dark:text-gray-100 bg-transparent py-3 px-1"
             placeholder="Confirm password"
-            onChange={(e) => {
-              setConfirmPassword(e.target.value);
-            }}
             required
           />
           <div
