@@ -17,7 +17,7 @@ export async function connectDatabase() {
   }
   try {
     await mongoose.connect(MONGODB_URL, {
-      dbName: "Classora Board",
+      dbName: "classoraboard",
     });
     console.log("Connected to Database");
   } catch (err) {

@@ -11,10 +11,33 @@ const userSchema = new Schema(
       type: String,
       required: true,
       trim: true,
+      unique: true,
     },
     password: {
       type: String,
       required: true,
+    },
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+    },
+    board: {
+      type: [
+        {
+          boardId: {
+            type: Schema.Types.ObjectId,
+            ref: "Boards",
+          },
+          role: {
+            type: String,
+            enum: ["owner", "admin", "member"],
+            default: "member",
+          },
+        },
+      ],
+      default: [],
     },
   },
   { timestamps: true }
