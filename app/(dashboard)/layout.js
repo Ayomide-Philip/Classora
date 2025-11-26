@@ -6,7 +6,6 @@ import { redirect } from "next/navigation";
 import { FiSearch, FiBell } from "react-icons/fi";
 export default async function Layout({ children }) {
   const session = await auth();
-  console.log(session);
   if (!session || !session?.user) return redirect("/login");
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:bg-[radial-gradient(circle_at_top,#13294b,#050912_75%)] dark:text-slate-100">
