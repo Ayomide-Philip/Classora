@@ -24,9 +24,9 @@ export default function EmptyBoardJoin() {
         </div>
         <form className="grid gap-4">
           <label className="space-y-2 text-sm">
-            <span className="text-slate-600 dark:text-white/70">
+            <h1 className="text-slate-600 mb-2 dark:text-white/70">
               Enter join code
-            </span>
+            </h1>
             <input
               type="text"
               placeholder="e.g. CLS-482"
