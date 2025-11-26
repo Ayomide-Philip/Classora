@@ -9,12 +9,12 @@ export default function Page() {
       <header className="block md:hidden border border-slate-200 bg-white px-6 py-5 shadow-xl dark:border-slate-800/70 dark:bg-slate-900/75 dark:shadow-2xl dark:shadow-slate-950/40">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <p className="text-sm text-slate-500 dark:text-slate-400">
-              Hey Eleanor 👋
-            </p>
             <h1 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
               Classora Board
             </h1>
+            <p className="text-sm text-slate-500 dark:text-slate-400">
+              Welcome Back
+            </p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
             <div className="relative">
