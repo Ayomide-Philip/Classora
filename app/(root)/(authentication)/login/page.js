@@ -25,7 +25,7 @@ export default function Page() {
       return toast.error("Email is required");
 
     if (!emailRegex.test(inputedEmail))
-      return toast.error("Invalid Email Address");
+      return toast.error("Email Address is Invalid");
 
     if (inputedPassword.length == 0) return toast.error("Password is Required");
 
