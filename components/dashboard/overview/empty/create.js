@@ -27,7 +27,7 @@ export default function EmptyBoardCreate() {
             <input
               type="text"
               placeholder="e.g. Growth Marketing Sprint"
-              className="h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-slate-900 placeholder:text-slate-400 focus:border-[#8b5cf6] focus:outline-none focus:ring-2 focus:ring-[#8b5cf6]/25 dark:border-white/15 dark:bg-white/5 dark:text-white dark:placeholder:text-white/40 dark:focus:ring-[#8b5cf6]/40"
+              className="h-12 w-full rounded-xl border border-slate-200 bg-white px-4 font-medium  text-slate-900 placeholder:text-slate-400 focus:border-[#22d3ee] focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/30 dark:border-white/15 dark:bg-white/5 dark:text-white dark:placeholder:text-white/40 dark:focus:ring-[#22d3ee]/40"
             />
           </label>
           <label className="space-y-2 text-sm">
@@ -35,9 +35,9 @@ export default function EmptyBoardCreate() {
               Short description
             </span>
             <textarea
-              rows={3}
+              rows={4}
               placeholder="What will learners achieve together?"
-              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#8b5cf6] focus:outline-none focus:ring-2 focus:ring-[#8b5cf6]/25 dark:border-white/15 dark:bg-white/5 dark:text-white dark:placeholder:text-white/40 dark:focus:ring-[#8b5cf6]/40"
+              className=" w-full rounded-xl border border-slate-200 bg-white p-2 font-medium  text-slate-900 placeholder:text-slate-400 focus:border-[#22d3ee] focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/30 dark:border-white/15 dark:bg-white/5 dark:text-white dark:placeholder:text-white/40 dark:focus:ring-[#22d3ee]/40 resize-none"
             />
           </label>
           <button
