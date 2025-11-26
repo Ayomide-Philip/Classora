@@ -45,18 +45,21 @@ export default async function RegisterAction(formData) {
     return toast.error("Passwords do not match");
 
   try {
-    const request = await fetch(`${NEXT_PUBLIC_API_URL}/api/auth/register`, {
-      method: "POST",
-      body: JSON.stringify({
-        name,
-        email,
-        username,
-        password,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const request = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/auth/register`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          name,
+          email,
+          username,
+          password,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     const response = await request.json();
     console.log(response);
