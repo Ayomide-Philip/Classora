@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
 import Link from "next/link";
 import { Github, Instagram, Twitter } from "lucide-react";
 
@@ -20,10 +18,10 @@ export default function NotFound() {
             <p className="text-6xl font-black tracking-tight text-transparent bg-clip-text bg-linear-to-r from-[#34d399] via-[#22d3ee] to-[#6366f1]">
               404
             </p>
-            <h1 className="text-4xl font-bold md:text-5xl">Dead End!</h1>
+            <h1 className="text-4xl font-bold md:text-5xl">Not Found!</h1>
             <p className="text-base text-indigo-100/90 md:text-lg">
               The page you are looking for can’t be found. It may have moved to
-              another module or never existed. Let’s get you back to familiar
+              another path or never existed. Let’s get you back to familiar
               territory.
             </p>
           </div>
@@ -62,31 +60,6 @@ export default function NotFound() {
               >
                 <Github className="h-4 w-4" />
               </Link>
-            </div>
-          </div>
-        </section>
-
-        <section className="relative mt-16 flex w-full flex-1 justify-center md:mt-0">
-          <div className="relative flex h-[400px] w-full max-w-lg items-center justify-center">
-            <div className="absolute inset-0 rounded-[3rem] border border-white/10 bg-white/5 shadow-[0_45px_160px_-45px_rgba(45,212,191,0.55)] backdrop-blur-xl" />
-            <div className="pointer-events-none absolute -top-10 left-6 h-32 w-32 rounded-full bg-[#34d399]/18 blur-2xl" />
-            <div className="pointer-events-none absolute -bottom-10 right-4 h-28 w-28 rounded-full bg-[#22d3ee]/25 blur-xl" />
-
-            <div className="relative flex h-full w-full flex-col items-center justify-center gap-6 p-8 text-center">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-teal-200/80">
-                <span className="h-2 w-2 rounded-full bg-[#34d399]" />
-                Oops!
-              </span>
-              <img
-                src="/images/Classora_Logo_nobg.png"
-                className="w-24 h-24 "
-                alt="Classora Logo"
-              />
-
-              <p className="max-w-sm text-sm text-slate-200/85">
-                We misplaced this page in hyperspace. Double-check the URL or
-                jump back to the dashboard to keep exploring Classora.
-              </p>
             </div>
           </div>
         </section>
