@@ -1,5 +1,5 @@
-import { toast } from "react-toastify";
 import { BASE_URL } from "@/libs/config";
+import { toast } from "react-toastify";
 
 export default async function RegisterAction(formData) {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
