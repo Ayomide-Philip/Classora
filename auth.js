@@ -3,6 +3,7 @@ import Credentials from "next-auth/providers/credentials";
 import Users from "@/libs/models/user.models";
 import bcrypt from "bcrypt";
 import { AUTH_SECRET } from "@/libs/config";
+import { connectDatabase } from "./libs/connectDatabase";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -13,6 +14,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: {},
       },
       authorize: async (credentials) => {
+        await connectDatabase();
         const { email, password } = credentials;
         const user = await Users.findOne({ email });
         if (!user) {

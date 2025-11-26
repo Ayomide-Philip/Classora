@@ -7,5 +7,5 @@ export const {
   __NEXT_PRIVATE_ORIGIN, // Ensure this is set correctly in your environment
 } = process.env;
 
-export const BASE_URL = "http://localhost:3000/";
+export const BASE_URL = "http://localhost:3000";
 
