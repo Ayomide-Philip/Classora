@@ -25,7 +25,7 @@ export default function CTA() {
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <Link
-                                href="/auth/register"
+                                href="/register"
                                 className="w-full sm:w-auto h-14 px-8 rounded-full bg-white text-indigo-600 font-bold text-lg flex items-center justify-center gap-2 hover:bg-indigo-50 transition-all hover:scale-105 shadow-xl shadow-indigo-900/20"
                             >
                                 Get Started Now
