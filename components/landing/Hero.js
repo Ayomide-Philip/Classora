@@ -45,7 +45,7 @@ export default function Hero() {
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center gap-4 mt-8 w-full sm:w-auto">
             <Link
-              href="/auth/register"
+              href="/register"
               className="w-full sm:w-auto h-12 px-8 rounded-full bg-indigo-600 text-white font-medium flex items-center justify-center gap-2 hover:bg-indigo-700 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-indigo-500/25"
             >
               Get Started for Free
