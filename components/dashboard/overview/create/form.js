@@ -9,6 +9,7 @@ export default function CreateForm({ setActiveStep, activeStep, steps }) {
     tagline: "",
     description: "",
     boardType: "",
+    school: "",
     joinMode: "code",
     seatLimit: 0,
     brandColor: "#22d3ee",
