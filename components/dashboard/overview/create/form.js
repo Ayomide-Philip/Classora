@@ -8,13 +8,11 @@ export default function CreateForm({ setActiveStep, activeStep, steps }) {
     name: "",
     tagline: "",
     description: "",
+    boardType: "",
     joinMode: "code",
     seatLimit: "",
-    visibility: "private",
     brandColor: "#22d3ee",
     allowComments: true,
-    enableAnnouncements: true,
-    modules: ["Announcements", "Assignments"],
   });
 
   const isFirstStep = activeStep === 0;
@@ -49,9 +47,13 @@ export default function CreateForm({ setActiveStep, activeStep, steps }) {
       className="relative flex flex-1 flex-col rounded-3xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-900/8 dark:border-white/10 dark:bg-white/5"
       onSubmit={(event) => event.preventDefault()}
     >
-      {activeStep === 0 && <CreateStepOne />}
+      {activeStep === 0 && (
+        <CreateStepOne handleFieldChange={handleFieldChange} />
+      )}
 
-      {activeStep === 1 && <CreateStepTwo />}
+      {activeStep === 1 && (
+        <CreateStepTwo handleFieldChange={handleFieldChange} />
+      )}
 
       {activeStep === 2 && <LastStep formData={formData} />}
 

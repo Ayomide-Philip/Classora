@@ -20,7 +20,6 @@ export default function LastStep({ formData }) {
               Access
             </p>
             <p className="mt-1">Join method: {formData.joinMode}</p>
-            <p>Visibility: {formData.visibility}</p>
             {formData.joinMode === "limited" && (
               <p>Seat limit: {formData.seatLimit || "Not set"}</p>
             )}
@@ -28,11 +27,7 @@ export default function LastStep({ formData }) {
               Engagement:{" "}
               {formData.allowComments
                 ? "Comments enabled"
-                : "Comments disabled"}{" "}
-              ·{" "}
-              {formData.enableAnnouncements
-                ? "Weekly digest on"
-                : "Weekly digest off"}
+                : "Comments disabled"}
             </p>
           </div>
           <div>

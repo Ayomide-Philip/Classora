@@ -5,29 +5,6 @@ import EmptyBoardCta from "./empty/cta";
 import EmptyBoardJoin from "./empty/join";
 import EmptyBoardCreate from "./empty/create";
 
-const suggestedBoards = [
-  {
-    title: "UI Foundations",
-    code: "UI-204",
-    members: 38,
-    focus: "Design Systems",
-    accent: "from-[#34d399] via-[#22d3ee] to-[#6366f1]",
-  },
-  {
-    title: "Data Science Cohort",
-    code: "DS-312",
-    members: 24,
-    focus: "Machine Learning",
-    accent: "from-[#8b5cf6] via-[#6366f1] to-[#0ea5e9]",
-  },
-  {
-    title: "Product Strategy Guild",
-    code: "PS-118",
-    members: 41,
-    focus: "PM Frameworks",
-    accent: "from-[#f97316] via-[#fb7185] to-[#6366f1]",
-  },
-];
 export default function EmptyBoard() {
   return (
     <div className="relative flex min-h-screen flex-col overflow-hidden transition-colors duration-300">
