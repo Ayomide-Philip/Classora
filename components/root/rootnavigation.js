@@ -41,16 +41,16 @@ export default function RootNavigation() {
         <div className="flex items-center gap-4">
           <Toggle />
           <Link
-            href="/login"
+            href="/register"
             className="hidden md:block text-sm font-medium hover:text-primary transition-colors"
           >
-            Sign In
+            Get Started
           </Link>
           <Link
-            href="/register"
+            href="/login"
             className="px-4 py-2 rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity"
           >
-            Get Started
+            Sign In
           </Link>
         </div>
       </div>
