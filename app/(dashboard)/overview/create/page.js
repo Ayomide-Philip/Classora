@@ -51,7 +51,6 @@ export default function Page() {
         </header>
 
         <nav className="relative grid gap-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-lg shadow-slate-900/5 dark:border-white/10 dark:bg-white/5">
-          <div className="absolute inset-x-8 top-12 hidden h-px bg-slate-200/70 dark:bg-white/10 md:block" />
           <div className="grid gap-6 md:grid-cols-3">
             {steps.map((step, index) => {
               const Icon = step.icon;
