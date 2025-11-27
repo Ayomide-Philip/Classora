@@ -12,6 +12,8 @@ export default function CreateForm({ setActiveStep, activeStep, steps }) {
     school: {
       name: "",
       logo: "",
+      shortName: "",
+      country: "",
     },
     joinMode: "code",
     seatLimit: 0,

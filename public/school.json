@@ -1,1038 +1,929 @@
 {
+  "generatedAt": "2025-11-27T01:27:51.253Z",
+  "source": {
+    "url": "https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json",
+    "license": "MIT",
+    "note": "Dataset maintained by Hipo/university-domains-list"
+  },
   "universities": [
     {
       "name": "Abia State Polytechnic",
+      "shortName": "ASP",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["abiapoly.edu.ng"],
-      "webPages": ["http://www.abiapoly.edu.ng/"],
       "logo": "https://logo.clearbit.com/abiapoly.edu.ng"
     },
     {
       "name": "Abia State University",
+      "shortName": "ASU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["absu.edu.ng"],
-      "webPages": ["http://www.absu.edu.ng/"],
       "logo": "https://logo.clearbit.com/absu.edu.ng"
     },
     {
       "name": "ABTI American University of Nigeria",
+      "shortName": "AAUN",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["aun.edu.ng"],
-      "webPages": ["http://www.aun.edu.ng/"],
       "logo": "https://logo.clearbit.com/aun.edu.ng"
     },
     {
       "name": "Abubakar Tafawa Balewa University",
+      "shortName": "ATBU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["atbu.edu.ng"],
-      "webPages": ["http://www.atbu.edu.ng/"],
       "logo": "https://logo.clearbit.com/atbu.edu.ng"
     },
     {
       "name": "Adamawa State University",
+      "shortName": "ASU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["adsu.edu.ng"],
-      "webPages": ["http://www.adsu.edu.ng/"],
       "logo": "https://logo.clearbit.com/adsu.edu.ng"
     },
     {
       "name": "Adekunle Ajasin University",
+      "shortName": "AAU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["aaua.edu.ng"],
-      "webPages": ["http://www.aaua.edu.ng/"],
       "logo": "https://logo.clearbit.com/aaua.edu.ng"
     },
     {
       "name": "Adeleke University",
+      "shortName": "AU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["adelekeuniversity.edu.ng"],
-      "webPages": ["http://www.adelekeuniversity.edu.ng/"],
       "logo": "https://logo.clearbit.com/adelekeuniversity.edu.ng"
     },
     {
       "name": "Adeyemi College of Education",
+      "shortName": "ACE",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["aceondo-ng.com"],
-      "webPages": ["http://www.aceondo-ng.com/"],
       "logo": "https://logo.clearbit.com/aceondo-ng.com"
     },
     {
       "name": "Afe Babalola University",
+      "shortName": "ABU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["abuad.edu.ng"],
-      "webPages": ["http://www.abuad.edu.ng/"],
       "logo": "https://logo.clearbit.com/abuad.edu.ng"
     },
     {
       "name": "African University of Science and Technology",
+      "shortName": "AUST",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["aust-abuja.org"],
-      "webPages": ["http://www.aust-abuja.org/"],
       "logo": "https://logo.clearbit.com/aust-abuja.org"
     },
     {
       "name": "Ahmadu Bello University",
+      "shortName": "ABU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["abu.edu.ng"],
-      "webPages": ["http://www.abu.edu.ng/"],
       "logo": "https://logo.clearbit.com/abu.edu.ng"
     },
     {
       "name": "Ajayi Crowther University",
+      "shortName": "ACU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["acu.edu.ng"],
-      "webPages": ["http://www.acu.edu.ng/"],
       "logo": "https://logo.clearbit.com/acu.edu.ng"
     },
     {
       "name": "Akanu Ibiam Federal Polytechnic, Unwana",
+      "shortName": "AIFPU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["polyunwana.net"],
-      "webPages": ["http://www.polyunwana.net/"],
       "logo": "https://logo.clearbit.com/polyunwana.net"
     },
     {
       "name": "Akwa Ibom State University of Technology",
+      "shortName": "AISUT",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["akutech.edu.ng"],
-      "webPages": ["http://www.akutech.edu.ng/"],
       "logo": "https://logo.clearbit.com/akutech.edu.ng"
     },
     {
       "name": "Al-hikmah University",
+      "shortName": "AHU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["alhikmah.edu.ng"],
-      "webPages": ["http://www.alhikmah.edu.ng/"],
       "logo": "https://logo.clearbit.com/alhikmah.edu.ng"
     },
     {
       "name": "Ambrose Alli University",
+      "shortName": "AAU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["aauekpoma.edu.ng"],
-      "webPages": ["http://www.aauekpoma.edu.ng/"],
       "logo": "https://logo.clearbit.com/aauekpoma.edu.ng"
     },
     {
       "name": "Anambra State University of Science and Technology",
+      "shortName": "ASUST",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["ansu.edu.ng"],
-      "webPages": ["http://www.ansu.edu.ng/"],
       "logo": "https://logo.clearbit.com/ansu.edu.ng"
     },
     {
       "name": "Auchi Polytechnic",
+      "shortName": "AP",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["auchipoly.edu.ng"],
-      "webPages": ["http://www.auchipoly.edu.ng/"],
       "logo": "https://logo.clearbit.com/auchipoly.edu.ng"
     },
     {
       "name": "Babcock University",
+      "shortName": "BU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["babcockuni.edu.ng"],
-      "webPages": ["http://www.babcockuni.edu.ng/"],
       "logo": "https://logo.clearbit.com/babcockuni.edu.ng"
     },
     {
       "name": "Bauchi State University, Gadau",
+      "shortName": "BSUG",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["basug.edu.ng"],
-      "webPages": ["http://www.basug.edu.ng/"],
       "logo": "https://logo.clearbit.com/basug.edu.ng"
     },
     {
       "name": "Bayero University Kano",
+      "shortName": "BUK",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["buk.edu.ng"],
-      "webPages": ["http://www.buk.edu.ng/"],
       "logo": "https://logo.clearbit.com/buk.edu.ng"
     },
     {
       "name": "Baze University Abuja",
+      "shortName": "BUA",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["bazeuniversity.edu.ng"],
-      "webPages": ["http://www.bazeuniversity.edu.ng"],
       "logo": "https://logo.clearbit.com/bazeuniversity.edu.ng"
     },
     {
       "name": "Bells University of Technology",
+      "shortName": "BUT",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["bellsuniversity.org"],
-      "webPages": ["http://www.bellsuniversity.org/"],
       "logo": "https://logo.clearbit.com/bellsuniversity.org"
     },
     {
       "name": "Benson Idahosa University",
+      "shortName": "BIU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["biu.edu.ng"],
-      "webPages": ["http://www.biu.edu.ng/"],
       "logo": "https://logo.clearbit.com/biu.edu.ng"
     },
     {
       "name": "Benue State University",
+      "shortName": "BSU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["bsum.edu.ng"],
-      "webPages": ["http://www.bsum.edu.ng/"],
       "logo": "https://logo.clearbit.com/bsum.edu.ng"
     },
     {
       "name": "Bingham University",
+      "shortName": "BU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["binghamuni.edu.ng"],
-      "webPages": ["http://www.binghamuni.edu.ng/"],
       "logo": "https://logo.clearbit.com/binghamuni.edu.ng"
     },
     {
       "name": "Bowen University",
+      "shortName": "BU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["bowenuniversity-edu.org"],
-      "webPages": ["http://bowenuniversity-edu.org/"],
       "logo": "https://logo.clearbit.com/bowenuniversity-edu.org"
     },
     {
       "name": "Caleb University",
+      "shortName": "CU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["calebuniversity.edu.ng"],
-      "webPages": ["http://www.calebuniversity.edu.ng/"],
       "logo": "https://logo.clearbit.com/calebuniversity.edu.ng"
     },
     {
       "name": "Caritas University",
+      "shortName": "CU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["caritasuni.edu.ng"],
-      "webPages": ["http://www.caritasuni.edu.ng/"],
       "logo": "https://logo.clearbit.com/caritasuni.edu.ng"
     },
     {
       "name": "College of Education Ikere",
+      "shortName": "CEI",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["coeikere.edu.ng"],
-      "webPages": ["http://www.coeikere.edu.ng/"],
       "logo": "https://logo.clearbit.com/coeikere.edu.ng"
     },
     {
       "name": "College of Education Oju",
+      "shortName": "CEO",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["coeoju.com"],
-      "webPages": ["http://www.coeoju.com/"],
       "logo": "https://logo.clearbit.com/coeoju.com"
     },
     {
       "name": "Covenant University",
+      "shortName": "CU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["covenantuniversity.edu.ng"],
-      "webPages": ["http://www.covenantuniversity.edu.ng/"],
       "logo": "https://logo.clearbit.com/covenantuniversity.edu.ng"
     },
     {
       "name": "Crawford University",
+      "shortName": "CU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["crawforduniversity.edu.ng"],
-      "webPages": ["http://www.crawforduniversity.edu.ng/"],
       "logo": "https://logo.clearbit.com/crawforduniversity.edu.ng"
     },
     {
       "name": "Crescent University",
+      "shortName": "CU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["crescent-university.edu.ng"],
-      "webPages": ["http://www.crescent-university.edu.ng/"],
       "logo": "https://logo.clearbit.com/crescent-university.edu.ng"
     },
     {
       "name": "Cross River University of Science and Technology",
+      "shortName": "CRUST",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["crutech.edu.ng"],
-      "webPages": ["http://www.crutech.edu.ng/"],
       "logo": "https://logo.clearbit.com/crutech.edu.ng"
     },
     {
       "name": "Ebonyi State University",
+      "shortName": "ESU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["ebsu-edu.net"],
-      "webPages": ["http://www.ebsu-edu.net/"],
       "logo": "https://logo.clearbit.com/ebsu-edu.net"
     },
     {
       "name": "Ekiti State University",
+      "shortName": "ESU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["eksu.edu.ng"],
-      "webPages": ["http://www.eksu.edu.ng/"],
       "logo": "https://logo.clearbit.com/eksu.edu.ng"
     },
     {
       "name": "Enugu State University of Science and Technology",
+      "shortName": "ESUST",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["esut.edu.ng"],
-      "webPages": ["http://www.esut.edu.ng/"],
       "logo": "https://logo.clearbit.com/esut.edu.ng"
     },
     {
       "name": "Federal College Of Education (Technical), Akoka",
+      "shortName": "FCEA",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["fcetakoka-edu.net"],
-      "webPages": ["http://www.fcetakoka-edu.net/"],
       "logo": "https://logo.clearbit.com/fcetakoka-edu.net"
     },
     {
       "name": "Federal University of Petroleum Resources",
+      "shortName": "FUPR",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["fupre.edu.ng"],
-      "webPages": ["http://www.fupre.edu.ng/"],
       "logo": "https://logo.clearbit.com/fupre.edu.ng"
     },
     {
       "name": "Federal University of Technology, Akure",
+      "shortName": "FUTA",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["futa.edu.ng"],
-      "webPages": ["http://www.futa.edu.ng/"],
       "logo": "https://logo.clearbit.com/futa.edu.ng"
     },
     {
       "name": "Federal University of Technology, Minna",
+      "shortName": "FUTM",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["futminna.edu.ng"],
-      "webPages": ["http://www.futminna.edu.ng/"],
       "logo": "https://logo.clearbit.com/futminna.edu.ng"
     },
     {
       "name": "Federal University of Technology, Owerri",
+      "shortName": "FUTO",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["futo.edu.ng"],
-      "webPages": ["http://www.futo.edu.ng/"],
       "logo": "https://logo.clearbit.com/futo.edu.ng"
     },
     {
       "name": "Federal University of Technology, Yola",
+      "shortName": "FUTY",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["futy.edu.ng"],
-      "webPages": ["http://www.futy.edu.ng/"],
       "logo": "https://logo.clearbit.com/futy.edu.ng"
     },
     {
       "name": "Fountain University",
+      "shortName": "FU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["fountainuniversity.edu.ng"],
-      "webPages": ["http://www.fountainuniversity.edu.ng/"],
       "logo": "https://logo.clearbit.com/fountainuniversity.edu.ng"
     },
     {
       "name": "Godfrey Okoye University",
+      "shortName": "GOU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["gouni.edu.ng"],
-      "webPages": ["http://www.gouni.edu.ng/"],
       "logo": "https://logo.clearbit.com/gouni.edu.ng"
     },
     {
       "name": "Gombe State University",
+      "shortName": "GSU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["gsu.edu.ng"],
-      "webPages": ["http://www.gsu.edu.ng/"],
       "logo": "https://logo.clearbit.com/gsu.edu.ng"
     },
     {
       "name": "Ibrahim Babangida University",
+      "shortName": "IBU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["ibbu.edu.ng"],
-      "webPages": ["http://www.ibbu.edu.ng/"],
       "logo": "https://logo.clearbit.com/ibbu.edu.ng"
     },
     {
       "name": "Igbinedion University",
+      "shortName": "IU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["iuokada.edu.ng"],
-      "webPages": ["http://www.iuokada.edu.ng/"],
       "logo": "https://logo.clearbit.com/iuokada.edu.ng"
     },
     {
       "name": "Imo State University",
+      "shortName": "ISU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["imsu.edu.ng"],
-      "webPages": ["http://www.imsu.edu.ng/"],
       "logo": "https://logo.clearbit.com/imsu.edu.ng"
     },
     {
       "name": "Joseph Ayo Babalola University",
+      "shortName": "JABU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["jabu.edu.ng"],
-      "webPages": ["http://www.jabu.edu.ng/"],
       "logo": "https://logo.clearbit.com/jabu.edu.ng"
     },
     {
       "name": "Kaduna State University",
+      "shortName": "KSU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["kasuportal.net"],
-      "webPages": ["http://www.kasuportal.net/"],
       "logo": "https://logo.clearbit.com/kasuportal.net"
     },
     {
       "name": "Kano State University of Technology Wudil",
+      "shortName": "KSUTW",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["kustwudil.edu.ng"],
-      "webPages": ["http://www.kustwudil.edu.ng/"],
       "logo": "https://logo.clearbit.com/kustwudil.edu.ng"
     },
     {
       "name": "Katsina University",
+      "shortName": "KU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["kuk.edu.ng"],
-      "webPages": ["http://www.kuk.edu.ng/"],
       "logo": "https://logo.clearbit.com/kuk.edu.ng"
     },
     {
       "name": "Kebbi State University of Science and Technology",
+      "shortName": "KSUST",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["ksusta.edu.ng"],
-      "webPages": ["http://www.ksusta.edu.ng/"],
       "logo": "https://logo.clearbit.com/ksusta.edu.ng"
     },
     {
       "name": "Kogi State University",
+      "shortName": "KSU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["ksuportal.edu.ng"],
-      "webPages": ["http://www.ksuportal.edu.ng/"],
       "logo": "https://logo.clearbit.com/ksuportal.edu.ng"
     },
     {
       "name": "Kwara State Polytecnic",
+      "shortName": "KSP",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["kwarapoly.edu.ng"],
-      "webPages": ["http://www.kwarapoly.edu.ng/"],
       "logo": "https://logo.clearbit.com/kwarapoly.edu.ng"
     },
     {
       "name": "Kwara State University",
+      "shortName": "KSU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["kwasu.edu.ng"],
-      "webPages": ["http://www.kwasu.edu.ng/"],
       "logo": "https://logo.clearbit.com/kwasu.edu.ng"
     },
     {
       "name": "Kwararafa University",
+      "shortName": "KU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["kwararafauniversity.edu.ng"],
-      "webPages": ["http://www.kwararafauniversity.edu.ng/"],
       "logo": "https://logo.clearbit.com/kwararafauniversity.edu.ng"
     },
     {
       "name": "Ladoke Akintola University of Technology",
+      "shortName": "LAUT",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["lautech.edu.ng"],
-      "webPages": ["http://www.lautech.edu.ng/"],
       "logo": "https://logo.clearbit.com/lautech.edu.ng"
     },
     {
       "name": "Lagos City Polytechnic",
+      "shortName": "LCP",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["mylcp.net"],
-      "webPages": ["http://www.mylcp.net/"],
       "logo": "https://logo.clearbit.com/mylcp.net"
     },
     {
       "name": "Lagos State Polytechnic",
+      "shortName": "LSP",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["laspotech.net"],
-      "webPages": ["http://www.laspotech.net/"],
       "logo": "https://logo.clearbit.com/laspotech.net"
     },
     {
       "name": "Lagos State University",
+      "shortName": "LSU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["lasunigeria.org"],
-      "webPages": ["http://www.lasunigeria.org/"],
       "logo": "https://logo.clearbit.com/lasunigeria.org"
     },
     {
       "name": "Landmark University",
+      "shortName": "LU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["lmu.edu.ng"],
-      "webPages": ["http://www.lmu.edu.ng/"],
       "logo": "https://logo.clearbit.com/lmu.edu.ng"
     },
     {
       "name": "Lead City University of Ibadan",
+      "shortName": "LCUI",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["lcu.edu.ng"],
-      "webPages": ["http://www.lcu.edu.ng/"],
       "logo": "https://logo.clearbit.com/lcu.edu.ng"
     },
     {
       "name": "Madonna University",
+      "shortName": "MU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["madonnauniversity.edu.ng"],
-      "webPages": ["http://www.madonnauniversity.edu.ng/"],
       "logo": "https://logo.clearbit.com/madonnauniversity.edu.ng"
     },
     {
       "name": "Michael Okpara University of Agriculture",
+      "shortName": "MOUA",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["mouau.edu.ng"],
-      "webPages": ["http://www.mouau.edu.ng/"],
       "logo": "https://logo.clearbit.com/mouau.edu.ng"
     },
     {
       "name": "Miva Open University",
+      "shortName": "MOU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["miva.university"],
-      "webPages": ["https://miva.university/"],
       "logo": "https://logo.clearbit.com/miva.university"
     },
     {
       "name": "Nasarawa State University Keffi",
+      "shortName": "NSUK",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["nsuk.edu.ng"],
-      "webPages": ["http://www.nsuk.edu.ng/"],
       "logo": "https://logo.clearbit.com/nsuk.edu.ng"
     },
     {
       "name": "National Open University of Nigeria",
+      "shortName": "NOUN",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["nou.edu.ng"],
-      "webPages": ["http://www.nou.edu.ng/"],
       "logo": "https://logo.clearbit.com/nou.edu.ng"
     },
     {
       "name": "Niger Delta University",
+      "shortName": "NDU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["ndu.edu.ng"],
-      "webPages": ["http://www.ndu.edu.ng/"],
       "logo": "https://logo.clearbit.com/ndu.edu.ng"
     },
     {
       "name": "Nigerian Defence Academy",
+      "shortName": "NDA",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["nda.edu.ng"],
-      "webPages": ["http://www.nda.edu.ng/"],
       "logo": "https://logo.clearbit.com/nda.edu.ng"
     },
     {
       "name": "Nigerian Turkish Nile University",
+      "shortName": "NTNU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["ntnu.edu.ng"],
-      "webPages": ["http://www.ntnu.edu.ng/"],
       "logo": "https://logo.clearbit.com/ntnu.edu.ng"
     },
     {
       "name": "Nnamdi Azikiwe University",
+      "shortName": "NAU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["unizik.edu.ng"],
-      "webPages": ["http://www.unizik.edu.ng/"],
       "logo": "https://logo.clearbit.com/unizik.edu.ng"
     },
     {
       "name": "Novena University",
+      "shortName": "NU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["novenauniversity.edu.ng"],
-      "webPages": ["http://www.novenauniversity.edu.ng/"],
       "logo": "https://logo.clearbit.com/novenauniversity.edu.ng"
     },
     {
       "name": "Obafemi Awolowo University Ile-Ife",
+      "shortName": "OAUII",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["oauife.edu.ng"],
-      "webPages": ["http://www.oauife.edu.ng/"],
       "logo": "https://logo.clearbit.com/oauife.edu.ng"
     },
     {
       "name": "Obong University",
+      "shortName": "OU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["obonguniversity.net"],
-      "webPages": ["http://www.obonguniversity.net/"],
       "logo": "https://logo.clearbit.com/obonguniversity.net"
     },
     {
       "name": "Oduduwa University",
+      "shortName": "OU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["oduduwauniversity.edu.ng"],
-      "webPages": ["http://www.oduduwauniversity.edu.ng/"],
       "logo": "https://logo.clearbit.com/oduduwauniversity.edu.ng"
     },
     {
       "name": "Olabisi Onabanjo University",
+      "shortName": "OOU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["oouagoiwoye.edu.ng"],
-      "webPages": ["http://www.oouagoiwoye.edu.ng/"],
       "logo": "https://logo.clearbit.com/oouagoiwoye.edu.ng"
     },
     {
       "name": "Ondo State University of Science and Technology",
+      "shortName": "OSUST",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["osustech.edu.ng"],
-      "webPages": ["http://www.osustech.edu.ng/"],
       "logo": "https://logo.clearbit.com/osustech.edu.ng"
     },
     {
       "name": "Osun State University",
+      "shortName": "OSU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["uniosun.edu.ng"],
-      "webPages": ["http://www.uniosun.edu.ng/"],
       "logo": "https://logo.clearbit.com/uniosun.edu.ng"
     },
     {
       "name": "Pan-African University",
+      "shortName": "PAU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["pau.edu.ng"],
-      "webPages": ["http://www.pau.edu.ng/"],
       "logo": "https://logo.clearbit.com/pau.edu.ng"
     },
     {
       "name": "Paul University",
+      "shortName": "PU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["pauluniversity.edu.ng"],
-      "webPages": ["http://www.pauluniversity.edu.ng/"],
       "logo": "https://logo.clearbit.com/pauluniversity.edu.ng"
     },
     {
       "name": "Polytechnic Ibadan",
+      "shortName": "PI",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["polyibadan.edu.ng"],
-      "webPages": ["http://www.polyibadan.edu.ng/"],
       "logo": "https://logo.clearbit.com/polyibadan.edu.ng"
     },
     {
       "name": "Redeemers University",
+      "shortName": "RU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["run.edu.ng"],
-      "webPages": ["http://www.run.edu.ng/"],
       "logo": "https://logo.clearbit.com/run.edu.ng"
     },
     {
       "name": "Renaissance University",
+      "shortName": "RU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["rnu.edu.ng"],
-      "webPages": ["http://www.rnu.edu.ng/"],
       "logo": "https://logo.clearbit.com/rnu.edu.ng"
     },
     {
       "name": "Rivers State University of Science and Technology",
+      "shortName": "RSUST",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["ust.edu.ng"],
-      "webPages": ["http://www.ust.edu.ng/"],
       "logo": "https://logo.clearbit.com/ust.edu.ng"
     },
     {
       "name": "Salem University",
+      "shortName": "SU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["salemuniversity.edu.ng"],
-      "webPages": ["http://www.salemuniversity.edu.ng/"],
       "logo": "https://logo.clearbit.com/salemuniversity.edu.ng"
     },
     {
       "name": "Sokoto State University",
+      "shortName": "SSU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["ssu.edu.ng"],
-      "webPages": ["http://www.ssu.edu.ng/"],
       "logo": "https://logo.clearbit.com/ssu.edu.ng"
     },
     {
       "name": "Tai Solarin University of Education",
+      "shortName": "TSUE",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["tasued.edu.ng"],
-      "webPages": ["http://www.tasued.edu.ng/"],
       "logo": "https://logo.clearbit.com/tasued.edu.ng"
     },
     {
       "name": "Tansian University",
+      "shortName": "TU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["tansianuniversity.edu.ng"],
-      "webPages": ["http://www.tansianuniversity.edu.ng/"],
       "logo": "https://logo.clearbit.com/tansianuniversity.edu.ng"
     },
     {
       "name": "Taraba State University",
+      "shortName": "TSU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["tsuniversity.edu.ng"],
-      "webPages": ["http://www.tsuniversity.edu.ng/"],
       "logo": "https://logo.clearbit.com/tsuniversity.edu.ng"
     },
     {
       "name": "The Achievers University",
+      "shortName": "AU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["achievers.edu.ng"],
-      "webPages": ["http://www.achievers.edu.ng/"],
       "logo": "https://logo.clearbit.com/achievers.edu.ng"
     },
     {
       "name": "The Federal Polytechnic Offa",
+      "shortName": "FPO",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["fedpoffa.edu.ng"],
-      "webPages": ["http://www.fedpoffa.edu.ng/"],
       "logo": "https://logo.clearbit.com/fedpoffa.edu.ng"
     },
     {
       "name": "Umaru Musa Yar'Adua University",
+      "shortName": "UMYAU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["umyu.edu.ng"],
-      "webPages": ["http://www.umyu.edu.ng/"],
       "logo": "https://logo.clearbit.com/umyu.edu.ng"
     },
     {
       "name": "University of Abuja",
+      "shortName": "UA",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["unibuja.edu.ng"],
-      "webPages": ["http://www.unibuja.edu.ng/"],
       "logo": "https://logo.clearbit.com/unibuja.edu.ng"
     },
     {
       "name": "University of Agriculture Abeokuta",
+      "shortName": "UAA",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["unaab.edu.ng"],
-      "webPages": ["http://www.unaab.edu.ng/"],
       "logo": "https://logo.clearbit.com/unaab.edu.ng"
     },
     {
       "name": "University of Agriculture Makurdi",
+      "shortName": "UAM",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["uam.edu.ng"],
-      "webPages": ["http://www.uam.edu.ng/"],
       "logo": "https://logo.clearbit.com/uam.edu.ng"
     },
     {
       "name": "University of Benin",
+      "shortName": "UB",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["uniben.edu"],
-      "webPages": ["http://www.uniben.edu/"],
       "logo": "https://logo.clearbit.com/uniben.edu"
     },
     {
       "name": "University of Calabar",
+      "shortName": "UC",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["unical.edu.ng"],
-      "webPages": ["http://www.unical.edu.ng/"],
       "logo": "https://logo.clearbit.com/unical.edu.ng"
     },
     {
       "name": "University of Ibadan",
+      "shortName": "UI",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["ui.edu.ng"],
-      "webPages": ["http://www.ui.edu.ng/"],
       "logo": "https://logo.clearbit.com/ui.edu.ng"
     },
     {
       "name": "University of Ilorin",
+      "shortName": "UI",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["unilorin.edu.ng"],
-      "webPages": ["http://www.unilorin.edu.ng/"],
       "logo": "https://logo.clearbit.com/unilorin.edu.ng"
     },
     {
       "name": "University of Jos",
+      "shortName": "UJ",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["unijos.edu.ng"],
-      "webPages": ["http://www.unijos.edu.ng/"],
       "logo": "https://logo.clearbit.com/unijos.edu.ng"
     },
     {
       "name": "University of Lagos",
+      "shortName": "UL",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["unilag.edu.ng"],
-      "webPages": ["http://www.unilag.edu.ng/"],
       "logo": "https://logo.clearbit.com/unilag.edu.ng"
     },
     {
       "name": "University of Maiduguri",
+      "shortName": "UM",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["unimaid.edu.ng"],
-      "webPages": ["http://www.unimaid.edu.ng/"],
       "logo": "https://logo.clearbit.com/unimaid.edu.ng"
     },
     {
       "name": "University of Mkar",
+      "shortName": "UM",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["unimkar.edu.ng"],
-      "webPages": ["http://www.unimkar.edu.ng/"],
       "logo": "https://logo.clearbit.com/unimkar.edu.ng"
     },
     {
       "name": "University of Nigeria",
+      "shortName": "UN",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["unn.edu.ng"],
-      "webPages": ["http://www.unn.edu.ng/"],
       "logo": "https://logo.clearbit.com/unn.edu.ng"
     },
     {
       "name": "University of Portharcourt",
+      "shortName": "UP",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["uniport.edu.ng"],
-      "webPages": ["http://www.uniport.edu.ng/"],
       "logo": "https://logo.clearbit.com/uniport.edu.ng"
     },
     {
       "name": "University of Uyo",
+      "shortName": "UU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["uniuyo.edu.ng"],
-      "webPages": ["http://www.uniuyo.edu.ng/"],
       "logo": "https://logo.clearbit.com/uniuyo.edu.ng"
     },
     {
       "name": "Usmanu Danfodiyo University Sokoto",
+      "shortName": "UDUS",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["udusok.edu.ng"],
-      "webPages": ["http://www.udusok.edu.ng/"],
       "logo": "https://logo.clearbit.com/udusok.edu.ng"
     },
     {
       "name": "Veritas University",
+      "shortName": "VU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["veritas.edu.ng"],
-      "webPages": ["http://www.veritas.edu.ng/"],
       "logo": "https://logo.clearbit.com/veritas.edu.ng"
     },
     {
       "name": "Wellspring University",
+      "shortName": "WU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["wellspringuniversity.edu.ng"],
-      "webPages": ["http://www.wellspringuniversity.edu.ng/"],
       "logo": "https://logo.clearbit.com/wellspringuniversity.edu.ng"
     },
     {
       "name": "Wesley University of Science and Technology",
+      "shortName": "WUST",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["wustoportal.edu.ng"],
-      "webPages": ["http://www.wustoportal.edu.ng/"],
       "logo": "https://logo.clearbit.com/wustoportal.edu.ng"
     },
     {
       "name": "Western Delta University",
+      "shortName": "WDU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["wdu.edu.ng"],
-      "webPages": ["http://www.wdu.edu.ng/"],
       "logo": "https://logo.clearbit.com/wdu.edu.ng"
     },
     {
       "name": "Yaba College of Technology",
+      "shortName": "YCT",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
-      "domains": ["yabatech.edu.ng"],
-      "webPages": ["http://www.yabatech.edu.ng/"],
       "logo": "https://logo.clearbit.com/yabatech.edu.ng"
     }
   ]

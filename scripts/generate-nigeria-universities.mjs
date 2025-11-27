@@ -45,15 +45,52 @@ async function fetchNigeriaUniversities() {
   return payload.filter((entry) => entry.country === "Nigeria");
 }
 
+const STOP_WORDS = new Set([
+  "of",
+  "and",
+  "the",
+  "for",
+  "in",
+  "at",
+  "on",
+  "with",
+  "by",
+  "to",
+]);
+
+function createShortName(name) {
+  if (!name) {
+    return null;
+  }
+
+  const tokens = name
+    .replace(/\([^)]*\)/g, "")
+    .replace(/&/g, " and ")
+    .split(/[^A-Za-z0-9]+/)
+    .filter(Boolean);
+
+  const initials = tokens
+    .filter((word) => !STOP_WORDS.has(word.toLowerCase()))
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase();
+
+  if (initials.length >= 2) {
+    return initials.slice(0, 6);
+  }
+
+  const fallback = name.replace(/[^A-Za-z0-9]/g, "").toUpperCase();
+  return fallback.slice(0, 6) || null;
+}
+
 function serialize(universities) {
   return universities
     .map((entry) => ({
       name: entry.name,
+      shortName: createShortName(entry.name),
       country: entry.country,
       state: entry["state-province"] || null,
       alphaTwoCode: entry.alpha_two_code,
-      domains: entry.domains ?? [],
-      webPages: entry.web_pages ?? [],
       logo:
         Array.isArray(entry.domains) && entry.domains.length > 0
           ? `https://logo.clearbit.com/${entry.domains[0]}`
