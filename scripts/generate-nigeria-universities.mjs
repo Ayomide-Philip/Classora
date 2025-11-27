@@ -57,6 +57,111 @@ const STOP_WORDS = new Set([
   "by",
   "to",
 ]);
+const STATE_ABBREVIATIONS = {
+  Abia: "AB",
+  Adamawa: "AD",
+  "Akwa Ibom": "AK",
+  Anambra: "AN",
+  Bauchi: "BA",
+  Bayelsa: "BY",
+  Benue: "BE",
+  Borno: "BO",
+  "Cross River": "CR",
+  Delta: "DE",
+  Ebonyi: "EB",
+  Edo: "ED",
+  Ekiti: "EK",
+  Enugu: "EN",
+  Gombe: "GO",
+  Imo: "IM",
+  Jigawa: "JI",
+  Kaduna: "KD",
+  Kano: "KN",
+  Katsina: "KT",
+  Kebbi: "KB",
+  Kogi: "KG",
+  Kwara: "KW",
+  Lagos: "LA",
+  Nasarawa: "NA",
+  Niger: "NI",
+  Ogun: "OG",
+  Ondo: "OD",
+  Osun: "OS",
+  Oyo: "OY",
+  Plateau: "PL",
+  Rivers: "RV",
+  Sokoto: "SO",
+  Taraba: "TA",
+  Yobe: "YO",
+  Zamfara: "ZA",
+  "Federal Capital Territory": "FCT",
+};
+const STATE_ALIAS_OVERRIDES = {
+  Abuja: "Federal Capital Territory",
+  FCT: "Federal Capital Territory",
+  Ilorin: "Kwara",
+  Maiduguri: "Borno",
+  "Port Harcourt": "Rivers",
+  Portharcourt: "Rivers",
+  Jos: "Plateau",
+  Mkar: "Benue",
+  Uyo: "Akwa Ibom",
+  Owo: "Ondo",
+  Ede: "Osun",
+  "Ile Ife": "Osun",
+  "Ile-Ife": "Osun",
+  Ilishan: "Ogun",
+  Remo: "Ogun",
+  Igbesa: "Ogun",
+  Imota: "Lagos",
+  Abeokuta: "Ogun",
+  Karu: "Nasarawa",
+  Ikere: "Ekiti",
+  Oju: "Benue",
+  Ibadan: "Oyo",
+  Unwana: "Ebonyi",
+  Ota: "Ogun",
+  Otta: "Ogun",
+  Obong: "Akwa Ibom",
+  Achievers: "Ondo",
+  Adeleke: "Osun",
+  Bowen: "Osun",
+  Babcock: "Ogun",
+  Baze: "Federal Capital Territory",
+  Bingham: "Nasarawa",
+  Caleb: "Lagos",
+  Caritas: "Enugu",
+  Covenant: "Ogun",
+  Crawford: "Ogun",
+  Crescent: "Ogun",
+  Oduduwa: "Osun",
+  Obafemi: "Osun",
+  Afe: "Ekiti",
+};
+const STATE_ALIAS_LOOKUP = (() => {
+  const lookup = new Map();
+  const normaliseForSearch = (value) =>
+    value
+      .toUpperCase()
+      .replace(/[^A-Z0-9]+/g, " ")
+      .trim();
+
+  for (const stateName of Object.keys(STATE_ABBREVIATIONS)) {
+    const alias = normaliseForSearch(stateName);
+    if (alias) {
+      lookup.set(alias, stateName);
+    }
+  }
+
+  for (const [aliasSource, stateName] of Object.entries(STATE_ALIAS_OVERRIDES)) {
+    const alias = normaliseForSearch(aliasSource);
+    if (alias && !lookup.has(alias)) {
+      lookup.set(alias, stateName);
+    }
+  }
+
+  return { lookup, normaliseForSearch };
+})();
 const TYPE_WORDS = new Set([
   "university",
   "polytechnic",
@@ -193,23 +298,171 @@ function createShortName(entry) {
   return base || trimmedDomain || null;
 }
 
-function serialize(universities) {
-  return universities
-    .map((entry) => {
-      const firstDomain = Array.isArray(entry.domains)
-        ? entry.domains[0]
-        : null;
+function findCanonicalStateName(text) {
+  if (!text || typeof text !== "string") {
+    return null;
+  }
 
+  const normalised = STATE_ALIAS_LOOKUP.normaliseForSearch(text);
+  if (!normalised) {
+    return null;
+  }
+
+  const padded = ` ${normalised} `;
+
+  for (const [alias, canonical] of STATE_ALIAS_LOOKUP.lookup) {
+    if (padded.includes(` ${alias} `)) {
+      return canonical;
+    }
+  }
+
+  return null;
+}
+
+function deriveStateInfo(entry) {
+  const sources = [];
+
+  if (typeof entry["state-province"] === "string") {
+    sources.push(entry["state-province"]);
+  }
+
+  if (typeof entry.name === "string") {
+    sources.push(entry.name);
+  }
+
+  if (Array.isArray(entry.web_pages)) {
+    sources.push(...entry.web_pages.filter((item) => typeof item === "string"));
+  }
+
+  if (Array.isArray(entry.domains)) {
+    sources.push(...entry.domains.filter((item) => typeof item === "string"));
+  }
+
+  for (const source of sources) {
+    const canonical = findCanonicalStateName(source);
+    if (canonical) {
       return {
-        name: entry.name,
-        shortName: createShortName(entry),
-        country: entry.country,
-        state: entry["state-province"] || null,
-        alphaTwoCode: entry.alpha_two_code,
-        logo: firstDomain ? `https://logo.clearbit.com/${firstDomain}` : null,
+        state: canonical,
+        stateCode: STATE_ABBREVIATIONS[canonical] ?? null,
       };
-    })
-    .sort((a, b) => a.name.localeCompare(b.name));
+    }
+  }
+
+  const rawState =
+    typeof entry["state-province"] === "string"
+      ? entry["state-province"].trim() || null
+      : null;
+
+  return {
+    state: rawState,
+    stateCode: null,
+  };
+}
+
+function serialize(universities) {
+  const enriched = universities.map((entry) => {
+    const firstDomain = Array.isArray(entry.domains)
+      ? entry.domains[0]
+      : null;
+    const shortName = createShortName(entry);
+    const { state, stateCode } = deriveStateInfo(entry);
+
+    return {
+      entry,
+      baseShortName: shortName,
+      state,
+      stateCode,
+      logo: firstDomain ? `https://logo.clearbit.com/${firstDomain}` : null,
+    };
+  });
+
+  const grouped = new Map();
+  for (const item of enriched) {
+    const key = item.baseShortName || null;
+    if (!grouped.has(key)) {
+      grouped.set(key, []);
+    }
+
+    grouped.get(key).push(item);
+  }
+
+  const resolved = [];
+
+  for (const items of grouped.values()) {
+    if (items.length === 1) {
+      const [{ entry, baseShortName, state, stateCode, logo }] = items;
+      resolved.push({
+        name: entry.name,
+        shortName: baseShortName,
+        country: entry.country,
+        state,
+        stateCode,
+        alphaTwoCode: entry.alpha_two_code,
+        logo,
+      });
+      continue;
+    }
+
+    const suffixUsage = new Map();
+    const leftovers = [];
+
+    // Deterministic order keeps output stable between runs.
+    const sortedItems = [...items].sort((a, b) =>
+      a.entry.name.localeCompare(b.entry.name)
+    );
+
+    for (const item of sortedItems) {
+      const { entry, baseShortName, state, stateCode, logo } = item;
+
+      if (!baseShortName) {
+        leftovers.push({ entry, baseShortName, state, stateCode, logo });
+        continue;
+      }
+
+      if (!stateCode) {
+        leftovers.push({ entry, baseShortName, state, stateCode, logo });
+        continue;
+      }
+
+      const count = (suffixUsage.get(stateCode) ?? 0) + 1;
+      suffixUsage.set(stateCode, count);
+
+      const suffix = count === 1 ? stateCode : `${stateCode}${count}`;
+      resolved.push({
+        name: entry.name,
+        shortName: `${baseShortName}${suffix}`,
+        country: entry.country,
+        state,
+        stateCode,
+        alphaTwoCode: entry.alpha_two_code,
+        logo,
+      });
+    }
+
+    if (leftovers.length > 0) {
+      let fallbackIndex = 1;
+
+      for (const item of leftovers) {
+        const { entry, baseShortName, state, stateCode, logo } = item;
+        const fallbackSuffix = String(fallbackIndex).padStart(2, "0");
+        fallbackIndex += 1;
+
+        resolved.push({
+          name: entry.name,
+          shortName: baseShortName
+            ? `${baseShortName}${fallbackSuffix}`
+            : null,
+          country: entry.country,
+          state,
+          stateCode,
+          alphaTwoCode: entry.alpha_two_code,
+          logo,
+        });
+      }
+    }
+  }
+
+  return resolved.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 async function writeOutput(universities) {
