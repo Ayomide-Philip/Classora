@@ -1,5 +1,5 @@
 "use client";
-import { Eye, EyeClosed } from "lucide-react";
+import { Eye, EyeClosed, LoaderIcon } from "lucide-react";
 import { signIn } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -10,6 +10,7 @@ export default function Page() {
   const [showPassword, setShowPassword] = useState(false);
   const [inputedEmail, setInputedEmail] = useState("");
   const [inputedPassword, setInputedPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (error) {
@@ -18,19 +19,29 @@ export default function Page() {
   }, [error]);
 
   function handleLogin(e) {
+    setLoading(true);
     e.preventDefault();
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     // check if nothing is inputed into the email field
-    if (inputedEmail === "" || inputedEmail.trim() == "")
+    if (inputedEmail === "" || inputedEmail.trim() == "") {
+      setLoading(false);
       return toast.error("Email is required");
+    }
 
-    if (!emailRegex.test(inputedEmail))
+    if (!emailRegex.test(inputedEmail)) {
+      setLoading(false);
       return toast.error("Email Address is Invalid");
+    }
 
-    if (inputedPassword.length == 0) return toast.error("Password is Required");
+    if (inputedPassword.length == 0) {
+      setLoading(false);
+      return toast.error("Password is Required");
+    }
 
-    if (inputedPassword.length < 8)
+    if (inputedPassword.length < 8) {
+      setLoading(false);
       return toast.error("At least 8 character is required");
+    }
 
     signIn("credentials", {
       email: inputedEmail,
@@ -100,8 +111,16 @@ export default function Page() {
         <button
           type="submit"
           className="w-full cursor-pointer bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl font-semibold transition duration-300 shadow-lg"
+          disabled={loading}
         >
-          Sign In
+          {loading ? (
+            <div className="flex justify-center gap-2 items-center">
+              <LoaderIcon className="animate-spin" />
+              <span>Signing In.....</span>
+            </div>
+          ) : (
+            "  Sign In"
+          )}
         </button>
       </form>
 

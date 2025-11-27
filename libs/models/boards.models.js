@@ -89,6 +89,10 @@ const boardsSchema = new Schema(
       type: [Schema.Types.ObjectId],
       ref: "Calendars",
     },
+    joinCode: {
+      type: String,
+      unique: true,
+    },
   },
   { timestamps: true }
 );
