@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 const BOARD_TYPES = [
   {
     id: "school",
@@ -29,13 +30,8 @@ const BOARD_TYPES = [
   },
 ];
 
-const schools = [
-  "Classora Academy",
-  "Briarcrest College",
-  "Westbridge High",
-  "Silver Oak Institute",
-  "NovaTech University",
-];
+import { findSchoolLogo } from "@/libs/find-school-logo";
+import schools from "@/public/school.json";
 
 export default function CreateStepOne({ handleFieldChange, formData }) {
   const selectedBoardType = formData?.boardType ?? "";
@@ -174,23 +170,36 @@ export default function CreateStepOne({ handleFieldChange, formData }) {
                 className="pointer-events-none absolute inset-y-0 left-3 flex items-center"
                 aria-hidden="true"
               >
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-linear-to-br from-[#22d3ee] via-[#34d399] to-[#0ea5e9] text-xs font-semibold uppercase tracking-[0.25em] text-white/95 shadow shadow-[#22d3ee]/35">
-                  {selectedSchool.slice(0, 2).toUpperCase() || "SC"}
-                </span>
+                {!selectedSchool?.logo ? (
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-linear-to-br from-[#22d3ee] via-[#34d399] to-[#0ea5e9] text-xs font-semibold uppercase tracking-[0.25em] text-white/95 shadow shadow-[#22d3ee]/35">
+                    {selectedSchool?.name
+                      ? selectedSchool.name.slice(0, 2).toUpperCase()
+                      : "?"}
+                  </span>
+                ) : (
+                  <img
+                    src={selectedSchool.logo}
+                    alt={`${selectedSchool.name} logo`}
+                    className="h-8 w-8 rounded-full object-contain"
+                  />
+                )}
               </span>
               <select
-                value={selectedSchool}
+                value={selectedSchool.name}
                 onChange={(event) =>
-                  handleFieldChange("school", event.target.value)
+                  handleFieldChange("school", {
+                    name: event.target.value,
+                    logo: findSchoolLogo(event.target.value),
+                  })
                 }
                 className="h-12 w-full appearance-none rounded-xl border border-slate-200 bg-white pl-14 pr-12 text-sm font-medium text-slate-900 focus:border-[#22d3ee] focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/25 dark:border-white/15 dark:bg-slate-900/70 dark:text-white dark:focus:ring-[#22d3ee]/40"
               >
                 <option value="" disabled>
                   Choose a school
                 </option>
-                {schools.map((school) => (
-                  <option key={school} value={school}>
-                    {school}
+                {schools.universities.map(({ name }, idx) => (
+                  <option key={idx} value={name}>
+                    {name}
                   </option>
                 ))}
               </select>
