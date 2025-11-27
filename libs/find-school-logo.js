@@ -76,3 +76,8 @@ export function findSchoolShortName(query) {
   const school = findSchoolEntry(query);
   return school?.shortName ?? null;
 }
+
+export function findSchoolCountry(query) {
+  const school = findSchoolEntry(query);
+  return school?.country ?? null;
+}

@@ -30,7 +30,11 @@ const BOARD_TYPES = [
   },
 ];
 
-import { findSchoolLogo, findSchoolShortName } from "@/libs/find-school-logo";
+import {
+  findSchoolCountry,
+  findSchoolLogo,
+  findSchoolShortName,
+} from "@/libs/find-school-logo";
 import schools from "@/public/school.json";
 
 export default function CreateStepOne({ handleFieldChange, formData }) {
@@ -191,6 +195,7 @@ export default function CreateStepOne({ handleFieldChange, formData }) {
                     name: event.target.value,
                     logo: findSchoolLogo(event.target.value),
                     shortName: findSchoolShortName(event.target.value),
+                    country: findSchoolCountry(event.target.value),
                   })
                 }
                 className="h-12 w-full appearance-none rounded-xl border border-slate-200 bg-white pl-14 pr-12 text-sm font-medium text-slate-900 focus:border-[#22d3ee] focus:outline-none focus:ring-2 focus:ring-[#22d3ee]/25 dark:border-white/15 dark:bg-slate-900/70 dark:text-white dark:focus:ring-[#22d3ee]/40"

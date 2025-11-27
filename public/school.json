@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-11-27T01:27:51.253Z",
+  "generatedAt": "2025-11-27T01:35:54.306Z",
   "source": {
     "url": "https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json",
     "license": "MIT",
@@ -8,7 +8,7 @@
   "universities": [
     {
       "name": "Abia State Polytechnic",
-      "shortName": "ASP",
+      "shortName": "ASPP",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -16,7 +16,7 @@
     },
     {
       "name": "Abia State University",
-      "shortName": "ASU",
+      "shortName": "ABSU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -24,7 +24,7 @@
     },
     {
       "name": "ABTI American University of Nigeria",
-      "shortName": "AAUN",
+      "shortName": "AUN",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -40,7 +40,7 @@
     },
     {
       "name": "Adamawa State University",
-      "shortName": "ASU",
+      "shortName": "ADSU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -48,7 +48,7 @@
     },
     {
       "name": "Adekunle Ajasin University",
-      "shortName": "AAU",
+      "shortName": "AAUA",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -56,7 +56,7 @@
     },
     {
       "name": "Adeleke University",
-      "shortName": "AU",
+      "shortName": "AUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -64,7 +64,7 @@
     },
     {
       "name": "Adeyemi College of Education",
-      "shortName": "ACE",
+      "shortName": "ACCE",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -72,7 +72,7 @@
     },
     {
       "name": "Afe Babalola University",
-      "shortName": "ABU",
+      "shortName": "ABUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -80,7 +80,7 @@
     },
     {
       "name": "African University of Science and Technology",
-      "shortName": "AUST",
+      "shortName": "AUUST",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -104,7 +104,7 @@
     },
     {
       "name": "Akanu Ibiam Federal Polytechnic, Unwana",
-      "shortName": "AIFPU",
+      "shortName": "POLY",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -112,7 +112,7 @@
     },
     {
       "name": "Akwa Ibom State University of Technology",
-      "shortName": "AISUT",
+      "shortName": "AISUUT",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -120,7 +120,7 @@
     },
     {
       "name": "Al-hikmah University",
-      "shortName": "AHU",
+      "shortName": "AHUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -128,7 +128,7 @@
     },
     {
       "name": "Ambrose Alli University",
-      "shortName": "AAU",
+      "shortName": "AAUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -136,7 +136,7 @@
     },
     {
       "name": "Anambra State University of Science and Technology",
-      "shortName": "ASUST",
+      "shortName": "ANSU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -144,7 +144,7 @@
     },
     {
       "name": "Auchi Polytechnic",
-      "shortName": "AP",
+      "shortName": "APP",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -152,7 +152,7 @@
     },
     {
       "name": "Babcock University",
-      "shortName": "BU",
+      "shortName": "BUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -160,7 +160,7 @@
     },
     {
       "name": "Bauchi State University, Gadau",
-      "shortName": "BSUG",
+      "shortName": "BSUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -176,7 +176,7 @@
     },
     {
       "name": "Baze University Abuja",
-      "shortName": "BUA",
+      "shortName": "BUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -184,7 +184,7 @@
     },
     {
       "name": "Bells University of Technology",
-      "shortName": "BUT",
+      "shortName": "BUUT",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -200,7 +200,7 @@
     },
     {
       "name": "Benue State University",
-      "shortName": "BSU",
+      "shortName": "BSUM",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -208,7 +208,7 @@
     },
     {
       "name": "Bingham University",
-      "shortName": "BU",
+      "shortName": "BUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -216,7 +216,7 @@
     },
     {
       "name": "Bowen University",
-      "shortName": "BU",
+      "shortName": "BUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -224,7 +224,7 @@
     },
     {
       "name": "Caleb University",
-      "shortName": "CU",
+      "shortName": "CUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -232,7 +232,7 @@
     },
     {
       "name": "Caritas University",
-      "shortName": "CU",
+      "shortName": "CUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -240,7 +240,7 @@
     },
     {
       "name": "College of Education Ikere",
-      "shortName": "CEI",
+      "shortName": "COE",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -248,7 +248,7 @@
     },
     {
       "name": "College of Education Oju",
-      "shortName": "CEO",
+      "shortName": "COE",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -256,7 +256,7 @@
     },
     {
       "name": "Covenant University",
-      "shortName": "CU",
+      "shortName": "CUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -264,7 +264,7 @@
     },
     {
       "name": "Crawford University",
-      "shortName": "CU",
+      "shortName": "CUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -272,7 +272,7 @@
     },
     {
       "name": "Crescent University",
-      "shortName": "CU",
+      "shortName": "CUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -280,7 +280,7 @@
     },
     {
       "name": "Cross River University of Science and Technology",
-      "shortName": "CRUST",
+      "shortName": "CRUUST",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -288,7 +288,7 @@
     },
     {
       "name": "Ebonyi State University",
-      "shortName": "ESU",
+      "shortName": "ESUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -296,7 +296,7 @@
     },
     {
       "name": "Ekiti State University",
-      "shortName": "ESU",
+      "shortName": "EKSU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -304,7 +304,7 @@
     },
     {
       "name": "Enugu State University of Science and Technology",
-      "shortName": "ESUST",
+      "shortName": "ESUT",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -312,7 +312,7 @@
     },
     {
       "name": "Federal College Of Education (Technical), Akoka",
-      "shortName": "FCEA",
+      "shortName": "FCCE",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -320,7 +320,7 @@
     },
     {
       "name": "Federal University of Petroleum Resources",
-      "shortName": "FUPR",
+      "shortName": "FUPRE",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -336,7 +336,7 @@
     },
     {
       "name": "Federal University of Technology, Minna",
-      "shortName": "FUTM",
+      "shortName": "FUT",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -360,7 +360,7 @@
     },
     {
       "name": "Fountain University",
-      "shortName": "FU",
+      "shortName": "FUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -368,7 +368,7 @@
     },
     {
       "name": "Godfrey Okoye University",
-      "shortName": "GOU",
+      "shortName": "GOUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -384,7 +384,7 @@
     },
     {
       "name": "Ibrahim Babangida University",
-      "shortName": "IBU",
+      "shortName": "IBBU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -392,7 +392,7 @@
     },
     {
       "name": "Igbinedion University",
-      "shortName": "IU",
+      "shortName": "IUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -400,7 +400,7 @@
     },
     {
       "name": "Imo State University",
-      "shortName": "ISU",
+      "shortName": "IMSU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -416,7 +416,7 @@
     },
     {
       "name": "Kaduna State University",
-      "shortName": "KSU",
+      "shortName": "KSUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -424,7 +424,7 @@
     },
     {
       "name": "Kano State University of Technology Wudil",
-      "shortName": "KSUTW",
+      "shortName": "KUST",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -432,7 +432,7 @@
     },
     {
       "name": "Katsina University",
-      "shortName": "KU",
+      "shortName": "KUK",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -440,7 +440,7 @@
     },
     {
       "name": "Kebbi State University of Science and Technology",
-      "shortName": "KSUST",
+      "shortName": "KSUUST",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -448,7 +448,7 @@
     },
     {
       "name": "Kogi State University",
-      "shortName": "KSU",
+      "shortName": "KSUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -464,7 +464,7 @@
     },
     {
       "name": "Kwara State University",
-      "shortName": "KSU",
+      "shortName": "KSUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -472,7 +472,7 @@
     },
     {
       "name": "Kwararafa University",
-      "shortName": "KU",
+      "shortName": "KUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -480,7 +480,7 @@
     },
     {
       "name": "Ladoke Akintola University of Technology",
-      "shortName": "LAUT",
+      "shortName": "LAUUT",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -488,7 +488,7 @@
     },
     {
       "name": "Lagos City Polytechnic",
-      "shortName": "LCP",
+      "shortName": "LCPP",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -496,7 +496,7 @@
     },
     {
       "name": "Lagos State Polytechnic",
-      "shortName": "LSP",
+      "shortName": "LSPP",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -504,7 +504,7 @@
     },
     {
       "name": "Lagos State University",
-      "shortName": "LSU",
+      "shortName": "LSUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -512,7 +512,7 @@
     },
     {
       "name": "Landmark University",
-      "shortName": "LU",
+      "shortName": "LMU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -520,7 +520,7 @@
     },
     {
       "name": "Lead City University of Ibadan",
-      "shortName": "LCUI",
+      "shortName": "LCU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -528,7 +528,7 @@
     },
     {
       "name": "Madonna University",
-      "shortName": "MU",
+      "shortName": "MUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -536,7 +536,7 @@
     },
     {
       "name": "Michael Okpara University of Agriculture",
-      "shortName": "MOUA",
+      "shortName": "MOUUA",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -544,7 +544,7 @@
     },
     {
       "name": "Miva Open University",
-      "shortName": "MOU",
+      "shortName": "MIVA",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -560,7 +560,7 @@
     },
     {
       "name": "National Open University of Nigeria",
-      "shortName": "NOUN",
+      "shortName": "NOU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -592,7 +592,7 @@
     },
     {
       "name": "Nnamdi Azikiwe University",
-      "shortName": "NAU",
+      "shortName": "NAUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -600,7 +600,7 @@
     },
     {
       "name": "Novena University",
-      "shortName": "NU",
+      "shortName": "NUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -608,7 +608,7 @@
     },
     {
       "name": "Obafemi Awolowo University Ile-Ife",
-      "shortName": "OAUII",
+      "shortName": "OAU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -616,7 +616,7 @@
     },
     {
       "name": "Obong University",
-      "shortName": "OU",
+      "shortName": "OUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -624,7 +624,7 @@
     },
     {
       "name": "Oduduwa University",
-      "shortName": "OU",
+      "shortName": "OUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -632,7 +632,7 @@
     },
     {
       "name": "Olabisi Onabanjo University",
-      "shortName": "OOU",
+      "shortName": "OOUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -640,7 +640,7 @@
     },
     {
       "name": "Ondo State University of Science and Technology",
-      "shortName": "OSUST",
+      "shortName": "OSUUST",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -648,7 +648,7 @@
     },
     {
       "name": "Osun State University",
-      "shortName": "OSU",
+      "shortName": "OSUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -664,7 +664,7 @@
     },
     {
       "name": "Paul University",
-      "shortName": "PU",
+      "shortName": "PUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -672,7 +672,7 @@
     },
     {
       "name": "Polytechnic Ibadan",
-      "shortName": "PI",
+      "shortName": "POLY",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -680,7 +680,7 @@
     },
     {
       "name": "Redeemers University",
-      "shortName": "RU",
+      "shortName": "RUN",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -688,7 +688,7 @@
     },
     {
       "name": "Renaissance University",
-      "shortName": "RU",
+      "shortName": "RNU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -696,7 +696,7 @@
     },
     {
       "name": "Rivers State University of Science and Technology",
-      "shortName": "RSUST",
+      "shortName": "UST",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -704,7 +704,7 @@
     },
     {
       "name": "Salem University",
-      "shortName": "SU",
+      "shortName": "SUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -720,7 +720,7 @@
     },
     {
       "name": "Tai Solarin University of Education",
-      "shortName": "TSUE",
+      "shortName": "TSUUE",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -728,7 +728,7 @@
     },
     {
       "name": "Tansian University",
-      "shortName": "TU",
+      "shortName": "TUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -736,7 +736,7 @@
     },
     {
       "name": "Taraba State University",
-      "shortName": "TSU",
+      "shortName": "TSUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -744,7 +744,7 @@
     },
     {
       "name": "The Achievers University",
-      "shortName": "AU",
+      "shortName": "AUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -752,7 +752,7 @@
     },
     {
       "name": "The Federal Polytechnic Offa",
-      "shortName": "FPO",
+      "shortName": "FEDP",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -760,7 +760,7 @@
     },
     {
       "name": "Umaru Musa Yar'Adua University",
-      "shortName": "UMYAU",
+      "shortName": "UMYU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -768,7 +768,7 @@
     },
     {
       "name": "University of Abuja",
-      "shortName": "UA",
+      "shortName": "UU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -776,7 +776,7 @@
     },
     {
       "name": "University of Agriculture Abeokuta",
-      "shortName": "UAA",
+      "shortName": "UNAAB",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -792,7 +792,7 @@
     },
     {
       "name": "University of Benin",
-      "shortName": "UB",
+      "shortName": "UNIBEN",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -800,7 +800,7 @@
     },
     {
       "name": "University of Calabar",
-      "shortName": "UC",
+      "shortName": "UNICAL",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -816,7 +816,7 @@
     },
     {
       "name": "University of Ilorin",
-      "shortName": "UI",
+      "shortName": "UU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -824,7 +824,7 @@
     },
     {
       "name": "University of Jos",
-      "shortName": "UJ",
+      "shortName": "UNI",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -832,7 +832,7 @@
     },
     {
       "name": "University of Lagos",
-      "shortName": "UL",
+      "shortName": "UNILAG",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -840,7 +840,7 @@
     },
     {
       "name": "University of Maiduguri",
-      "shortName": "UM",
+      "shortName": "UU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -848,7 +848,7 @@
     },
     {
       "name": "University of Mkar",
-      "shortName": "UM",
+      "shortName": "UNI",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -856,7 +856,7 @@
     },
     {
       "name": "University of Nigeria",
-      "shortName": "UN",
+      "shortName": "UNN",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -864,7 +864,7 @@
     },
     {
       "name": "University of Portharcourt",
-      "shortName": "UP",
+      "shortName": "UU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -872,7 +872,7 @@
     },
     {
       "name": "University of Uyo",
-      "shortName": "UU",
+      "shortName": "UNI",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -880,7 +880,7 @@
     },
     {
       "name": "Usmanu Danfodiyo University Sokoto",
-      "shortName": "UDUS",
+      "shortName": "UDUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -888,7 +888,7 @@
     },
     {
       "name": "Veritas University",
-      "shortName": "VU",
+      "shortName": "VUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -896,7 +896,7 @@
     },
     {
       "name": "Wellspring University",
-      "shortName": "WU",
+      "shortName": "WUU",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -904,7 +904,7 @@
     },
     {
       "name": "Wesley University of Science and Technology",
-      "shortName": "WUST",
+      "shortName": "WUUST",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",
@@ -920,7 +920,7 @@
     },
     {
       "name": "Yaba College of Technology",
-      "shortName": "YCT",
+      "shortName": "YCCT",
       "country": "Nigeria",
       "state": null,
       "alphaTwoCode": "NG",

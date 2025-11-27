@@ -57,8 +57,67 @@ const STOP_WORDS = new Set([
   "by",
   "to",
 ]);
+const TYPE_WORDS = new Set([
+  "university",
+  "polytechnic",
+  "college",
+  "institute",
+  "school",
+  "academy",
+  "technology",
+  "technological",
+  "agriculture",
+  "agricultural",
+  "education",
+  "science",
+  "sciences",
+  "health",
+  "medical",
+  "management",
+  "business",
+  "arts",
+  "law",
+  "engineering",
+]);
 
-function createShortName(name) {
+function sanitiseToken(token) {
+  return token.replace(/[^A-Za-z0-9]/g, "").toUpperCase();
+}
+
+function deriveDomainCandidate(entry) {
+  const firstDomain = Array.isArray(entry.domains) ? entry.domains[0] : null;
+  if (!firstDomain || typeof firstDomain !== "string") {
+    return null;
+  }
+
+  const label = firstDomain.split(".")[0] ?? "";
+  const candidate = label.replace(/[^A-Za-z0-9]/g, "").toUpperCase();
+  return candidate.length > 0 ? candidate : null;
+}
+
+function trimDomainByLocation(domainCandidate, locationTokens) {
+  if (!domainCandidate) {
+    return null;
+  }
+
+  let trimmed = domainCandidate;
+
+  for (const token of locationTokens) {
+    const sanitized = sanitiseToken(token);
+    if (!sanitized) {
+      continue;
+    }
+
+    if (trimmed.endsWith(sanitized) && trimmed.length - sanitized.length >= 3) {
+      trimmed = trimmed.slice(0, trimmed.length - sanitized.length);
+    }
+  }
+
+  return trimmed;
+}
+
+function createShortName(entry) {
+  const name = entry.name ?? "";
   if (!name) {
     return null;
   }
@@ -69,33 +128,87 @@ function createShortName(name) {
     .split(/[^A-Za-z0-9]+/)
     .filter(Boolean);
 
-  const initials = tokens
-    .filter((word) => !STOP_WORDS.has(word.toLowerCase()))
-    .map((word) => word[0])
-    .join("")
-    .toUpperCase();
+  const coreLetters = [];
+  const typeLetters = [];
+  const locationTokens = [];
 
-  if (initials.length >= 2) {
-    return initials.slice(0, 6);
+  let encounteredType = false;
+
+  for (const rawToken of tokens) {
+    const lower = rawToken.toLowerCase();
+    if (STOP_WORDS.has(lower)) {
+      continue;
+    }
+
+    if (!encounteredType) {
+      coreLetters.push(rawToken[0].toUpperCase());
+    }
+
+    if (TYPE_WORDS.has(lower)) {
+      typeLetters.push(rawToken[0].toUpperCase());
+      encounteredType = true;
+      continue;
+    }
+
+    if (encounteredType) {
+      locationTokens.push(rawToken);
+    }
   }
 
-  const fallback = name.replace(/[^A-Za-z0-9]/g, "").toUpperCase();
-  return fallback.slice(0, 6) || null;
+  let base = [...coreLetters, ...typeLetters].join("");
+  if (base.length === 0) {
+    base = tokens
+      .slice(0, 4)
+      .map((token) => token[0].toUpperCase())
+      .join("");
+  }
+
+  const domainCandidate = deriveDomainCandidate(entry);
+  const trimmedDomain = trimDomainByLocation(domainCandidate, locationTokens);
+
+  if (
+    base.length <= 1 &&
+    trimmedDomain &&
+    trimmedDomain.length >= 2 &&
+    trimmedDomain.length <= 6
+  ) {
+    return trimmedDomain;
+  }
+
+  if (
+    trimmedDomain &&
+    trimmedDomain.length >= 2 &&
+    trimmedDomain.length <= 6 &&
+    (trimmedDomain.startsWith(base) ||
+      trimmedDomain.length <= 4 ||
+      base.length <= 3)
+  ) {
+    return trimmedDomain;
+  }
+
+  if (base.length > 6) {
+    return base.slice(0, 6);
+  }
+
+  return base || trimmedDomain || null;
 }
 
 function serialize(universities) {
   return universities
-    .map((entry) => ({
-      name: entry.name,
-      shortName: createShortName(entry.name),
-      country: entry.country,
-      state: entry["state-province"] || null,
-      alphaTwoCode: entry.alpha_two_code,
-      logo:
-        Array.isArray(entry.domains) && entry.domains.length > 0
-          ? `https://logo.clearbit.com/${entry.domains[0]}`
-          : null,
-    }))
+    .map((entry) => {
+      const firstDomain = Array.isArray(entry.domains)
+        ? entry.domains[0]
+        : null;
+
+      return {
+        name: entry.name,
+        shortName: createShortName(entry),
+        country: entry.country,
+        state: entry["state-province"] || null,
+        alphaTwoCode: entry.alpha_two_code,
+        logo: firstDomain ? `https://logo.clearbit.com/${firstDomain}` : null,
+      };
+    })
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
