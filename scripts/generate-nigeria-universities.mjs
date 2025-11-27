@@ -153,7 +153,9 @@ const STATE_ALIAS_LOOKUP = (() => {
     }
   }
 
-  for (const [aliasSource, stateName] of Object.entries(STATE_ALIAS_OVERRIDES)) {
+  for (const [aliasSource, stateName] of Object.entries(
+    STATE_ALIAS_OVERRIDES
+  )) {
     const alias = normaliseForSearch(aliasSource);
     if (alias && !lookup.has(alias)) {
       lookup.set(alias, stateName);
@@ -361,9 +363,7 @@ function deriveStateInfo(entry) {
 
 function serialize(universities) {
   const enriched = universities.map((entry) => {
-    const firstDomain = Array.isArray(entry.domains)
-      ? entry.domains[0]
-      : null;
+    const firstDomain = Array.isArray(entry.domains) ? entry.domains[0] : null;
     const shortName = createShortName(entry);
     const { state, stateCode } = deriveStateInfo(entry);
 
@@ -449,9 +449,7 @@ function serialize(universities) {
 
         resolved.push({
           name: entry.name,
-          shortName: baseShortName
-            ? `${baseShortName}${fallbackSuffix}`
-            : null,
+          shortName: baseShortName ? `${baseShortName}${fallbackSuffix}` : null,
           country: entry.country,
           state,
           stateCode,
