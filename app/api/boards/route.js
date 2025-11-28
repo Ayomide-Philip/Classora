@@ -12,7 +12,7 @@ export async function POST(req) {
     joinMode,
     seatLimit,
     allowComments,
-    allowAssignments,
+    allowPosts,
   } = request;
   console.log(request);
 
@@ -28,6 +28,15 @@ export async function POST(req) {
   if (name.trim().length < 5) {
     return NextResponse.json(
       { error: "Board Name should be at least 5 characters" },
+      {
+        status: 404,
+      }
+    );
+  }
+
+  if (tagline && tagline.trim().length < 5) {
+    return NextResponse.json(
+      { error: "Board tagline should be at least 5 characters" },
       {
         status: 404,
       }
@@ -188,8 +197,40 @@ export async function POST(req) {
     }
   }
 
-  if(!allowComments || !allowComments.trim()){
-      return 
+  if (allowComments === undefined) {
+    return NextResponse.json(
+      { error: "Allow comments is required" },
+      {
+        status: 404,
+      }
+    );
+  }
+
+  if (allowComments !== true && allowComments !== false) {
+    return NextResponse.json(
+      { error: "Allow comments can either be true or false" },
+      {
+        status: 404,
+      }
+    );
+  }
+
+  if (allowPosts === undefined) {
+    return NextResponse.json(
+      { error: "Allow posts is required" },
+      {
+        status: 404,
+      }
+    );
+  }
+
+  if (allowPosts !== true && allowPosts !== false) {
+    return NextResponse.json(
+      { error: "Allow post can either be true or false" },
+      {
+        status: 404,
+      }
+    );
   }
 
   return NextResponse.json({ message: "POST a new board" });

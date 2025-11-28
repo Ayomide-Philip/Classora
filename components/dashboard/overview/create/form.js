@@ -18,7 +18,7 @@ export default function CreateForm({ setActiveStep, activeStep, steps }) {
     joinMode: "code",
     seatLimit: 0,
     allowComments: true,
-    allowAssignments: false,
+    allowPosts: false,
   });
 
   const isFirstStep = activeStep === 0;
