@@ -120,7 +120,57 @@ export async function POST(req) {
           status: 404,
         }
       );
+
+    if (!school?.country || !school?.country.trim())
+      return NextResponse.json(
+        { error: "School country is required" },
+        {
+          status: 404,
+        }
+      );
+
+    if (school?.country.trim().length < 5)
+      return NextResponse.json(
+        {
+          error: "School country should be at least 5 characters",
+        },
+        {
+          status: 404,
+        }
+      );
   }
 
+  if (!joinMode || !joinMode.trim())
+    return NextResponse.json(
+      { error: "Board Join mode is required" },
+      {
+        status: 404,
+      }
+    );
+
+  if (
+    joinMode.trim().toLowerCase() !== "code" &&
+    joinMode.trim().toLowerCase() !== "limited"
+  ) {
+    return NextResponse.json(
+      {
+        error: "Board join mode can either be code or limited",
+      },
+      {
+        status: 404,
+      }
+    );
+  }
+
+  if (joinMode.trim().toLowerCase() === "limited") {
+    if (!seatLimit) {
+      return NextResponse.json(
+        { error: "Board of limited members needs a seat limit" },
+        {
+          status: 404,
+        }
+      );
+    }
+  }
   return NextResponse.json({ message: "POST a new board" });
 }
