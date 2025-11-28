@@ -16,7 +16,6 @@ const boardsSchema = new Schema(
     },
     tagline: {
       type: String,
-      minlength: 5,
     },
     description: {
       type: String,
@@ -68,7 +67,7 @@ const boardsSchema = new Schema(
     roles: {
       type: {
         admin: {
-          type: Schema.Types.ObjectId,
+          type: [Schema.Types.ObjectId],
           ref: "Users",
         },
       },
@@ -76,18 +75,22 @@ const boardsSchema = new Schema(
     announcement: {
       type: [Schema.Types.ObjectId],
       ref: "Announcements",
+      default: [],
     },
     students: {
       type: [Schema.Types.ObjectId],
       ref: "Users",
+      default: [],
     },
     message: {
       type: [Schema.Types.ObjectId],
       ref: "Messages",
+      default: [],
     },
     calendar: {
       type: [Schema.Types.ObjectId],
       ref: "Calendars",
+      default: [],
     },
     joinCode: {
       type: String,

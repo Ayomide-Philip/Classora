@@ -19,7 +19,7 @@ export default function CreateForm({ setActiveStep, activeStep, steps }) {
     seatLimit: 0,
     allowComments: true,
     allowAssignments: false,
-  });
+  }); 
 
   const isFirstStep = activeStep === 0;
   const isLastStep = activeStep === steps.length - 1;

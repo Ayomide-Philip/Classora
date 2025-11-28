@@ -47,7 +47,7 @@ export default function DesktopSidebar() {
               className={`group flex w-full items-center cursor-pointer ${
                 collapsed ? "justify-center" : "justify-start"
               } gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition ${
-                pathname == url
+                pathname == url || pathname.startsWith(url)
                   ? "bg-slate-900/5 text-slate-900 dark:bg-linear-to-br from-slate-100/95 to-emerald-200/90 dark:text-slate-900"
                   : "text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/5"
               }`}
