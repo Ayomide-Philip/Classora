@@ -1,4 +1,8 @@
+import { connectDatabase } from "@/libs/connectDatabase";
 import { NextResponse } from "next/server";
+import Boards from "@/libs/models/boards.models";
+import generateJoinCode from "@/libs/utility/generateJoinCode";
+import Users from "@/libs/models/user.models";
 
 export async function POST(req) {
   const request = await req.json();
@@ -243,7 +247,50 @@ export async function POST(req) {
   }
 
   try {
-    return NextResponse.json({ message: "POST a new board" });
+    await connectDatabase();
+    // checking if the board exist already
+    const boardExisting = await Boards.findOne({ userId });
+    if (boardExisting) {
+      return NextResponse.json(
+        { error: "User has created a board already" },
+        {
+          status: 404,
+        }
+      );
+    }
+    // creating a new board for the user
+    const board = await Boards.create({
+      userId,
+      name,
+      tagline,
+      description,
+      boardType,
+      school: {
+        name: school?.name,
+        logo: school?.logo,
+        shortName: school?.shortName,
+        country: school?.country,
+      },
+      joinMode: joinMode,
+      seatLimit: seatLimit,
+      allowComments: allowComments,
+      allowPosts: allowPosts,
+      students: [userId],
+      joinCode: await generateJoinCode(school?.shortName),
+    });
+    // updating the user profile by adding the board to it
+    const user = await Users.findOne({ _id: userId }).select(
+      "-password -email"
+    );
+
+    user.board.push({
+      boardId: board._id,
+      role: "owner",
+    });
+
+    await user.save();
+
+    return NextResponse.json({ board, user });
   } catch (error) {
     console.log(error);
     return NextResponse.json(
