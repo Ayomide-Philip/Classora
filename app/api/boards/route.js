@@ -51,6 +51,7 @@ export async function POST(req) {
       }
     );
   }
+  
   if (description.trim().length < 10) {
     return NextResponse.json(
       { error: "Description should be at least 10 characters" },
@@ -87,63 +88,70 @@ export async function POST(req) {
   }
 
   if (boardType.trim().toLowerCase() === "school") {
-    if (!school?.name || !school?.name.trim())
+    if (!school?.name || !school?.name.trim()) {
       return NextResponse.json(
         { error: "School name is required" },
         {
           status: 404,
         }
       );
+    }
 
-    if (school?.name.trim().length < 10)
+    if (school?.name.trim().length < 10) {
       return NextResponse.json(
         { error: "School name should be at least 10 characters" },
         {
           status: 404,
         }
       );
+    }
 
-    if (!school?.logo || !school?.name.trim())
+    if (!school?.logo || !school?.name.trim()) {
       return NextResponse.json(
         { error: "School Logo is required" },
         {
           status: 404,
         }
       );
+    }
 
-    if (school?.logo.length < 10)
+    if (school?.logo.length < 10) {
       return NextResponse.json(
         { error: "School logo should be at least 10 characters" },
         {
           status: 404,
         }
       );
+    }
 
-    if (!school?.shortName || !school?.shortName.trim())
+    if (!school?.shortName || !school?.shortName.trim()) {
       return NextResponse.json(
         { error: "School ShortName is required" },
         {
           status: 404,
         }
       );
+    }
 
-    if (school?.shortName.trim().length < 2)
+    if (school?.shortName.trim().length < 2) {
       return NextResponse.json(
         { error: "School ShortName should be at least 2 characters" },
         {
           status: 404,
         }
       );
+    }
 
-    if (!school?.country || !school?.country.trim())
+    if (!school?.country || !school?.country.trim()) {
       return NextResponse.json(
         { error: "School country is required" },
         {
           status: 404,
         }
       );
+    }
 
-    if (school?.country.trim().length < 5)
+    if (school?.country.trim().length < 5) {
       return NextResponse.json(
         {
           error: "School country should be at least 5 characters",
@@ -152,6 +160,7 @@ export async function POST(req) {
           status: 404,
         }
       );
+    }
   }
 
   if (!joinMode || !joinMode.trim()) {
