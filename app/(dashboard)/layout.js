@@ -18,7 +18,6 @@ export default async function Layout({ children }) {
     },
   });
   const { user } = await userRequest.json();
-  console.log(user);
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:bg-[radial-gradient(circle_at_top,#13294b,#050912_75%)] dark:text-slate-100">
