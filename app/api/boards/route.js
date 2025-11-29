@@ -226,7 +226,7 @@ export const POST = auth(async function POST(req) {
     }
   }
 
-  if (joinMode.trim().toLowerCase() === "code" && seatLimit > 0) {
+  if (joinMode.trim().toLowerCase() === "code" && seatLimit >= 0) {
     seatLimit = null;
   }
 

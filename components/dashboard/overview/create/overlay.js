@@ -1,4 +1,5 @@
 "use client";
+import { X } from "lucide-react";
 import { toast } from "react-toastify";
 export default function FormOverlay({ visible, code, onClose }) {
   console.log(code);
@@ -32,22 +33,9 @@ export default function FormOverlay({ visible, code, onClose }) {
         <button
           onClick={onClose}
           aria-label="Close join code overlay"
-          className="absolute right-5 top-5 inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200/70 bg-white/80 text-slate-600 transition hover:scale-105 hover:border-slate-300 hover:text-slate-800 dark:border-white/20 dark:bg-slate-800/80 dark:text-slate-200 dark:hover:border-white/30 dark:hover:text-white z-100"
+          className="absolute cursor-pointer right-5 top-5 inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200/70 bg-white/80 text-slate-600 transition hover:scale-105 hover:border-slate-300 hover:text-slate-800 dark:border-white/20 dark:bg-slate-800/80 dark:text-slate-200 dark:hover:border-white/30 dark:hover:text-white z-100"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+          <X className="h-5 w-5" />
         </button>
 
         <div className="relative z-10 flex max-h-full flex-col gap-6 overflow-y-auto p-6 sm:gap-8 sm:p-8 md:p-10">
@@ -61,14 +49,14 @@ export default function FormOverlay({ visible, code, onClose }) {
               </h3>
               <p className="max-w-xl text-sm leading-relaxed text-slate-600 dark:text-slate-300 sm:text-base">
                 Send this secure code to teammates or learners so they can join
-                without needing an invite link. Codes refresh automatically once
-                a board is created.
+                without needing an invite link. Codes is generated automatically
+                once a board is created.
               </p>
             </div>
           </header>
 
-          <section className="flex flex-col gap-4 rounded-2xl border border-slate-200/60 bg-slate-50/80 p-5 shadow-sm backdrop-blur-sm dark:border-white/5 dark:bg-slate-800/50 sm:p-6">
-            <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-end sm:justify-between sm:text-left">
+          <section className="flex flex-col gap-4 rounded-2xl border border-slate-200/60 bg-slate-50/80 p-3 shadow-sm backdrop-blur-sm dark:border-white/5 dark:bg-slate-800/50 sm:p-6">
+            <div className="flex flex-col items-center justify-center gap-2 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
               <div className="flex w-full flex-col gap-1 sm:w-auto">
                 <span className="text-xs font-medium uppercase tracking-widest text-slate-500 dark:text-slate-400">
                   Join Code
@@ -78,10 +66,10 @@ export default function FormOverlay({ visible, code, onClose }) {
                 </code>
               </div>
 
-              <div className="flex w-full flex-col items-stretch gap-2 sm:w-auto sm:items-end">
+              <div className="flex w-full flex-col items-stretch gap-2 sm:w-auto sm:items-center sm:self-center">
                 <button
                   onClick={handleCopy}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-linear-to-r from-sky-500 via-indigo-500 to-purple-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/20 transition hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-indigo-500/30 sm:w-auto"
+                  className="cursor-pointer inline-flex w-full items-center justify-center gap-2 rounded-full bg-linear-to-r from-sky-500 via-indigo-500 to-purple-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/20 transition hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-indigo-500/30 sm:w-auto"
                 >
                   Copy code
                 </button>
@@ -113,8 +101,7 @@ export default function FormOverlay({ visible, code, onClose }) {
                 </svg>
               </span>
               <p>
-                Need to share later? Re-open this overlay anytime from your
-                board settings.
+                Need to share later? Check anytime from your board settings.
               </p>
             </div>
           </footer>
