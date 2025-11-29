@@ -4,7 +4,7 @@ import { useState } from "react";
 import { sidebarLinks } from "./navigationLinks";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-export default function MobileNavigation({ session }) {
+export default function MobileNavigation({ user }) {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const pathname = usePathname();
 
@@ -43,14 +43,14 @@ export default function MobileNavigation({ session }) {
             <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4 dark:border-slate-800">
               <div className="flex items-center gap-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-linear-to-br from-emerald-400 to-cyan-400 text-base font-semibold text-white dark:text-slate-900">
-                  {session.user.name.slice(0, 2).toUpperCase()}
+                  {user?.name.slice(0, 2).toUpperCase()}
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                    {session.user.name}
+                    {user?.name}
                   </p>
-                  <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
-                    Lead teacher
+                  <p className="text-sm font-semibold capitalize text-slate-900 dark:text-slate-100">
+                    {user?.board?.role || "No Board Yet"}
                   </p>
                 </div>
               </div>

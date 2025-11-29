@@ -24,10 +24,10 @@ export default async function Layout({ children }) {
     <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:bg-[radial-gradient(circle_at_top,#13294b,#050912_75%)] dark:text-slate-100">
       <div className="flex flex-col lg:flex-row">
         <DesktopSidebar />
-        <MobileNavigation session={session} />
+        <MobileNavigation user={user} />
 
         <section className="flex flex-col space-y-6 w-full">
-          <header className="hidden md:block border border-slate-200 bg-white px-6 py-5 shadow-xl dark:border-slate-800/70 dark:bg-slate-900/75 dark:shadow-2xl dark:shadow-slate-950/40">
+          <header className="hidden lg:block border border-slate-200 bg-white px-6 py-5 shadow-xl dark:border-slate-800/70 dark:bg-slate-900/75 dark:shadow-2xl dark:shadow-slate-950/40">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>
                 <h1 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
@@ -61,10 +61,10 @@ export default async function Layout({ children }) {
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
-                        {session.user.name}
+                        {user?.name}
                       </p>
                       <p className="text-xs text-slate-500 dark:text-slate-400">
-                        Lead teacher
+                        {user?.board?.role || "No Board Yet"}
                       </p>
                     </div>
                   </div>
