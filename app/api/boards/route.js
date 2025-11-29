@@ -3,11 +3,20 @@ import { NextResponse } from "next/server";
 import Boards from "@/libs/models/boards.models";
 import generateJoinCode from "@/libs/utility/generateJoinCode";
 import Users from "@/libs/models/user.models";
+import { auth } from "@/auth";
 
-export async function POST(req) {
+export const POST = auth(async function POST(req) {
+  if (!req.auth || !req.auth?.user) {
+    return NextResponse.json(
+      { error: "User is Unauthorized" },
+      {
+        status: 400,
+      }
+    );
+  }
+  const userId = req.auth?.user?.id;
   const request = await req.json();
   let {
-    userId,
     name,
     tagline,
     description,
@@ -317,4 +326,4 @@ export async function POST(req) {
       }
     );
   }
-}
+});
