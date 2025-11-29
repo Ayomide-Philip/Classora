@@ -4,6 +4,7 @@ import { useState } from "react";
 import { sidebarLinks } from "./navigationLinks";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Toggle from "../toggle";
 export default function MobileNavigation({ user }) {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const pathname = usePathname();
@@ -21,13 +22,18 @@ export default function MobileNavigation({ user }) {
           <p className="text-xs text-slate-500 dark:text-slate-400">Board</p>
         </div>
       </div>
-      <button
-        className="flex h-10 w-10 items-center justify-center rounded-2xl border border-slate-200 text-slate-600 dark:border-slate-700 dark:text-slate-200"
-        aria-label="Open navigation menu"
-        onClick={() => setMobileNavOpen(true)}
-      >
-        <FiMenu />
-      </button>
+      <div className="flex items-center gap-3">
+        <Toggle
+          buttondesign={` flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-600 dark:border-slate-800 dark:bg-slate-900/60 dark:text-slate-200`}
+        />
+        <button
+          className="flex h-10 w-10 items-center justify-center rounded-2xl border border-slate-200 text-slate-600 dark:border-slate-700 dark:text-slate-200"
+          aria-label="Open navigation menu"
+          onClick={() => setMobileNavOpen(true)}
+        >
+          <FiMenu />
+        </button>
+      </div>
       {mobileNavOpen && (
         <div
           className="fixed inset-0 z-40 bg-slate-900/60 backdrop-blur-sm lg:hidden"
