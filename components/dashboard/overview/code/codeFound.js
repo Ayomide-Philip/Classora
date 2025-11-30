@@ -10,7 +10,6 @@ export default function CodeFound({ code, board }) {
   return (
     <div className="flex min-h-screen items-center justify-center px-4 py-5">
       <div className="w-full max-w-lg overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-800">
-        {/* Header */}
         <div className="relative flex flex-col items-center bg-linear-to-br from-gray-100 to-gray-50 px-6 pt-10 pb-6 dark:from-gray-800 dark:to-gray-900">
           <div className="mb-4 flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl border-4 border-white bg-white shadow-lg dark:border-gray-700 dark:bg-gray-700">
             {board?.school?.logo ? (
@@ -48,14 +47,11 @@ export default function CodeFound({ code, board }) {
           )}
         </div>
 
-        {/* Board Info */}
         <div className="space-y-6 p-6">
-          {/* Description */}
           <p className="text-center text-sm text-gray-600 dark:text-gray-300">
             {board.description}
           </p>
 
-          {/* Stats */}
           <div className="grid grid-cols-3 gap-4">
             <div className="flex flex-col items-center rounded-xl bg-gray-50 px-4 py-3 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition">
               <Users className="mb-1 h-5 w-5 text-sky-500" />
@@ -88,7 +84,6 @@ export default function CodeFound({ code, board }) {
             </div>
           </div>
 
-          {/* Badges */}
           <div className="flex flex-wrap justify-center gap-2">
             <span className="inline-flex items-center gap-1 rounded-full bg-sky-50 px-3 py-1 text-xs font-medium text-sky-600 dark:bg-sky-500/10 dark:text-sky-400">
               <Lock className="h-3 w-3" />
@@ -104,7 +99,6 @@ export default function CodeFound({ code, board }) {
             )}
           </div>
 
-          {/* School Info */}
           {board.boardType === "school" && (
             <div className="rounded-xl border  border-gray-200 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-700 flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-lg bg-white dark:bg-gray-600">
@@ -133,7 +127,6 @@ export default function CodeFound({ code, board }) {
             </div>
           )}
 
-          {/* Join Button */}
           <JoinButton boardCode={code} />
 
           <p className="text-center text-xs text-gray-400 dark:text-gray-500">
