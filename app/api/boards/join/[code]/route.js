@@ -114,7 +114,7 @@ export async function GET(req, { params }) {
   }
 
   try {
-    const board = await Boards.findOne({ joinCode: code });
+    const board = await Boards.findOne({ joinCode: code }).select("-announcement -message -calendar -course");
     if (!board) {
       return NextResponse.json(
         { error: "Invalid board" },
