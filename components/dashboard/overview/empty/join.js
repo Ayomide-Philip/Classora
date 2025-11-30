@@ -2,6 +2,8 @@
 import { Users, UserPlus } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { toast } from "react-toastify";
+
 export default function EmptyBoardJoin() {
   const [code, setCode] = useState("");
   return (
@@ -42,6 +44,12 @@ export default function EmptyBoardJoin() {
           </label>
           <Link
             href={{ pathname: "/overview/join", query: { code } }}
+            onClick={(e) => {
+              if (code.trim().length < 6) {
+                toast.error("Code shouldn't be less than 6 character");
+                e.preventDefault();
+              }
+            }}
             className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-linear-to-r from-[#34d399] via-[#22d3ee] to-[#6366f1] px-6 text-sm font-semibold text-white shadow-md shadow-[#22d3ee]/10 transition hover:-translate-y-px hover:shadow-lg hover:shadow-[#22d3ee]/35 dark:text-slate-900"
           >
             <UserPlus className="h-4 w-4" />
