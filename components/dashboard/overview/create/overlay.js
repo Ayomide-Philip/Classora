@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 export default function FormOverlay({ visible, code, onClose }) {
   const handleCopy = () => {
     try {
-      navigator.clipboard?.writeText(code);
+      navigator.clipboard?.write(code);
       toast.success("Code copied to clipboard!");
     } catch (error) {
       console.log(error);
@@ -76,7 +76,9 @@ export default function FormOverlay({ visible, code, onClose }) {
           <div className="flex items-center justify-center gap-4 sm:gap-6">
             {/* WhatsApp */}
             <a
-              href={`https://wa.me/?text=Join%20my%20classora%20classroom%20with%20code%3A%20${code}`}
+              href={`https://wa.me/?text=${encodeURIComponent(
+                `Join my classroom with the link code: ${window.location.origin}/overview/join?code=${code}`
+              )}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center gap-1 text-xs text-slate-500 transition hover:text-slate-700 dark:text-slate-400 dark:hover:text-white"
@@ -95,7 +97,11 @@ export default function FormOverlay({ visible, code, onClose }) {
 
             {/* X (Twitter) */}
             <a
-              href={`https://twitter.com/intent/tweet?text=Join%20my%20classroom%20with%20code%3A%20${code}`}
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+                `Join my classroom with the link code: ${code}`
+              )}&url=${encodeURIComponent(
+                `${window.location.origin}/overview/join?code=${code}`
+              )}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center gap-1 text-xs text-slate-500 transition hover:text-slate-700 dark:text-slate-400 dark:hover:text-white"
@@ -114,7 +120,11 @@ export default function FormOverlay({ visible, code, onClose }) {
 
             {/* Telegram */}
             <a
-              href={`https://t.me/share/url?url=Join%20my%20classroom&text=Use%20code%3A%20${code}`}
+              href={`https://t.me/share/url?url=${encodeURIComponent(
+                `${window.location.origin}/overview/join?code=${code}`
+              )}&text=${encodeURIComponent(
+                `Join my classroom with the link code: ${code}`
+              )}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center gap-1 text-xs text-slate-500 transition hover:text-slate-700 dark:text-slate-400 dark:hover:text-white"
@@ -133,7 +143,9 @@ export default function FormOverlay({ visible, code, onClose }) {
 
             {/* LinkedIn */}
             <a
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=https://classboard.app&summary=Join%20with%20code%3A%20${code}`}
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+                `Join my classroom with the link code: ${window.location.origin}/overview/join?code=${code}`
+              )}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center gap-1 text-xs text-slate-500 transition hover:text-slate-700 dark:text-slate-400 dark:hover:text-white"
