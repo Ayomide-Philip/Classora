@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 export default function FormOverlay({ visible, code, onClose }) {
   const handleCopy = () => {
     try {
-      navigator.clipboard?.write(code);
+      navigator.clipboard?.writeText(code);
       toast.success("Code copied to clipboard!");
     } catch (error) {
       console.log(error);

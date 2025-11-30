@@ -139,7 +139,7 @@ export default function CreateForm({ setActiveStep, activeStep, steps }) {
                 className="inline-flex cursor-pointer h-11 items-center justify-center gap-2 rounded-full bg-linear-to-r from-[#34d399] via-[#22d3ee] to-[#6366f1] px-8 text-sm font-semibold text-white shadow-md shadow-[#22d3ee]/10 transition hover:-translate-y-px hover:shadow-lg hover:shadow-[#22d3ee]/35"
               >
                 {loading ? (
-                  <div v className="flex items-center justify-center gap-2">
+                  <div className="flex items-center justify-center gap-2">
                     <Loader className="animate-spin" />
                     <span>Creating...</span>
                   </div>
