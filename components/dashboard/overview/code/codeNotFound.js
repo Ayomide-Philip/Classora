@@ -49,23 +49,17 @@ export default async function CodeNotFound({ code }) {
         {/* Actions */}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
-            href="/dashboard/overview/join"
+            href="/overview#joinboard"
             className="inline-flex items-center gap-2 rounded-2xl bg-linear-to-r from-sky-500 via-indigo-500 to-purple-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/30 transition hover:-translate-y-0.5"
           >
             <Search className="h-4 w-4" /> Enter a different code
           </Link>
           <Link
-            href="/"
+            href="/overview"
             className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white/80 px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900/70 dark:text-white"
           >
             <Home className="h-4 w-4" /> Go home
           </Link>
-          <a
-            href="mailto:support@school"
-            className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white/80 px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900/70 dark:text-white"
-          >
-            <Link2 className="h-4 w-4" /> Contact owner
-          </a>
         </div>
       </div>
     </div>

@@ -28,7 +28,7 @@ export default async function JoinBoardPage({ searchParams }) {
       {!board || !boardRequest.ok ? (
         <CodeNotFound code={code} />
       ) : (
-        <div className="flex min-h-screen items-center justify-center px-4 py-10 ">
+        <div className="flex min-h-screen items-center justify-center px-4 py-5">
           <div className="w-full max-w-lg overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-800">
             {/* Header */}
             <div className="relative flex flex-col items-center bg-linear-to-br from-gray-100 to-gray-50 px-6 pt-10 pb-6 dark:from-gray-800 dark:to-gray-900">
