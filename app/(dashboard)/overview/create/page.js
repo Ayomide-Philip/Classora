@@ -27,7 +27,7 @@ export default function Page() {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <div className="relative flex min-h-screen flex-col overflow-hidden">
+    <div className="relative flex min-h-screen flex-col overflow-hidden mb-10">
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.15),transparent_55%)] dark:bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.28),transparent_55%)]" />
       <div className="pointer-events-none absolute -left-32 top-24 -z-10 h-96 w-96 rounded-full bg-[#34d399]/15 blur-3xl" />
       <div className="pointer-events-none absolute -right-28 bottom-10 -z-10 h-112 w-md rounded-full bg-[#6366f1]/14 blur-3xl" />

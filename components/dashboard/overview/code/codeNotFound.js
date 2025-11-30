@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ShieldAlert, KeyRound, Link2, Home, Search } from "lucide-react";
+import { ShieldAlert, KeyRound, Home, Search } from "lucide-react";
 
 export default async function CodeNotFound({ code }) {
   const displayCode = code || "Unknown";
@@ -7,7 +7,6 @@ export default async function CodeNotFound({ code }) {
   return (
     <div className="min-h-[70vh] w-full px-4 py-3">
       <div className="mx-auto w-full max-w-4xl overflow-hidden rounded-4xl border border-slate-200 bg-linear-to-br from-white to-slate-50 p-10 text-slate-900 shadow-xl shadow-slate-900/10 dark:border-slate-800 dark:from-slate-900 dark:to-slate-950 dark:text-white">
-        {/* Hero */}
         <div className="flex flex-col items-center text-center">
           <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-br from-rose-500 to-amber-400 text-white shadow-lg shadow-rose-500/30">
             <ShieldAlert className="h-7 w-7" />
@@ -18,13 +17,11 @@ export default async function CodeNotFound({ code }) {
             may be incorrect, expired, or you might not have access yet.
           </p>
 
-          {/* Entered code pill */}
           <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-4 py-2 font-mono text-sm font-semibold text-slate-800 shadow-sm dark:border-slate-700 dark:bg-slate-900/70 dark:text-white">
             <KeyRound className="h-4 w-4" /> {displayCode}
           </div>
         </div>
 
-        {/* Reasons row */}
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
           <div className="rounded-2xl border border-slate-200 bg-white/80 p-4 text-sm dark:border-slate-700 dark:bg-slate-900/70">
             <p className="font-semibold">Typo or case</p>
@@ -46,7 +43,6 @@ export default async function CodeNotFound({ code }) {
           </div>
         </div>
 
-        {/* Actions */}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/overview#joinboard"
