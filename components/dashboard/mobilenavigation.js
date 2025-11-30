@@ -73,7 +73,7 @@ export default function MobileNavigation({ user }) {
                 <Link
                   key={label}
                   className={`flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition ${
-                    pathname == url
+                    pathname == url || pathname.startsWith(url)
                       ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
                       : "text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/5"
                   }`}

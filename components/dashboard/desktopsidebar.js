@@ -55,7 +55,7 @@ export default function DesktopSidebar() {
             >
               <Icon
                 className={`text-base  ${
-                  pathname == url
+                  pathname == url || pathname.startsWith(url)
                     ? "text-slate-900"
                     : "text-slate-500 dark:text-slate-300"
                 }`}
