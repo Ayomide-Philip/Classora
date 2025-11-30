@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, Loader } from "lucide-react";
 import CreateStepOne from "@/components/dashboard/overview/create/stepone";
 import CreateStepTwo from "@/components/dashboard/overview/create/steptwo";
 import LastStep from "./laststep";
 import FormOverlay from "./overlay";
 import Link from "next/link";
+import { toast } from "react-toastify";
 export default function CreateForm({ setActiveStep, activeStep, steps }) {
   const [formData, setFormData] = useState({
     name: "",
@@ -24,6 +25,7 @@ export default function CreateForm({ setActiveStep, activeStep, steps }) {
   });
   const [overlayVisible, setOverlayVisible] = useState(false);
   const [board, setBoard] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const isFirstStep = activeStep === 0;
   const isLastStep = activeStep === steps.length - 1;
@@ -65,6 +67,7 @@ export default function CreateForm({ setActiveStep, activeStep, steps }) {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    setLoading(true);
     const request = await fetch(`/api/boards`, {
       method: "POST",
       headers: {
@@ -73,8 +76,15 @@ export default function CreateForm({ setActiveStep, activeStep, steps }) {
       credentials: "include",
       body: JSON.stringify(formData),
     });
-    const { board } = await request.json();
-    setBoard(board);
+    const data = await request.json();
+    if (!request.ok && data.error) {
+      setLoading(false);
+      toast.error(data?.error);
+      return;
+    }
+    toast.success(data?.message || "Board created successfully");
+    setLoading(false);
+    setBoard(data.board);
     setOverlayVisible(true);
   }
 
@@ -125,10 +135,20 @@ export default function CreateForm({ setActiveStep, activeStep, steps }) {
             ) : (
               <button
                 type="submit"
+                disabled={loading}
                 className="inline-flex cursor-pointer h-11 items-center justify-center gap-2 rounded-full bg-linear-to-r from-[#34d399] via-[#22d3ee] to-[#6366f1] px-8 text-sm font-semibold text-white shadow-md shadow-[#22d3ee]/10 transition hover:-translate-y-px hover:shadow-lg hover:shadow-[#22d3ee]/35"
               >
-                Finish setup
-                <CheckCircle2 className="h-4 w-4" />
+                {loading ? (
+                  <div>
+                    <Loader className="animate-spin" />
+                    <span>Creating...</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-center gap-2">
+                    Finish setup
+                    <CheckCircle2 className="h-4 w-4" />
+                  </div>
+                )}
               </button>
             )}
           </div>

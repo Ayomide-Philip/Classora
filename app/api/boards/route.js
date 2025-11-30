@@ -215,7 +215,7 @@ export const POST = auth(async function POST(req) {
         }
       );
     }
-
+seatLimit = Number(seatLimit);
     if (typeof seatLimit !== "number") {
       return NextResponse.json(
         { error: "Seat limit should be a number" },
@@ -316,7 +316,7 @@ export const POST = auth(async function POST(req) {
     };
     await user.save();
 
-    return NextResponse.json({ board, user });
+    return NextResponse.json({ board, user, message:"Board created successfully" });
   } catch (error) {
     console.log(error);
     return NextResponse.json(

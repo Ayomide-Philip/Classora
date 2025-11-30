@@ -1,11 +1,19 @@
 import { NextResponse } from "next/server";
 import Boards from "@/libs/models/boards.models";
 import Users from "@/libs/models/user.models";
+import { auth } from "@/auth";
 
-export async function POST(req, { params }) {
+export const POST = auth(async function POST(req, { params }) {
   const { code } = await params;
-  const { userId } = await req.json();
-  console.log(userId);
+  if (!req.auth || !req.auth.user) {
+    return NextResponse.json(
+      { error: "User is unauthorized" },
+      {
+        status: 400,
+      }
+    );
+  }
+  const userId = req?.auth?.user?.id;
 
   if (!code) {
     return NextResponse.json(
@@ -74,6 +82,43 @@ export async function POST(req, { params }) {
     console.log(err);
     return NextResponse.json(
       { error: "An error occurred while joining a you to the board" },
+      {
+        status: 400,
+      }
+    );
+  }
+});
+export async function GET(req, { params }) {
+  const { code } = await params;
+  if (!code) {
+    return NextResponse.json(
+      { error: "Code not found" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  try {
+    const board = await Boards.findOne({ joinCode: code });
+    if (!board) {
+      return NextResponse.json(
+        { error: "Invalid board" },
+        {
+          status: 400,
+        }
+      );
+    }
+    return NextResponse.json(
+      { board },
+      {
+        status: 200,
+      }
+    );
+  } catch (err) {
+    console.log(err);
+    return NextResponse.json(
+      { error: "An error occurred while getting board" },
       {
         status: 400,
       }
