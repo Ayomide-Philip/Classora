@@ -12,7 +12,16 @@ export default async function OverviewPage() {
     },
   });
   const { user } = await userRequest.json();
+  console.log(user);
+
   return (
-    <>{user?.board ? <ActiveBoard board={user?.board} /> : <EmptyBoard />}</>
+    <>
+      {user?.board ? (
+        <ActiveBoard board={user?.board?.boardId} />
+      ) : (
+        <EmptyBoard />
+      )}
+    </>
+    // <>{<EmptyBoard />}</>
   );
 }

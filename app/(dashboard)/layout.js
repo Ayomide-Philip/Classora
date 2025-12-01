@@ -25,7 +25,7 @@ export default async function Layout({ children }) {
         <DesktopSidebar />
         <MobileNavigation user={user} />
 
-        <section className="flex flex-col space-y-6 w-full">
+        <section className="flex flex-col w-full">
           <header className="hidden lg:block border border-slate-200 bg-white px-6 py-5 shadow-xl dark:border-slate-800/70 dark:bg-slate-900/75 dark:shadow-2xl dark:shadow-slate-950/40">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>

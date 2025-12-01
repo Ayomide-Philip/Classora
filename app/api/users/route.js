@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { connectDatabase } from "@/libs/connectDatabase";
 import Users from "@/libs/models/user.models";
 import { auth } from "@/auth";
+import Boards from "@/libs/models/boards.models";
 
 export const GET = auth(async function GET(req) {
   if (!req.auth || !req.auth?.user) {
@@ -25,9 +26,10 @@ export const GET = auth(async function GET(req) {
   }
   try {
     await connectDatabase();
-    const user = await Users.findOne({ _id: userId }).select(
-      "-password -email"
-    );
+    const user = await Users.findOne({ _id: userId })
+      .select("-password -email")
+      .populate("board.boardId");
+
     if (!user) {
       return NextResponse.json(
         { error: "User not found" },
