@@ -4,7 +4,7 @@ export default function ActiveBoardHeader({ board }) {
     <div className="mb-5 overflow-hidden rounded-b-xl border border-slate-200 bg-white px-6 py-10 text-center shadow-xl dark:border-slate-800/70 dark:bg-slate-900/80 dark:shadow-2xl dark:shadow-slate-950/40">
       <div className="flex flex-col items-center gap-6">
         <div className="flex flex-col items-center gap-4">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-br from-sky-500 to-indigo-600 text-white shadow-lg shadow-indigo-500/30">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-br from-emerald-400 to-cyan-400 text-xl font-bold text-white dark:text-slate-950 shadow-lg shadow-indigo-500/30">
             <span className="text-xl font-bold">
               {(board?.name || "CB").slice(0, 2).toUpperCase()}
             </span>
