@@ -22,6 +22,5 @@ export default async function OverviewPage() {
         <EmptyBoard />
       )}
     </>
-    // <>{<EmptyBoard />}</>
   );
 }
