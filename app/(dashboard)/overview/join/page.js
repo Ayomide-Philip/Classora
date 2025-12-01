@@ -14,7 +14,7 @@ export default async function JoinBoardPage({ searchParams }) {
   });
 
   const data = await boardRequest.json();
-
+  console.log(data);
   const { board } = data;
 
   return (

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import Boards from "@/libs/models/boards.models";
 import Users from "@/libs/models/user.models";
 import { auth } from "@/auth";
+import { connectDatabase } from "@/libs/connectDatabase";
 
 export const POST = auth(async function POST(req, { params }) {
   const { code } = await params;
@@ -25,6 +26,7 @@ export const POST = auth(async function POST(req, { params }) {
   }
 
   try {
+    await connectDatabase();
     // check if the user exists in the database
     const user = await Users.findById(userId).select("-password -email");
 
@@ -114,7 +116,10 @@ export async function GET(req, { params }) {
   }
 
   try {
-    const board = await Boards.findOne({ joinCode: code }).select("-announcement -message -calendar -course");
+    await connectDatabase();
+    const board = await Boards.findOne({ joinCode: code }).select(
+      "-announcement -message -calendar -course"
+    );
     if (!board) {
       return NextResponse.json(
         { error: "Invalid board" },

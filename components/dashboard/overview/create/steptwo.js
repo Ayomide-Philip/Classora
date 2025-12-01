@@ -60,10 +60,8 @@ export default function CreateStepTwo({ formData, handleFieldChange }) {
         <label className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-600 transition hover:border-slate-300 hover:bg-slate-100 dark:border-white/10 dark:bg-transparent dark:text-white/70 dark:hover:border-white/20 dark:hover:bg-white/5">
           <input
             type="checkbox"
-            defaultChecked={formData.allowAssignments}
-            onChange={(e) =>
-              handleFieldChange("allowAssignments", e.target.checked)
-            }
+            defaultChecked={formData.allowPosts}
+            onChange={(e) => handleFieldChange("allowPosts", e.target.checked)}
             className="h-4 w-4 rounded border-slate-300 text-[#22d3ee] focus:ring-0 dark:border-white/30 dark:bg-transparent"
           />
           Allow learner to add assignments
