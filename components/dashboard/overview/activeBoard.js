@@ -8,7 +8,7 @@ export default function ActiveBoard({ board }) {
     <>
       {/* <ActiveBoardHeader board={board} /> */}
       <div className="flex flex-col space-y-6 w-full px-4 mb-10 mt-5">
-        <OverviewStats />
+        <OverviewStats board={board} />
         <OverviewAnnoucement />
         <OverviewActivity />
       </div>

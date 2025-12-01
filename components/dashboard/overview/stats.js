@@ -1,22 +1,25 @@
 import { FiTrendingUp } from "react-icons/fi";
 
-export default function OverviewStats() {
+export default function OverviewStats({ board }) {
+  const classes = board?.courses || [];
+  const students = board?.students || [];
+  const posts = board?.posts || [];
   const stats = [
     {
       label: "Total Classes",
-      value: "12",
+      value: classes.length,
       delta: "+2 this week",
       color: "from-emerald-400 to-cyan-400",
     },
     {
       label: "Active Students",
-      value: "482",
+      value: students.length,
       delta: "+38 new",
       color: "from-sky-400 to-indigo-500",
     },
     {
       label: "Assignments Due",
-      value: "18",
+      value: posts.length,
       delta: "5 due today",
       color: "from-amber-400 to-orange-500",
     },
