@@ -45,7 +45,7 @@ export default function MobileNavigation({ user }) {
             aria-label="Close navigation menu"
             onClick={() => setMobileNavOpen(false)}
           />
-          <div className="absolute right-0 top-0 h-full w-72 bg-white text-slate-900 shadow-2xl dark:bg-slate-900 dark:text-slate-100">
+          <div className="absolute right-0 top-0 h-full w-72 bg-white text-slate-900 shadow-2xl dark:bg-slate-900 dark:text-slate-100 overflow-y-auto">
             <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4 dark:border-slate-800">
               <div className="flex items-center gap-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-linear-to-br from-emerald-400 to-cyan-400 text-base font-semibold text-white dark:text-slate-900">
@@ -72,7 +72,7 @@ export default function MobileNavigation({ user }) {
               {sidebarLinks.map(({ icon: Icon, label, url }) => (
                 <Link
                   key={label}
-                  className={`flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition ${
+                  className={`flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition  ${
                     pathname == url || pathname.startsWith(url)
                       ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
                       : "text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/5"

@@ -61,15 +61,9 @@ export default function Comments({ announcementId }) {
 
       {/* Static, non-functional form to show UI */}
       <div className="mb-4 grid gap-2">
-        <input
-          placeholder="Your name (optional)"
-          disabled
-          className="w-full rounded-md border border-slate-200 bg-white/50 px-3 py-2 text-sm text-slate-500 dark:border-slate-700 dark:bg-slate-900/50 dark:text-slate-400"
-        />
         <textarea
           placeholder="Write a comment..."
           rows={3}
-          disabled
           className="w-full resize-none rounded-md border border-slate-200 bg-white/50 px-3 py-2 text-sm text-slate-500 dark:border-slate-700 dark:bg-slate-900/50 dark:text-slate-400"
         />
         <div className="flex justify-end">
