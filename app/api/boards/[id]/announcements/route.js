@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { connectDatabase } from "@/libs/connectDatabase";
 import Announcements from "@/libs/models/annoucements.models";
+import Boards from "@/libs/models/boards.models";
 
 export async function GET(req, { params }) {
   const { id } = await params;
@@ -16,7 +17,9 @@ export async function GET(req, { params }) {
 
   try {
     await connectDatabase();
-    const announcement = await Announcements.find({ boardId: id });
+    const announcement = await Announcements.find({ boardId: id }).populate(
+      "boardId"
+    );
 
     return NextResponse.json(
       { announcement },
@@ -39,7 +42,6 @@ export async function POST(req, { params }) {
   const { id } = await params;
   const data = await req.json();
   const { tag, title, description } = data;
-  console.log(data);
 
   if (!id) {
     return NextResponse.json(
@@ -104,11 +106,23 @@ export async function POST(req, { params }) {
     );
   }
 
-
-  return NextResponse.json(
-    { error: "POST a new annoucement" },
-    {
-      status: 200,
-    }
-  );
+  try {
+    await connectDatabase();
+    const board = await Boards.findOne({ _id: id });
+    console.log(board);
+    return NextResponse.json(
+      { error: "POST a new annoucement" },
+      {
+        status: 200,
+      }
+    );
+  } catch (err) {
+    console.log(err);
+    return NextResponse.json(
+      { error: "An error occurred while creating announcement" },
+      {
+        status: 500,
+      }
+    );
+  }
 }
