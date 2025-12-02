@@ -4,20 +4,14 @@ import MobileNavigation from "@/components/dashboard/mobilenavigation";
 import Toggle from "@/components/toggle";
 import { redirect } from "next/navigation";
 import { FiSearch, FiBell } from "react-icons/fi";
-import { cookies } from "next/headers";
-import { BASE_URL } from "@/libs/config";
+import { getUserInfomation } from "@/components/dashboard/userdetails";
+
 export default async function Layout({ children }) {
   const session = await auth();
   if (!session || !session?.user) return redirect("/login");
 
-  const userRequest = await fetch(`${BASE_URL}/api/users`, {
-    method: "GET",
-    headers: {
-      Cookie: (await cookies()).toString(),
-      "Content-Type": "application/json",
-    },
-  });
-  const { user } = await userRequest.json();
+  const data = await getUserInfomation();
+  const { user } = data;
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:bg-[radial-gradient(circle_at_top,#13294b,#050912_75%)] dark:text-slate-100">

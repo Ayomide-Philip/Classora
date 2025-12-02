@@ -3,7 +3,6 @@ import OverviewAnnoucement from "@/components/dashboard/overview/annoucements";
 import OverviewStats from "@/components/dashboard/overview/stats";
 // import ActiveBoardHeader from "./activeBoardHeader";
 export default function ActiveBoard({ board }) {
-  console.log(board);
   return (
     <>
       {/* <ActiveBoardHeader board={board} /> */}
