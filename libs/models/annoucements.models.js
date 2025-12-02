@@ -21,6 +21,15 @@ const annoucementSchema = new Schema(
       type: String,
       required: true,
     },
+    comments: {
+      type: [Schema.Types.ObjectId],
+      ref: "Comments",
+      default: [],
+    },
+    allowComment: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,

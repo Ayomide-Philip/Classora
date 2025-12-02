@@ -97,6 +97,11 @@ const boardsSchema = new Schema(
       ref: "Posts",
       default: [],
     },
+    classes: {
+      type: [Schema.Types.ObjectId],
+      ref: "Classes",
+      default: [],
+    },
     joinCode: {
       type: String,
       unique: true,
