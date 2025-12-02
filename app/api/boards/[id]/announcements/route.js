@@ -108,9 +108,10 @@ export async function POST(req, { params }) {
 
   try {
     await connectDatabase();
-
+    // check if the board exist
     const board = await Boards.findOne({ _id: id });
     console.log(board);
+    // if it doesn't exist return an error
     if (!board) {
       return NextResponse.json(
         { error: "Board does not exist" },
@@ -119,13 +120,14 @@ export async function POST(req, { params }) {
         }
       );
     }
+    // if it exists create an annoucements
     const annoucement = await Announcements.create({
       tag,
       title,
       description,
       boardId: id,
     });
-
+    // After creating an annoucements push it to the board.annoucement
     board.announcement.push(annoucement._id);
     await board.save();
 
