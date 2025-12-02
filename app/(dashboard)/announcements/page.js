@@ -7,9 +7,6 @@ import { cookies } from "next/headers";
 
 export default async function Page() {
   const { boardId } = await getUserInfomation();
-  if (!boardId) {
-    return <EmptyAnnoucements />;
-  }
   const annoucementRequest = await fetch(
     `${BASE_URL}/api/boards/${boardId}/announcements`,
     {
@@ -45,7 +42,7 @@ export default async function Page() {
     <main className="px-4 py-6 md:px-8 lg:px-10">
       <div className="mx-auto max-w-6xl">
         <AnnoucementsHeader />
-        {announcement.length === 0 || !annoucementRequest.ok ? (
+        {announcement?.length === 0 || !annoucementRequest.ok ? (
           <EmptyAnnoucements />
         ) : (
           <AnnoucementsCourses annoucements={announcement} />
