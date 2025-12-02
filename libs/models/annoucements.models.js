@@ -5,10 +5,18 @@ const annoucementSchema = new Schema(
     boardId: {
       type: Schema.Types.ObjectId,
       ref: "Boards",
+      required: true,
     },
-      tag:{
-        t
-      }
+    tag: {
+      type: String,
+      required: true,
+      minLength: 3,
+    },
+    title: {
+      type: String,
+      required: true,
+      minLength: 5,
+    },
   },
   {
     timestamps: true,
