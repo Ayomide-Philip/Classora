@@ -5,7 +5,6 @@ export default function EmptyAnnoucements() {
   return (
     <section className="mx-auto max-w-5xl px-4 py-12">
       <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-white to-sky-50/60 p-6 shadow-md dark:from-slate-900/80 dark:to-slate-800/70 md:p-10">
-        {/* Decorative blurred circles */}
         <div
           aria-hidden
           className="pointer-events-none absolute -right-16 -top-12 h-56 w-56 rounded-full bg-sky-200/40 blur-3xl dark:bg-sky-900/20"
@@ -16,12 +15,10 @@ export default function EmptyAnnoucements() {
         />
 
         <div className="relative z-10 md:flex md:items-center md:gap-8">
-          {/* Illustration */}
           <div className="flex flex-none items-center justify-center rounded-2xl bg-white/60 p-5 shadow-sm dark:bg-slate-900/60 md:p-8">
             <BellOff className="h-12 w-12 text-slate-400 dark:text-slate-500" />
           </div>
 
-          {/* Main text and CTAs */}
           <div className="mt-5 text-center md:mt-0 md:text-left">
             <h2 className="text-xl font-semibold text-slate-900 dark:text-white md:text-2xl">
               No announcements yet
