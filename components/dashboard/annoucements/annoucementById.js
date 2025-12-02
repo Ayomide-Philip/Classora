@@ -1,9 +1,11 @@
 import { ArrowLeft, Calendar, Tag, User } from "lucide-react";
 import Link from "next/link";
-export default function AnnoucementById({ announcement }) {
+import Comments from "./comments";
+export default function AnnoucementById({ announcement, announcementId }) {
+  console.log(announcementId);
+
   return (
     <>
-      {" "}
       <div className="mx-auto max-w-4xl">
         <div className="mb-4">
           <Link
@@ -78,7 +80,13 @@ export default function AnnoucementById({ announcement }) {
           </footer>
         </article>
       </div>
-      
+
+      {/* Comments placed in their own card/container */}
+      <div className="mt-6 mx-auto max-w-4xl">
+        <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/70">
+          <Comments announcementId={announcementId} />
+        </div>
+      </div>
     </>
   );
 }

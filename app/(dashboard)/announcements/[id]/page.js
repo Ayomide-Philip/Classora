@@ -55,7 +55,7 @@ export default async function Page({ params }) {
 
   return (
     <main className="px-4 py-6 sm:py-10">
-      <AnnoucementById announcement={announcement} />
+      <AnnoucementById announcement={announcement} announcementId={id} />
     </main>
   );
 }
