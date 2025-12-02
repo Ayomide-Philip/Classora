@@ -108,16 +108,29 @@ export async function POST(req, { params }) {
 
   try {
     await connectDatabase();
+
     const board = await Boards.findOne({ _id: id });
     console.log(board);
+    if (!board) {
+      return NextResponse.json(
+        { error: "Board does not exist" },
+        {
+          status: 400,
+        }
+      );
+    }
     const annoucement = await Announcements.create({
       tag,
       title,
       description,
       boardId: id,
     });
+
+    board.announcement.push(annoucement._id);
+    await board.save();
+
     return NextResponse.json(
-      { annoucement },
+      { annoucement, message: "Announcement created successfully", board },
       {
         status: 200,
       }
