@@ -17,6 +17,10 @@ const annoucementSchema = new Schema(
       required: true,
       minLength: 5,
     },
+    description: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,
