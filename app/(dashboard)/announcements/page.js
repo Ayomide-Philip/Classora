@@ -19,7 +19,6 @@ export default async function Page() {
   );
 
   const { announcement } = await annoucementRequest.json();
-  console.log(announcement);
   // const annoucement = [
   //   {
   //     title: "Physics 101",

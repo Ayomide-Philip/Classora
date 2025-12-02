@@ -68,6 +68,43 @@ export async function POST(req, { params }) {
     );
   }
 
+  if (!title || !title.trim()) {
+    return NextResponse.json(
+      { error: "Announcement title is required" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  if (title.trim().length < 5) {
+    return NextResponse.json(
+      { error: "Annoucement title should be at least 5 characters" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  if (!description || !description.trim()) {
+    return NextResponse.json(
+      { error: "Annoucement description is required" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  if (description.trim().length < 5) {
+    return NextResponse.json(
+      { error: "Announcement description should be at least 5 characters" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+
   return NextResponse.json(
     { error: "POST a new annoucement" },
     {
