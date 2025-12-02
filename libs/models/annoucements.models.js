@@ -26,10 +26,6 @@ const annoucementSchema = new Schema(
       ref: "Comments",
       default: [],
     },
-    allowComment: {
-      type: Boolean,
-      default: false,
-    },
   },
   {
     timestamps: true,

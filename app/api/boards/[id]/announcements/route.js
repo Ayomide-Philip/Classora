@@ -110,8 +110,14 @@ export async function POST(req, { params }) {
     await connectDatabase();
     const board = await Boards.findOne({ _id: id });
     console.log(board);
+    const annoucement = await Announcements.create({
+      tag,
+      title,
+      description,
+      boardId: id,
+    });
     return NextResponse.json(
-      { error: "POST a new annoucement" },
+      { annoucement },
       {
         status: 200,
       }
