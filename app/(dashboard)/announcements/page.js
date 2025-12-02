@@ -45,7 +45,7 @@ export default async function Page() {
     <main className="px-4 py-6 md:px-8 lg:px-10">
       <div className="mx-auto max-w-6xl">
         <AnnoucementsHeader />
-        {announcement.length === 0 ? (
+        {announcement.length === 0 || !annoucementRequest.ok ? (
           <EmptyAnnoucements />
         ) : (
           <AnnoucementsCourses annoucements={announcement} />
