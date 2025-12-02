@@ -36,5 +36,42 @@ export async function GET(req, { params }) {
 }
 
 export async function POST(req, { params }) {
-    
+  const { id } = await params;
+  const data = await req.json();
+  const { tag, title, description } = data;
+  console.log(data);
+
+  if (!id) {
+    return NextResponse.json(
+      { error: "User has no board" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  if (!tag || !tag.trim()) {
+    return NextResponse.json(
+      { error: "No tag is provided" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  if (tag.trim().length < 3) {
+    return NextResponse.json(
+      { error: "Tag should be at least 3 characters" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  return NextResponse.json(
+    { error: "POST a new annoucement" },
+    {
+      status: 200,
+    }
+  );
 }

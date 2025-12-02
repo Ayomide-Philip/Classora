@@ -301,7 +301,7 @@ export const POST = auth(async function POST(req) {
       joinMode: joinMode,
       seatLimit: seatLimit,
       allowComments: allowComments,
-      allowPosts: allowPosts,
+      allowPost: allowPosts,
       students: [userId],
       joinCode,
     });
