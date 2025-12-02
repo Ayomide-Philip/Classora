@@ -1,4 +1,5 @@
 import AnnoucementsCourses from "@/components/dashboard/annoucements/courses";
+import EmptyAnnoucements from "@/components/dashboard/annoucements/emptyannoucements";
 import AnnoucementsHeader from "@/components/dashboard/annoucements/header";
 
 export default function Page() {
@@ -24,7 +25,9 @@ export default function Page() {
     <main className="px-4 py-6 md:px-8 lg:px-10">
       <div className="mx-auto max-w-6xl">
         <AnnoucementsHeader />
-        {annoucements.length === 0 ? null : (
+        {annoucements.length === 0 ? (
+          <EmptyAnnoucements />
+        ) : (
           <AnnoucementsCourses annoucements={annoucements} />
         )}
       </div>
