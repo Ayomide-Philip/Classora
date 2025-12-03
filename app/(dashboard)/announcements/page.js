@@ -8,7 +8,7 @@ import { Plus } from "lucide-react";
 import Link from "next/link";
 
 export default async function Page() {
-  const { boardId } = await getUserInfomation();
+  const { boardId, role } = await getUserInfomation();
   const annoucementRequest = await fetch(
     `${BASE_URL}/api/boards/${boardId}/announcements`,
     {
