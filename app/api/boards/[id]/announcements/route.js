@@ -110,7 +110,6 @@ export async function POST(req, { params }) {
     await connectDatabase();
     // check if the board exist
     const board = await Boards.findOne({ _id: id });
-    console.log(board);
     // if it doesn't exist return an error
     if (!board) {
       return NextResponse.json(

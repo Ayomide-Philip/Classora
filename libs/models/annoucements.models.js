@@ -7,6 +7,11 @@ const annoucementSchema = new Schema(
       ref: "Boards",
       required: true,
     },
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: "Users",
+      required: true,
+    },
     tag: {
       type: String,
       required: true,
