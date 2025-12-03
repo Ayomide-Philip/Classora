@@ -76,7 +76,7 @@ export default function CodeFound({ code, board }) {
             <div className="flex flex-col items-center rounded-xl bg-gray-50 px-4 py-3 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition">
               <FileText className="mb-1 h-5 w-5 text-purple-500" />
               <span className="text-lg font-bold text-gray-900 dark:text-white">
-                {board.allowPosts ? "On" : "Off"}
+                {board.allowPost ? "On" : "Off"}
               </span>
               <span className="text-xs text-gray-500 dark:text-gray-400">
                 Posts
