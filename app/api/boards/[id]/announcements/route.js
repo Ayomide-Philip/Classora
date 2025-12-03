@@ -3,6 +3,7 @@ import { connectDatabase } from "@/libs/connectDatabase";
 import Announcements from "@/libs/models/annoucements.models";
 import Boards from "@/libs/models/boards.models";
 import { auth } from "@/auth";
+import Users from "@/libs/models/user.models";
 
 export async function GET(req, { params }) {
   const { id } = await params;
@@ -132,6 +133,43 @@ export const POST = auth(async function POST(req, { params }) {
     if (!board) {
       return NextResponse.json(
         { error: "Board does not exist" },
+        {
+          status: 400,
+        }
+      );
+    }
+    // check if the user has the authorized role to post an annoucements
+    const user = await Users.findOne({ _id: userId });
+    if (!user) {
+      return NextResponse.json(
+        { error: "User does not exist" },
+        {
+          status: 400,
+        }
+      );
+    }
+
+    if (!user?.board?.boardId) {
+      return NextResponse.json(
+        { error: "User doesn't have a board" },
+        {
+          status: 400,
+        }
+      );
+    }
+
+    if (!user?.board?.boardId.equals(board?._id)) {
+      return NextResponse.json(
+        { error: "User doesn't belong to this board" },
+        {
+          status: 400,
+        }
+      );
+    }
+
+    if (user?.board?.role !== "admin" && user?.board?.role !== "owner") {
+      return NextResponse.json(
+        { error: "You are not an admin or owner" },
         {
           status: 400,
         }

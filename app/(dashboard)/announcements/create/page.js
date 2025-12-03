@@ -1,6 +1,9 @@
 import AnnoucementForm from "@/components/dashboard/annoucements/form";
-
-export default function Page() {
+import { getUserInfomation } from "@/components/dashboard/userdetails";
+import { redirect } from "next/navigation";
+export default async function Page() {
+  const { boardId, role } = await getUserInfomation();
+  if (!role || role === "member") return redirect("/announcements");
   return (
     <div className="min-h-[60vh] bg-transparent px-4 py-10">
       <div className="mx-auto w-full max-w-3xl">
@@ -14,7 +17,7 @@ export default function Page() {
           </p>
         </header>
 
-        <AnnoucementForm />
+        <AnnoucementForm boardId={boardId} />
       </div>
     </div>
   );

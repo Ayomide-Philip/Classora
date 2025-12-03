@@ -2,9 +2,8 @@
 import Link from "next/link";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { getUserInfomation } from "@/components/dashboard/userdetails";
 
-export default function AnnoucementForm() {
+export default function AnnoucementForm({ boardId }) {
   const [title, setTitle] = useState("");
   const [tag, setTag] = useState("");
   const [description, setDescription] = useState("");
@@ -31,11 +30,6 @@ export default function AnnoucementForm() {
       return toast.error(
         "Annoucement description should be at least 5 characters"
       );
-    }
-    // get the board id
-    const { boardId } = await getUserInfomation();
-    if (!boardId) {
-      return toast.error("Invalid parameter");
     }
     // send it to the database
     const request = await fetch(`/api/boards/${boardId}/announcements`, {
@@ -143,7 +137,7 @@ export default function AnnoucementForm() {
           </Link>
         </div>
 
-        <div className="text-sm text-slate-500 dark:text-slate-400">
+        <div className="hidden sm:block text-sm text-slate-500 dark:text-slate-400">
           Tip: Use clear titles for faster scanning
         </div>
       </div>
