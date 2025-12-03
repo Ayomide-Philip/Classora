@@ -30,12 +30,12 @@ export default function EmptyAnnoucements() {
             </p>
 
             <div className="mt-5 flex flex-col items-center gap-3 md:flex-row md:items-center">
-              <Link
+              {/* <Link
                 href="/announcements/create"
                 className="inline-flex w-full items-center justify-center rounded-full bg-sky-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-500 md:w-auto"
               >
                 Create announcement
-              </Link>
+              </Link> */}
 
               <Link
                 href="/overview"
