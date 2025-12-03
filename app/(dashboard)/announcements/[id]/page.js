@@ -7,7 +7,6 @@ import { cookies } from "next/headers";
 export default async function Page({ params }) {
   const { id } = await params;
   const { boardId } = await getUserInfomation();
-  console.log(boardId, id);
 
   const annoucementByIdRequest = await fetch(
     `${BASE_URL}/api/boards/${boardId}/announcements/${id}`,
@@ -35,7 +34,7 @@ export default async function Page({ params }) {
           </p>
           <div className="mt-4 flex items-center justify-center gap-3">
             <Link
-              href="/dashboard/announcements"
+              href="/announcements"
               className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold dark:border-slate-700 dark:bg-slate-900/70 dark:text-white"
             >
               Back to announcements
@@ -48,7 +47,7 @@ export default async function Page({ params }) {
 
   return (
     <main className="px-4 py-6 sm:py-10">
-      <AnnoucementById announcement={announcement} announcementId={id} />
+      <AnnoucementById announcement={announcement} />
     </main>
   );
 }

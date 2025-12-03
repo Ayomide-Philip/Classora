@@ -1,54 +1,39 @@
-export default function Comments({ announcementId }) {
-  const DEFAULTS = {
-    "physics-101": [
-      {
-        id: 1,
-        author: "Dr. Mensah",
-        text: "Note: bring safety goggles to the rescheduled lab.",
-        createdAt: new Date().toISOString(),
-      },
-      {
-        id: 4,
-        author: "Student A",
-        text: "Thanks for the heads up — will there be an extra lab session for those who miss it?",
-        createdAt: new Date().toISOString(),
-      },
-    ],
-    "advanced-algebra": [
-      {
-        id: 2,
-        author: "Ms. Okoye",
-        text: "Homework 7 is graded out of 20. Show all workings.",
-        createdAt: new Date().toISOString(),
-      },
-      {
-        id: 5,
-        author: "Student B",
-        text: "Is there a sample problem set we can practice with?",
-        createdAt: new Date().toISOString(),
-      },
-    ],
-    "world-history": [
-      {
-        id: 3,
-        author: "History Dept.",
-        text: "Parents: remember permission slips for the museum trip.",
-        createdAt: new Date().toISOString(),
-      },
-      {
-        id: 6,
-        author: "Parent C",
-        text: "Submitted the permission slip yesterday — please confirm receipt.",
-        createdAt: new Date().toISOString(),
-      },
-    ],
-  };
-
-  const comments = DEFAULTS[announcementId] ?? [
+export default function Comments({ comments, userId }) {
+  const DEFAULTS = [
     {
-      id: "sample-1",
-      author: "Staff",
-      text: "No specific comments for this announcement yet.",
+      id: 1,
+      author: "Dr. Mensah",
+      text: "Note: bring safety goggles to the rescheduled lab.",
+      createdAt: new Date().toISOString(),
+    },
+    {
+      id: 4,
+      author: "Student A",
+      text: "Thanks for the heads up — will there be an extra lab session for those who miss it?",
+      createdAt: new Date().toISOString(),
+    },
+    {
+      id: 2,
+      author: "Ms. Okoye",
+      text: "Homework 7 is graded out of 20. Show all workings.",
+      createdAt: new Date().toISOString(),
+    },
+    {
+      id: 5,
+      author: "Student B",
+      text: "Is there a sample problem set we can practice with?",
+      createdAt: new Date().toISOString(),
+    },
+    {
+      id: 3,
+      author: "History Dept.",
+      text: "Parents: remember permission slips for the museum trip.",
+      createdAt: new Date().toISOString(),
+    },
+    {
+      id: 6,
+      author: "Parent C",
+      text: "Submitted the permission slip yesterday — please confirm receipt.",
       createdAt: new Date().toISOString(),
     },
   ];
@@ -77,7 +62,7 @@ export default function Comments({ announcementId }) {
       </div>
 
       <div className="space-y-3">
-        {comments.map((c) => (
+        {DEFAULTS.map((c) => (
           <div
             key={c.id}
             className="rounded-lg border border-slate-200 bg-white p-3 text-sm dark:border-slate-700 dark:bg-slate-900/70"
