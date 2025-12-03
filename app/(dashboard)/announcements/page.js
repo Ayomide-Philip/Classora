@@ -4,6 +4,8 @@ import AnnoucementsHeader from "@/components/dashboard/annoucements/header";
 import { BASE_URL } from "@/libs/config";
 import { getUserInfomation } from "@/components/dashboard/userdetails";
 import { cookies } from "next/headers";
+import { Plus } from "lucide-react";
+import Link from "next/link";
 
 export default async function Page() {
   const { boardId } = await getUserInfomation();
@@ -19,7 +21,6 @@ export default async function Page() {
   );
 
   const { announcement } = await annoucementRequest.json();
-  // const annoucement = [
   //   {
   //     title: "Physics 101",
   //     nextEvent:
@@ -38,15 +39,23 @@ export default async function Page() {
   //   },
   // ];
   return (
-    <main className="px-4 py-6 md:px-8 lg:px-10">
-      <div className="mx-auto max-w-6xl">
-        <AnnoucementsHeader />
-        {announcement?.length === 0 || !annoucementRequest.ok ? (
-          <EmptyAnnoucements />
-        ) : (
-          <AnnoucementsCourses annoucements={announcement} />
-        )}
-      </div>
-    </main>
+    <div className="relative min-h-screen">
+      <main className="px-4 py-6 md:px-8 lg:px-10">
+        <div className="mx-auto max-w-6xl">
+          <AnnoucementsHeader />
+          {announcement?.length === 0 || !annoucementRequest.ok ? (
+            <EmptyAnnoucements />
+          ) : (
+            <AnnoucementsCourses annoucements={announcement} />
+          )}
+        </div>
+      </main>
+      <Link
+        href="/announcements/create"
+        className="fixed right-6 bottom-6 z-50 rounded-full bg-blue-600 p-4 text-white shadow-lg hover:bg-blue-700 cursor-pointer"
+      >
+        <Plus />
+      </Link>
+    </div>
   );
 }
