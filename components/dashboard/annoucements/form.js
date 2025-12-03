@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { getUserInfomation } from "@/components/dashboard/userdetails";
+
 export default function AnnoucementForm() {
   const [title, setTitle] = useState("");
   const [tag, setTag] = useState("");
@@ -30,8 +32,30 @@ export default function AnnoucementForm() {
         "Annoucement description should be at least 5 characters"
       );
     }
-    console.log(title, tag, description);
-    // sending it to the database
+    // get the board id
+    const { boardId } = await getUserInfomation();
+    if (!boardId) {
+      return toast.error("Invalid parameter");
+    }
+    // send it to the database
+    const request = await fetch(`/api/boards/${boardId}/announcements`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({
+        title: title,
+        description: description,
+        tag: tag,
+      }),
+    });
+    const response = await request.json();
+    if (!request.ok || response?.error) {
+      return toast.error(response?.error);
+    }
+
+    window.location.href = "/announcements";
   }
   return (
     <form

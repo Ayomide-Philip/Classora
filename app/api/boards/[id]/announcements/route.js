@@ -48,7 +48,6 @@ export async function GET(req, { params }) {
 }
 
 export const POST = auth(async function POST(req, { params }) {
-  console.log(req.auth);
   if (!req.auth || !req.auth.user) {
     return NextResponse.json(
       { error: "User is unauthorized" },
