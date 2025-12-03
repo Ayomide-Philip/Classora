@@ -24,12 +24,12 @@ export async function GET(req, { params }) {
   }
 
   try {
-    const annoucement = await Announcements.findOne({
+    const announcement = await Announcements.findOne({
       boardId: id,
       _id: annoucementId,
     }).populate("userId", "-password -email");
     return NextResponse.json(
-      { annoucement },
+      { announcement },
       {
         status: 200,
       }
