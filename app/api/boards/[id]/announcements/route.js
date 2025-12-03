@@ -5,7 +5,6 @@ import Boards from "@/libs/models/boards.models";
 
 export async function GET(req, { params }) {
   const { id } = await params;
-  console.log(id);
   if (!id) {
     return NextResponse.json(
       { error: "Board Id is missing" },
@@ -17,6 +16,15 @@ export async function GET(req, { params }) {
 
   try {
     await connectDatabase();
+    const board = await Boards.findById(id);
+    if (!board) {
+      return NextResponse.json(
+        { error: "Board not found" },
+        {
+          status: 400,
+        }
+      );
+    }
     const announcement = await Announcements.find({ boardId: id }).populate(
       "boardId"
     );

@@ -1,8 +1,8 @@
 export default function AnnoucementsCourses({ annoucements }) {
-  console.log(annoucements);
+  // console.log(annoucements);
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {annoucements.map(({ title, description, tag, createdAt }, idx) => (
+      {annoucements.map(({ title, description, tag, createdAt, _id }, idx) => (
         <article
           key={idx}
           className="group flex flex-col rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-lg dark:border-slate-800/60 dark:bg-slate-900/70 h-full"
@@ -37,7 +37,10 @@ export default function AnnoucementsCourses({ annoucements }) {
               })}
             </time>
             <div>
-              <a href="#" className="text-sky-500 hover:underline">
+              <a
+                href={`/announcements/${_id}`}
+                className="text-sky-500 hover:underline"
+              >
                 Read more
               </a>
             </div>
