@@ -41,7 +41,7 @@ export async function GET(req, { params }) {
 export async function POST(req, { params }) {
   const { id } = await params;
   const data = await req.json();
-  const { tag, title, description } = data;
+  const { tag, title, description, userId } = data;
 
   if (!id) {
     return NextResponse.json(
@@ -125,6 +125,7 @@ export async function POST(req, { params }) {
       title,
       description,
       boardId: id,
+      userId,
     });
     // After creating an annoucements push it to the board.annoucement
     board.announcement.push(annoucement._id);
