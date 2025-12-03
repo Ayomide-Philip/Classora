@@ -28,7 +28,7 @@ export default async function Page() {
         <div className="mx-auto max-w-6xl">
           <AnnoucementsHeader />
           {announcement?.length === 0 || !annoucementRequest.ok ? (
-            <EmptyAnnoucements />
+            <EmptyAnnoucements role={role} />
           ) : (
             <AnnoucementsCourses annoucements={announcement} />
           )}

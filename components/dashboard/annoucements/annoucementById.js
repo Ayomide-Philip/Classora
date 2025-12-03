@@ -58,7 +58,7 @@ export default function AnnoucementById({ announcement }) {
           </header>
 
           <div className="max-w-none text-slate-700 dark:text-slate-200">
-            {description.split("\n\n").map((para, idx) => (
+            {description.split("\n").map((para, idx) => (
               <p
                 key={idx}
                 className="mb-4 leading-relaxed text-sm sm:text-base"
