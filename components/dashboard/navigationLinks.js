@@ -13,7 +13,7 @@ import { FaChalkboard } from "react-icons/fa6";
 export const sidebarLinks = [
   { icon: FiGrid, label: "Overview", url: "/overview" },
   { icon: BsMegaphone, label: "Annoucements", url: "/announcements" },
-  { icon: FaChalkboard, label: "Classes", url: "/classes" },
+  { icon: FaChalkboard, label: "Board", url: "/board" },
   { icon: FiLayers, label: "Courses", url: "/courses" },
   { icon: FiUsers, label: "Students", url: "/students" },
   { icon: FiMail, label: "Messages", url: "/messages" },
