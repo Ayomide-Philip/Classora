@@ -57,5 +57,7 @@ const coursesSchema = new Schema(
   }
 );
 
+coursesSchema.index({ courseCode: 1, courseTitle: 1 }, { unique: true });
+
 const Courses = models.Courses || model("Courses", coursesSchema);
 export default Courses;
