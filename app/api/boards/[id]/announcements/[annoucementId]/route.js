@@ -30,7 +30,7 @@ export async function GET(req, { params }) {
       _id: annoucementId,
     })
       .populate("userId", "name")
-      .populate("boardId","allowComments");
+      .populate("boardId", "allowComments");
     return NextResponse.json(
       { announcement },
       {
