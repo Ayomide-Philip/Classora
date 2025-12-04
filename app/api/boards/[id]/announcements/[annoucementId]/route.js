@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import Announcements from "@/libs/models/annoucements.models";
 import Users from "@/libs/models/user.models";
+import Boards from "@/libs/models/boards.models";
 
 export async function GET(req, { params }) {
   const { id, annoucementId } = await params;
@@ -27,7 +28,9 @@ export async function GET(req, { params }) {
     const announcement = await Announcements.findOne({
       boardId: id,
       _id: annoucementId,
-    }).populate("userId", "-password -email");
+    })
+      .populate("userId", "name")
+      .populate("boardId","allowComments");
     return NextResponse.json(
       { announcement },
       {
