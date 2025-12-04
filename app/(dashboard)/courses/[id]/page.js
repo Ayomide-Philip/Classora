@@ -26,7 +26,7 @@ export default function CoursePage({ params }) {
     colorLight: "bg-sky-50 dark:bg-sky-950/40",
     colorText: "text-sky-600 dark:text-sky-400",
     credits: 3,
-    semester: "Fall 2025",
+    semester: "Rain 2025",
     description:
       "An introductory course covering the fundamental principles of physics including mechanics, thermodynamics, waves, and basic electromagnetism. Students will develop problem-solving skills through theoretical concepts and practical experiments.",
     schedule: [

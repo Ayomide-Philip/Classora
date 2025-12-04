@@ -138,8 +138,9 @@ export default function Page() {
               (course.assignments.completed / course.assignments.total) * 100
             );
             return (
-              <div
+              <Link
                 key={course.id}
+                href={`/courses/${course.id}`}
                 className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:shadow-lg active:scale-[0.98] dark:border-slate-800 dark:bg-slate-900"
               >
                 {/* Colored top band */}
@@ -206,15 +207,11 @@ export default function Page() {
                         {course.nextClass}
                       </span>
                     </div>
-                    <Link
-                      href={`/courses/${course.id}`}
-                      className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
-                    >
-                      <ChevronRight className="h-4 w-4 text-slate-400 transition-transform group-hover:translate-x-0.5 dark:text-slate-500" />
-                    </Link>
+
+                    <ChevronRight className="h-4 w-4 text-slate-400 transition-transform group-hover:translate-x-0.5 dark:text-slate-500" />
                   </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
