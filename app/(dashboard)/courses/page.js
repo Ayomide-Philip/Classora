@@ -207,7 +207,7 @@ export default function Page() {
                       </span>
                     </div>
                     <Link
-                      href={`/board/${course.id}`}
+                      href={`/courses/${course.id}`}
                       className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
                     >
                       <ChevronRight className="h-4 w-4 text-slate-400 transition-transform group-hover:translate-x-0.5 dark:text-slate-500" />
