@@ -161,7 +161,7 @@ export default async function Page({ params }) {
       <div className="mx-auto max-w-2xl">
         {/* Back link */}
         <Link
-          href="/dashboard/board"
+          href="/board"
           className="mb-4 sm:mb-6 inline-flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
         >
           <ArrowLeft className="h-4 w-4" />

@@ -170,7 +170,7 @@ export default function Page() {
                   >
                     <div className="flex items-start gap-3 sm:gap-4">
                       <div
-                        className={`mt-0.5 h-full min-h-[3rem] sm:min-h-[3.5rem] w-1 rounded-full ${c.color}`}
+                        className={`mt-0.5 h-full min-h-12 sm:min-h-14 w-1 rounded-full ${c.color}`}
                       />
 
                       <div className="flex-1 min-w-0">
@@ -183,19 +183,19 @@ export default function Page() {
                               {c.teacher}
                             </p>
                           </div>
-                          <ChevronRight className="h-4 w-4 flex-shrink-0 text-slate-400 transition group-hover:translate-x-0.5 dark:text-slate-500" />
+                          <ChevronRight className="h-4 w-4 shrink-0 text-slate-400 transition group-hover:translate-x-0.5 dark:text-slate-500" />
                         </div>
 
                         <div className="mt-2 sm:mt-3 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                           {/* Time */}
                           <div className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400">
-                            <Clock className="h-3 w-3 flex-shrink-0" />
+                            <Clock className="h-3 w-3 shrink-0" />
                             <span>{c.time}</span>
                           </div>
 
                           {/* Venue */}
                           <div className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400">
-                            <MapPin className="h-3 w-3 flex-shrink-0" />
+                            <MapPin className="h-3 w-3 shrink-0" />
                             <span className="truncate">{c.venue}</span>
                           </div>
                         </div>
