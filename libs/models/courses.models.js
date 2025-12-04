@@ -7,6 +7,11 @@ const coursesSchema = new Schema(
       ref: "Boards",
       required: true,
     },
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: "Users",
+      required: true,
+    },
     courseTitle: {
       type: String,
       required: true,
@@ -22,8 +27,29 @@ const coursesSchema = new Schema(
       required: true,
       minLength: 10,
     },
-    courseCordinator: {
+    courseCoordinator: {
       type: String,
+    },
+    courseDepartment: {
+      type: String,
+    },
+    courseUnit: {
+      type: Number,
+      required: true,
+    },
+    semester: {
+      type: String,
+      required: true,
+    },
+    assignments: {
+      type: [Schema.Types.ObjectId],
+      ref: "Assignments",
+      default: [],
+    },
+    resources: {
+      type: [Schema.Types.ObjectId],
+      ref: "Resources",
+      default: [],
     },
   },
   {
