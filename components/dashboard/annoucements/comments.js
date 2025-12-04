@@ -44,7 +44,6 @@ export default function Comments({ comments, userId }) {
         Comments
       </h3>
 
-      {/* Static preview input area */}
       <div className="mb-4 flex items-start gap-3">
         <div className="flex-none">
           <div className="h-10 w-10 rounded-full bg-slate-100 text-sm font-semibold text-slate-800 dark:bg-slate-800 dark:text-white flex items-center justify-center">
@@ -67,9 +66,6 @@ export default function Comments({ comments, userId }) {
           </div>
         </div>
       </div>
-
-      {/* Helper to build initials */}
-      {/** compute initials for avatars */}
 
       <div className="space-y-3">
         {DEFAULTS.map((c) => {
