@@ -183,10 +183,20 @@ export async function POST(req, { params }) {
     );
   }
 
-  return NextResponse.json(
-    { boardId: id },
-    {
-      status: 200,
-    }
-  );
+  try {
+    return NextResponse.json(
+      { boardId: id },
+      {
+        status: 200,
+      }
+    );
+  } catch (err) {
+    console.log(err);
+    return NextResponse.json(
+      { error: "An error occurred while fetching registering a new courses" },
+      {
+        status: 400,
+      }
+    );
+  }
 }
