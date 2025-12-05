@@ -39,6 +39,17 @@ export async function GET(req, { params }) {
 export async function POST(req, { params }) {
   const { id } = await params;
   const data = await req.json();
+  const {
+    boardId,
+    userId,
+    courseTitle,
+    courseCode,
+    courseDescription,
+    courseCoordinator,
+    courseDepartment,
+    courseUnit,
+    semester,
+  } = data;
   console.log(data);
   return NextResponse.json(
     { boardId: id },
