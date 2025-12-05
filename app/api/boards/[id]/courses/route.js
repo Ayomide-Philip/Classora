@@ -17,7 +17,7 @@ export async function GET(req, { params }) {
       );
     }
     // check for all course where boardId = id
-    const course = await Courses.find({ boardId: id });
+    const course = await Courses.find({ boardId: id }).populate("boardId");
 
     return NextResponse.json(
       { course },
@@ -184,6 +184,7 @@ export async function POST(req, { params }) {
   }
 
   try {
+    await connectDatabase();
     return NextResponse.json(
       { boardId: id },
       {
