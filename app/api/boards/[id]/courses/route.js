@@ -39,7 +39,7 @@ export async function GET(req, { params }) {
 export async function POST(req, { params }) {
   const { id } = await params;
   const data = await req.json();
-  const {
+  let {
     userId,
     courseTitle,
     courseCode,
@@ -122,6 +122,61 @@ export async function POST(req, { params }) {
   if (courseDescription.trim().length < 10) {
     return NextResponse.json(
       { error: "Course Description should be at least 10 characters" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  // validating course coordinator
+  if (!courseCoordinator || !courseCoordinator.trim()) {
+    return NextResponse.json(
+      { error: "Course Coordinator is required" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  if (courseCoordinator.trim().length < 5) {
+    return NextResponse.json(
+      { error: "Course Coordinator should be at least 5 characters" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  // validating course department
+  if (courseDepartment && courseDepartment.trim().length < 5) {
+    return NextResponse.json(
+      { error: "Course Department should be at least 5 characters" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  // validating course unit
+  if (!courseUnit) {
+    return NextResponse.json(
+      { error: "Course Unit is required" },
+      {
+        status: 400,
+      }
+    );
+  }
+  //converting course unit to number
+  courseUnit = Number(courseUnit);
+
+  if (typeof courseUnit !== "number") {
+    return NextResponse.json({ error: "Course Unit should be a number" });
+  }
+
+  // validating semester
+  if (semester || !semester.trim().length < 3) {
+    return NextResponse.json(
+      { error: "Semester should be at least 3 characters" },
       {
         status: 400,
       }

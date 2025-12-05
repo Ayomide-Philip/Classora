@@ -29,6 +29,7 @@ const coursesSchema = new Schema(
     },
     courseCoordinator: {
       type: String,
+      required: true,
     },
     courseDepartment: {
       type: String,
