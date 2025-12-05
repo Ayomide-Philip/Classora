@@ -109,6 +109,25 @@ export async function POST(req, { params }) {
     );
   }
 
+  // validating the course description
+  if (!courseDescription || !courseDescription.trim()) {
+    return NextResponse.json(
+      { error: "Course Description is required" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  if (courseDescription.trim().length < 10) {
+    return NextResponse.json(
+      { error: "Course Description should be at least 10 characters" },
+      {
+        status: 400,
+      }
+    );
+  }
+
   return NextResponse.json(
     { boardId: id },
     {
