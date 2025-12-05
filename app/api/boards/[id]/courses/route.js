@@ -100,6 +100,15 @@ export async function POST(req, { params }) {
     );
   }
 
+  if (courseCode.trim().length < 3) {
+    return NextResponse.json(
+      { error: "Course Code should be at least 3 characters" },
+      {
+        status: 400,
+      }
+    );
+  }
+
   return NextResponse.json(
     { boardId: id },
     {
