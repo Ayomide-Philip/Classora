@@ -174,7 +174,7 @@ export async function POST(req, { params }) {
   }
 
   // validating semester
-  if (semester || !semester.trim().length < 3) {
+  if (semester && !semester.trim().length < 3) {
     return NextResponse.json(
       { error: "Semester should be at least 3 characters" },
       {
@@ -185,6 +185,18 @@ export async function POST(req, { params }) {
 
   try {
     await connectDatabase();
+    // check if the board exist
+    const board = await Boards.findOne({ _id: id, userId });
+    // if it doesn't exist return an error
+    if (!board) {
+      return NextResponse.json(
+        { error: "Board does not exist" },
+        {
+          status: 400,
+        }
+      );
+    }
+    // if it exists create a course
     return NextResponse.json(
       { boardId: id },
       {
