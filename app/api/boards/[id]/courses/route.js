@@ -37,8 +37,11 @@ export async function GET(req, { params }) {
 }
 
 export async function POST(req, { params }) {
+  const { id } = await params;
+  const data = await req.json();
+  console.log(data);
   return NextResponse.json(
-    { message: "POST new course" },
+    { boardId: id },
     {
       status: 200,
     }
