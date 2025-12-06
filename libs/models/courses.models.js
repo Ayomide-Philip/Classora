@@ -52,6 +52,11 @@ const coursesSchema = new Schema(
       ref: "Resources",
       default: [],
     },
+    stared: {
+      type: [Schema.Types.ObjectId],
+      ref: "Users",
+      default: [],
+    },
   },
   {
     timestamp: true,

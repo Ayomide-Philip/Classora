@@ -49,11 +49,14 @@ export async function GET(req, { params }) {
       );
     }
 
-    return NextResponse.json({
-      message: "GET a particular Course",
-      boardId: id,
-      courseId,
-    });
+    return NextResponse.json(
+      {
+        course,
+      },
+      {
+        status: 200,
+      }
+    );
   } catch (err) {
     console.log(err);
     return NextResponse.json(
