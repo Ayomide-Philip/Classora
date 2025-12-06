@@ -174,7 +174,7 @@ export async function POST(req, { params }) {
   }
 
   // validating semester
-  if (semester && !semester.trim().length < 3) {
+  if (semester && semester.trim().length < 3) {
     return NextResponse.json(
       { error: "Semester should be at least 3 characters" },
       {
@@ -197,13 +197,33 @@ export async function POST(req, { params }) {
       );
     }
     // if it exists create a course
+    const course = await Courses.create({
+      boardId: id,
+      userId,
+      courseTitle,
+      courseCode,
+      courseDescription,
+      courseUnit,
+      semester,
+    });
+    // adding it to the list of courses in the board
+
+    // returning back the course
     return NextResponse.json(
-      { boardId: id },
+      { course },
       {
         status: 200,
       }
     );
   } catch (err) {
+    if (err.code === 11000) {
+      return NextResponse.json(
+        { error: "You have create a course with this course code and title" },
+        {
+          status: 400,
+        }
+      );
+    }
     console.log(err);
     return NextResponse.json(
       { error: "An error occurred while fetching registering a new courses" },
