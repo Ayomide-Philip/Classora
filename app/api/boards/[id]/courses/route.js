@@ -49,7 +49,6 @@ export async function POST(req, { params }) {
     courseUnit,
     semester,
   } = data;
-  console.log(data);
 
   //  checking if the board exists
   if (!id) {
@@ -187,6 +186,7 @@ export async function POST(req, { params }) {
     await connectDatabase();
     // check if the board exist
     const board = await Boards.findOne({ _id: id, userId });
+
     // if it doesn't exist return an error
     if (!board) {
       return NextResponse.json(
@@ -196,6 +196,7 @@ export async function POST(req, { params }) {
         }
       );
     }
+
     // if it exists create a course
     const course = await Courses.create({
       boardId: id,
@@ -206,9 +207,11 @@ export async function POST(req, { params }) {
       courseUnit,
       semester,
     });
+
     // adding it to the list of courses in the board
     board?.course?.push(course?._id);
     await board.save();
+
     // returning back the course
     return NextResponse.json(
       { course },
