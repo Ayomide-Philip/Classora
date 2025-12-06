@@ -42,7 +42,7 @@ export const POST = auth(async function POST(req, { params }) {
     // check if board exist
     const board = await Boards.findOne({ joinCode: code });
 
-    //  if  board dosen't  exist
+    //  if  board doesn't  exist
     if (!board) {
       return NextResponse.json(
         { error: "Invalid code" },
