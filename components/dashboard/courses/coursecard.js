@@ -6,6 +6,7 @@ import {
   CheckCircle2,
   Circle,
   Star,
+  School,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -15,7 +16,6 @@ export default function CourseCard({ course }) {
     courseTitle,
     courseCode,
     courseCoordinator,
-    courseDepartment,
     courseUnit,
     semester,
     stared,
@@ -30,7 +30,6 @@ export default function CourseCard({ course }) {
       <div className={`h-2 bg-sky-500`} />
 
       <div className="p-4">
-        {/* Course code badge & credits */}
         <div className="flex items-center justify-between mb-3">
           <span
             className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-sky-50 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400`}
@@ -62,16 +61,26 @@ export default function CourseCard({ course }) {
           </div>
           {/* Progress dots */}
           <div className="flex gap-1.5">
-            {assignments.map((_, i) => (
-              <div
-                key={i}
-                className={`h-1.5 flex-1 rounded-full transition-colors ${
-                  i < assignments?.length
-                    ? "bg-sky-500"
-                    : "bg-slate-200 dark:bg-slate-700"
-                }`}
-              />
-            ))}
+            {assignments?.length <= 0 ? (
+              <>
+                <div
+                  className={`h-1.5 flex-1 rounded-full transition-colors bg-slate-200 dark:bg-slate-700`}
+                />
+              </>
+            ) : (
+              <>
+                {assignments.map((_, i) => (
+                  <div
+                    key={i}
+                    className={`h-1.5 flex-1 rounded-full transition-colors ${
+                      i < assignments?.length
+                        ? "bg-sky-500"
+                        : "bg-slate-200 dark:bg-slate-700"
+                    }`}
+                  />
+                ))}
+              </>
+            )}
           </div>
         </div>
 
@@ -85,6 +94,10 @@ export default function CourseCard({ course }) {
             <span className="flex items-center gap-1">
               <Star className="h-3.5 w-3.5" />
               {stared?.length || 0}
+            </span>
+            <span className="flex items-center gap-1">
+              <School className="h-3.5 w-3.5" />
+              {semester}
             </span>
           </div>
 
