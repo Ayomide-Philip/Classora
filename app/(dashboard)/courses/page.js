@@ -1,12 +1,4 @@
-import {
-  BookOpen,
-  FileText,
-  ChevronRight,
-  Clock,
-  CheckCircle2,
-  Circle,
-} from "lucide-react";
-import Link from "next/link";
+import CourseCard from "@/components/dashboard/courses/coursecard";
 
 export default function Page() {
   const courses = [
@@ -19,7 +11,7 @@ export default function Page() {
       colorLight: "bg-sky-50 dark:bg-sky-950/40",
       colorText: "text-sky-600 dark:text-sky-400",
       credits: 3,
-      nextClass: "Mon, 09:00",
+      nextClass: 3,
       materials: 12,
       assignments: { completed: 5, total: 8 },
     },
@@ -32,7 +24,7 @@ export default function Page() {
       colorLight: "bg-emerald-50 dark:bg-emerald-950/40",
       colorText: "text-emerald-600 dark:text-emerald-400",
       credits: 3,
-      nextClass: "Mon, 11:00",
+      nextClass: 2,
       materials: 15,
       assignments: { completed: 6, total: 7 },
     },
@@ -45,7 +37,7 @@ export default function Page() {
       colorLight: "bg-rose-50 dark:bg-rose-950/40",
       colorText: "text-rose-600 dark:text-rose-400",
       credits: 4,
-      nextClass: "Tue, 10:00",
+      nextClass: 1,
       materials: 18,
       assignments: { completed: 4, total: 9 },
     },
@@ -58,7 +50,7 @@ export default function Page() {
       colorLight: "bg-indigo-50 dark:bg-indigo-950/40",
       colorText: "text-indigo-600 dark:text-indigo-400",
       credits: 3,
-      nextClass: "Tue, 13:00",
+      nextClass: 5,
       materials: 22,
       assignments: { completed: 7, total: 8 },
     },
@@ -71,7 +63,7 @@ export default function Page() {
       colorLight: "bg-amber-50 dark:bg-amber-950/40",
       colorText: "text-amber-600 dark:text-amber-400",
       credits: 3,
-      nextClass: "Wed, 09:30",
+      nextClass: 10,
       materials: 14,
       assignments: { completed: 3, total: 6 },
     },
@@ -84,7 +76,7 @@ export default function Page() {
       colorLight: "bg-teal-50 dark:bg-teal-950/40",
       colorText: "text-teal-600 dark:text-teal-400",
       credits: 4,
-      nextClass: "Thu, 08:30",
+      nextClass: 2,
       materials: 20,
       assignments: { completed: 5, total: 7 },
     },
@@ -97,7 +89,7 @@ export default function Page() {
       colorLight: "bg-fuchsia-50 dark:bg-fuchsia-950/40",
       colorText: "text-fuchsia-600 dark:text-fuchsia-400",
       credits: 2,
-      nextClass: "Thu, 14:00",
+      nextClass: 1,
       materials: 8,
       assignments: { completed: 2, total: 4 },
     },
@@ -110,13 +102,11 @@ export default function Page() {
       colorLight: "bg-cyan-50 dark:bg-cyan-950/40",
       colorText: "text-cyan-600 dark:text-cyan-400",
       credits: 3,
-      nextClass: "Fri, 10:00",
+      nextClass: 5,
       materials: 16,
       assignments: { completed: 4, total: 6 },
     },
   ];
-
-  const totalCredits = courses.reduce((sum, c) => sum + c.credits, 0);
 
   return (
     <main className="px-4 py-6 sm:py-8 md:px-8">
@@ -127,92 +117,18 @@ export default function Page() {
             My Courses
           </h1>
           <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-            {courses.length} courses • {totalCredits} credit hours
+            {courses.length} courses •{" "}
+            {courses.reduce((sum, c) => sum + c.credits, 0)} credit hours
           </p>
         </header>
 
         {/* Course grid */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {courses.map((course) => {
+          {courses.map((course, idx) => {
             const progress = Math.round(
               (course.assignments.completed / course.assignments.total) * 100
             );
-            return (
-              <Link
-                key={course.id}
-                href={`/courses/${course.id}`}
-                className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:shadow-lg active:scale-[0.98] dark:border-slate-800 dark:bg-slate-900"
-              >
-                {/* Colored top band */}
-                <div className={`h-2 ${course.color}`} />
-
-                <div className="p-4">
-                  {/* Course code badge & credits */}
-                  <div className="flex items-center justify-between mb-3">
-                    <span
-                      className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${course.colorLight} ${course.colorText}`}
-                    >
-                      {course.code}
-                    </span>
-                    <span className="text-xs text-slate-400 dark:text-slate-500">
-                      {course.credits} credits
-                    </span>
-                  </div>
-
-                  {/* Title & Teacher */}
-                  <h2 className="text-base font-semibold text-slate-900 dark:text-white leading-tight">
-                    {course.title}
-                  </h2>
-                  <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-                    {course.teacher}
-                  </p>
-
-                  {/* Assignment progress */}
-                  <div className="mt-4">
-                    <div className="flex items-center justify-between text-xs mb-2">
-                      <span className="text-slate-500 dark:text-slate-400">
-                        Assignments
-                      </span>
-                      <span className="font-medium text-slate-700 dark:text-slate-300">
-                        {course.assignments.completed} of{" "}
-                        {course.assignments.total}
-                      </span>
-                    </div>
-                    {/* Progress dots */}
-                    <div className="flex gap-1.5">
-                      {Array.from({ length: course.assignments.total }).map(
-                        (_, i) => (
-                          <div
-                            key={i}
-                            className={`h-1.5 flex-1 rounded-full transition-colors ${
-                              i < course.assignments.completed
-                                ? course.color
-                                : "bg-slate-200 dark:bg-slate-700"
-                            }`}
-                          />
-                        )
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Bottom info row */}
-                  <div className="mt-4 flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
-                    <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
-                      <span className="flex items-center gap-1">
-                        <FileText className="h-3.5 w-3.5" />
-                        {course.materials}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="h-3.5 w-3.5" />
-                        {course.nextClass}
-                      </span>
-                    </div>
-
-                    <ChevronRight className="h-4 w-4 text-slate-400 transition-transform group-hover:translate-x-0.5 dark:text-slate-500" />
-                  </div>
-                </div>
-              </Link>
-            );
+            return <CourseCard course={course} key={idx} />;
           })}
         </div>
       </div>

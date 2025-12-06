@@ -5,29 +5,28 @@ import {
   Clock,
   CheckCircle2,
   Circle,
+  Star,
 } from "lucide-react";
 import Link from "next/link";
 
 export default function CourseCard({ course }) {
   return (
     <Link
-      key={course.id}
       href={`/courses/${course.id}`}
       className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:shadow-lg active:scale-[0.98] dark:border-slate-800 dark:bg-slate-900"
     >
-      {/* Colored top band */}
-      <div className={`h-2 bg-indigo-500`} />
+      <div className={`h-2 bg-sky-500`} />
 
       <div className="p-4">
         {/* Course code badge & credits */}
         <div className="flex items-center justify-between mb-3">
           <span
-            className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${course.colorLight} ${course.colorText}`}
+            className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-sky-50 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400`}
           >
             {course.code}
           </span>
           <span className="text-xs text-slate-400 dark:text-slate-500">
-            {course.credits} credits
+            {course.credits} Units
           </span>
         </div>
 
@@ -56,7 +55,7 @@ export default function CourseCard({ course }) {
                 key={i}
                 className={`h-1.5 flex-1 rounded-full transition-colors ${
                   i < course.assignments.completed
-                    ? course.color
+                    ? "bg-sky-500"
                     : "bg-slate-200 dark:bg-slate-700"
                 }`}
               />
@@ -72,7 +71,7 @@ export default function CourseCard({ course }) {
               {course.materials}
             </span>
             <span className="flex items-center gap-1">
-              <Clock className="h-3.5 w-3.5" />
+              <Star className="h-3.5 w-3.5" />
               {course.nextClass}
             </span>
           </div>
