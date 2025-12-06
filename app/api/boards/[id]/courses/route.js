@@ -205,6 +205,8 @@ export async function POST(req, { params }) {
       courseCode,
       courseDescription,
       courseUnit,
+      courseCoordinator,
+      courseDepartment,
       semester,
     });
 
@@ -214,7 +216,7 @@ export async function POST(req, { params }) {
 
     // returning back the course
     return NextResponse.json(
-      { course, message:"Course created successfully." },
+      { course, message: "Course created successfully." },
       {
         status: 200,
       }

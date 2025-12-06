@@ -10,9 +10,21 @@ import {
 import Link from "next/link";
 
 export default function CourseCard({ course }) {
+  let {
+    _id,
+    courseTitle,
+    courseCode,
+    courseCoordinator,
+    courseDepartment,
+    courseUnit,
+    semester,
+    stared,
+    resources,
+    assignments,
+  } = course;
   return (
     <Link
-      href={`/courses/${course.id}`}
+      href={`/courses/${_id}`}
       className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:shadow-lg active:scale-[0.98] dark:border-slate-800 dark:bg-slate-900"
     >
       <div className={`h-2 bg-sky-500`} />
@@ -23,19 +35,19 @@ export default function CourseCard({ course }) {
           <span
             className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-sky-50 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400`}
           >
-            {course.code}
+            {courseCode}
           </span>
           <span className="text-xs text-slate-400 dark:text-slate-500">
-            {course.credits} Units
+            {courseUnit} Units
           </span>
         </div>
 
         {/* Title & Teacher */}
         <h2 className="text-base font-semibold text-slate-900 dark:text-white leading-tight">
-          {course.title}
+          {courseTitle}
         </h2>
         <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-          {course.teacher}
+          {courseCoordinator}
         </p>
 
         {/* Assignment progress */}
@@ -45,16 +57,16 @@ export default function CourseCard({ course }) {
               Assignments
             </span>
             <span className="font-medium text-slate-700 dark:text-slate-300">
-              {course.assignments.completed} of {course.assignments.total}
+              {assignments?.length} of {assignments?.length}
             </span>
           </div>
           {/* Progress dots */}
           <div className="flex gap-1.5">
-            {Array.from({ length: course.assignments.total }).map((_, i) => (
+            {assignments.map((_, i) => (
               <div
                 key={i}
                 className={`h-1.5 flex-1 rounded-full transition-colors ${
-                  i < course.assignments.completed
+                  i < assignments?.length
                     ? "bg-sky-500"
                     : "bg-slate-200 dark:bg-slate-700"
                 }`}
@@ -68,11 +80,11 @@ export default function CourseCard({ course }) {
           <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
             <span className="flex items-center gap-1">
               <FileText className="h-3.5 w-3.5" />
-              {course.materials}
+              {resources?.length || 0}
             </span>
             <span className="flex items-center gap-1">
               <Star className="h-3.5 w-3.5" />
-              {course.nextClass}
+              {stared?.length || 0}
             </span>
           </div>
 
