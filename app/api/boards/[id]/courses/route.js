@@ -207,7 +207,8 @@ export async function POST(req, { params }) {
       semester,
     });
     // adding it to the list of courses in the board
-
+    board?.course?.push(course?._id);
+    await board.save();
     // returning back the course
     return NextResponse.json(
       { course },
