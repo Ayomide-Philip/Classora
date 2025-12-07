@@ -1,13 +1,4 @@
-import {
-  BookOpen,
-  FileText,
-  ChevronRight,
-  Clock,
-  CheckCircle2,
-  Circle,
-  Star,
-  School,
-} from "lucide-react";
+import { FileText, ChevronRight, Star, School } from "lucide-react";
 import Link from "next/link";
 
 export default function CourseCard({ course }) {
