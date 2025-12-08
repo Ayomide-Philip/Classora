@@ -2,6 +2,7 @@ import CourseCard from "@/components/dashboard/courses/coursecard";
 import { BASE_URL } from "@/libs/config";
 import { getUserInfomation } from "@/components/dashboard/userdetails";
 import { cookies } from "next/headers";
+import EmptyCourse from "@/components/dashboard/courses/emptyCourse";
 
 export default async function Page() {
   const { boardId } = await getUserInfomation();
@@ -32,11 +33,15 @@ export default async function Page() {
         </header>
 
         {/* Course grid */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {course.map((course, idx) => {
-            return <CourseCard course={course} key={idx} />;
-          })}
-        </div>
+        {course.length === 0 ? (
+          <EmptyCourse />
+        ) : (
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {course.map((course, idx) => {
+              return <CourseCard course={course} key={idx} />;
+            })}
+          </div>
+        )}
       </div>
     </main>
   );
