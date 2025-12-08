@@ -6,6 +6,7 @@ import { getUserInfomation } from "@/components/dashboard/userdetails";
 import { cookies } from "next/headers";
 import { Plus } from "lucide-react";
 import Link from "next/link";
+import CreateButton from "@/components/dashboard/createButton";
 
 export default async function Page() {
   const { boardId, role } = await getUserInfomation();
@@ -35,12 +36,7 @@ export default async function Page() {
         </div>
       </main>
       {role === "admin" || role === "owner" ? (
-        <Link
-          href="/announcements/create"
-          className="fixed right-6 bottom-6 z-50 rounded-full bg-blue-600 p-4 text-white shadow-lg hover:bg-blue-700 cursor-pointer"
-        >
-          <Plus />
-        </Link>
+        <CreateButton path={`/announcements/create`} />
       ) : null}
     </div>
   );
