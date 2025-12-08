@@ -11,26 +11,26 @@ export default function CourseHeader({ course }) {
             {course?.courseCode}
           </span>
           <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
-            {course.courseTitle}
+            {course?.courseTitle}
           </h1>
           <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-500 dark:text-slate-400">
             <span className="flex items-center gap-1.5">
               <User className="h-4 w-4" />
-              {course.courseCoordinator}
+              {course?.courseCoordinator}
             </span>
             <span className="flex items-center gap-1.5">
               <BookOpen className="h-4 w-4" />
-              {course.courseUnit} Unit
+              {course?.courseUnit} Unit
             </span>
             <span className="flex items-center gap-1.5">
               <Calendar className="h-4 w-4" />
-              {course.semester}
+              {course?.semester}
             </span>
           </div>
         </div>
       </div>
       <p className="mt-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-        {course.courseDescription}
+        {course?.courseDescription}
       </p>
     </header>
   );

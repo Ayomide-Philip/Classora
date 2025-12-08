@@ -26,7 +26,6 @@ export default async function CoursePage({ params }) {
   );
 
   const response = await request.json();
-  console.log(response);
   const { course } = response;
   // Static course data - in a real app this would be fetched based on params.id
   // const course = {
