@@ -45,11 +45,6 @@ export default function CourseNotFound() {
             Go to Dashboard
           </Link>
         </div>
-
-        {/* Help text */}
-        <p className="mt-8 text-xs text-slate-400 dark:text-slate-500">
-          Need help? Try searching for the course or contact support
-        </p>
       </div>
     </main>
   );
