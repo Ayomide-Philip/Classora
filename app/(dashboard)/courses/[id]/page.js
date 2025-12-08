@@ -14,7 +14,10 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-export default function CoursePage({ params }) {
+export default async function CoursePage({ params }) {
+  const { id } = await params;
+
+  
   // Static course data - in a real app this would be fetched based on params.id
   const course = {
     id: "physics-101",
@@ -146,7 +149,6 @@ export default function CoursePage({ params }) {
   return (
     <main className="px-4 py-6 sm:py-8 md:px-8 pb-24">
       <div className="mx-auto max-w-4xl">
-        {/* Back button */}
         <Link
           href="/courses"
           className="mb-6 inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
@@ -157,11 +159,13 @@ export default function CoursePage({ params }) {
 
         {/* Header */}
         <header className="mb-8">
-          <div className={`h-2 w-20 rounded-full ${course.color} mb-4`} />
+          <div
+            className={`h-2 w-20 rounded-full bg-sky-50 dark:bg-sky-950/40 mb-4`}
+          />
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
               <span
-                className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ${course.colorLight} ${course.colorText} mb-2`}
+                className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-sky-50 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400 mb-2`}
               >
                 {course.code}
               </span>
@@ -234,7 +238,7 @@ export default function CoursePage({ params }) {
                     </span>
                     {slot.type && (
                       <span
-                        className={`text-xs px-2 py-0.5 rounded-full ${course.colorLight} ${course.colorText}`}
+                        className={`text-xs px-2 py-0.5 rounded-full ${course.colorLight} text-sky-600 dark:text-sky-400`}
                       >
                         {slot.type}
                       </span>
@@ -303,7 +307,7 @@ export default function CoursePage({ params }) {
                     className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
                   >
                     <CheckCircle2
-                      className={`h-5 w-5 shrink-0 ${course.colorText}`}
+                      className={`h-5 w-5 shrink-0 text-sky-600 dark:text-sky-400`}
                     />
                     <div className="flex-1 min-w-0">
                       <p className="font-medium text-slate-900 dark:text-white truncate">
@@ -314,7 +318,7 @@ export default function CoursePage({ params }) {
                       </p>
                     </div>
                     <span
-                      className={`text-sm font-semibold ${course.colorText}`}
+                      className={`text-sm font-semibold text-sky-600 dark:text-sky-400`}
                     >
                       {a.score}
                     </span>
@@ -339,7 +343,9 @@ export default function CoursePage({ params }) {
                 <div
                   className={`flex h-10 w-10 items-center justify-center rounded-lg ${course.colorLight}`}
                 >
-                  <FileText className={`h-5 w-5 ${course.colorText}`} />
+                  <FileText
+                    className={`h-5 w-5 text-sky-600 dark:text-sky-400`}
+                  />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="font-medium text-slate-900 dark:text-white truncate">
@@ -365,7 +371,9 @@ export default function CoursePage({ params }) {
               <div
                 className={`flex h-12 w-12 items-center justify-center rounded-full ${course.colorLight}`}
               >
-                <span className={`text-lg font-semibold ${course.colorText}`}>
+                <span
+                  className={`text-lg font-semibold text-sky-600 dark:text-sky-400`}
+                >
                   {course.teacher
                     .split(" ")
                     .map((n) => n[0])
@@ -382,7 +390,7 @@ export default function CoursePage({ params }) {
               </div>
               <a
                 href={`mailto:${course.teacherEmail}`}
-                className={`rounded-lg px-4 py-2 text-sm font-medium ${course.colorLight} ${course.colorText} hover:opacity-80 transition`}
+                className={`rounded-lg px-4 py-2 text-sm font-medium ${course.colorLight} text-sky-600 dark:text-sky-400 hover:opacity-80 transition`}
               >
                 Contact
               </a>
