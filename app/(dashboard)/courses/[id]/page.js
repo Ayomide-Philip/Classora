@@ -18,6 +18,8 @@ import Link from "next/link";
 import { cookies } from "next/headers";
 import CourseSchedule from "@/components/dashboard/courses/schedule";
 import CourseAssignments from "@/components/dashboard/courses/assignments";
+import CourseProgressOverview from "@/components/dashboard/courses/progressOverview";
+import CourseMaterials from "@/components/dashboard/courses/materials";
 
 export default async function CoursePage({ params }) {
   const { id } = await params;
@@ -50,24 +52,6 @@ export default async function CoursePage({ params }) {
     semester: "Rain 2025",
     description:
       "An introductory course covering the fundamental principles of physics including mechanics, thermodynamics, waves, and basic electromagnetism. Students will develop problem-solving skills through theoretical concepts and practical experiments.",
-    materials: [
-      { id: 1, title: "Course Syllabus", type: "PDF", date: "Sep 2" },
-      {
-        id: 2,
-        title: "Chapter 1: Motion & Forces",
-        type: "PDF",
-        date: "Sep 5",
-      },
-      { id: 3, title: "Chapter 2: Energy & Work", type: "PDF", date: "Sep 12" },
-      {
-        id: 4,
-        title: "Lab Manual - Experiment 1",
-        type: "PDF",
-        date: "Sep 15",
-      },
-      { id: 5, title: "Midterm Study Guide", type: "PDF", date: "Oct 10" },
-      { id: 6, title: "Chapter 3: Waves", type: "PDF", date: "Oct 20" },
-    ],
     announcements: [
       {
         id: 1,
@@ -137,9 +121,6 @@ export default async function CoursePage({ params }) {
     },
   ];
 
-  const completedAssignments = assignments.filter(
-    (a) => a.status === "completed"
-  );
   return (
     <main className="px-4 py-6 sm:py-8 md:px-8 pb-24">
       <div className="mx-auto max-w-4xl">
@@ -186,30 +167,7 @@ export default async function CoursePage({ params }) {
         </header>
 
         {/* Progress overview */}
-        <section className="mb-8 rounded-xl border border-slate-200 bg-white p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-900">
-          <h2 className="text-sm font-semibold text-slate-900 dark:text-white mb-3">
-            Course Progress
-          </h2>
-          <div className="flex items-center gap-4">
-            <div className="flex-1">
-              <div className="flex gap-1">
-                {assignments.map((a, i) => (
-                  <div
-                    key={i}
-                    className={`h-2 flex-1 rounded-full ${
-                      a.status === "completed"
-                        ? "bg-sky-500"
-                        : "bg-slate-200 dark:bg-slate-700"
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
-            <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
-              {completedAssignments.length}/{assignments.length}
-            </span>
-          </div>
-        </section>
+        <CourseProgressOverview assignments={assignments} />
 
         {/* Schedule */}
         <CourseSchedule />
@@ -218,36 +176,7 @@ export default async function CoursePage({ params }) {
         <CourseAssignments assignments={assignments} />
 
         {/* Materials */}
-        <section className="mb-8">
-          <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">
-            Course Materials
-          </h2>
-          <div className="space-y-2">
-            {course.materials.map((m) => (
-              <div
-                key={m.id}
-                className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 transition hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700 cursor-pointer"
-              >
-                <div
-                  className={`flex h-10 w-10 items-center justify-center rounded-lg ${course.colorLight}`}
-                >
-                  <FileText
-                    className={`h-5 w-5 text-sky-600 dark:text-sky-400`}
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="font-medium text-slate-900 dark:text-white truncate">
-                    {m.title}
-                  </p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
-                    {m.type} • {m.date}
-                  </p>
-                </div>
-                <Download className="h-4 w-4 text-slate-400" />
-              </div>
-            ))}
-          </div>
-        </section>
+        <CourseMaterials />
 
         {/* Instructor */}
         <section>
