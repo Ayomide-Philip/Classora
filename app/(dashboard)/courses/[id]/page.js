@@ -1,3 +1,5 @@
+import { getUserInfomation } from "@/components/dashboard/userdetails";
+import { BASE_URL } from "@/libs/config";
 import {
   ArrowLeft,
   BookOpen,
@@ -16,8 +18,11 @@ import Link from "next/link";
 
 export default async function CoursePage({ params }) {
   const { id } = await params;
+  const { boardId } = await getUserInfomation();
 
-  
+  const request = await fetch(
+    `${BASE_URL}/api/boards/${boardId}/courses/${id}`
+  );
   // Static course data - in a real app this would be fetched based on params.id
   const course = {
     id: "physics-101",
