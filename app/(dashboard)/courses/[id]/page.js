@@ -9,6 +9,7 @@ import CourseProgressOverview from "@/components/dashboard/courses/progressOverv
 import CourseMaterials from "@/components/dashboard/courses/materials";
 import CourseInstructor from "@/components/dashboard/courses/instructor";
 import CourseHeader from "@/components/dashboard/courses/header";
+import CourseNotFound from "@/components/dashboard/courses/not-found";
 
 export default async function CoursePage({ params }) {
   const { id } = await params;
@@ -27,6 +28,9 @@ export default async function CoursePage({ params }) {
 
   const response = await request.json();
   const { course } = response;
+
+  if (response?.error || !request.ok) return <CourseNotFound />;
+
   // Static course data - in a real app this would be fetched based on params.id
   // const course = {
   //   id: "physics-101",
