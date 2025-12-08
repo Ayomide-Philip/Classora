@@ -3,9 +3,10 @@ import { BASE_URL } from "@/libs/config";
 import { getUserInfomation } from "@/components/dashboard/userdetails";
 import { cookies } from "next/headers";
 import EmptyCourse from "@/components/dashboard/courses/emptyCourse";
+import CreateButton from "@/components/dashboard/createButton";
 
 export default async function Page() {
-  const { boardId } = await getUserInfomation();
+  const { boardId, role } = await getUserInfomation();
   const request = await fetch(`${BASE_URL}/api/boards/${boardId}/courses`, {
     method: "GET",
     headers: {
@@ -42,6 +43,10 @@ export default async function Page() {
             })}
           </div>
         )}
+
+        {role === "admin" || role === "owner" ? (
+          <CreateButton path={`/courses/create`} />
+        ) : null}
       </div>
     </main>
   );
