@@ -8,19 +8,19 @@ export default function CourseHeader({ course }) {
           <span
             className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-sky-50 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400 mb-2`}
           >
-            {course.code}
+            {course?.courseCode}
           </span>
           <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
-            {course.title}
+            {course.courseTitle}
           </h1>
           <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-500 dark:text-slate-400">
             <span className="flex items-center gap-1.5">
               <User className="h-4 w-4" />
-              {course.teacher}
+              {course.courseCoordinator}
             </span>
             <span className="flex items-center gap-1.5">
               <BookOpen className="h-4 w-4" />
-              {course.credits} Credits
+              {course.courseUnit} Unit
             </span>
             <span className="flex items-center gap-1.5">
               <Calendar className="h-4 w-4" />
@@ -30,7 +30,7 @@ export default function CourseHeader({ course }) {
         </div>
       </div>
       <p className="mt-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-        {course.description}
+        {course.courseDescription}
       </p>
     </header>
   );

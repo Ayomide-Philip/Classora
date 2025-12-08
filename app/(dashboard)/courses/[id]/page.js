@@ -1,19 +1,6 @@
 import { getUserInfomation } from "@/components/dashboard/userdetails";
 import { BASE_URL } from "@/libs/config";
-import {
-  ArrowLeft,
-  BookOpen,
-  Clock,
-  MapPin,
-  User,
-  FileText,
-  CheckCircle2,
-  Circle,
-  Calendar,
-  Download,
-  ExternalLink,
-  ChevronRight,
-} from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { cookies } from "next/headers";
 import CourseSchedule from "@/components/dashboard/courses/schedule";
@@ -40,21 +27,22 @@ export default async function CoursePage({ params }) {
 
   const response = await request.json();
   console.log(response);
+  const { course } = response;
   // Static course data - in a real app this would be fetched based on params.id
-  const course = {
-    id: "physics-101",
-    title: "Physics 101",
-    code: "PHY101",
-    teacher: "Dr. Mensah",
-    teacherEmail: "mensah@university.edu",
-    color: "bg-sky-500",
-    colorLight: "bg-sky-50 dark:bg-sky-950/40",
-    colorText: "text-sky-600 dark:text-sky-400",
-    credits: 3,
-    semester: "Rain 2025",
-    description:
-      "An introductory course covering the fundamental principles of physics including mechanics, thermodynamics, waves, and basic electromagnetism. Students will develop problem-solving skills through theoretical concepts and practical experiments.",
-  };
+  // const course = {
+  //   id: "physics-101",
+  //   title: "Physics 101",
+  //   code: "PHY101",
+  //   teacher: "Dr. Mensah",
+  //   teacherEmail: "mensah@university.edu",
+  //   color: "bg-sky-500",
+  //   colorLight: "bg-sky-50 dark:bg-sky-950/40",
+  //   colorText: "text-sky-600 dark:text-sky-400",
+  //   credits: 3,
+  //   semester: "Rain 2025",
+  //   description:
+  //     "An introductory course covering the fundamental principles of physics including mechanics, thermodynamics, waves, and basic electromagnetism. Students will develop problem-solving skills through theoretical concepts and practical experiments.",
+  // };
 
   const assignments = [
     {
