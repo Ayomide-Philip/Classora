@@ -15,14 +15,27 @@ import {
   ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
+import { cookies } from "next/headers";
+import CourseSchedule from "@/components/dashboard/courses/schedule";
+import CourseAssignments from "@/components/dashboard/courses/assignments";
 
 export default async function CoursePage({ params }) {
   const { id } = await params;
   const { boardId } = await getUserInfomation();
 
   const request = await fetch(
-    `${BASE_URL}/api/boards/${boardId}/courses/${id}`
+    `${BASE_URL}/api/boards/${boardId}/courses/${id}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Cookie: (await cookies()).toString(),
+      },
+    }
   );
+
+  const response = await request.json();
+  console.log(response);
   // Static course data - in a real app this would be fetched based on params.id
   const course = {
     id: "physics-101",
@@ -37,24 +50,6 @@ export default async function CoursePage({ params }) {
     semester: "Rain 2025",
     description:
       "An introductory course covering the fundamental principles of physics including mechanics, thermodynamics, waves, and basic electromagnetism. Students will develop problem-solving skills through theoretical concepts and practical experiments.",
-    schedule: [
-      {
-        day: "Monday",
-        time: "09:00 - 10:30",
-        venue: "Science Block A, Room 201",
-      },
-      {
-        day: "Wednesday",
-        time: "09:00 - 10:30",
-        venue: "Science Block A, Room 201",
-      },
-      {
-        day: "Friday",
-        time: "14:00 - 16:00",
-        venue: "Physics Lab 3",
-        type: "Lab",
-      },
-    ],
     materials: [
       { id: 1, title: "Course Syllabus", type: "PDF", date: "Sep 2" },
       {
@@ -73,64 +68,6 @@ export default async function CoursePage({ params }) {
       { id: 5, title: "Midterm Study Guide", type: "PDF", date: "Oct 10" },
       { id: 6, title: "Chapter 3: Waves", type: "PDF", date: "Oct 20" },
     ],
-    assignments: [
-      {
-        id: 1,
-        title: "Problem Set 1: Kinematics",
-        dueDate: "Sep 10",
-        status: "completed",
-        score: "92/100",
-      },
-      {
-        id: 2,
-        title: "Lab Report 1: Free Fall",
-        dueDate: "Sep 20",
-        status: "completed",
-        score: "88/100",
-      },
-      {
-        id: 3,
-        title: "Problem Set 2: Forces",
-        dueDate: "Sep 28",
-        status: "completed",
-        score: "95/100",
-      },
-      {
-        id: 4,
-        title: "Midterm Exam",
-        dueDate: "Oct 15",
-        status: "completed",
-        score: "87/100",
-      },
-      {
-        id: 5,
-        title: "Problem Set 3: Energy",
-        dueDate: "Oct 25",
-        status: "completed",
-        score: "90/100",
-      },
-      {
-        id: 6,
-        title: "Lab Report 2: Pendulum",
-        dueDate: "Nov 5",
-        status: "pending",
-        score: null,
-      },
-      {
-        id: 7,
-        title: "Problem Set 4: Waves",
-        dueDate: "Nov 15",
-        status: "pending",
-        score: null,
-      },
-      {
-        id: 8,
-        title: "Final Project",
-        dueDate: "Dec 10",
-        status: "pending",
-        score: null,
-      },
-    ],
     announcements: [
       {
         id: 1,
@@ -141,16 +78,68 @@ export default async function CoursePage({ params }) {
     ],
   };
 
-  const completedAssignments = course.assignments.filter(
+  const assignments = [
+    {
+      id: 1,
+      title: "Problem Set 1: Kinematics",
+      dueDate: "Sep 10",
+      status: "completed",
+      score: "92/100",
+    },
+    {
+      id: 2,
+      title: "Lab Report 1: Free Fall",
+      dueDate: "Sep 20",
+      status: "completed",
+      score: "88/100",
+    },
+    {
+      id: 3,
+      title: "Problem Set 2: Forces",
+      dueDate: "Sep 28",
+      status: "completed",
+      score: "95/100",
+    },
+    {
+      id: 4,
+      title: "Midterm Exam",
+      dueDate: "Oct 15",
+      status: "completed",
+      score: "87/100",
+    },
+    {
+      id: 5,
+      title: "Problem Set 3: Energy",
+      dueDate: "Oct 25",
+      status: "completed",
+      score: "90/100",
+    },
+    {
+      id: 6,
+      title: "Lab Report 2: Pendulum",
+      dueDate: "Nov 5",
+      status: "pending",
+      score: null,
+    },
+    {
+      id: 7,
+      title: "Problem Set 4: Waves",
+      dueDate: "Nov 15",
+      status: "pending",
+      score: null,
+    },
+    {
+      id: 8,
+      title: "Final Project",
+      dueDate: "Dec 10",
+      status: "pending",
+      score: null,
+    },
+  ];
+
+  const completedAssignments = assignments.filter(
     (a) => a.status === "completed"
   );
-  const pendingAssignments = course.assignments.filter(
-    (a) => a.status === "pending"
-  );
-  const progress = Math.round(
-    (completedAssignments.length / course.assignments.length) * 100
-  );
-
   return (
     <main className="px-4 py-6 sm:py-8 md:px-8 pb-24">
       <div className="mx-auto max-w-4xl">
@@ -164,9 +153,7 @@ export default async function CoursePage({ params }) {
 
         {/* Header */}
         <header className="mb-8">
-          <div
-            className={`h-2 w-20 rounded-full bg-sky-50 dark:bg-sky-950/40 mb-4`}
-          />
+          <div className={`h-2 w-20 rounded-full bg-sky-500 mb-4`} />
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
               <span
@@ -206,12 +193,12 @@ export default async function CoursePage({ params }) {
           <div className="flex items-center gap-4">
             <div className="flex-1">
               <div className="flex gap-1">
-                {course.assignments.map((a, i) => (
+                {assignments.map((a, i) => (
                   <div
                     key={i}
                     className={`h-2 flex-1 rounded-full ${
                       a.status === "completed"
-                        ? course.color
+                        ? "bg-sky-500"
                         : "bg-slate-200 dark:bg-slate-700"
                     }`}
                   />
@@ -219,120 +206,16 @@ export default async function CoursePage({ params }) {
               </div>
             </div>
             <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
-              {completedAssignments.length}/{course.assignments.length}
+              {completedAssignments.length}/{assignments.length}
             </span>
           </div>
         </section>
 
         {/* Schedule */}
-        <section className="mb-8">
-          <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">
-            Schedule
-          </h2>
-          <div className="space-y-3">
-            {course.schedule.map((slot, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
-              >
-                <div className={`h-10 w-1 rounded-full ${course.color}`} />
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2">
-                    <span className="font-medium text-slate-900 dark:text-white">
-                      {slot.day}
-                    </span>
-                    {slot.type && (
-                      <span
-                        className={`text-xs px-2 py-0.5 rounded-full ${course.colorLight} text-sky-600 dark:text-sky-400`}
-                      >
-                        {slot.type}
-                      </span>
-                    )}
-                  </div>
-                  <div className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-500 dark:text-slate-400">
-                    <span className="flex items-center gap-1">
-                      <Clock className="h-3.5 w-3.5" />
-                      {slot.time}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <MapPin className="h-3.5 w-3.5" />
-                      {slot.venue}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+        <CourseSchedule />
 
         {/* Assignments */}
-        <section className="mb-8">
-          <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">
-            Assignments
-          </h2>
-
-          {/* Pending */}
-          {pendingAssignments.length > 0 && (
-            <div className="mb-4">
-              <h3 className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3">
-                Pending ({pendingAssignments.length})
-              </h3>
-              <div className="space-y-2">
-                {pendingAssignments.map((a) => (
-                  <div
-                    key={a.id}
-                    className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
-                  >
-                    <Circle className="h-5 w-5 text-slate-300 dark:text-slate-600 shrink-0" />
-                    <div className="flex-1 min-w-0">
-                      <p className="font-medium text-slate-900 dark:text-white truncate">
-                        {a.title}
-                      </p>
-                      <p className="text-xs text-slate-500 dark:text-slate-400">
-                        Due: {a.dueDate}
-                      </p>
-                    </div>
-                    <ChevronRight className="h-4 w-4 text-slate-400" />
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Completed */}
-          {completedAssignments.length > 0 && (
-            <div>
-              <h3 className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3">
-                Completed ({completedAssignments.length})
-              </h3>
-              <div className="space-y-2">
-                {completedAssignments.map((a) => (
-                  <div
-                    key={a.id}
-                    className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
-                  >
-                    <CheckCircle2
-                      className={`h-5 w-5 shrink-0 text-sky-600 dark:text-sky-400`}
-                    />
-                    <div className="flex-1 min-w-0">
-                      <p className="font-medium text-slate-900 dark:text-white truncate">
-                        {a.title}
-                      </p>
-                      <p className="text-xs text-slate-500 dark:text-slate-400">
-                        Submitted: {a.dueDate}
-                      </p>
-                    </div>
-                    <span
-                      className={`text-sm font-semibold text-sky-600 dark:text-sky-400`}
-                    >
-                      {a.score}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-        </section>
+        <CourseAssignments assignments={assignments} />
 
         {/* Materials */}
         <section className="mb-8">
