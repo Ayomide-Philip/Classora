@@ -1,28 +1,84 @@
+"use client";
 import CourseCode from "@/components/dashboard/courses/create/coursecode";
 import { Plus } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function CourseCreateForm() {
+  const [formData, setFormData] = useState({
+    courseCode: "",
+    courseTitle: "",
+    courseCoordinator: "",
+    courseUnit: "",
+    semester: "",
+    courseDescription: "",
+    courseDepartment: "",
+    prerequisites: "",
+  });
+
+  useEffect(() => {
+    console.log(formData);
+  }, [formData]);
+
+  function updateField(fieldName, value) {
+    setFormData((prev) => {
+      return { ...prev, [fieldName]: value };
+    });
+  }
+
   return (
     <form className="space-y-6">
       {/* Course Code & Title */}
-      <CourseCode />
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label className="block text-sm font-medium text-slate-900 dark:text-white mb-2">
+            Course Code
+          </label>
+          <input
+            type="text"
+            placeholder="e.g., PHY101"
+            className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500 dark:focus:border-sky-400 dark:focus:ring-sky-400/20 transition"
+            onChange={(e) => {
+              updateField("courseCode", e.target.value);
+            }}
+          />
+          <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+            Unique identifier for the course
+          </p>
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-slate-900 dark:text-white mb-2">
+            Course Title
+          </label>
+          <input
+            type="text"
+            placeholder="e.g., Physics 101"
+            className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500 dark:focus:border-sky-400 dark:focus:ring-sky-400/20 transition"
+            onChange={(e) => {
+              updateField("courseTitle", e.target.value);
+            }}
+          />
+        </div>
+      </div>
 
       {/* Instructor & Credits */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-slate-900 dark:text-white mb-2">
-            Instructor Name
+            Coordinator Name
           </label>
           <input
             type="text"
             placeholder="e.g., Dr. Mensah"
+            onChange={(e) => {
+              updateField("courseCoordinator", e.target.value);
+            }}
             className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500 dark:focus:border-sky-400 dark:focus:ring-sky-400/20 transition"
           />
         </div>
         <div>
           <label className="block text-sm font-medium text-slate-900 dark:text-white mb-2">
-            Credit Hours
+            Course Units
           </label>
           <input
             type="number"
@@ -30,32 +86,41 @@ export default function CourseCreateForm() {
             min="1"
             max="12"
             className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500 dark:focus:border-sky-400 dark:focus:ring-sky-400/20 transition"
+            onChange={(e) => {
+              updateField("courseUnit", e.target.value);
+            }}
           />
         </div>
       </div>
 
-      {/* Instructor Email & Semester */}
+      {/* Instructor departement & Semester */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-slate-900 dark:text-white mb-2">
-            Instructor Email
+            Coordinator Departement
           </label>
           <input
-            type="email"
-            placeholder="e.g., mensah@university.edu"
+            type="text"
+            placeholder="e.g., departement of math"
             className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500 dark:focus:border-sky-400 dark:focus:ring-sky-400/20 transition"
+            onChange={(e) => {
+              updateField("courseDepartment", e.target.value);
+            }}
           />
         </div>
         <div>
           <label className="block text-sm font-medium text-slate-900 dark:text-white mb-2">
             Semester
           </label>
-          <select className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-sky-400 dark:focus:ring-sky-400/20 transition">
-            <option>Select semester</option>
-            <option>Fall 2025</option>
-            <option>Spring 2026</option>
-            <option>Summer 2026</option>
-            <option>Fall 2026</option>
+          <select
+            onChange={(e) => {
+              updateField("semester", e.target.value);
+            }}
+            className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-sky-400 dark:focus:ring-sky-400/20 transition"
+          >
+            <option value={""}>Select semester</option>
+            <option value={"rain"}>Rain</option>
+            <option value={"harmattan"}>Harmattan</option>
           </select>
         </div>
       </div>
@@ -66,9 +131,12 @@ export default function CourseCreateForm() {
           Course Description
         </label>
         <textarea
-          rows="4"
+          rows="5"
           placeholder="Provide a brief description of the course, learning objectives, and any prerequisites..."
-          className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500 dark:focus:border-sky-400 dark:focus:ring-sky-400/20 transition"
+          className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500 dark:focus:border-sky-400 dark:focus:ring-sky-400/20 transition resize-none"
+          onChange={(e) => {
+            updateField("courseDescription", e.target.value);
+          }}
         />
       </div>
 
@@ -82,6 +150,9 @@ export default function CourseCreateForm() {
             type="text"
             placeholder="e.g., MTH101, PHY100"
             className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500 dark:focus:border-sky-400 dark:focus:ring-sky-400/20 transition"
+            onChange={(e) => {
+              updateField("prerequisites", e.target.value);
+            }}
           />
         </div>
       </div>
