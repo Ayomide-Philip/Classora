@@ -2,10 +2,19 @@ import { NextResponse } from "next/server";
 import Boards from "@/libs/models/boards.models";
 import Users from "@/libs/models/user.models";
 import Courses from "@/libs/models/courses.models";
+import { auth } from "@/auth";
 
-export async function PUT(req, { params }) {
+export const PUT = auth(async function PUT(req, { params }) {
+  if (!req.auth || !req.auth.user) {
+    return NextResponse.json(
+      { error: "User is unauthorized" },
+      {
+        status: 400,
+      }
+    );
+  }
+  const userId = req?.auth?.user?.id;
   const { id, courseId } = await params;
-  const { userId } = await req.json();
 
   if (!id) {
     return NextResponse.json(
@@ -91,4 +100,4 @@ export async function PUT(req, { params }) {
       }
     );
   }
-}
+});

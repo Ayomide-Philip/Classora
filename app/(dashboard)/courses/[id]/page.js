@@ -118,7 +118,7 @@ export default async function CoursePage({ params }) {
         </Link>
 
         {/* Header */}
-        <CourseHeader course={course} />
+        <CourseHeader course={course} id={id} />
 
         {/* Progress overview */}
         <CourseProgressOverview assignments={assignments} />

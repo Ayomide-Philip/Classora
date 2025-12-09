@@ -1,6 +1,6 @@
 import { BookOpen, User, Calendar, Star } from "lucide-react";
 import StarCourse from "./starcourse";
-export default function CourseHeader({ course }) {
+export default function CourseHeader({ course , id}) {
   return (
     <header className="mb-8">
       <div className={`h-2 w-20 rounded-full bg-sky-500 mb-4`} />
@@ -30,7 +30,7 @@ export default function CourseHeader({ course }) {
           </div>
         </div>
         {/* Star button */}
-        <StarCourse course={course} />
+        <StarCourse course={course} id={id} />
       </div>
       <p className="mt-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
         {course?.courseDescription}
