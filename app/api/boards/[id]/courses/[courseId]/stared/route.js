@@ -86,7 +86,7 @@ export const PUT = auth(async function PUT(req, { params }) {
     }
 
     return NextResponse.json(
-      { boardId: id, courseId, userId, course },
+      {  stared: course?.stared },
       {
         status: 200,
       }

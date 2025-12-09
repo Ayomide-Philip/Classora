@@ -1,8 +1,10 @@
 "use client";
 import { Star } from "lucide-react";
 import { getUserInfomation } from "@/components/dashboard/userdetails";
+import { useState } from "react";
 export default function StarCourse({ course, id }) {
-    console.log(id)
+  const [stared, setStared] = useState(course?.stared?.length);
+  console.log(id);
   async function starCourse() {
     const { boardId } = await getUserInfomation();
     const request = await fetch(`/api/boards/${boardId}/courses/${id}/stared`, {
@@ -12,10 +14,12 @@ export default function StarCourse({ course, id }) {
     });
 
     const response = await request.json();
-      console.log(response)
+    if (response?.error || !request.ok) return toast.error(response?.error);
+    console.log(response);
+
+    setStared(response?.stared);
 
     // window.location.reload();
-    
   }
   return (
     <div className="flex flex-col items-end gap-1">
@@ -27,7 +31,7 @@ export default function StarCourse({ course, id }) {
         <Star className="h-5 w-5 text-slate-400 group-hover:text-amber-500 dark:text-slate-500 dark:group-hover:text-amber-400 transition-colors" />
       </button>
       <span className="text-xs text-slate-500 dark:text-slate-400">
-        {course?.stared?.length || 0} stars
+        {stared.length || 0} stars
       </span>
     </div>
   );
