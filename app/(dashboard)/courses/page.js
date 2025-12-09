@@ -16,7 +16,6 @@ export default async function Page() {
   });
 
   const response = await request.json();
-  console.log(response);
 
   const { course } = response;
 
