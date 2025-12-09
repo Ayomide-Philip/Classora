@@ -9,7 +9,7 @@ export default function Page() {
       <div className="mx-auto max-w-2xl">
         {/* Back button */}
         <Link
-          href="/dashboard/courses"
+          href="/courses"
           className="mb-6 inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
         >
           <ArrowLeft className="h-4 w-4" />
@@ -27,7 +27,7 @@ export default function Page() {
                 Create New Course
               </h1>
               <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                Add a new course to your catalog
+                Adding a new course for board members
               </p>
             </div>
           </div>

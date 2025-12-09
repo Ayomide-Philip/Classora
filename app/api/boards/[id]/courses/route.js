@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { connectDatabase } from "@/libs/connectDatabase";
 import Courses from "@/libs/models/courses.models";
 import Boards from "@/libs/models/boards.models";
+import { auth } from "@/auth";
+import { Users } from "lucide-react";
 
 export async function GET(req, { params }) {
   const { id } = await params;
@@ -36,11 +38,20 @@ export async function GET(req, { params }) {
   }
 }
 
-export async function POST(req, { params }) {
+export const POST = auth(async function POST(req, { params }) {
+  if (!req.auth || !req.auth?.user) {
+    return NextResponse.json(
+      { error: "User is Unauthorized" },
+      {
+        status: 400,
+      }
+    );
+  }
   const { id } = await params;
   const data = await req.json();
+
+  const userId = req.auth?.user?.id;
   let {
-    userId,
     courseTitle,
     courseCode,
     courseDescription,
@@ -249,4 +260,4 @@ export async function POST(req, { params }) {
       }
     );
   }
-}
+});
