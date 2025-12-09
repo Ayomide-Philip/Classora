@@ -1,7 +1,6 @@
-import CourseCode from "@/components/dashboard/courses/create/coursecode";
 import CourseCreateForm from "@/components/dashboard/courses/create/form";
 import { getUserInfomation } from "@/components/dashboard/userdetails";
-import { ArrowLeft, BookOpen, Plus } from "lucide-react";
+import { ArrowLeft, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
