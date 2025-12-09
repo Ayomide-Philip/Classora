@@ -13,7 +13,7 @@ import CourseNotFound from "@/components/dashboard/courses/not-found";
 
 export default async function CoursePage({ params }) {
   const { id } = await params;
-  const { boardId } = await getUserInfomation();
+  const { boardId, userId } = await getUserInfomation();
 
   const request = await fetch(
     `${BASE_URL}/api/boards/${boardId}/courses/${id}`,
@@ -118,7 +118,7 @@ export default async function CoursePage({ params }) {
         </Link>
 
         {/* Header */}
-        <CourseHeader course={course} id={id} />
+        <CourseHeader course={course} id={id} userId={userId} />
 
         {/* Progress overview */}
         <CourseProgressOverview assignments={assignments} />
