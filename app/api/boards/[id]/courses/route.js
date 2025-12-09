@@ -3,7 +3,6 @@ import { connectDatabase } from "@/libs/connectDatabase";
 import Courses from "@/libs/models/courses.models";
 import Boards from "@/libs/models/boards.models";
 import { auth } from "@/auth";
-import { Users } from "lucide-react";
 
 export async function GET(req, { params }) {
   const { id } = await params;
