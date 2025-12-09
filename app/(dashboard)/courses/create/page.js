@@ -1,9 +1,13 @@
 import CourseCode from "@/components/dashboard/courses/create/coursecode";
 import CourseCreateForm from "@/components/dashboard/courses/create/form";
+import { getUserInfomation } from "@/components/dashboard/userdetails";
 import { ArrowLeft, BookOpen, Plus } from "lucide-react";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
-export default function Page() {
+export default async function Page() {
+  const { role } = await getUserInfomation();
+  if (role !== "admin" && role !== "owner") redirect("/courses");
   return (
     <main className="px-4 py-6 sm:py-8 md:px-8">
       <div className="mx-auto max-w-2xl">

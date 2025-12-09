@@ -3,6 +3,7 @@ import { connectDatabase } from "@/libs/connectDatabase";
 import Courses from "@/libs/models/courses.models";
 import Boards from "@/libs/models/boards.models";
 import { auth } from "@/auth";
+import Users from "@/libs/models/user.models";
 
 export async function GET(req, { params }) {
   const { id } = await params;
@@ -204,6 +205,25 @@ export const POST = auth(async function POST(req, { params }) {
 
   try {
     await connectDatabase();
+    // check the user
+    const users = await Users.findById(userId);
+    if (!users) {
+      return NextResponse.json(
+        { error: "User not found" },
+        {
+          status: 404,
+        }
+      );
+    }
+
+    if (users?.board?.role !== "admin" && users?.board?.role !== "owner") {
+      return NextResponse.json(
+        { error: "User does not have access to create a course" },
+        {
+          status: 400,
+        }
+      );
+    }
     // check if the board exist
     const board = await Boards.findOne({ _id: id, userId });
 
