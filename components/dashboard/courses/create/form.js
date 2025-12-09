@@ -1,8 +1,7 @@
 "use client";
-import CourseCode from "@/components/dashboard/courses/create/coursecode";
 import { Plus } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
 import { getUserInfomation } from "@/components/dashboard/userdetails";
 
