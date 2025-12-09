@@ -57,6 +57,9 @@ const coursesSchema = new Schema(
       ref: "Users",
       default: [],
     },
+    prerequisites: {
+      type: "String",
+    },
   },
   {
     timestamp: true,

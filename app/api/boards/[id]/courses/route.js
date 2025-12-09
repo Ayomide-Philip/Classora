@@ -48,6 +48,7 @@ export async function POST(req, { params }) {
     courseDepartment,
     courseUnit,
     semester,
+    prerequisites,
   } = data;
 
   //  checking if the board exists
@@ -182,6 +183,15 @@ export async function POST(req, { params }) {
     );
   }
 
+  if (prerequisites && prerequisites.trim().length < 3) {
+    return NextResponse.json(
+      { error: "Prerequisite can not be less than 3 characters" },
+      {
+        status: 400,
+      }
+    );
+  }
+
   try {
     await connectDatabase();
     // check if the board exist
@@ -208,6 +218,7 @@ export async function POST(req, { params }) {
       courseCoordinator,
       courseDepartment,
       semester,
+      prerequisites,
     });
 
     // adding it to the list of courses in the board
