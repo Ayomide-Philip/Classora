@@ -85,6 +85,25 @@ export async function POST(req, { params }) {
     );
   }
 
+  // validating start time and end time
+  if (!startTime || !startTime.trim()) {
+    return NextResponse.json(
+      { error: "Start time is required" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  if (!endTime || !endTime.trim()) {
+    return NextResponse.json(
+      { error: "End time is required" },
+      {
+        status: 400,
+      }
+    );
+  }
+
   return NextResponse.json(
     { message: "POST a new Class" },
     {
