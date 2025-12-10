@@ -51,5 +51,16 @@ const classesSchema = new Schema(
   }
 );
 
+classesSchema.index(
+  {
+    day: 1,
+    "time.startTime": 1,
+    "time.endTime": 1,
+    "venue.name": 1,
+    courseId: 1,
+  },
+  { unique: true }
+);
+
 const Classes = models.Classes || model("Classes", classesSchema);
 export default Classes;

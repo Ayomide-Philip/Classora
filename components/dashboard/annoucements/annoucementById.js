@@ -2,7 +2,6 @@ import { ArrowLeft, Calendar, User } from "lucide-react";
 import Link from "next/link";
 import Comments from "./comments";
 export default function AnnoucementById({ announcement }) {
-  console.log(announcement);
   const { tag, title, description, createdAt, userId, comments, boardId } =
     announcement;
 

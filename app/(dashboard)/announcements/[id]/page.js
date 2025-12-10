@@ -20,7 +20,6 @@ export default async function Page({ params }) {
   );
 
   const { announcement } = await annoucementByIdRequest.json();
-  console.log(announcement);
 
   if (!announcement || !annoucementByIdRequest.ok) {
     return (

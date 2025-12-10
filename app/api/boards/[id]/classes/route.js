@@ -189,6 +189,14 @@ export async function POST(req, { params }) {
       }
     );
   } catch (err) {
+    if (err.code === 11000) {
+      return NextResponse.json(
+        { error: "This class already exists" },
+        {
+          status: 400,
+        }
+      );
+    }
     console.log(err);
     return NextResponse.json(
       { error: "An error occurred while creating a class" },
