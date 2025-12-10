@@ -36,11 +36,11 @@ const classesSchema = new Schema(
     time: {
       type: {
         startTime: {
-          type: Date,
+          type: String,
           required: true,
         },
         endTime: {
-          type: Date,
+          type: String,
           required: true,
         },
       },
