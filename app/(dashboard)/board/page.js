@@ -15,7 +15,7 @@ export default async function Page() {
   });
 
   const { courses } = await request.json();
-  console.log(courses);
+  
   // Weekly recurring schedule (Mon–Fri)
   const weeklySchedule = [
     {

@@ -4,12 +4,12 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 export default function BoardGrid({ weeklySchedule, courses }) {
   console.log(courses);
-  const course = useState([
+  const [course, setCourse] = useState([
     { day: "Monday", class: [] },
     { day: "Tuesday", class: [] },
-    { day: "Wednesday", classe: [] },
-    { day: "Thursday", classe: [] },
-    { day: "Friday", classe: [] },
+    { day: "Wednesday", class: [] },
+    { day: "Thursday", class: [] },
+    { day: "Friday", class: [] },
   ]);
 
   useEffect(() => {}, []);
