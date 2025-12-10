@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { connectDatabase } from "@/libs/connectDatabase";
 import Classes from "@/libs/models/classes.models";
+import Users from "@/libs/models/user.models";
+import Courses from "@/libs/models/courses.models";
 
 export async function GET(req, { params }) {
   const { id } = await params;
@@ -31,15 +33,6 @@ export async function POST(req, { params }) {
   const { id } = await params;
   const { userId, courseId, venueName, venueMapUrl, day, startTime, endTime } =
     await req.json();
-  console.log(
-    userId,
-    courseId,
-    venueName,
-    venueMapUrl,
-    day,
-    startTime,
-    endTime
-  );
   // validating venue name
   if (!venueName || !venueName.trim()) {
     return NextResponse.json(
@@ -122,10 +115,54 @@ export async function POST(req, { params }) {
     );
   }
 
-  return NextResponse.json(
-    { message: "POST a new Class" },
-    {
-      status: 200,
+  try {
+    await connectDatabase();
+
+    // verifying user
+    const user = await Users.findById(userId);
+    if (!user) {
+      return NextResponse.json(
+        { error: "Invalid User, Unauthorized Acccess" },
+        {
+          status: 400,
+        }
+      );
     }
-  );
+    if (user?.board?.role !== "admin" && user?.board?.role !== "owner") {
+      return NextResponse.json(
+        { error: "Unauthorized Access" },
+        {
+          status: 400,
+        }
+      );
+    }
+
+    // verifying courseId
+    const course = await Courses.findById(courseId);
+    if (!course) {
+      return NextResponse.json(
+        { error: "Course does not exist" },
+        {
+          status: 400,
+        }
+      );
+    }
+
+    // create 
+
+    return NextResponse.json(
+      { message: "POST a new Class" },
+      {
+        status: 200,
+      }
+    );
+  } catch (err) {
+    console.log(err);
+    return NextResponse.json(
+      { error: "An error occurred while creating a class" },
+      {
+        status: 400,
+      }
+    );
+  }
 }
