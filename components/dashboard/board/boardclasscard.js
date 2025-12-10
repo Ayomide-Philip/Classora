@@ -29,7 +29,6 @@ export default function BoardClassCard({ classes }) {
               </div>
 
               <div className="mt-2 sm:mt-3 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-                {/* Time */}
                 <div className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400">
                   <Clock className="h-3 w-3 shrink-0" />
                   <span>
@@ -37,14 +36,12 @@ export default function BoardClassCard({ classes }) {
                   </span>
                 </div>
 
-                {/* Venue */}
                 <div className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400">
                   <MapPin className="h-3 w-3 shrink-0" />
                   <span className="truncate">{venue?.name}</span>
                 </div>
               </div>
 
-              {/* Map button — stops propagation */}
               {venue?.mapUrl && (
                 <div className="mt-2 sm:mt-3">
                   <span

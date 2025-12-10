@@ -10,17 +10,16 @@ export default function BoardGrid({ courses }) {
 
   const weeklySchedule = [
     { day: "Monday", classes: getDayClasses("monday") || [] },
-    { day: "tuesday", classes: getDayClasses("tuesday") || [] },
-    { day: "wednesday", classes: getDayClasses("wednesday") || [] },
-    { day: "thursday", classes: getDayClasses("thursday") || [] },
-    { day: "friday", classes: getDayClasses("friday") || [] },
+    { day: "Tuesday", classes: getDayClasses("tuesday") || [] },
+    { day: "Wednesday", classes: getDayClasses("wednesday") || [] },
+    { day: "Thursday", classes: getDayClasses("thursday") || [] },
+    { day: "Friday", classes: getDayClasses("friday") || [] },
   ];
 
   return (
     <>
       {weeklySchedule.map(({ day, classes }, idx) => (
         <section key={idx}>
-          {/* Day header */}
           <div className="mb-2 sm:mb-3 flex items-center gap-3">
             <h2 className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">
               {day}
@@ -32,7 +31,6 @@ export default function BoardGrid({ courses }) {
             </span>
           </div>
 
-          {/* Classes */}
           <BoardItem classes={classes} />
         </section>
       ))}
