@@ -148,10 +148,24 @@ export async function POST(req, { params }) {
       );
     }
 
-    // create 
+    // create a new class
+    const newClass = await Classes.create({
+      userId,
+      boardId: id,
+      courseId,
+      venue: {
+        name: venueName,
+        mapUrl: venueMapUrl || "",
+      },
+      day: day.trim().toLowerCase(),
+      time: {
+        startTime: startTime.trim(),
+        endTime: endTime.trim(),
+      },
+    });
 
     return NextResponse.json(
-      { message: "POST a new Class" },
+      { class: newClass },
       {
         status: 200,
       }
