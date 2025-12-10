@@ -51,7 +51,7 @@ export async function POST(req, { params }) {
   }
 
   // validating venue map url
-  if (venueMapUrl && venueMapUrl.length > 10) {
+  if (venueMapUrl && venueMapUrl.length < 10) {
     return NextResponse.json(
       { error: "Invalid map url" },
       {
@@ -98,6 +98,24 @@ export async function POST(req, { params }) {
   if (!endTime || !endTime.trim()) {
     return NextResponse.json(
       { error: "End time is required" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  if (!timeRegex.test(startTime)) {
+    return NextResponse.json(
+      { error: "Invalid Start time" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  if (!timeRegex.test(endTime)) {
+    return NextResponse.json(
+      { error: "Invalid End time" },
       {
         status: 400,
       }
