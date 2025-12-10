@@ -12,127 +12,6 @@ import { BASE_URL } from "@/libs/config";
 import { getUserInfomation } from "@/components/dashboard/userdetails";
 import { cookies } from "next/headers";
 
-// Static class data (in a real app, fetch from API)
-const classesData = {
-  "physics-101": {
-    title: "Physics 101",
-    teacher: "Dr. Mensah",
-    time: "09:00 – 10:30",
-    day: "Monday",
-    venue: "Science Block, Lab A",
-    mapUrl: "https://maps.google.com/?q=Science+Block+Lab+A",
-    color: "bg-sky-500",
-    description:
-      "Introduction to classical mechanics, thermodynamics, and wave phenomena. Lab sessions include hands-on experiments.",
-    credits: 3,
-    semester: "Fall 2025",
-  },
-  "algebra-ii": {
-    title: "Algebra II",
-    teacher: "Ms. Okoye",
-    time: "11:00 – 12:30",
-    day: "Monday",
-    venue: "Main Building, Room 12",
-    mapUrl: "https://maps.google.com/?q=Main+Building+Room+12",
-    color: "bg-emerald-500",
-    description:
-      "Advanced algebraic concepts including polynomials, rational expressions, quadratic equations, and functions.",
-    credits: 3,
-    semester: "Fall 2025",
-  },
-  chemistry: {
-    title: "Chemistry",
-    teacher: "Dr. Amadi",
-    time: "10:00 – 11:30",
-    day: "Tuesday",
-    venue: "Science Block, Lab B",
-    mapUrl: "https://maps.google.com/?q=Science+Block+Lab+B",
-    color: "bg-rose-500",
-    description:
-      "Fundamentals of chemistry covering atomic structure, chemical bonding, stoichiometry, and basic organic chemistry.",
-    credits: 4,
-    semester: "Fall 2025",
-  },
-  history: {
-    title: "History",
-    teacher: "Mr. Clarke",
-    time: "13:00 – 14:30",
-    day: "Tuesday",
-    venue: "Arts Wing, Room 3",
-    mapUrl: "https://maps.google.com/?q=Arts+Wing+Room+3",
-    color: "bg-indigo-500",
-    description:
-      "World history from ancient civilizations to modern times, focusing on major events and their global impact.",
-    credits: 3,
-    semester: "Fall 2025",
-  },
-  "english-literature": {
-    title: "English Literature",
-    teacher: "Ms. Ramos",
-    time: "09:30 – 11:00",
-    day: "Wednesday",
-    venue: "Library Annex, Room 7",
-    mapUrl: "https://maps.google.com/?q=Library+Annex+Room+7",
-    color: "bg-amber-500",
-    description:
-      "Study of classic and contemporary literature, critical analysis, and essay writing skills.",
-    credits: 3,
-    semester: "Fall 2025",
-  },
-  biology: {
-    title: "Biology",
-    teacher: "Dr. Lee",
-    time: "08:30 – 10:00",
-    day: "Thursday",
-    venue: "Science Block, Lab C",
-    mapUrl: "https://maps.google.com/?q=Science+Block+Lab+C",
-    color: "bg-teal-500",
-    description:
-      "Introduction to life sciences covering cell biology, genetics, evolution, and ecology with laboratory work.",
-    credits: 4,
-    semester: "Fall 2025",
-  },
-  "art-design": {
-    title: "Art & Design",
-    teacher: "Ms. Gray",
-    time: "14:00 – 15:30",
-    day: "Thursday",
-    venue: "Creative Arts Studio",
-    mapUrl: "https://maps.google.com/?q=Creative+Arts+Studio",
-    color: "bg-fuchsia-500",
-    description:
-      "Exploration of visual arts including drawing, painting, and digital design fundamentals.",
-    credits: 2,
-    semester: "Fall 2025",
-  },
-  geography: {
-    title: "Geography",
-    teacher: "Mr. Stone",
-    time: "10:00 – 11:30",
-    day: "Friday",
-    venue: "Main Building, Room 9",
-    mapUrl: "https://maps.google.com/?q=Main+Building+Room+9",
-    color: "bg-sky-600",
-    description:
-      "Physical and human geography covering landforms, climate, population, and economic activities.",
-    credits: 3,
-    semester: "Fall 2025",
-  },
-  "physical-education": {
-    title: "Physical Education",
-    teacher: "Coach Ndu",
-    time: "12:00 – 13:00",
-    day: "Friday",
-    venue: "Sports Complex, Gym",
-    mapUrl: "https://maps.google.com/?q=Sports+Complex+Gym",
-    color: "bg-lime-500",
-    description:
-      "Physical fitness, team sports, and health education to promote an active lifestyle.",
-    credits: 1,
-    semester: "Fall 2025",
-  },
-};
-
 export default async function Page({ params }) {
   const { boardId } = await getUserInfomation();
   const { id } = await params;
@@ -151,7 +30,7 @@ export default async function Page({ params }) {
 
   const response = await request.json();
 
-  if (!classInfo) {
+  if (!request.ok || response?.error) {
     return (
       <main className="px-4 py-8 md:px-8">
         <div className="mx-auto max-w-2xl text-center">
