@@ -27,6 +27,63 @@ export async function GET(req, { params }) {
 }
 
 export async function POST(req, { params }) {
+  const { id } = await params;
+  const { userId, courseId, venueName, venueMapUrl, day, startTime, endTime } =
+    await req.json();
+  console.log(
+    userId,
+    courseId,
+    venueName,
+    venueMapUrl,
+    day,
+    startTime,
+    endTime
+  );
+  // validating venue name
+  if (!venueName || !venueName.trim()) {
+    return NextResponse.json(
+      { error: "Venue name is required" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  // validating venue map url
+  if (venueMapUrl && venueMapUrl.length > 10) {
+    return NextResponse.json(
+      { error: "Invalid map url" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  // validating venue day
+  if (!day || !day.trim()) {
+    return NextResponse.json(
+      { error: "Venue day is required" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  if (
+    day.trim().toLowerCase() !== "monday" &&
+    day.trim().toLowerCase() !== "tuesday" &&
+    day.trim().toLowerCase() !== "wednesday" &&
+    day.trim().toLowerCase() !== "thursday" &&
+    day.trim().toLowerCase() === "friday"
+  ) {
+    return NextResponse.json(
+      { error: "Invalid day it range from monday to friday" },
+      {
+        status: 400,
+      }
+    );
+  }
+
   return NextResponse.json(
     { message: "POST a new Class" },
     {
