@@ -15,7 +15,6 @@ import { cookies } from "next/headers";
 export default async function Page({ params }) {
   const { boardId } = await getUserInfomation();
   const { id } = await params;
-  const classInfo = classesData[id];
 
   const request = await fetch(
     `${BASE_URL}/api/boards/${boardId}/classes/${id}`,
@@ -52,6 +51,10 @@ export default async function Page({ params }) {
     );
   }
 
+  const {
+    classes: { _id, courseId, venue },
+  } = response;
+
   return (
     <main className="px-4 py-6 sm:py-8 md:px-8">
       <div className="mx-auto max-w-2xl">
@@ -67,16 +70,14 @@ export default async function Page({ params }) {
         {/* Header */}
         <header className="mb-6">
           <div className="flex items-start gap-3 sm:gap-4">
-            <div
-              className={`h-12 sm:h-14 w-1.5 rounded-full ${classInfo.color}`}
-            />
+            <div className={`h-12 sm:h-14 w-1.5 rounded-full bg-sky-500`} />
             <div>
               <h1 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-white">
-                {classInfo.title}
+                {courseId?.courseTitle}
               </h1>
               <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-                {classInfo.semester} • {classInfo.credits} Credit
-                {classInfo.credits !== 1 ? "s" : ""}
+                {courseId?.semester} • {courseId?.courseUnit} Unit
+                {courseId?.courseUnit !== 1 ? "s" : ""}
               </p>
             </div>
           </div>
