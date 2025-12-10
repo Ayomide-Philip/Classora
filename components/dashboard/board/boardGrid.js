@@ -1,4 +1,3 @@
-"use client";
 import BoardItem from "./boarditems";
 export default function BoardGrid({ courses }) {
   function getDayClasses(day) {
