@@ -19,7 +19,7 @@ export default function BoardGrid({ courses }) {
 
   return (
     <>
-      {weeklySchedule.map(({day, class}, idx) => (
+      {weeklySchedule.map(({ day, classes }, idx) => (
         <section key={idx}>
           {/* Day header */}
           <div className="mb-2 sm:mb-3 flex items-center gap-3">
@@ -28,13 +28,13 @@ export default function BoardGrid({ courses }) {
             </h2>
             <div className="h-px flex-1 bg-slate-200 dark:bg-slate-700" />
             <span className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">
-              {class.length} class
-              {class.length !== 1 ? "es" : ""}
+              {classes.length} class
+              {classes.length !== 1 ? "es" : ""}
             </span>
           </div>
 
           {/* Classes */}
-          <BoardItem daySchedule={daySchedule} />
+          <BoardItem classes={classes} />
         </section>
       ))}
     </>
