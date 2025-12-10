@@ -1,10 +1,27 @@
 import { NextResponse } from "next/server";
+import { connectDatabase } from "@/libs/connectDatabase";
+import Classes from "@/libs/models/classes.models";
 
 export async function GET(req, { params }) {
-  return NextResponse.json(
-    { message: "GET all Classes" },
-    {
-      status: 200,
-    }
-  );
+  const { id } = await params;
+
+  try {
+    await connectDatabase();
+    const courses = await Classes.find({ boardId: id });
+
+    return NextResponse.json(
+      { courses },
+      {
+        status: 200,
+      }
+    );
+  } catch (err) {
+    console.log(err);
+    return NextResponse.json(
+      { error: "An error occurred while getting classes" },
+      {
+        status: 400,
+      }
+    );
+  }
 }
