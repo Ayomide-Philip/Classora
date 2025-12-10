@@ -8,6 +8,9 @@ import {
   ExternalLink,
 } from "lucide-react";
 import Link from "next/link";
+import { BASE_URL } from "@/libs/config";
+import { getUserInfomation } from "@/components/dashboard/userdetails";
+import { cookies } from "next/headers";
 
 // Static class data (in a real app, fetch from API)
 const classesData = {
@@ -131,8 +134,22 @@ const classesData = {
 };
 
 export default async function Page({ params }) {
+  const { boardId } = await getUserInfomation();
   const { id } = await params;
   const classInfo = classesData[id];
+
+  const request = await fetch(
+    `${BASE_URL}/api/boards/${boardId}/classes/${id}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Cookie: (await cookies()).toString(),
+      },
+    }
+  );
+
+  const response = await request.json();
 
   if (!classInfo) {
     return (
