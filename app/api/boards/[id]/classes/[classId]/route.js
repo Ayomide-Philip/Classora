@@ -10,7 +10,7 @@ export async function GET(req, { params }) {
     // check if the class exist
     const classes = await Classes.findById(classId).populate(
       "courseId",
-      "courseTitle courseCode courseDescription semester courseUnit"
+      "courseTitle courseCode courseDescription semester courseUnit courseCoordinator"
     );
     if (!classes) {
       return NextResponse.json(

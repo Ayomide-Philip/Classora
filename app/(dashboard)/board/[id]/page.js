@@ -52,7 +52,7 @@ export default async function Page({ params }) {
   }
 
   const {
-    classes: { _id, courseId, venue },
+    classes: { _id, courseId, venue, day, time },
   } = response;
 
   return (
@@ -75,7 +75,7 @@ export default async function Page({ params }) {
               <h1 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-white">
                 {courseId?.courseTitle}
               </h1>
-              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400 capitalize">
                 {courseId?.semester} • {courseId?.courseUnit} Unit
                 {courseId?.courseUnit !== 1 ? "s" : ""}
               </p>
@@ -96,7 +96,7 @@ export default async function Page({ params }) {
                   Instructor
                 </div>
                 <div className="text-sm font-semibold text-slate-900 dark:text-white">
-                  {classInfo.teacher}
+                  {courseId?.courseCoordinator}
                 </div>
               </div>
             </div>
@@ -112,14 +112,16 @@ export default async function Page({ params }) {
                 <div className="text-xs text-slate-500 dark:text-slate-400">
                   Schedule
                 </div>
-                <div className="text-sm font-semibold text-slate-900 dark:text-white">
-                  {classInfo.day}
+                <div className="text-sm font-semibold text-slate-900 dark:text-white capitalize">
+                  {day}
                 </div>
               </div>
             </div>
             <div className="mt-3 flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
               <Clock className="h-4 w-4" />
-              <span>{classInfo.time}</span>
+              <span>
+                {time?.startTime} -{time.endTime}
+              </span>
             </div>
           </div>
 
@@ -135,14 +137,14 @@ export default async function Page({ params }) {
                     Venue
                   </div>
                   <div className="text-sm font-semibold text-slate-900 dark:text-white">
-                    {classInfo.venue}
+                    {venue?.name}
                   </div>
                 </div>
               </div>
             </div>
             <div className="mt-3">
               <Link
-                href={classInfo.mapUrl}
+                href={venue?.mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-500"
@@ -165,7 +167,7 @@ export default async function Page({ params }) {
               </div>
             </div>
             <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-              {classInfo.description}
+              {courseId?.courseDescription}
             </p>
           </div>
         </div>
