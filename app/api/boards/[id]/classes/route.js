@@ -9,7 +9,10 @@ export async function GET(req, { params }) {
 
   try {
     await connectDatabase();
-    const courses = await Classes.find({ boardId: id });
+    const courses = await Classes.find({ boardId: id }).populate(
+      "courseId",
+      "courseTitle courseCoordinator"
+    );
 
     return NextResponse.json(
       { courses },
