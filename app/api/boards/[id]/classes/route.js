@@ -27,6 +27,7 @@ export async function GET(req, { params }) {
 }
 
 export async function POST(req, { params }) {
+  const timeRegex = /^([01]\d|2[0-3]):([0-5]\d)$/;
   const { id } = await params;
   const { userId, courseId, venueName, venueMapUrl, day, startTime, endTime } =
     await req.json();
