@@ -3,6 +3,7 @@ import { connectDatabase } from "@/libs/connectDatabase";
 import Classes from "@/libs/models/classes.models";
 import Users from "@/libs/models/user.models";
 import Courses from "@/libs/models/courses.models";
+import Boards from "@/libs/models/boards.models";
 
 export async function GET(req, { params }) {
   const { id } = await params;
@@ -140,6 +141,17 @@ export async function POST(req, { params }) {
       );
     }
 
+    // verify board
+    const board = await Boards.findById(id);
+    if (!board) {
+      return NextResponse.json(
+        { error: "Board does not exist" },
+        {
+          status: 400,
+        }
+      );
+    }
+
     // verifying courseId
     const course = await Courses.findById(courseId);
     if (!course) {
@@ -166,6 +178,9 @@ export async function POST(req, { params }) {
         endTime: endTime.trim(),
       },
     });
+
+    board?.classes?.push(newClass._id);
+    await board.save();
 
     return NextResponse.json(
       { class: newClass },
