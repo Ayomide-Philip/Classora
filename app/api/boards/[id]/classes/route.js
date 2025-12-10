@@ -25,3 +25,12 @@ export async function GET(req, { params }) {
     );
   }
 }
+
+export async function POST(req, { params }) {
+  return NextResponse.json(
+    { message: "POST a new Class" },
+    {
+      status: 200,
+    }
+  );
+}
