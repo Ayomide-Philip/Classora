@@ -51,5 +51,5 @@ const classesSchema = new Schema(
   }
 );
 
-const Classes = models.classes || model("Classes", classesSchema);
+const Classes = models.Classes || model("Classes", classesSchema);
 export default Classes;
