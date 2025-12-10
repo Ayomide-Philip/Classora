@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function BoardItem({ daySchedule }) {
   return (
     <div className="space-y-2 sm:space-y-3">
-      {daySchedule.classes.map((c, idx) => (
+      {daySchedule.class.map((c, idx) => (
         <Link
           key={idx}
           href={`/board/${idx}`}
