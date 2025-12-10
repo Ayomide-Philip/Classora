@@ -72,7 +72,7 @@ export async function POST(req, { params }) {
     day.trim().toLowerCase() !== "tuesday" &&
     day.trim().toLowerCase() !== "wednesday" &&
     day.trim().toLowerCase() !== "thursday" &&
-    day.trim().toLowerCase() === "friday"
+    day.trim().toLowerCase() !== "friday"
   ) {
     return NextResponse.json(
       { error: "Invalid day it range from monday to friday" },
