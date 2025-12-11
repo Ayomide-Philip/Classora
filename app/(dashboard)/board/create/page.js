@@ -1,8 +1,21 @@
 import BoardForm from "@/components/dashboard/board/create/form";
+import { BASE_URL } from "@/libs/config";
 import { ArrowLeft, Calendar } from "lucide-react";
 import Link from "next/link";
+import { getUserInfomation } from "@/components/dashboard/userdetails";
+import { cookies } from "next/headers";
 
-export default function Page() {
+export default async function Page() {
+  // getting the board id
+  const { boardId } = await getUserInfomation();
+  const request = await fetch(`${BASE_URL}/api/boards/${boardId}/courses/`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Cookie: (await cookies()).toString(),
+    },
+  });
+
   return (
     <main className="px-4 py-6 sm:py-8 md:px-8">
       <div className="mx-auto max-w-2xl">
