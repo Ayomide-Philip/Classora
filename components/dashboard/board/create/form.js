@@ -9,19 +9,18 @@ export default function BoardForm({ course }) {
           Course
         </label>
         <select className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-sky-400 dark:focus:ring-sky-400/20 transition">
-          <option>Select a course</option>
-          <option>Physics 101 (PHY101)</option>
-          <option>Algebra II (MTH202)</option>
-          <option>Chemistry (CHM101)</option>
-          <option>History (HIS101)</option>
-          <option>English Literature (ENG201)</option>
-          <option>Biology (BIO101)</option>
-          <option>Art & Design (ART101)</option>
-          <option>Geography (GEO101)</option>
+          <option value={""}>Select a course</option>
+          {course?.length > 0 &&
+            course.map(({ _id, courseTitle, courseCode }, idx) => {
+              return (
+                <option key={idx} value={_id}>
+                  {courseTitle} ({courseCode})
+                </option>
+              );
+            })}
         </select>
       </div>
 
-      {/* Day & Time */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-slate-900 dark:text-white mb-2">
@@ -47,7 +46,6 @@ export default function BoardForm({ course }) {
         </div>
       </div>
 
-      {/* End Time & Type */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-slate-900 dark:text-white mb-2">
@@ -73,7 +71,6 @@ export default function BoardForm({ course }) {
         </div>
       </div>
 
-      {/* Venue & Building */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-slate-900 dark:text-white mb-2">
@@ -97,7 +94,6 @@ export default function BoardForm({ course }) {
         </div>
       </div>
 
-      {/* Full Venue Address */}
       <div>
         <label className="block text-sm font-medium text-slate-900 dark:text-white mb-2">
           Full Venue Address
@@ -112,7 +108,6 @@ export default function BoardForm({ course }) {
         </p>
       </div>
 
-      {/* Map Link */}
       <div>
         <label className="block text-sm font-medium text-slate-900 dark:text-white mb-2">
           Map/Location Link (Optional)
@@ -124,7 +119,6 @@ export default function BoardForm({ course }) {
         />
       </div>
 
-      {/* Actions */}
       <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
         <button
           type="submit"
