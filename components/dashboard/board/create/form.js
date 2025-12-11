@@ -4,7 +4,6 @@ export default function BoardForm({ course }) {
   console.log(course);
   return (
     <form className="space-y-6">
-      {/* Course Selection */}
       <div>
         <label className="block text-sm font-medium text-slate-900 dark:text-white mb-2">
           Course
