@@ -16,8 +16,8 @@ export default async function Page() {
     },
   });
 
-  const response = await request.json();
-    console.log(response);
+  const { course } = await request.json();
+  console.log(course);
 
   return (
     <main className="px-4 py-6 sm:py-8 md:px-8">
