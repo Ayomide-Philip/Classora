@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function BoardClassCard({ classes }) {
   return (
     <>
-      {classes.map(({ _id, venue, time, courseId }, idx) => (
+      {classes.map(({ _id, venue, time, courseId, type }, idx) => (
         <Link
           key={idx}
           href={`/board/${_id}`}
@@ -18,9 +18,16 @@ export default function BoardClassCard({ classes }) {
             <div className="flex-1 min-w-0">
               <div className="flex items-start justify-between gap-2">
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-semibold text-slate-900 dark:text-white truncate">
-                    {courseId?.courseTitle}
-                  </h3>
+                  <div className="flex items-center gap-2">
+                    <span className="font-medium text-slate-900 dark:text-white">
+                      {courseId?.courseTitle}
+                    </span>
+                    <span
+                      className={`text-xs px-2 py-0.5 rounded-full bg-sky-50 dark:bg-sky-500 text-sky-600 dark:text-white font-medium capitalize`}
+                    >
+                      {type}
+                    </span>
+                  </div>
                   <p className="mt-0.5 text-xs text-slate-500 dark:text-slate-400 truncate">
                     {courseId?.courseCoordinator}
                   </p>
