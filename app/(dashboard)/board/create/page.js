@@ -23,7 +23,7 @@ export default async function Page() {
     redirect("/board");
   }
 
-  console.log(response);
+  console.log(response?.course);
 
   return (
     <main className="px-4 py-6 sm:py-8 md:px-8">

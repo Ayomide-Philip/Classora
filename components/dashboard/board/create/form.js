@@ -1,6 +1,6 @@
 import { Plus } from "lucide-react";
 import Link from "next/link";
-export default function BoardForm() {
+export default function BoardForm({ course }) {
   return (
     <form className="space-y-6">
       {/* Course Selection */}
