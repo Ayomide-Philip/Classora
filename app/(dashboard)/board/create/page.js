@@ -4,6 +4,7 @@ import { ArrowLeft, Calendar } from "lucide-react";
 import Link from "next/link";
 import { getUserInfomation } from "@/components/dashboard/userdetails";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 export default async function Page() {
   // getting the board id
@@ -16,8 +17,13 @@ export default async function Page() {
     },
   });
 
-  const { course } = await request.json();
-  console.log(course);
+  const response = await request.json();
+
+  if (!request.ok || response?.error) {
+    redirect("/board");
+  }
+
+  console.log(response);
 
   return (
     <main className="px-4 py-6 sm:py-8 md:px-8">
