@@ -71,29 +71,6 @@ export default function BoardForm({ course }) {
         </div>
       </div>
 
-      {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm font-medium text-slate-900 dark:text-white mb-2">
-            Building/Block
-          </label>
-          <input
-            type="text"
-            placeholder="e.g., Science Block A"
-            className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500 dark:focus:border-sky-400 dark:focus:ring-sky-400/20 transition"
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-slate-900 dark:text-white mb-2">
-            Room Number
-          </label>
-          <input
-            type="text"
-            placeholder="e.g., 201"
-            className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:placeholder-slate-500 dark:focus:border-sky-400 dark:focus:ring-sky-400/20 transition"
-          />
-        </div>
-      </div> */}
-
       <div>
         <label className="block text-sm font-medium text-slate-900 dark:text-white mb-2">
           Full Venue Address

@@ -45,6 +45,12 @@ const classesSchema = new Schema(
         },
       },
     },
+    type: {
+      type: String,
+      enum: ["lecture", "lab", "tutorial", "practical", "seminar"],
+      default: "lecture",
+      required: true,
+    },
   },
   {
     timestamps: true,
