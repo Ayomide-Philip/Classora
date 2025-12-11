@@ -127,6 +127,31 @@ export async function POST(req, { params }) {
     );
   }
 
+  if (!type || !type.trim()) {
+    return NextResponse.json(
+      { error: "Classes type is required" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  if (
+    type?.trim().toLowerCase() !== "lecture" &&
+    type?.trim().toLowerCase() !== "lab" &&
+    type?.trim().toLowerCase() !== "tutorial" &&
+    type?.trim().toLowerCase() !== "practical"
+  ) {
+    return NextResponse.json(
+      {
+        error: "Class can either be lecture or lab or tutorial or practical",
+      },
+      {
+        status: 400,
+      }
+    );
+  }
+
   try {
     await connectDatabase();
 
@@ -134,7 +159,7 @@ export async function POST(req, { params }) {
     const user = await Users.findById(userId);
     if (!user) {
       return NextResponse.json(
-        { error: "Invalid User, Unauthorized Acccess" },
+        { error: "Invalid User, Unauthorized Access" },
         {
           status: 400,
         }
@@ -185,6 +210,7 @@ export async function POST(req, { params }) {
         startTime: startTime.trim(),
         endTime: endTime.trim(),
       },
+      type,
     });
 
     board?.classes?.push(newClass._id);
