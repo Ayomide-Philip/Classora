@@ -23,8 +23,6 @@ export default async function Page() {
     redirect("/board");
   }
 
-  console.log(response?.course);
-
   return (
     <main className="px-4 py-6 sm:py-8 md:px-8">
       <div className="mx-auto max-w-2xl">
@@ -52,7 +50,7 @@ export default async function Page() {
           </div>
         </header>
 
-        <BoardForm />
+        <BoardForm course={response?.course} />
       </div>
     </main>
   );
