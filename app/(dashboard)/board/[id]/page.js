@@ -52,7 +52,7 @@ export default async function Page({ params }) {
   }
 
   const {
-    classes: { _id, courseId, venue, day, time },
+    classes: { _id, courseId, venue, day, time, type },
   } = response;
 
   return (
@@ -70,9 +70,16 @@ export default async function Page({ params }) {
           <div className="flex items-start gap-3 sm:gap-4">
             <div className={`h-12 sm:h-14 w-1.5 rounded-full bg-sky-500`} />
             <div>
-              <h1 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-white">
-                {courseId?.courseTitle}
-              </h1>
+              <div className="flex items-center gap-2">
+                <span className="font-medium text-xl text-slate-900 dark:text-white">
+                  {courseId?.courseTitle}
+                </span>
+                <span
+                  className={`text-xs px-2 py-0.5 rounded-full bg-sky-50 dark:bg-sky-500 text-sky-600 dark:text-white font-medium capitalize`}
+                >
+                  {type}
+                </span>
+              </div>
               <p className="mt-1 text-sm text-slate-500 dark:text-slate-400 capitalize">
                 {courseId?.semester} • {courseId?.courseUnit} Unit
                 {courseId?.courseUnit !== 1 ? "s" : ""}
@@ -115,7 +122,7 @@ export default async function Page({ params }) {
             <div className="mt-3 flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
               <Clock className="h-4 w-4" />
               <span>
-                {time?.startTime} -{time.endTime}
+                {time?.startTime} -{time?.endTime}
               </span>
             </div>
           </div>

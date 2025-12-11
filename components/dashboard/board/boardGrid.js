@@ -26,8 +26,8 @@ export default function BoardGrid({ courses }) {
             </h2>
             <div className="h-px flex-1 bg-slate-200 dark:bg-slate-700" />
             <span className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">
-              {classes.length} class
-              {classes.length !== 1 ? "es" : ""}
+              {classes?.length} class
+              {classes?.length !== 1 ? "es" : ""}
             </span>
           </div>
 
