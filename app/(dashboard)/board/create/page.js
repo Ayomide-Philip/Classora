@@ -16,11 +16,14 @@ export default async function Page() {
     },
   });
 
+  const response = await request.json();
+    console.log(response);
+
   return (
     <main className="px-4 py-6 sm:py-8 md:px-8">
       <div className="mx-auto max-w-2xl">
         <Link
-          href="/dashboard/board"
+          href="/board"
           className="mb-6 inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
         >
           <ArrowLeft className="h-4 w-4" />

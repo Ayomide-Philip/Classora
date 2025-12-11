@@ -116,23 +116,11 @@ export default async function CoursePage({ params }) {
           <ArrowLeft className="h-4 w-4" />
           Back to Courses
         </Link>
-
-        {/* Header */}
         <CourseHeader course={course} id={id} userId={userId} />
-
-        {/* Progress overview */}
         <CourseProgressOverview assignments={assignments} />
-
-        {/* Schedule */}
         <CourseSchedule />
-
-        {/* Assignments */}
         <CourseAssignments assignments={assignments} />
-
-        {/* Materials */}
         <CourseMaterials />
-
-        {/* Instructor */}
         <CourseInstructor course={course} />
       </div>
     </main>
