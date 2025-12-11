@@ -1,12 +1,5 @@
 import BoardForm from "@/components/dashboard/board/create/form";
-import {
-  ArrowLeft,
-  Calendar,
-  Clock,
-  MapPin,
-  BookOpen,
-  Plus,
-} from "lucide-react";
+import { ArrowLeft, Calendar } from "lucide-react";
 import Link from "next/link";
 
 export default function Page() {
