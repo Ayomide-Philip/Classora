@@ -6,7 +6,6 @@ export default function Page() {
   return (
     <main className="px-4 py-6 sm:py-8 md:px-8">
       <div className="mx-auto max-w-2xl">
-        {/* Back button */}
         <Link
           href="/dashboard/board"
           className="mb-6 inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
@@ -15,7 +14,6 @@ export default function Page() {
           Back to Board
         </Link>
 
-        {/* Header */}
         <header className="mb-8">
           <div className="flex items-center gap-4 mb-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-100 text-sky-600 dark:bg-sky-900/30 dark:text-sky-400">
@@ -32,7 +30,6 @@ export default function Page() {
           </div>
         </header>
 
-        {/* Form */}
         <BoardForm />
       </div>
     </main>
