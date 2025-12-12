@@ -3,7 +3,16 @@ import { Plus, CalendarDays, Clock, MapPin, BookOpen } from "lucide-react";
 import Link from "next/link";
 
 export default function BoardForm({ course }) {
-  const boardData = {};
+  const [boardFormData, setBoardFormData] = {
+    userId: "",
+    courseId: "",
+    venueName: "",
+    venueMapUrl: "",
+    day: "",
+    startTime: "",
+    endTime: "",
+    type: "",
+  };
   return (
     <form className="space-y-8">
       <div className="rounded-xl border border-slate-200 bg-slate-50/50 p-5 dark:border-slate-800 dark:bg-slate-900/50">
@@ -15,7 +24,12 @@ export default function BoardForm({ course }) {
             Select Course
           </label>
         </div>
-        <select className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-sky-400 dark:focus:ring-sky-400/20 transition">
+        <select
+          onChange={(e) => {
+            console.log(e.target.value);
+          }}
+          className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-sky-400 dark:focus:ring-sky-400/20 transition"
+        >
           <option value="">Choose a course</option>
           {course?.length > 0 &&
             course.map(({ _id, courseTitle, courseCode }, idx) => (
