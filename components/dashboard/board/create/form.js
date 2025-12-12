@@ -33,8 +33,27 @@ export default function BoardForm({ course }) {
       boardFormData;
     // validating course id
     if (!courseId || !courseId.trim()) {
-      return toast.error("Create a course first.");
+      return toast.error("Select a course first.");
     }
+    
+    // validating day of the week
+    if (!day || !day.trim()) {
+      return toast.error("Select a day.");
+    }
+
+    if (
+      day.trim().toLowerCase() !== "monday" &&
+      day.trim().toLowerCase() !== "tuesday" &&
+      day.trim().toLowerCase() !== "wednesday" &&
+      day.trim().toLowerCase() !== "thursday" &&
+      day.trim().toLowerCase() !== "friday"
+    ) {
+      return toast.error("Invalid day inputted");
+    }
+
+    // validating class type
+
+
     // validating venue name
     if (!venueName || !venueName.trim()) {
       return toast.error("Venue name is required");
