@@ -288,6 +288,8 @@ export default function BoardForm({ course, boardId }) {
                   handleInputChange("startTime", e.target.value);
                 }}
                 className="w-full rounded-lg border border-slate-200 bg-white pl-14 pr-4 py-3 text-base text-slate-900 shadow-sm hover:shadow-md hover:border-emerald-300 focus:border-emerald-500 focus:shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:border-emerald-600 dark:focus:border-emerald-500 dark:focus:ring-emerald-500/20 transition-all duration-200 scheme-light dark:scheme-dark"
+                min="07:00"
+                max="20:00"
               />
             </div>
           </div>
@@ -307,6 +309,8 @@ export default function BoardForm({ course, boardId }) {
                   handleInputChange("endTime", e.target.value);
                 }}
                 className="w-full rounded-lg border border-slate-200 bg-white pl-14 pr-4 py-3 text-base text-slate-900 shadow-sm hover:shadow-md hover:border-emerald-300 focus:border-emerald-500 focus:shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:border-emerald-600 dark:focus:border-emerald-500 dark:focus:ring-emerald-500/20 transition-all duration-200 scheme-light dark:scheme-dark"
+                min="07:00"
+                max="20:00"
               />
             </div>
           </div>
