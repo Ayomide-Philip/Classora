@@ -1,9 +1,10 @@
 "use client";
 import { Plus, CalendarDays, Clock, MapPin, BookOpen } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function BoardForm({ course }) {
-  const [boardFormData, setBoardFormData] = {
+  const [boardFormData, setBoardFormData] = useState({
     userId: "",
     courseId: "",
     venueName: "",
@@ -12,7 +13,18 @@ export default function BoardForm({ course }) {
     startTime: "",
     endTime: "",
     type: "",
-  };
+  });
+
+  function handleInputChange(inputName, value) {
+    setBoardFormData((prev) => {
+      return { ...prev, [inputName]: value };
+    });
+  }
+
+  useEffect(() => {
+    console.log(boardFormData);
+  }, [boardFormData]);
+
   return (
     <form className="space-y-8">
       <div className="rounded-xl border border-slate-200 bg-slate-50/50 p-5 dark:border-slate-800 dark:bg-slate-900/50">
