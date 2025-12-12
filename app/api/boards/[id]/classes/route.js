@@ -10,10 +10,9 @@ export async function GET(req, { params }) {
 
   try {
     await connectDatabase();
-    const courses = await Classes.find({ boardId: id }).populate(
-      "courseId",
-      "courseTitle courseCoordinator"
-    );
+    const courses = await Classes.find({ boardId: id })
+      .populate("courseId", "courseTitle courseCoordinator")
+      .sort({ "time.startTime": 1 });
 
     return NextResponse.json(
       { courses },
@@ -103,6 +102,15 @@ export async function POST(req, { params }) {
   if (!endTime || !endTime.trim()) {
     return NextResponse.json(
       { error: "End time is required" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  if (startTime > endTime.trim()) {
+    return NextResponse.json(
+      { error: "Class start time can not be greater than end time" },
       {
         status: 400,
       }

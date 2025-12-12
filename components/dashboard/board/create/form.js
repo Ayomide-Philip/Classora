@@ -67,13 +67,19 @@ export default function BoardForm({ course }) {
             }}
             className="w-full appearance-none rounded-lg border border-slate-200 bg-white px-4 py-3.5 pr-10 text-base text-slate-900 shadow-sm hover:shadow-md hover:border-sky-300 focus:border-sky-500 focus:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:border-sky-600 dark:focus:border-sky-500 dark:focus:ring-sky-500/20 transition-all duration-200 cursor-pointer"
           >
-            <option value="">Choose a course</option>
-            {course?.length > 0 &&
-              course.map(({ _id, courseTitle, courseCode }, idx) => (
-                <option key={idx} value={_id}>
-                  {courseTitle} ({courseCode})
-                </option>
-              ))}
+            {course?.length > 0 ? (
+              <>
+                <option value="">Choose a course</option>
+                {course?.length > 0 &&
+                  course.map(({ _id, courseTitle, courseCode }, idx) => (
+                    <option key={idx} value={_id}>
+                      {courseTitle} ({courseCode})
+                    </option>
+                  ))}
+              </>
+            ) : (
+              <option value="">Create a new Course</option>
+            )}
           </select>
           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
             <svg
