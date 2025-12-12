@@ -65,6 +65,7 @@ export default function BoardForm({ course }) {
     }
 
     // validating start date and end time
+    console.log(startTime, endTime);
     if (!startTime || !startTime.trim()) {
       return toast.error("Start time is required");
     }
@@ -72,6 +73,20 @@ export default function BoardForm({ course }) {
     if (!endTime || !endTime.trim()) {
       return toast.error("End time is required");
     }
+
+    if (startTime.trim() > endTime.trim()) {
+      return toast.error("Start time can be greater than end time");
+    }
+
+    if (!timeRegex.test(startTime) || !timeRegex.test(endTime)) {
+      return toast.error("Invalid start or end time");
+    }
+
+    function checkTimeDifference(startTime, endTime) {
+        
+    }
+
+    checkTimeDifference(startTime, endTime);
 
     // validating venue name
     if (!venueName || !venueName.trim()) {
