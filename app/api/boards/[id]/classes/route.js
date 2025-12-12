@@ -4,6 +4,7 @@ import Classes from "@/libs/models/classes.models";
 import Users from "@/libs/models/user.models";
 import Courses from "@/libs/models/courses.models";
 import Boards from "@/libs/models/boards.models";
+import { auth } from "@/auth";
 
 export async function GET(req, { params }) {
   const { id } = await params;
@@ -31,7 +32,7 @@ export async function GET(req, { params }) {
   }
 }
 
-export async function POST(req, { params }) {
+export const POST = auth(async function POST(req, { params }) {
   const timeRegex = /^([01]\d|2[0-3]):([0-5]\d)$/;
   const { id } = await params;
   const {
@@ -247,4 +248,4 @@ export async function POST(req, { params }) {
       }
     );
   }
-}
+});
