@@ -97,7 +97,7 @@ export default function Page() {
               </p>
             </div>
             <Link
-              href="/dashboard/students/add"
+              href="/students/add"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-sky-600 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-sky-600/30 hover:bg-sky-700 hover:shadow-xl hover:shadow-sky-600/40 transition-all active:scale-[0.98]"
             >
               <UserPlus className="h-4 w-4" />

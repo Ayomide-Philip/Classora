@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { connectDatabase } from "@/libs/connectDatabase";
+import Boards from "@/libs/models/boards.models";
+import Users from "@/libs/models/user.models"
 
 export async function GET(req, { params }) {
   const { id } = await params;
@@ -13,8 +15,15 @@ export async function GET(req, { params }) {
   }
   try {
     await connectDatabase();
+    const boards = await Boards.findById(id).populate("students", "-password");
+    if(!boards) {
+        return NextResponse.json({error:"Board does not exist"},{
+            status: 404,
+        })
+    }
+      const students = boards?.students
     return NextResponse.json(
-      { message: "Getting all students", boardId: id },
+      { students },
       {
         status: 200,
       }
