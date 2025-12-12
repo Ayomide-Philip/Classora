@@ -1,10 +1,11 @@
+"use client";
 import { Plus, CalendarDays, Clock, MapPin, BookOpen } from "lucide-react";
 import Link from "next/link";
 
 export default function BoardForm({ course }) {
+  const boardData = {};
   return (
     <form className="space-y-8">
-      {/* Course Selection - Enhanced */}
       <div className="rounded-xl border border-slate-200 bg-slate-50/50 p-5 dark:border-slate-800 dark:bg-slate-900/50">
         <div className="mb-3 flex items-center gap-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-100 dark:bg-sky-900/30">
@@ -25,7 +26,6 @@ export default function BoardForm({ course }) {
         </select>
       </div>
 
-      {/* Schedule Details */}
       <div className="space-y-4">
         <div className="flex items-center gap-2 mb-1">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-100 dark:bg-emerald-900/30">
@@ -93,7 +93,6 @@ export default function BoardForm({ course }) {
         </div>
       </div>
 
-      {/* Location Details */}
       <div className="space-y-4">
         <div className="flex items-center gap-2 mb-1">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-rose-100 dark:bg-rose-900/30">
@@ -136,7 +135,6 @@ export default function BoardForm({ course }) {
         </div>
       </div>
 
-      {/* Action Buttons */}
       <div className="flex flex-col-reverse sm:flex-row gap-3 pt-6 border-t-2 border-slate-200 dark:border-slate-800">
         <Link
           href="/board"
