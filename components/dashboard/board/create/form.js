@@ -25,21 +25,6 @@ export default function BoardForm({ course }) {
     console.log(boardFormData);
   }, [boardFormData]);
 
-  function checkTimeDifference(startTime, endTime) {
-    const splitStartTime = startTime.split(":");
-    const splitEndTime = endTime.split(":");
-    console.log(splitStartTime, splitEndTime);
-    if (splitStartTime[0] > splitEndTime[0]) {
-      return toast.error("Start time cant greater than end time");
-    }
-    if (
-      splitStartTime[0] === splitEndTime[0] &&
-      Number(splitEndTime[1]) - Number(splitStartTime[1]) < 30
-    ) {
-      return toast.error("There should be at least 30 minute difference");
-    }
-  }
-
   async function handleSubmit(e) {
     e.preventDefault();
     const timeRegex = /^([01]\d|2[0-3]):([0-5]\d)$/;
@@ -97,7 +82,18 @@ export default function BoardForm({ course }) {
       return toast.error("Invalid start or end time");
     }
 
-    return checkTimeDifference(startTime, endTime);
+    const splitStartTime = startTime.split(":");
+    const splitEndTime = endTime.split(":");
+    console.log(splitStartTime, splitEndTime);
+    if (splitStartTime[0] > splitEndTime[0]) {
+      return toast.error("Start time cant greater than end time");
+    }
+    if (
+      splitStartTime[0] === splitEndTime[0] &&
+      Number(splitEndTime[1]) - Number(splitStartTime[1]) < 30
+    ) {
+      return toast.error("There should be at least 30 minute difference");
+    }
 
     // validating venue name
     if (!venueName || !venueName.trim()) {
