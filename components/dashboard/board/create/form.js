@@ -3,7 +3,6 @@ import { Plus, CalendarDays, Clock, MapPin, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { NextResponse } from "next/server";
 
 export default function BoardForm({ course }) {
   const [boardFormData, setBoardFormData] = useState({
@@ -63,6 +62,15 @@ export default function BoardForm({ course }) {
       type?.trim().toLowerCase() !== "practical"
     ) {
       return toast.error("Invalid type chosen.");
+    }
+
+    // validating start date and end time
+    if (!startTime || !startTime.trim()) {
+      return toast.error("Start time is required");
+    }
+
+    if (!endTime || !endTime.trim()) {
+      return toast.error("End time is required");
     }
 
     // validating venue name
