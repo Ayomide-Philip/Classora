@@ -227,7 +227,7 @@ export const POST = auth(async function POST(req, { params }) {
     await board.save();
 
     return NextResponse.json(
-      { class: newClass },
+      { class: newClass, message:"Class created successfully." },
       {
         status: 200,
       }

@@ -109,17 +109,16 @@ export default function BoardForm({ course, boardId }) {
     }
 
     try {
-      const request = await fetch(`/api/boards/${boardId}/classes/`,
-      {
+      const request = await fetch(`/api/boards/${boardId}/classes/`, {
         method: "POST",
         body: JSON.stringify({
-            courseId,
-            type:type,
-            day: day,
-            venueName: venueName,
-            venueMapUrl: venueMapUrl,
-            startTime: startTime,
-            endTime: endTime,
+          courseId,
+          type: type,
+          day: day,
+          venueName: venueName,
+          venueMapUrl: venueMapUrl,
+          startTime: startTime,
+          endTime: endTime,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -128,10 +127,11 @@ export default function BoardForm({ course, boardId }) {
       });
 
       const response = await request.json();
-       if(response?.error && !request.ok){
-           return toast.error(response?.error);
-       }
-       toast.success(response?.message || "Class created successfully.");
+      if (response?.error && !request.ok) {
+        return toast.error(response?.error);
+      }
+      toast.success(response?.message || "Class created successfully.");
+      window.location.href = "/board";
     } catch (err) {
       console.log(err);
       return toast.error("Network error");
@@ -375,7 +375,7 @@ export default function BoardForm({ course, boardId }) {
         </Link>
         <button
           type="submit"
-          className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-600/30 hover:bg-sky-700 hover:shadow-xl hover:shadow-sky-600/40 transition-all active:scale-[0.98]"
+          className="flex-1 cursor-pointer inline-flex items-center justify-center gap-2 rounded-lg bg-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-600/30 hover:bg-sky-700 hover:shadow-xl hover:shadow-sky-600/40 transition-all active:scale-[0.98]"
         >
           <Plus className="h-4 w-4" />
           Schedule Class
