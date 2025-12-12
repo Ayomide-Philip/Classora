@@ -2,6 +2,7 @@
 import { Plus, CalendarDays, Clock, MapPin, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 export default function BoardForm({ course }) {
   const [boardFormData, setBoardFormData] = useState({
@@ -24,8 +25,32 @@ export default function BoardForm({ course }) {
     console.log(boardFormData);
   }, [boardFormData]);
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const timeRegex = /^([01]\d|2[0-3]):([0-5]\d)$/;
+    // breaking down each input
+    const { courseId, venueName, venueMapUrl, day, startTime, endTime, type } =
+      boardFormData;
+    // validating course id
+    if (!courseId || !courseId.trim()) {
+      return toast.error("Create a course first.");
+    }
+    // validating venue name
+    if (!venueName || !venueName.trim()) {
+      return toast.error("Venue name is required");
+    }
+
+    if (venueName.trim().length < 5) {
+      return toast.error("Venue name should be at least 5 characters");
+    }
+    // validating map url
+    if (venueMapUrl.trim() && venueMapUrl.trim().length < 10) {
+      return toast.error("Venue map is required");
+    }
+  }
+
   return (
-    <form className="space-y-8">
+    <form className="space-y-8" onSubmit={handleSubmit}>
       <div className="rounded-xl border border-slate-200 bg-slate-50/50 p-5 dark:border-slate-800 dark:bg-slate-900/50">
         <div className="mb-3 flex items-center gap-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-100 dark:bg-sky-900/30">
