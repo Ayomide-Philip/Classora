@@ -194,7 +194,7 @@ export default function Page() {
                 {/* Top Section */}
                 <div className="flex items-start gap-4 mb-4">
                   {/* Avatar */}
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-sky-400 to-sky-600 text-base font-bold text-white shadow-md">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-sky-400 to-sky-600 text-base font-bold text-white shadow-md">
                     {student.avatar}
                   </div>
 
