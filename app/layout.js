@@ -32,14 +32,15 @@ export default function RootLayout({ children }) {
       >
         <ToastContainer
           position="top-center"
-          autoClose={5000}
-          hideProgressBar={true}
-          closeOnClick={true}
-          progressClassName={undefined}
-          closeButton={false}
-          pauseOnHover={true}
-          draggable={true}
-          toastClassName="!rounded-full dark:bg-gray-800 dark:text-white !text-sm !font-bold text-center! text-black" // Global styles for all toasts
+          autoClose={4000}
+          hideProgressBar
+          closeOnClick
+          pauseOnHover
+          draggable
+          theme="colored"
+          toastClassName="!rounded-xl !px-4 !py-3 !shadow-lg !border !border-slate-200 !bg-white !text-slate-900 dark:!bg-slate-900 dark:!text-white dark:!border-slate-700 !text-sm !font-semibold !leading-relaxed"
+          bodyClassName="!flex !items-center !gap-2"
+          className="w-full! max-w-md!"
         />
         <ThemesProvider>{children}</ThemesProvider>
         <Analytics />
