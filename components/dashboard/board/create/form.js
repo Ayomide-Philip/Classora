@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 
 export default function BoardForm({ course }) {
   const [boardFormData, setBoardFormData] = useState({
-    userId: "",
     courseId: "",
     venueName: "",
     venueMapUrl: "",
@@ -38,7 +37,7 @@ export default function BoardForm({ course }) {
         </div>
         <select
           onChange={(e) => {
-            console.log(e.target.value);
+            handleInputChange("courseId", e.target.value);
           }}
           className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-sky-400 dark:focus:ring-sky-400/20 transition"
         >
@@ -67,7 +66,12 @@ export default function BoardForm({ course }) {
             <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
               Day of Week
             </label>
-            <select className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-sky-400 dark:focus:ring-sky-400/20 transition">
+            <select
+              onChange={(e) => {
+                handleInputChange("day", e.target.value);
+              }}
+              className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-sky-400 dark:focus:ring-sky-400/20 transition"
+            >
               <option value="">Select day</option>
               <option value="monday">Monday</option>
               <option value="tuesday">Tuesday</option>
