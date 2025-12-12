@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-export default function BoardForm({ course }) {
+export default function BoardForm({ course, boardId }) {
   const [boardFormData, setBoardFormData] = useState({
     courseId: "",
     venueName: "",
@@ -106,6 +106,35 @@ export default function BoardForm({ course }) {
     // validating map url
     if (venueMapUrl.trim() && venueMapUrl.trim().length < 10) {
       return toast.error("Venue map is required");
+    }
+
+    try {
+      const request = await fetch(`/api/boards/${boardId}/classes/`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+            courseId,
+            type:type,
+            day: day,
+            venueName: venueName,
+            venueMapUrl: venueMapUrl,
+            startTime: startTime,
+            endTime: endTime,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
+
+      const response = await request.json();
+       if(response?.error && !request.ok){
+           return toast.error(response?.error);
+       }
+       toast.success(response?.message || "Class created successfully.");
+    } catch (err) {
+      console.log(err);
+      return toast.error("Network error");
     }
   }
 

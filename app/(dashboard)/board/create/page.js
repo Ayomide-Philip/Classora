@@ -50,7 +50,7 @@ export default async function Page() {
           </div>
         </header>
 
-        <BoardForm course={response?.course} />
+        <BoardForm course={response?.course} boardId={boardId} />
       </div>
     </main>
   );
