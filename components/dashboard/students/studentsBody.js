@@ -37,7 +37,7 @@ export default function StudentPageBody({ students }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {students?.map((student, idx) => {
           const roleConfig = {
             owner: {
@@ -69,7 +69,7 @@ export default function StudentPageBody({ students }) {
           return (
             <Link
               key={idx}
-              href={`/students/${student._id}`}
+              href={`/students/${student?._id}`}
               className="group relative overflow-hidden rounded-xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-lg hover:border-slate-300 transition-all active:scale-[0.98] dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700"
             >
               <div className="flex items-start gap-4 mb-4">
@@ -96,18 +96,18 @@ export default function StudentPageBody({ students }) {
 
               <div className="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
                 <div
-                  className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 ${userRole.bg}`}
+                  className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 ${userRole?.bg}`}
                 >
-                  <RoleIcon className={`h-3.5 w-3.5 ${userRole.iconColor}`} />
-                  <span className={`text-xs font-semibold ${userRole.text}`}>
-                    {userRole.label}
+                  <RoleIcon className={`h-3.5 w-3.5 ${userRole?.iconColor}`} />
+                  <span className={`text-xs font-semibold ${userRole?.text}`}>
+                    {userRole?.label}
                   </span>
                 </div>
 
                 <div className="flex items-center gap-4">
                   <div className="text-right">
                     <p className="text-xs text-slate-500 dark:text-slate-400">
-                      Enrolled
+                      Joined Board
                     </p>
                     <p className="text-sm font-bold text-slate-900 dark:text-white">
                       {new Date(student?.createdAt).toLocaleString("us-EN", {
