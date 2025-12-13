@@ -8,75 +8,8 @@ import {
   GraduationCap,
 } from "lucide-react";
 import Link from "next/link";
-const students = [
-  {
-    id: 1,
-    name: "Amara Johnson",
-    email: "amara.j@student.edu",
-    phone: "+234 801 234 5678",
-    enrollmentDate: "Sep 2024",
-    avatar: "AJ",
-    status: "active",
-    courses: 6,
-    role: "owner",
-  },
-  {
-    id: 2,
-    name: "Kwame Osei",
-    email: "kwame.o@student.edu",
-    phone: "+234 802 345 6789",
-    enrollmentDate: "Sep 2024",
-    avatar: "KO",
-    status: "active",
-    courses: 5,
-    role: "admin",
-  },
-  {
-    id: 3,
-    name: "Fatima Hassan",
-    email: "fatima.h@student.edu",
-    phone: "+234 803 456 7890",
-    enrollmentDate: "Sep 2024",
-    avatar: "FH",
-    status: "active",
-    courses: 7,
-    role: "student",
-  },
-  {
-    id: 4,
-    name: "Chidi Nwosu",
-    email: "chidi.n@student.edu",
-    phone: "+234 804 567 8901",
-    enrollmentDate: "Sep 2024",
-    avatar: "CN",
-    status: "active",
-    courses: 6,
-    role: "student",
-  },
-  {
-    id: 5,
-    name: "Zainab Musa",
-    email: "zainab.m@student.edu",
-    phone: "+234 805 678 9012",
-    enrollmentDate: "Sep 2024",
-    avatar: "ZM",
-    status: "active",
-    courses: 5,
-    role: "admin",
-  },
-  {
-    id: 6,
-    name: "Tunde Adeyemi",
-    email: "tunde.a@student.edu",
-    phone: "+234 806 789 0123",
-    enrollmentDate: "Sep 2024",
-    avatar: "TA",
-    status: "active",
-    courses: 6,
-    role: "student",
-  },
-];
-export default function StudentPageBody() {
+
+export default function StudentPageBody({ students }) {
   return (
     <>
       <div className="mb-6 flex flex-col md:flex-row md:items-center gap-4">
@@ -100,14 +33,14 @@ export default function StudentPageBody() {
               Total Students
             </p>
             <p className="text-lg font-bold text-slate-900 dark:text-white">
-              {students.length}
+              {students?.length}
             </p>
           </div>
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {students.map((student) => {
+        {students?.map((student) => {
           const roleConfig = {
             owner: {
               label: "Owner",
@@ -123,7 +56,7 @@ export default function StudentPageBody() {
               text: "text-purple-700 dark:text-purple-400",
               iconColor: "text-purple-600 dark:text-purple-400",
             },
-            student: {
+            member: {
               label: "Student",
               icon: GraduationCap,
               bg: "bg-sky-100 dark:bg-sky-900/30",
@@ -132,20 +65,25 @@ export default function StudentPageBody() {
             },
           };
 
-          const role = roleConfig[student.role];
-          const RoleIcon = role.icon;
+          const userRole = roleConfig[student?.board?.role];
+          console.log(userRole);
+
+          const RoleIcon = userRole.icon;
 
           return (
             <Link
-              key={student.id}
-              href={`/dashboard/students/${student.id}`}
+              key={student._id}
+              href={`/students/${student._id}`}
               className="group relative overflow-hidden rounded-xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-lg hover:border-slate-300 transition-all active:scale-[0.98] dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700"
             >
               {/* Top Section */}
               <div className="flex items-start gap-4 mb-4">
                 {/* Avatar */}
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-sky-400 to-sky-600 text-base font-bold text-white shadow-md">
-                  {student.avatar}
+                  {student.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")}
                 </div>
 
                 {/* Info */}
@@ -167,10 +105,10 @@ export default function StudentPageBody() {
               <div className="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
                 {/* Role Badge */}
                 <div
-                  className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 ${role.bg}`}
+                  className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 ${userRole.bg}`}
                 >
-                  <RoleIcon className={`h-3.5 w-3.5 ${role.iconColor}`} />
-                  <span className={`text-xs font-semibold ${role.text}`}>
+                  <RoleIcon className={`h-3.5 w-3.5 ${userRole.iconColor}`} />
+                  <span className={`text-xs font-semibold ${userRole.text}`}>
                     {role.label}
                   </span>
                 </div>

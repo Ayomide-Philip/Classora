@@ -46,7 +46,7 @@ export default async function Page() {
           </div>
         </header>
 
-        <StudentPageBody />
+        <StudentPageBody students={students} />
       </div>
     </main>
   );
