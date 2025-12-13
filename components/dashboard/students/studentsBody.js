@@ -13,7 +13,6 @@ export default function StudentPageBody({ students }) {
   return (
     <>
       <div className="mb-6 flex flex-col md:flex-row md:items-center gap-4">
-        {/* Search Bar */}
         <div className="flex-1 relative">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400 dark:text-slate-500" />
           <input
@@ -23,7 +22,6 @@ export default function StudentPageBody({ students }) {
           />
         </div>
 
-        {/* Total Students */}
         <div className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white px-4 py-2.5 dark:border-slate-800 dark:bg-slate-900">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-100 dark:bg-sky-900/30">
             <Users className="h-5 w-5 text-sky-600 dark:text-sky-400" />
@@ -40,7 +38,7 @@ export default function StudentPageBody({ students }) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {students?.map((student) => {
+        {students?.map((student, idx) => {
           const roleConfig = {
             owner: {
               label: "Owner",
@@ -52,9 +50,9 @@ export default function StudentPageBody({ students }) {
             admin: {
               label: "Admin",
               icon: Shield,
-              bg: "bg-purple-100 dark:bg-purple-900/30",
-              text: "text-purple-700 dark:text-purple-400",
-              iconColor: "text-purple-600 dark:text-purple-400",
+              bg: "bg-amber-100 dark:bg-amber-900/30",
+              text: "text-amber-700 dark:text-amber-400",
+              iconColor: "text-amber-600 dark:text-amber-400",
             },
             member: {
               label: "Student",
@@ -66,19 +64,15 @@ export default function StudentPageBody({ students }) {
           };
 
           const userRole = roleConfig[student?.board?.role];
-          console.log(userRole);
-
           const RoleIcon = userRole.icon;
 
           return (
             <Link
-              key={student._id}
+              key={idx}
               href={`/students/${student._id}`}
               className="group relative overflow-hidden rounded-xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-lg hover:border-slate-300 transition-all active:scale-[0.98] dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700"
             >
-              {/* Top Section */}
               <div className="flex items-start gap-4 mb-4">
-                {/* Avatar */}
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-sky-400 to-sky-600 text-base font-bold text-white shadow-md">
                   {student.name
                     .split(" ")
@@ -86,7 +80,6 @@ export default function StudentPageBody({ students }) {
                     .join("")}
                 </div>
 
-                {/* Info */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-start justify-between gap-2">
                     <h3 className="font-semibold text-lg text-slate-900 dark:text-white truncate">
@@ -101,34 +94,27 @@ export default function StudentPageBody({ students }) {
                 </div>
               </div>
 
-              {/* Bottom Section */}
               <div className="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
-                {/* Role Badge */}
                 <div
                   className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 ${userRole.bg}`}
                 >
                   <RoleIcon className={`h-3.5 w-3.5 ${userRole.iconColor}`} />
                   <span className={`text-xs font-semibold ${userRole.text}`}>
-                    {role.label}
+                    {userRole.label}
                   </span>
                 </div>
 
-                {/* Stats */}
                 <div className="flex items-center gap-4">
-                  <div className="text-right">
-                    <p className="text-xs text-slate-500 dark:text-slate-400">
-                      Courses
-                    </p>
-                    <p className="text-sm font-bold text-slate-900 dark:text-white">
-                      {student.courses}
-                    </p>
-                  </div>
                   <div className="text-right">
                     <p className="text-xs text-slate-500 dark:text-slate-400">
                       Enrolled
                     </p>
                     <p className="text-sm font-bold text-slate-900 dark:text-white">
-                      {student.enrollmentDate}
+                      {new Date(student?.createdAt).toLocaleString("us-EN", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "2-digit",
+                      })}
                     </p>
                   </div>
                 </div>
