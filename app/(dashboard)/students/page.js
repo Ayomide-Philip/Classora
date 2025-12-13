@@ -4,6 +4,7 @@ import { BASE_URL } from "@/libs/config";
 import { UserPlus } from "lucide-react";
 import Link from "next/link";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 export default async function Page() {
   const { boardId, role } = await getUserInfomation();
@@ -15,6 +16,13 @@ export default async function Page() {
       Cookie: (await cookies()).toString(),
     },
   });
+
+  const response = await request.json();
+  if (!request.ok || response?.error) {
+    return redirect("/overview");
+  }
+  const { students } = response;
+  console.log(students);
   return (
     <main className="px-4 py-6 sm:py-8 md:px-8">
       <div className="mx-auto max-w-6xl">
