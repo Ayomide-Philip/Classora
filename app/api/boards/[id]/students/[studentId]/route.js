@@ -51,7 +51,7 @@ export async function GET(req, { params }) {
     }
 
     return NextResponse.json(
-      { boardId: id, studentId, student: student },
+      { student: student },
       {
         status: 200,
       }
