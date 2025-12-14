@@ -22,7 +22,19 @@ export async function GET(req, { params }) {
   }
 
   try {
+    return NextResponse.json(
+      { boardId: id, studentId },
+      {
+        status: 200,
+      }
+    );
   } catch (err) {
     console.log(err);
+    return NextResponse.json(
+      { error: "An error occurred while getting student" },
+      {
+        status: 400,
+      }
+    );
   }
 }
