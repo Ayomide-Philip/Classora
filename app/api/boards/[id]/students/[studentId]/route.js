@@ -40,7 +40,7 @@ export async function GET(req, { params }) {
     let student = boards?.students.find((student) => {
       return student._id.toString() === studentId.toString();
     });
-
+    // if student is not found
     if (!student) {
       return NextResponse.json(
         { error: "Student is not found" },
@@ -49,6 +49,7 @@ export async function GET(req, { params }) {
         }
       );
     }
+
     return NextResponse.json(
       { boardId: id, studentId, student: student },
       {
