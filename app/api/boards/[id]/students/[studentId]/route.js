@@ -21,10 +21,8 @@ export async function GET(req, { params }) {
     );
   }
 
-  return NextResponse.json(
-    { boardId: id, studentId },
-    {
-      status: 200,
-    }
-  );
+  try {
+  } catch (err) {
+    console.log(err);
+  }
 }
