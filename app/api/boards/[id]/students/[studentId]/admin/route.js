@@ -3,6 +3,7 @@ import { connectDatabase } from "@/libs/connectDatabase";
 import Boards from "@/libs/models/boards.models";
 
 export async function PUT(req, { params }) {
+  const { userId } = await req.json();
   const { id, studentId } = await params;
 
   // checking board id
@@ -38,7 +39,7 @@ export async function PUT(req, { params }) {
       );
     }
     // check if the student exist
-    const studentExist = boards?.students.map((student) => {
+    const studentExist = boards?.students.find((student) => {
       return student._id.toString() === studentId.toString();
     });
     // if student does not exist
@@ -50,9 +51,13 @@ export async function PUT(req, { params }) {
         }
       );
     }
+    // check user adding role
+    const checkUserIdRole = boards?.students?.find((student) => {
+      return student._id.toString() === userId.toString();
+    });
 
     return NextResponse.json(
-      { message: "PUT user role" },
+      { message: "PUT user role", userId, studentId, boardId: id },
       {
         status: 200,
       }
