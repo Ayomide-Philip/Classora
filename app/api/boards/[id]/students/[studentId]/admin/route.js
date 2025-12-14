@@ -41,6 +41,16 @@ export async function PUT(req, { params }) {
     const studentExist = boards?.students.map((student) => {
       return student._id.toString() === studentId.toString();
     });
+    // if student does not exist
+    if (!studentExist) {
+      return NextResponse.json(
+        { error: "Student does not exist" },
+        {
+          status: 400,
+        }
+      );
+    }
+    
     return NextResponse.json(
       { message: "PUT user role" },
       {
