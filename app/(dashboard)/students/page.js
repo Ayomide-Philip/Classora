@@ -22,6 +22,7 @@ export default async function Page() {
     return redirect("/overview");
   }
   const { students } = response;
+  
   console.log(students);
   return (
     <main className="px-4 py-6 sm:py-8 md:px-8">
