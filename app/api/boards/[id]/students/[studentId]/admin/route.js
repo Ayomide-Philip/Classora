@@ -52,6 +52,17 @@ export async function PUT(req, { params }) {
         }
       );
     }
+    if (
+      studentExist.board.role === "owner" ||
+      studentExist.board.role === "admin"
+    ) {
+      return NextResponse.json(
+        { error: `User has the role ${studentExist.board.role}` },
+        {
+          status: 400,
+        }
+      );
+    }
     // check user adding role
     const checkUserIdRole = boards?.students?.find((student) => {
       return student._id.toString() === userId.toString();
@@ -80,11 +91,20 @@ export async function PUT(req, { params }) {
     // edit user role
     const user = await Users.findById(studentId).select("-password");
     if (user?.board?.boardId.toString() !== id.toString()) {
-      return NextResponse.json({ error: "User does not belong to this board" });
+      return NextResponse.json(
+        { error: "User does not belong to this board" },
+        {
+          status: 401,
+        }
+      );
     }
+    if (user?.board) {
+      user.board.role = "admin";
+    }
+    await user.save();
 
     return NextResponse.json(
-      { message: "PUT user role", userId, studentId, boardId: id },
+      { student: user },
       {
         status: 200,
       }
