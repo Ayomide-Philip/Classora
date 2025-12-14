@@ -26,7 +26,7 @@ export async function GET(req, { params }) {
   try {
     await connectDatabase();
     // check if the board exists
-    const boards = Boards.findById(id);
+    const boards = await Boards.findById(id).populate("students", "-password");
     // if board does not exist return error
     if (!boards) {
       return NextResponse.json(
@@ -36,8 +36,21 @@ export async function GET(req, { params }) {
         }
       );
     }
+    // get all the students from the board
+    let student = boards?.students.find((student) => {
+      return student._id.toString() === studentId.toString();
+    });
+
+    if (!student) {
+      return NextResponse.json(
+        { error: "Student is not found" },
+        {
+          status: 404,
+        }
+      );
+    }
     return NextResponse.json(
-      { boardId: id, studentId },
+      { boardId: id, studentId, student: student },
       {
         status: 200,
       }
