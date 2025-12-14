@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { connectDatabase } from "@/libs/connectDatabase";
 import Boards from "@/libs/models/boards.models";
+import Users from "@/libs/models/user.models";
 
 export async function PUT(req, { params }) {
   const { userId } = await req.json();
@@ -55,6 +56,30 @@ export async function PUT(req, { params }) {
     const checkUserIdRole = boards?.students?.find((student) => {
       return student._id.toString() === userId.toString();
     });
+    // if user we are even checking doesn't exist
+    if (!checkUserIdRole) {
+      return NextResponse.json(
+        { error: "Anonymous user has unauthorized Access" },
+        {
+          status: 401,
+        }
+      );
+    }
+
+    if (
+      checkUserIdRole?.board?.role !== "owner" &&
+      checkUserIdRole?.board?.role !== "admin"
+    ) {
+      return NextResponse.json(
+        { error: "You dont have the access to grant a role" },
+        {
+          status: 401,
+        }
+      );
+    }
+    // edit user role
+    const user = await Users.findById(studentId).select("-password");
+    console.log(user);
 
     return NextResponse.json(
       { message: "PUT user role", userId, studentId, boardId: id },
