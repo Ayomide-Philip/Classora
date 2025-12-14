@@ -79,7 +79,9 @@ export async function PUT(req, { params }) {
     }
     // edit user role
     const user = await Users.findById(studentId).select("-password");
-    console.log(user);
+    if (user?.board?.boardId.toString() !== id.toString()) {
+      return NextResponse.json({ error: "User does not belong to this board" });
+    }
 
     return NextResponse.json(
       { message: "PUT user role", userId, studentId, boardId: id },
