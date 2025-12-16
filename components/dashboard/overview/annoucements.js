@@ -20,7 +20,7 @@ export default async function OverviewAnnoucement() {
   const { announcement } = await annoucementRequest.json();
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/70">
+    <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm dark:border-slate-800 dark:bg-slate-900/70">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
@@ -40,7 +40,7 @@ export default async function OverviewAnnoucement() {
         ) : (
           <AnnoucementsCourses annoucements={announcement} />
         )}
-      </div>
+      </div>  
     </div>
   );
 }
