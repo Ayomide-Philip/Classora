@@ -58,7 +58,7 @@ export default function Page({ params }) {
         {/* Student Profile Card */}
         <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 overflow-hidden">
           {/* Header Section */}
-          <div className="bg-gradient-to-r from-sky-500 to-blue-600 px-6 py-8 sm:px-8">
+          <div className="bg-linear-to-r from-sky-500 to-blue-600 px-6 py-8 sm:px-8">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="flex items-center gap-4">
                 <div className="h-20 w-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
@@ -143,7 +143,7 @@ export default function Page({ params }) {
                     <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
                       Email Address
                     </p>
-                    <p className="text-slate-900 dark:text-white mt-1 break-words">
+                    <p className="text-slate-900 dark:text-white mt-1 wrap-break-word">
                       {student.email}
                     </p>
                   </div>
@@ -282,7 +282,7 @@ export default function Page({ params }) {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {/* Completed Courses */}
-                <div className="p-4 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-lg border border-green-200 dark:border-green-800">
+                <div className="p-4 bg-linear-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-lg border border-green-200 dark:border-green-800">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-green-100 dark:bg-green-800/50 rounded-lg">
                       <Award className="h-5 w-5 text-green-600 dark:text-green-400" />
@@ -299,7 +299,7 @@ export default function Page({ params }) {
                 </div>
 
                 {/* Active Courses */}
-                <div className="p-4 bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-900/20 dark:to-sky-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                <div className="p-4 bg-linear-to-br from-blue-50 to-sky-50 dark:from-blue-900/20 dark:to-sky-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-blue-100 dark:bg-blue-800/50 rounded-lg">
                       <Book className="h-5 w-5 text-blue-600 dark:text-blue-400" />
@@ -316,7 +316,7 @@ export default function Page({ params }) {
                 </div>
 
                 {/* Member Since */}
-                <div className="p-4 bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 rounded-lg border border-purple-200 dark:border-purple-800">
+                <div className="p-4 bg-linear-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 rounded-lg border border-purple-200 dark:border-purple-800">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-purple-100 dark:bg-purple-800/50 rounded-lg">
                       <Clock className="h-5 w-5 text-purple-600 dark:text-purple-400" />
