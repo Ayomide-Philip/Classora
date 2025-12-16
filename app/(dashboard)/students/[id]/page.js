@@ -13,29 +13,42 @@ import {
   Award,
   Clock,
   Hash,
+  Instagram,
+  Twitter,
+  Github,
+  Linkedin,
+  Users as UsersIcon,
 } from "lucide-react";
 import Link from "next/link";
 
 export default function Page({ params }) {
-  // Static student data - replace with your API call later
+  // Static student data - combines User model + Profile model
   const student = {
-    _id: 1,
+    // From User model
+    _id: "67609afd1234567890abcdef",
     name: "John Doe",
     username: "johndoe",
     email: "john.doe@example.com",
-    phone: "+1 (555) 123-4567",
-    address: "123 Main Street, New York, NY 10001",
-    studentId: "STU-2024-001",
-    department: "Computer Science",
-    enrollmentYear: "2024",
-    gpa: "3.85",
-    completedCourses: 12,
-    activeCourses: 4,
-    bio: "Passionate about software development and artificial intelligence. Always eager to learn new technologies and contribute to innovative projects.",
     board: {
       role: "member", // Can be: "owner", "admin", or "member"
     },
     createdAt: new Date().toISOString(),
+
+    // From Profile model
+    bio: "Passionate about software development and artificial intelligence. Always eager to learn new technologies and contribute to innovative projects.",
+    phoneNumber: "+1 (555) 123-4567",
+    gender: "Male",
+    department: "Computer Science",
+    faculty: "Engineering",
+    degree: "Bachelor of Science",
+    currentLevel: "3rd Year",
+    enrollmentYear: 2024,
+    socialHandles: {
+      instagram: "johndoe_dev",
+      twitter: "johndoe_code",
+      github: "johndoe-dev",
+      linkedin: "johndoe-developer",
+    },
   };
 
   const isAdmin = student?.board?.role === "admin";
@@ -150,7 +163,7 @@ export default function Page({ params }) {
                 </div>
 
                 {/* Phone */}
-                {student.phone && (
+                {student.phoneNumber && (
                   <div className="flex items-start gap-3 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-lg">
                     <Phone className="h-5 w-5 text-slate-500 dark:text-slate-400 mt-0.5" />
                     <div>
@@ -158,37 +171,37 @@ export default function Page({ params }) {
                         Phone Number
                       </p>
                       <p className="text-slate-900 dark:text-white mt-1">
-                        {student.phone}
+                        {student.phoneNumber}
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                {/* Gender */}
+                {student.gender && (
+                  <div className="flex items-start gap-3 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-lg">
+                    <UsersIcon className="h-5 w-5 text-slate-500 dark:text-slate-400 mt-0.5" />
+                    <div>
+                      <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
+                        Gender
+                      </p>
+                      <p className="text-slate-900 dark:text-white mt-1">
+                        {student.gender}
                       </p>
                     </div>
                   </div>
                 )}
 
                 {/* Student ID */}
-                {student.studentId && (
+                {student._id && (
                   <div className="flex items-start gap-3 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-lg">
                     <Hash className="h-5 w-5 text-slate-500 dark:text-slate-400 mt-0.5" />
                     <div>
                       <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
                         Student ID
                       </p>
-                      <p className="text-slate-900 dark:text-white mt-1">
-                        {student.studentId}
-                      </p>
-                    </div>
-                  </div>
-                )}
-
-                {/* Address */}
-                {student.address && (
-                  <div className="flex items-start gap-3 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-lg">
-                    <MapPin className="h-5 w-5 text-slate-500 dark:text-slate-400 mt-0.5" />
-                    <div>
-                      <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
-                        Address
-                      </p>
-                      <p className="text-slate-900 dark:text-white mt-1">
-                        {student.address}
+                      <p className="text-slate-900 dark:text-white mt-1 break-words text-sm">
+                        {student._id}
                       </p>
                     </div>
                   </div>
@@ -218,6 +231,51 @@ export default function Page({ params }) {
                   </div>
                 )}
 
+                {/* Faculty */}
+                {student.faculty && (
+                  <div className="flex items-start gap-3 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-lg">
+                    <Award className="h-5 w-5 text-slate-500 dark:text-slate-400 mt-0.5" />
+                    <div>
+                      <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
+                        Faculty
+                      </p>
+                      <p className="text-slate-900 dark:text-white mt-1">
+                        {student.faculty}
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                {/* Degree */}
+                {student.degree && (
+                  <div className="flex items-start gap-3 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-lg">
+                    <Award className="h-5 w-5 text-slate-500 dark:text-slate-400 mt-0.5" />
+                    <div>
+                      <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
+                        Degree
+                      </p>
+                      <p className="text-slate-900 dark:text-white mt-1">
+                        {student.degree}
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                {/* Current Level */}
+                {student.currentLevel && (
+                  <div className="flex items-start gap-3 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-lg">
+                    <Clock className="h-5 w-5 text-slate-500 dark:text-slate-400 mt-0.5" />
+                    <div>
+                      <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
+                        Current Level
+                      </p>
+                      <p className="text-slate-900 dark:text-white mt-1">
+                        {student.currentLevel}
+                      </p>
+                    </div>
+                  </div>
+                )}
+
                 {/* Enrollment Year */}
                 {student.enrollmentYear && (
                   <div className="flex items-start gap-3 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-lg">
@@ -228,21 +286,6 @@ export default function Page({ params }) {
                       </p>
                       <p className="text-slate-900 dark:text-white mt-1">
                         {student.enrollmentYear}
-                      </p>
-                    </div>
-                  </div>
-                )}
-
-                {/* GPA */}
-                {student.gpa && (
-                  <div className="flex items-start gap-3 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-lg">
-                    <Award className="h-5 w-5 text-slate-500 dark:text-slate-400 mt-0.5" />
-                    <div>
-                      <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
-                        GPA
-                      </p>
-                      <p className="text-slate-900 dark:text-white mt-1">
-                        {student.gpa} / 4.00
                       </p>
                     </div>
                   </div>
@@ -274,49 +317,109 @@ export default function Page({ params }) {
               </div>
             </div>
 
+            {/* Social Handles */}
+            {(student.socialHandles?.instagram ||
+              student.socialHandles?.twitter ||
+              student.socialHandles?.github ||
+              student.socialHandles?.linkedin) && (
+              <div className="space-y-4">
+                <h2 className="text-lg font-semibold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-700 pb-2">
+                  Social Links
+                </h2>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  {/* Instagram */}
+                  {student.socialHandles?.instagram && (
+                    <a
+                      href={`https://instagram.com/${student.socialHandles.instagram}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-start gap-3 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group"
+                    >
+                      <Instagram className="h-5 w-5 text-pink-500 group-hover:text-pink-600 mt-0.5" />
+                      <div>
+                        <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
+                          Instagram
+                        </p>
+                        <p className="text-slate-900 dark:text-white mt-1 group-hover:underline">
+                          @{student.socialHandles.instagram}
+                        </p>
+                      </div>
+                    </a>
+                  )}
+
+                  {/* Twitter */}
+                  {student.socialHandles?.twitter && (
+                    <a
+                      href={`https://twitter.com/${student.socialHandles.twitter}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-start gap-3 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group"
+                    >
+                      <Twitter className="h-5 w-5 text-blue-400 group-hover:text-blue-500 mt-0.5" />
+                      <div>
+                        <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
+                          Twitter
+                        </p>
+                        <p className="text-slate-900 dark:text-white mt-1 group-hover:underline">
+                          @{student.socialHandles.twitter}
+                        </p>
+                      </div>
+                    </a>
+                  )}
+
+                  {/* GitHub */}
+                  {student.socialHandles?.github && (
+                    <a
+                      href={`https://github.com/${student.socialHandles.github}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-start gap-3 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group"
+                    >
+                      <Github className="h-5 w-5 text-slate-700 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white mt-0.5" />
+                      <div>
+                        <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
+                          GitHub
+                        </p>
+                        <p className="text-slate-900 dark:text-white mt-1 group-hover:underline">
+                          {student.socialHandles.github}
+                        </p>
+                      </div>
+                    </a>
+                  )}
+
+                  {/* LinkedIn */}
+                  {student.socialHandles?.linkedin && (
+                    <a
+                      href={`https://linkedin.com/in/${student.socialHandles.linkedin}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-start gap-3 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group"
+                    >
+                      <Linkedin className="h-5 w-5 text-blue-600 group-hover:text-blue-700 mt-0.5" />
+                      <div>
+                        <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
+                          LinkedIn
+                        </p>
+                        <p className="text-slate-900 dark:text-white mt-1 group-hover:underline">
+                          {student.socialHandles.linkedin}
+                        </p>
+                      </div>
+                    </a>
+                  )}
+                </div>
+              </div>
+            )}
+
             {/* Course Statistics */}
             <div className="space-y-4">
               <h2 className="text-lg font-semibold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-700 pb-2">
-                Course Statistics
+                Member Details
               </h2>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {/* Completed Courses */}
-                <div className="p-4 bg-linear-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-lg border border-green-200 dark:border-green-800">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-green-100 dark:bg-green-800/50 rounded-lg">
-                      <Award className="h-5 w-5 text-green-600 dark:text-green-400" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-green-600 dark:text-green-400">
-                        Completed
-                      </p>
-                      <p className="text-2xl font-bold text-green-900 dark:text-green-100">
-                        {student.completedCourses || 0}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Active Courses */}
-                <div className="p-4 bg-linear-to-br from-blue-50 to-sky-50 dark:from-blue-900/20 dark:to-sky-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-blue-100 dark:bg-blue-800/50 rounded-lg">
-                      <Book className="h-5 w-5 text-blue-600 dark:text-blue-400" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-blue-600 dark:text-blue-400">
-                        Active
-                      </p>
-                      <p className="text-2xl font-bold text-blue-900 dark:text-blue-100">
-                        {student.activeCourses || 0}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Member Since */}
-                <div className="p-4 bg-linear-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 rounded-lg border border-purple-200 dark:border-purple-800">
+                <div className="p-4 bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 rounded-lg border border-purple-200 dark:border-purple-800">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-purple-100 dark:bg-purple-800/50 rounded-lg">
                       <Clock className="h-5 w-5 text-purple-600 dark:text-purple-400" />
@@ -333,6 +436,48 @@ export default function Page({ params }) {
                             year: "numeric",
                           }
                         )}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Board Role */}
+                <div className="p-4 bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-900/20 dark:to-sky-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                  <div className="flex items-center gap-3">
+                    <div
+                      className={`p-2 rounded-lg ${
+                        isOwner
+                          ? "bg-purple-100 dark:bg-purple-800/50"
+                          : isAdmin
+                          ? "bg-blue-100 dark:bg-blue-800/50"
+                          : "bg-slate-100 dark:bg-slate-700"
+                      }`}
+                    >
+                      <Shield
+                        className={`h-5 w-5 ${
+                          isOwner
+                            ? "text-purple-600 dark:text-purple-400"
+                            : isAdmin
+                            ? "text-blue-600 dark:text-blue-400"
+                            : "text-slate-600 dark:text-slate-400"
+                        }`}
+                      />
+                    </div>
+                    <div>
+                      <p
+                        className={`text-sm font-medium ${
+                          isOwner
+                            ? "text-purple-600 dark:text-purple-400"
+                            : isAdmin
+                            ? "text-blue-600 dark:text-blue-400"
+                            : "text-slate-600 dark:text-slate-400"
+                        }`}
+                      >
+                        Board Role
+                      </p>
+                      <p className="text-lg font-bold text-slate-900 dark:text-white mt-0.5">
+                        {student?.board?.role?.charAt(0).toUpperCase() +
+                          student?.board?.role?.slice(1)}
                       </p>
                     </div>
                   </div>
