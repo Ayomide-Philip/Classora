@@ -134,6 +134,33 @@ export async function DELETE(req, { params }) {
   }
 
   try {
+    await connectDatabase();
+    // get the board from the database
+    const boards = await Boards.findById(id).populate("students", "-password");
+    // if board doesnt exist
+    if (!boards) {
+      return NextResponse.json(
+        { error: "Board does not exist" },
+        {
+          status: 401,
+        }
+      );
+    }
+    // check if user exists in the board
+    const studentExist = boards?.students.find((student) => {
+      return student._id.toString() === userId.toString();
+    });
+    console.log(studentExist);
+    // if students doesnt exist
+    if (!studentExist) {
+      return NextResponse.json(
+        { error: "Student doesnt belong to this board" },
+        {
+          status: 400,
+        }
+      );
+    }
+
     return NextResponse.json(
       { message: "DELETE user admin role" },
       {
