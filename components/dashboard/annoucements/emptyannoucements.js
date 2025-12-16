@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function EmptyAnnoucements({ role }) {
   return (
-    <section className="mx-auto max-w-5xl px-4 py-12">
+    <section className="mx-auto max-w-5xl px-2 py-5">
       <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/70 md:p-10">
         <div className="md:flex md:items-start md:gap-8">
           <div className="flex-none">
