@@ -7,6 +7,10 @@ const profileModel = new Schema(
       ref: "Users",
       required: true,
     },
+    bio: {
+      type: String,
+      default: "",
+    },
     phoneNumber: {
       type: String,
       default: "",
@@ -47,6 +51,10 @@ const profileModel = new Schema(
           default: "",
         },
       },
+    },
+    enrollementYear: {
+      type: Number,
+      default: 0,
     },
   },
   {
