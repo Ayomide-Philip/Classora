@@ -63,7 +63,7 @@ export async function PUT(req, { params }) {
         }
       );
     }
-    // check user adding role
+    // check user adding the role
     const checkUserIdRole = boards?.students?.find((student) => {
       return student._id.toString() === userId.toString();
     });
@@ -146,9 +146,35 @@ export async function DELETE(req, { params }) {
         }
       );
     }
-    // check if user exists in the board
-    const studentExist = boards?.students.find((student) => {
+    // check user adding the role
+    const userAddingRole = boards?.students?.find((student) => {
       return student._id.toString() === userId.toString();
+    });
+    // if user adding role doesnt exist
+    if (!userAddingRole) {
+      return NextResponse.json(
+        { error: "User does not belong to this board" },
+        {
+          status: 400,
+        }
+      );
+    }
+    // check user role if its not admin or owner return error
+    if (
+      userAddingRole?.board?.role !== "owner" &&
+      userAddingRole?.board?.role !== "admin"
+    ) {
+      return NextResponse.json(
+        { error: "You dont have the access to remove a role" },
+        {
+          status: 400,
+        }
+      );
+    }
+
+    // check if student exists in the board
+    const studentExist = boards?.students.find((student) => {
+      return student._id.toString() === studentId.toString();
     });
     console.log(studentExist);
     // if students doesnt exist
@@ -160,7 +186,21 @@ export async function DELETE(req, { params }) {
         }
       );
     }
-
+    // check if the user has the owner privileges
+    if (studentExist?.board?.role === "owner") {
+      return NextResponse.json(
+        { error: `You cant change the role ${studentExist.board.role}` },
+        {
+          status: 401,
+        }
+      );
+    }
+    // check if the user is a student
+      if(studentExist?.board?.role === "member") {
+          return NextResponse.json({error:`You cant change the role ${studentExist.board.role}`},{
+              status: 400,
+          });
+      }
     return NextResponse.json(
       { message: "DELETE user admin role" },
       {
