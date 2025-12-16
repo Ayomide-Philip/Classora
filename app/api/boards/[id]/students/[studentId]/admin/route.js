@@ -123,7 +123,7 @@ export async function PUT(req, { params }) {
 export async function DELETE(req, { params }) {
   const { userId } = await req.json();
   const { id, studentId } = await params;
-
+  // checking if userId exist
   if (!userId) {
     return NextResponse.json(
       { error: "User Id is not specified" },
@@ -133,10 +133,20 @@ export async function DELETE(req, { params }) {
     );
   }
 
-  return NextResponse.json(
-    { message: "DELETE user admin role" },
-    {
-      status: 200,
-    }
-  );
+  try {
+    return NextResponse.json(
+      { message: "DELETE user admin role" },
+      {
+        status: 200,
+      }
+    );
+  } catch (err) {
+    console.log(err);
+    return NextResponse.json(
+      { error: "An error occurred while trying to delete user role" },
+      {
+        status: 400,
+      }
+    );
+  }
 }
