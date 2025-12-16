@@ -119,3 +119,24 @@ export async function PUT(req, { params }) {
     );
   }
 }
+
+export async function DELETE(req, { params }) {
+  const { userId } = await req.json();
+  const { id, studentId } = await params;
+
+  if (!userId) {
+    return NextResponse.json(
+      { error: "User Id is not specified" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  return NextResponse.json(
+    { message: "DELETE user admin role" },
+    {
+      status: 200,
+    }
+  );
+}
