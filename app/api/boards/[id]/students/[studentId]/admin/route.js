@@ -217,10 +217,22 @@ export async function DELETE(req, { params }) {
     }
     // update the user role to member
     const user = await Users.findById(studentId).select("-password");
-    console.log(user);
+    if (!user) {
+      return NextResponse.json(
+        { error: "User does not exist" },
+        {
+          status: 401,
+        }
+      );
+    }
+    // editing user role
+    if (user?.board) {
+      user.board.role = "member";
+    }
+    await user.save();
 
     return NextResponse.json(
-      { message: "DELETE user admin role" },
+      { user: user },
       {
         status: 200,
       }
