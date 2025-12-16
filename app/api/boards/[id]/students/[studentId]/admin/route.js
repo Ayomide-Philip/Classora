@@ -159,7 +159,7 @@ export async function DELETE(req, { params }) {
         }
       );
     }
-    // check user role if its not admin or owner return error
+    // check user role if it's not admin or owner return error
     if (
       userAddingRole?.board?.role !== "owner" &&
       userAddingRole?.board?.role !== "admin"
@@ -176,7 +176,6 @@ export async function DELETE(req, { params }) {
     const studentExist = boards?.students.find((student) => {
       return student._id.toString() === studentId.toString();
     });
-    console.log(studentExist);
     // if students doesnt exist
     if (!studentExist) {
       return NextResponse.json(
@@ -204,12 +203,21 @@ export async function DELETE(req, { params }) {
         }
       );
     }
-
-    if(userAddingRole.board?.role !== "owner" && studentExist?.board?.role !== "admin") {
-        return NextResponse.json({error:`You need owner privilege to remove the role`},{
-            status: 400,
-        })
+    // validating user adding role
+    if (
+      userAddingRole.board?.role !== "owner" ||
+      studentExist?.board?.role !== "admin"
+    ) {
+      return NextResponse.json(
+        { error: `You need owner privilege to remove the role` },
+        {
+          status: 400,
+        }
+      );
     }
+    // update the user role to member
+    const user = await Users.findById(studentId).select("-password");
+    console.log(user);
 
     return NextResponse.json(
       { message: "DELETE user admin role" },
