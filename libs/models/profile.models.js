@@ -17,7 +17,7 @@ const profileModel = new Schema(
     },
     gender: {
       type: String,
-      enum: ["Male", "female", "Prefer not to say"],
+      enum: ["Male", "Female", "Prefer not to say"],
       default: "Prefer not to say",
     },
     department: {
@@ -32,6 +32,11 @@ const profileModel = new Schema(
       type: String,
       default: "",
     },
+    currentLevel: {
+      type: String,
+      default: "",
+    },
+
     socialHandles: {
       type: {
         instagram: {
@@ -52,7 +57,7 @@ const profileModel = new Schema(
         },
       },
     },
-    enrollementYear: {
+    enrollmentYear: {
       type: Number,
       default: 0,
     },
