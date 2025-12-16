@@ -196,11 +196,21 @@ export async function DELETE(req, { params }) {
       );
     }
     // check if the user is a student
-      if(studentExist?.board?.role === "member") {
-          return NextResponse.json({error:`You cant change the role ${studentExist.board.role}`},{
-              status: 400,
-          });
-      }
+    if (studentExist?.board?.role === "member") {
+      return NextResponse.json(
+        { error: `You cant change the role ${studentExist.board.role}` },
+        {
+          status: 400,
+        }
+      );
+    }
+
+    if(userAddingRole.board?.role !== "owner" && studentExist?.board?.role !== "admin") {
+        return NextResponse.json({error:`You need owner privilege to remove the role`},{
+            status: 400,
+        })
+    }
+
     return NextResponse.json(
       { message: "DELETE user admin role" },
       {
