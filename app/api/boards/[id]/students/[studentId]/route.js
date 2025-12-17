@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { connectDatabase } from "@/libs/connectDatabase";
 import Boards from "@/libs/models/boards.models";
+import Profile from "@/libs/models/profile.models";
+import Users from "@/libs/models/user.models";
 
 export async function GET(req, { params }) {
   const { id, studentId } = await params;
@@ -26,7 +28,14 @@ export async function GET(req, { params }) {
   try {
     await connectDatabase();
     // check if the board exists
-    const boards = await Boards.findById(id).populate("students", "-password");
+    const boards = await Boards.findById(id).populate({
+      path: "students",
+      select: "-password",
+      populate: {
+        path: "profileId",
+      },
+    });
+
     // if board does not exist return error
     if (!boards) {
       return NextResponse.json(
