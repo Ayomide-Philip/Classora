@@ -2,6 +2,7 @@ import { connectDatabase } from "@/libs/connectDatabase.js";
 import { NextResponse } from "next/server";
 import Users from "@/libs/models/user.models.js";
 import hashPassword from "@/libs/utility/hashpassword";
+import Profile from "@/libs/models/profile.models";
 
 export async function POST(req) {
   const { name, email, password, username } = await req.json();
@@ -91,7 +92,9 @@ export async function POST(req) {
         }
       );
     }
-    const usernameExists = await Users.findOne({ username });
+    const usernameExists = await Users.findOne({
+      username: username.toLowerCase(),
+    });
 
     if (usernameExists) {
       return NextResponse.json(
@@ -104,14 +107,20 @@ export async function POST(req) {
     const user = await Users.create({
       name,
       email,
-      username,
+      username: username.toLowerCase(),
       password: await hashPassword(password),
     });
+    const profile = await Profile.create({ userId: user._id });
+    user.profileId = profile._id;
+    await user.save();
     return NextResponse.json(
       {
         message: "Account Successfully created",
         user: {
           id: user._id,
+        },
+        profile: {
+          id: profile._id,
         },
       },
       {

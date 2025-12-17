@@ -1,4 +1,3 @@
-"use client";
 import {
   UserCheck,
   UserX,
@@ -85,46 +84,26 @@ export default function Page({ params }) {
                 </div>
               </div>
 
-              {/* Admin Buttons on the opposite side */}
-              {canManageRoles && !isOwner && (
-                <div className="flex flex-col sm:flex-row gap-2">
-                  {/* Make Admin Button */}
-                  {!isAdmin && (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        // Add your API call here to make the student an admin
-                        console.log(
-                          "Make admin clicked for student:",
-                          student._id
-                        );
-                      }}
-                      className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold rounded-lg shadow-lg shadow-green-600/30 hover:shadow-xl hover:shadow-green-600/40 transition-all active:scale-[0.98]"
-                    >
-                      <UserCheck className="h-4 w-4" />
-                      Make Admin
-                    </button>
-                  )}
+              <div className="flex flex-col sm:flex-row gap-2">
+                {/* Make Admin Button */}
 
-                  {/* Remove Admin Button */}
-                  {isAdmin && (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        // Add your API call here to remove admin privileges
-                        console.log(
-                          "Remove admin clicked for student:",
-                          student._id
-                        );
-                      }}
-                      className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold rounded-lg shadow-lg shadow-red-600/30 hover:shadow-xl hover:shadow-red-600/40 transition-all active:scale-[0.98]"
-                    >
-                      <UserX className="h-4 w-4" />
-                      Remove Admin
-                    </button>
-                  )}
-                </div>
-              )}
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold rounded-lg shadow-lg shadow-green-600/30 hover:shadow-xl hover:shadow-green-600/40 transition-all active:scale-[0.98]"
+                >
+                  <UserCheck className="h-4 w-4" />
+                  Make Admin
+                </button>
+
+                {/* Remove Admin Button */}
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold rounded-lg shadow-lg shadow-red-600/30 hover:shadow-xl hover:shadow-red-600/40 transition-all active:scale-[0.98]"
+                >
+                  <UserX className="h-4 w-4" />
+                  Remove Admin
+                </button>
+              </div>
             </div>
           </div>
 
@@ -200,7 +179,7 @@ export default function Page({ params }) {
                       <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
                         Student ID
                       </p>
-                      <p className="text-slate-900 dark:text-white mt-1 break-words text-sm">
+                      <p className="text-slate-900 dark:text-white mt-1 wrap-break-word text-sm">
                         {student._id}
                       </p>
                     </div>
@@ -419,7 +398,7 @@ export default function Page({ params }) {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Member Since */}
-                <div className="p-4 bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 rounded-lg border border-purple-200 dark:border-purple-800">
+                <div className="p-4 bg-linear-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 rounded-lg border border-purple-200 dark:border-purple-800">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-purple-100 dark:bg-purple-800/50 rounded-lg">
                       <Clock className="h-5 w-5 text-purple-600 dark:text-purple-400" />
@@ -442,7 +421,7 @@ export default function Page({ params }) {
                 </div>
 
                 {/* Board Role */}
-                <div className="p-4 bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-900/20 dark:to-sky-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                <div className="p-4 bg-linear-to-br from-blue-50 to-sky-50 dark:from-blue-900/20 dark:to-sky-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
                   <div className="flex items-center gap-3">
                     <div
                       className={`p-2 rounded-lg ${
