@@ -2,7 +2,6 @@ import { Instagram, Twitter, Github, Linkedin } from "lucide-react";
 export default function StudentCardSocialHandles({ student }) {
   return (
     <>
-      {" "}
       {(student.socialHandles?.instagram ||
         student.socialHandles?.twitter ||
         student.socialHandles?.github ||
