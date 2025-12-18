@@ -17,9 +17,11 @@ export default function StudentRole({ student, boardId }) {
       const response = await request.json();
       console.log(response);
 
-      if (response?.error || request?.ok) {
+      if (response?.error || !request?.ok) {
         return toast.error(response?.error || "An error occurred.");
       }
+      toast.success(response?.message);
+      window.location.reload();
     } catch (err) {
       return toast.error("Something went wrong");
     }

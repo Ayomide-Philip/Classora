@@ -2,10 +2,10 @@ import { NextResponse } from "next/server";
 import { connectDatabase } from "@/libs/connectDatabase";
 import Boards from "@/libs/models/boards.models";
 import Users from "@/libs/models/user.models";
-import {auth} from "@/auth";
+import { auth } from "@/auth";
 
-export default PUT = auth( async function PUT(req, { params }) {
-  const { userId } = await req.json();
+export const PUT = auth(async function PUT(req, { params }) {
+  const userId = req?.auth?.user?.id;
   const { id, studentId } = await params;
 
   // checking board id
@@ -105,7 +105,7 @@ export default PUT = auth( async function PUT(req, { params }) {
     await user.save();
 
     return NextResponse.json(
-      { student: user },
+      { student: user, message:"Role updated" },
       {
         status: 200,
       }
@@ -119,8 +119,7 @@ export default PUT = auth( async function PUT(req, { params }) {
       }
     );
   }
-}
-)
+});
 export async function DELETE(req, { params }) {
   const { userId } = await req.json();
   const { id, studentId } = await params;
