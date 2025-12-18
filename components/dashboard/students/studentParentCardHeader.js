@@ -24,7 +24,6 @@ export default function StudentProfileCardHeader({ student }) {
             Make Admin
           </button>
 
-          {/* Remove Admin Button */}
           <button
             type="button"
             className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold rounded-lg shadow-lg shadow-red-600/30 hover:shadow-xl hover:shadow-red-600/40 transition-all active:scale-[0.98]"
