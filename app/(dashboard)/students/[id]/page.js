@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 
 export default async function Page({ params }) {
   const { id } = await params;
-  const { boardId } = await getUserInfomation();
+  const { boardId, role } = await getUserInfomation();
   const request = await fetch(
     `${BASE_URL}/api/boards/${boardId}/students/${id}`,
     {
@@ -38,7 +38,7 @@ export default async function Page({ params }) {
           Back to Students
         </Link>
 
-        <StudentProfileCard student={student} boardId={boardId} />
+        <StudentProfileCard student={student} boardId={boardId} role={role} />
       </div>
     </main>
   );

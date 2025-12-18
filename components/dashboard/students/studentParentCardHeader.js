@@ -1,6 +1,6 @@
 import { User } from "lucide-react";
 import StudentRole from "./studentRole";
-export default function StudentProfileCardHeader({ student, boardId }) {
+export default function StudentProfileCardHeader({ student, boardId, role }) {
   return (
     <div className="bg-linear-to-r from-sky-500 to-blue-600 px-6 py-8 sm:px-8">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -16,7 +16,7 @@ export default function StudentProfileCardHeader({ student, boardId }) {
           </div>
         </div>
 
-        <StudentRole student={student} boardId={boardId} />
+        <StudentRole student={student} boardId={boardId} role={role} />
       </div>
     </div>
   );

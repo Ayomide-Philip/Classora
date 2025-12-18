@@ -1,7 +1,8 @@
 "use client";
 import { UserCheck, UserX } from "lucide-react";
 import { toast } from "react-toastify";
-export default function StudentRole({ student, boardId }) {
+export default function StudentRole({ student, boardId, role }) {
+  // making a user an admin
   async function handleMakeAdmin() {
     try {
       const request = await fetch(
@@ -26,9 +27,11 @@ export default function StudentRole({ student, boardId }) {
       return toast.error("Something went wrong");
     }
   }
+  // removing the user from admin
+  async function handleRemoveAdmin() {}
   return (
     <>
-      {student?.board?.role !== "owner" && (
+      {student?.board?.role !== "owner" && role === "owner" && (
         <div className="flex flex-col sm:flex-row gap-2">
           {student?.board?.role === "member" && (
             <button
