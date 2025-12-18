@@ -10,8 +10,8 @@ export default async function StudentProfileCard({ student }) {
       <div className="px-6 py-6 sm:px-8 space-y-6">
         <StudentCardBio student={student} />
         <StudentCardPersonalInfo student={student} />
-        {/*   <StudentCardAcademicsInfo student={student} />
-        <StudentCardSocialHandles student={student} />*/}
+        <StudentCardAcademicsInfo student={student} />
+        {/*   <StudentCardSocialHandles student={student} />*/}
       </div>
     </div>
   );
