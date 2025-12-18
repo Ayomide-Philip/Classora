@@ -28,7 +28,28 @@ export default function StudentRole({ student, boardId, role }) {
     }
   }
   // removing the user from admin
-  async function handleRemoveAdmin() {}
+  async function handleRemoveAdmin() {
+    try {
+      const request = await fetch(
+        `/api/boards/${boardId}/students/${student?._id}/admin`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        }
+      );
+      const response = await request.json();
+      if (response?.error || !request?.ok) {
+        return toast.error(response?.error || "An error occurred.");
+      }
+      toast.success(response?.message);
+      window.location.reload();
+    } catch (err) {
+      return toast.error("Something went wrong");
+    }
+  }
   return (
     <>
       {student?.board?.role !== "owner" && role === "owner" && (
@@ -47,7 +68,8 @@ export default function StudentRole({ student, boardId, role }) {
           {student?.board?.role === "admin" && (
             <button
               type="button"
-              className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold rounded-lg shadow-lg shadow-red-600/30 hover:shadow-xl hover:shadow-red-600/40 transition-all active:scale-[0.98]"
+              onClick={handleRemoveAdmin}
+              className="inline-flex cursor-pointer items-center justify-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold rounded-lg shadow-lg shadow-red-600/30 hover:shadow-xl hover:shadow-red-600/40 transition-all active:scale-[0.98]"
             >
               <UserX className="h-4 w-4" />
               Remove Admin

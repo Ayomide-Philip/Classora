@@ -5,6 +5,14 @@ import Users from "@/libs/models/user.models";
 import { auth } from "@/auth";
 
 export const PUT = auth(async function PUT(req, { params }) {
+  if (!req.auth || !req.auth.user) {
+    return NextResponse.json(
+      { error: "User is unauthorized" },
+      {
+        status: 400,
+      }
+    );
+  }
   const userId = req?.auth?.user?.id;
   const { id, studentId } = await params;
 
@@ -105,7 +113,7 @@ export const PUT = auth(async function PUT(req, { params }) {
     await user.save();
 
     return NextResponse.json(
-      { student: user, message:"Role updated" },
+      { student: user, message: "Role updated" },
       {
         status: 200,
       }
@@ -120,8 +128,17 @@ export const PUT = auth(async function PUT(req, { params }) {
     );
   }
 });
-export async function DELETE(req, { params }) {
-  const { userId } = await req.json();
+
+export const DELETE = auth(async function DELETE(req, { params }) {
+  if (!req.auth || !req.auth.user) {
+    return NextResponse.json(
+      { error: "User is unauthorized" },
+      {
+        status: 400,
+      }
+    );
+  }
+  const userId = req?.auth?.user?.id;
   const { id, studentId } = await params;
   // checking if userId exist
   if (!userId) {
@@ -232,7 +249,7 @@ export async function DELETE(req, { params }) {
     await user.save();
 
     return NextResponse.json(
-      { user: user },
+      { user: user, message:"Role Updated successfully" },
       {
         status: 200,
       }
@@ -246,4 +263,4 @@ export async function DELETE(req, { params }) {
       }
     );
   }
-}
+});
