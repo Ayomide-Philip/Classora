@@ -38,7 +38,7 @@ export default async function Page({ params }) {
           Back to Students
         </Link>
 
-        <StudentProfileCard student={student} />
+        <StudentProfileCard student={student} boardId={boardId} />
       </div>
     </main>
   );

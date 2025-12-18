@@ -2,8 +2,9 @@ import { NextResponse } from "next/server";
 import { connectDatabase } from "@/libs/connectDatabase";
 import Boards from "@/libs/models/boards.models";
 import Users from "@/libs/models/user.models";
+import {auth} from "@/auth";
 
-export async function PUT(req, { params }) {
+export default PUT = auth( async function PUT(req, { params }) {
   const { userId } = await req.json();
   const { id, studentId } = await params;
 
@@ -119,7 +120,7 @@ export async function PUT(req, { params }) {
     );
   }
 }
-
+)
 export async function DELETE(req, { params }) {
   const { userId } = await req.json();
   const { id, studentId } = await params;

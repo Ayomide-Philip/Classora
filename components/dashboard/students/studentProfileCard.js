@@ -3,10 +3,10 @@ import StudentCardBio from "./studentCardBio";
 import StudentCardPersonalInfo from "./studentCardPersonalInfo";
 import StudentCardAcademicsInfo from "./studentCardAcademicInfo";
 import StudentCardSocialHandles from "./studentCardSocialHandles";
-export default async function StudentProfileCard({ student }) {
+export default async function StudentProfileCard({ student, boardId }) {
   return (
     <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 overflow-hidden">
-      <StudentProfileCardHeader student={student} />
+      <StudentProfileCardHeader student={student} boardId={boardId} />
       <div className="px-6 py-6 sm:px-8 space-y-6">
         <StudentCardBio student={student} />
         <StudentCardPersonalInfo student={student} />
