@@ -53,28 +53,13 @@ export default function Page() {
 
         <div className="overflow-auto">
           <div className="px-4 py-6 sm:px-6 sm:py-8 mx-auto max-w-4xl space-y-8 sm:space-y-10">
-            {/* Account Overview */}
             <SettingsAccountOverview user={user} />
-
-            {/* Personal Information */}
             <SettingsPersonalInformation user={user} profile={profile} />
-
-            {/* Academic Information */}
             <SettingsAcademicInformation user={user} profile={profile} />
-
-            {/* Social Links */}
             <SettingsSocialLinks user={user} profile={profile} />
-
-            {/* Notifications */}
             <SettingsNotification />
-
-            {/* Security */}
             <SettingsSecurity />
-
-            {/* Board */}
             <SettingsBoardInfo user={user} />
-
-            {/* Sign Out */}
             <section className="mb-8">
               <button className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-red-50 px-4 py-3 text-sm font-medium text-red-600 hover:bg-red-100 dark:bg-red-900/20 dark:text-red-400 dark:hover:bg-red-900/30 transition border border-red-200 dark:border-red-800">
                 <LogOut className="h-5 w-5" />
