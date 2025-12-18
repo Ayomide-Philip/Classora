@@ -11,7 +11,7 @@ export default async function StudentProfileCard({ student }) {
         <StudentCardBio student={student} />
         <StudentCardPersonalInfo student={student} />
         <StudentCardAcademicsInfo student={student} />
-        {/*   <StudentCardSocialHandles student={student} />*/}
+        <StudentCardSocialHandles student={student} />
       </div>
     </div>
   );
