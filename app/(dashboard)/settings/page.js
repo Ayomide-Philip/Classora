@@ -1,17 +1,7 @@
 import SettingsAccountOverview from "@/components/dashboard/settings/accountOverview";
 import SettingsPersonalInformation from "@/components/dashboard/settings/personalInformation";
 import SettingsAcademicInformation from "@/components/dashboard/settings/academicInformation";
-import {
-  Shield,
-  LogOut,
-  Code,
-  Edit,
-  Instagram,
-  Twitter,
-  Github,
-  Linkedin,
-  Users as UsersIcon,
-} from "lucide-react";
+import { LogOut } from "lucide-react";
 import SettingsSocialLinks from "@/components/dashboard/settings/socialLinks";
 import SettingsNotification from "@/components/dashboard/settings/notification";
 import SettingsSecurity from "@/components/dashboard/settings/security";
