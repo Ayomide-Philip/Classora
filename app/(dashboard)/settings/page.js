@@ -24,36 +24,6 @@ export default async function Page() {
     return redirect("/login");
   }
   const { user } = response;
-  // const user = {
-  //   name: "Amara Johnson",
-  //   username: "amaraj",
-  //   email: "amara.j@classboard.edu",
-  //   role: "admin",
-  //   board: {
-  //     code: "CSC-2024",
-  //     role: "owner",
-  //   },
-  //   location: "Lagos, Nigeria",
-  //   studentId: "67609afd1234567890abcdef",
-  //   createdAt: "2023-09-18T00:00:00.000Z",
-  // };
-  //
-  // const profile = {
-  //   bio: "Passionate about software development and classroom collaboration. Working on making class coordination seamless for everyone.",
-  //   phoneNumber: "+234 801 234 5678",
-  //   gender: "Female",
-  //   department: "Computer Science",
-  //   faculty: "Engineering",
-  //   degree: "B.Sc. Computer Science",
-  //   currentLevel: "300 Level",
-  //   enrollmentYear: 2021,
-  //   socialHandles: {
-  //     instagram: "amaraj.tech",
-  //     twitter: "amaraj_codes",
-  //     github: "amaraj-dev",
-  //     linkedin: "amara-johnson",
-  //   },
-  // };
 
   return (
     <main className="min-h-screen bg-slate-50 dark:bg-slate-950">
