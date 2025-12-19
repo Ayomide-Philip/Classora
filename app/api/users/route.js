@@ -29,7 +29,8 @@ export const GET = auth(async function GET(req) {
     await connectDatabase();
     const user = await Users.findOne({ _id: userId })
       .select("-password")
-      .populate("board.boardId").populate("profileId");
+      .populate("board.boardId")
+      .populate("profileId");
 
     if (!user) {
       return NextResponse.json(
@@ -56,3 +57,12 @@ export const GET = auth(async function GET(req) {
     );
   }
 });
+
+export async function PUT(req) {
+  return NextResponse.json(
+    { message: "UPDATING user profie" },
+    {
+      status: 200,
+    }
+  );
+}
