@@ -15,11 +15,9 @@ export default function SettingsAccountOverview({ user }) {
               @{user.username}
             </p>
             <div className="mt-2 flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 dark:bg-blue-900/40 dark:text-blue-200">
-                <Shield className="h-3.5 w-3.5" /> {user.role}
-              </span>
               <span className="inline-flex items-center gap-1 rounded-full bg-purple-50 px-3 py-1 text-xs font-semibold text-purple-700 dark:bg-purple-900/40 dark:text-purple-200">
-                <Code className="h-3.5 w-3.5" /> {user.board.role}
+                <Code className="h-3.5 w-3.5" />{" "}
+                {user?.board?.role || "No Role"}
               </span>
             </div>
           </div>
@@ -31,14 +29,14 @@ export default function SettingsAccountOverview({ user }) {
 
       <div className="mt-6 sm:mt-8 grid gap-3 sm:gap-4 border-t border-slate-200 pt-6 dark:border-slate-800">
         {[
-          { label: "Full Name", value: user.name, icon: User },
-          { label: "Email", value: user.email, icon: Mail },
-          { label: "Location", value: user.location, icon: MapPin },
+          { label: "Full Name", value: user?.name, icon: User },
+          { label: "Email", value: user?.email, icon: Mail },
           {
             label: "Member Since",
-            value: new Date(user.createdAt).toLocaleDateString("en-US", {
+            value: new Date(user?.createdAt).toLocaleDateString("en-US", {
               month: "short",
               year: "numeric",
+              day: "numeric",
             }),
             icon: Clock,
           },
