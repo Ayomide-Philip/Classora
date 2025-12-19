@@ -1,5 +1,5 @@
 import { Edit, Mail, Phone, UsersIcon, Hash, MapPin } from "lucide-react";
-export default function SettingsPersonalInformation({ user, profile }) {
+export default function SettingsPersonalInformation({ user }) {
   return (
     <section className="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
       <div className="flex items-center justify-between mb-4 sm:mb-6">
@@ -12,19 +12,18 @@ export default function SettingsPersonalInformation({ user, profile }) {
       </div>
       <div className="grid md:grid-cols-2 gap-4">
         {[
-          { label: "Email", value: user.email, icon: Mail },
+          { label: "Email", value: user?.email, icon: Mail },
           {
             label: "Phone",
-            value: profile.phoneNumber || "Not set",
+            value: user?.profileId?.phoneNumber || "Not set",
             icon: Phone,
           },
           {
             label: "Gender",
-            value: profile.gender || "Prefer not to say",
+            value: user?.profileId?.gender,
             icon: UsersIcon,
           },
-          { label: "Student ID", value: user.studentId, icon: Hash },
-          { label: "Location", value: user.location, icon: MapPin },
+          { label: "Student ID", value: user?._id, icon: Hash },
         ].map((item, idx) => {
           const Icon = item.icon;
           return (
