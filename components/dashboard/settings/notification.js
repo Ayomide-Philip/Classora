@@ -8,7 +8,7 @@ export default function SettingsNotification({ user }) {
         {[
           {
             label: "Allow Post",
-            enabled: user?.board?.boardId?.allowPosts || false,
+            enabled: user?.board?.boardId?.allowPost || false,
           },
           {
             label: "Allow Comments",
@@ -27,8 +27,8 @@ export default function SettingsNotification({ user }) {
             <input
               type="checkbox"
               defaultChecked={item.enabled}
-              className={`h-5 w-5 rounded border-slate-300 text-sky-600 cursor-pointer `}
-              readOnly={user?.board?.role !== "owner" ? true : false}
+              className={`h-5 w-5 rounded border-slate-300 text-sky-600 cursor-pointer disabled:text-sky-600`}
+              disabled={user?.board?.role !== "owner"}
             />
           </div>
         ))}
