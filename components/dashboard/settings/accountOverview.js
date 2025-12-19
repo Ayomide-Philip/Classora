@@ -1,4 +1,4 @@
-import { Shield, Code, User, Mail, MapPin, Clock, Edit } from "lucide-react";
+import { Shield, Code, User, Mail, Clock, Edit } from "lucide-react";
 export default function SettingsAccountOverview({ user }) {
   return (
     <section className="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
@@ -60,10 +60,6 @@ export default function SettingsAccountOverview({ user }) {
                   </p>
                 </div>
               </div>
-              <button className="w-full sm:w-auto rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-900 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700 flex items-center justify-center sm:justify-start gap-1 whitespace-nowrap">
-                <Edit className="h-3.5 w-3.5" />
-                Edit
-              </button>
             </div>
           );
         })}
