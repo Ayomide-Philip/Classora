@@ -7,6 +7,9 @@ import CreateButton from "@/components/dashboard/createButton";
 
 export default async function Page() {
   const { boardId, role } = await getUserInfomation();
+  if (!boardId) {
+    return redirect("/overview");
+  }
   const request = await fetch(`${BASE_URL}/api/boards/${boardId}/courses`, {
     method: "GET",
     headers: {

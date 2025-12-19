@@ -5,7 +5,10 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export default async function Page() {
-  const { role } = await getUserInfomation();
+  const { role, boardId } = await getUserInfomation();
+  if (!boardId) {
+    return redirect("/overview");
+  }
   if (role !== "admin" && role !== "owner") redirect("/courses");
   return (
     <main className="px-4 py-6 sm:py-8 md:px-8">

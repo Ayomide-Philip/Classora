@@ -15,6 +15,10 @@ export default async function CoursePage({ params }) {
   const { id } = await params;
   const { boardId, userId } = await getUserInfomation();
 
+  if (!boardId) {
+    return redirect("/overview");
+  }
+
   const request = await fetch(
     `${BASE_URL}/api/boards/${boardId}/courses/${id}`,
     {
@@ -30,8 +34,6 @@ export default async function CoursePage({ params }) {
   const { course } = response;
 
   if (response?.error || !request.ok) return <CourseNotFound />;
-
-  // Static course data - in a real app this would be fetched based on params.id
   // const course = {
   //   id: "physics-101",
   //   title: "Physics 101",

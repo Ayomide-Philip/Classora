@@ -98,17 +98,6 @@ export default function CourseCreateForm() {
       );
     }
 
-    console.log(
-      courseCode,
-      courseCoordinator,
-      courseDepartment,
-      courseDescription,
-      courseTitle,
-      courseUnit,
-      prerequisites,
-      semester
-    );
-
     // adding it to the database
     try {
       const { boardId } = await getUserInfomation();
