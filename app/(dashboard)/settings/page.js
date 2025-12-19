@@ -6,12 +6,19 @@ import SettingsNotification from "@/components/dashboard/settings/notification";
 import SettingsSecurity from "@/components/dashboard/settings/security";
 import SettingsBoardInfo from "@/components/dashboard/settings/boardInfo";
 import SettingsLogOut from "@/components/dashboard/settings/logOut";
-import {BASE_URL} from "@/libs/config";
+import { BASE_URL } from "@/libs/config";
+import { cookies } from "next/headers";
 
 export default async function Page() {
-    const request = await fetch(`${BASE_URL}/api/users`,{
-        
-    })
+  const request = await fetch(`${BASE_URL}/api/users`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Cookie: (await cookies()).toString(),
+    },
+  });
+  const response = await request.json();
+  console.log(response);
   const user = {
     name: "Amara Johnson",
     username: "amaraj",
