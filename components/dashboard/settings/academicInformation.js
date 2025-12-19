@@ -7,7 +7,7 @@ import {
   Clock,
   Users as UsersIcon,
 } from "lucide-react";
-export default function SettingsAcademicInformation({ user, profile }) {
+export default function SettingsAcademicInformation({ user }) {
   return (
     <section className="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
       <div className="flex items-center justify-between mb-4 sm:mb-6">
@@ -22,30 +22,30 @@ export default function SettingsAcademicInformation({ user, profile }) {
         {[
           {
             label: "Department",
-            value: profile.department || "nill",
+            value: user?.profileId?.department || "nill",
             icon: Book,
           },
           {
             label: "Faculty",
-            value: profile.faculty || "nill",
+            value: user?.profileId?.faculty || "nill",
             icon: Award,
           },
           {
             label: "Degree",
-            value: profile.degree || "nill",
+            value: user?.profileId?.degree || "nill",
             icon: Award,
           },
           {
             label: "Current Level",
-            value: profile.currentLevel || "nill",
+            value: user?.profileId?.currentLevel || "nill",
             icon: Clock,
           },
           {
             label: "Enrollment Year",
-            value: profile.enrollmentYear || "nill",
+            value: user?.profileId?.enrollmentYear || "nill",
             icon: Calendar,
           },
-          { label: "Board Role", value: user.board.role, icon: Shield },
+          { label: "Board Role", value: user?.board?.role, icon: Shield },
         ].map((item, idx) => {
           const Icon = item.icon;
           const isRole = item.label === "Board Role";

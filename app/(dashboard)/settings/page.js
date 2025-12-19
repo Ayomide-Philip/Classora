@@ -71,7 +71,7 @@ export default async function Page() {
           <div className="px-4 py-6 sm:px-6 sm:py-8 mx-auto max-w-4xl space-y-8 sm:space-y-10">
             <SettingsAccountOverview user={user} />
             <SettingsPersonalInformation user={user} />
-            {/*<SettingsAcademicInformation user={user} profile={profile} />*/}
+            <SettingsAcademicInformation user={user} />
             {/*<SettingsSocialLinks user={user} profile={profile} />*/}
             {/*<SettingsNotification />*/}
             {/*<SettingsSecurity />*/}
