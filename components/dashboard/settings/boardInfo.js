@@ -7,8 +7,12 @@ export default function SettingsBoardInfo({ user }) {
       </h3>
       <div className="grid sm:grid-cols-2 gap-4">
         {[
-          { label: "Board Code", value: user.board.code, icon: Code },
-          { label: "Board Role", value: user.board.role, icon: Shield },
+          {
+            label: "Board Code",
+            value: user?.board?.boardId?.joinCode,
+            icon: Code,
+          },
+          { label: "Board Role", value: user?.board?.role, icon: Shield },
         ].map((item, idx) => {
           const Icon = item.icon;
           return (
