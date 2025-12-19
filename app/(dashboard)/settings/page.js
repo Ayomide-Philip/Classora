@@ -74,8 +74,8 @@ export default async function Page() {
             <SettingsAcademicInformation user={user} />
             <SettingsSocialLinks user={user} />
             <SettingsNotification user={user} />
-            {/*<SettingsSecurity />*/}
-            {/*<SettingsBoardInfo user={user} />*/}
+            <SettingsSecurity />
+            <SettingsBoardInfo user={user} />
             <SettingsLogOut />
           </div>
         </div>
