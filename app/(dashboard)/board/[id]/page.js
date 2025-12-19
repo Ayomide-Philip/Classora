@@ -14,6 +14,9 @@ import { cookies } from "next/headers";
 
 export default async function Page({ params }) {
   const { boardId } = await getUserInfomation();
+  if (!boardId) {
+    return redirect("/overview");
+  }
   const { id } = await params;
 
   const request = await fetch(

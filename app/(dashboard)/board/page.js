@@ -4,9 +4,13 @@ import { getUserInfomation } from "@/components/dashboard/userdetails";
 import { BASE_URL } from "@/libs/config";
 import { CalendarDays } from "lucide-react";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 export default async function Page() {
   const { boardId, role } = await getUserInfomation();
+  if (!boardId) {
+    return redirect("/overview");
+  }
   const request = await fetch(`${BASE_URL}/api/boards/${boardId}/classes/`, {
     method: "GET",
     headers: {
