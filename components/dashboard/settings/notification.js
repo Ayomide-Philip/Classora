@@ -1,4 +1,4 @@
-export default function SettingsNotification() {
+export default function SettingsNotification({ user }) {
   return (
     <section className="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
       <h3 className="mb-4 sm:mb-6 text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
@@ -6,8 +6,14 @@ export default function SettingsNotification() {
       </h3>
       <div className="space-y-2 sm:space-y-3">
         {[
-          { label: "Allow Post", enabled: true },
-          { label: "Allow Comments", enabled: true },
+          {
+            label: "Allow Post",
+            enabled: user?.board?.boardId?.allowPosts || false,
+          },
+          {
+            label: "Allow Comments",
+            enabled: user?.board?.boardId?.allowComments || false,
+          },
           { label: "Assignment Reminders", enabled: true },
           { label: "Class Announcements", enabled: false },
         ].map((item, idx) => (
@@ -21,7 +27,8 @@ export default function SettingsNotification() {
             <input
               type="checkbox"
               defaultChecked={item.enabled}
-              className="h-5 w-5 rounded border-slate-300 text-sky-600 cursor-pointer"
+              className={`h-5 w-5 rounded border-slate-300 text-sky-600 cursor-pointer `}
+              readOnly={user?.board?.role !== "owner" ? true : false}
             />
           </div>
         ))}
