@@ -9,6 +9,9 @@ import { redirect } from "next/navigation";
 export default async function Page({ params }) {
   const { id } = await params;
   const { boardId, role } = await getUserInfomation();
+  if (!boardId) {
+    return redirect("/overview");
+  }
   const request = await fetch(
     `${BASE_URL}/api/boards/${boardId}/students/${id}`,
     {
