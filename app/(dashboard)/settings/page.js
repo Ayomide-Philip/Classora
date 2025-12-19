@@ -6,8 +6,12 @@ import SettingsNotification from "@/components/dashboard/settings/notification";
 import SettingsSecurity from "@/components/dashboard/settings/security";
 import SettingsBoardInfo from "@/components/dashboard/settings/boardInfo";
 import SettingsLogOut from "@/components/dashboard/settings/logOut";
+import {BASE_URL} from "@/libs/config";
 
-export default function Page() {
+export default async function Page() {
+    const request = await fetch(`${BASE_URL}/api/users`,{
+        
+    })
   const user = {
     name: "Amara Johnson",
     username: "amaraj",
