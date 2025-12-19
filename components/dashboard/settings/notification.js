@@ -6,8 +6,8 @@ export default function SettingsNotification() {
       </h3>
       <div className="space-y-2 sm:space-y-3">
         {[
-          { label: "Email Notifications", enabled: true },
-          { label: "Course Updates", enabled: true },
+          { label: "Allow Post", enabled: true },
+          { label: "Allow Comments", enabled: true },
           { label: "Assignment Reminders", enabled: true },
           { label: "Class Announcements", enabled: false },
         ].map((item, idx) => (
