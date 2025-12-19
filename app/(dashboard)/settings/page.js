@@ -72,8 +72,8 @@ export default async function Page() {
             <SettingsAccountOverview user={user} />
             <SettingsPersonalInformation user={user} />
             <SettingsAcademicInformation user={user} />
-            {/*<SettingsSocialLinks user={user} profile={profile} />*/}
-            {/*<SettingsNotification />*/}
+            <SettingsSocialLinks user={user} />
+            <SettingsNotification user={user} />
             {/*<SettingsSecurity />*/}
             {/*<SettingsBoardInfo user={user} />*/}
             <SettingsLogOut />

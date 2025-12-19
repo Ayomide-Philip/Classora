@@ -1,5 +1,5 @@
 import { Edit, Instagram, Twitter, Github, Linkedin } from "lucide-react";
-export default function SettingsSocialLinks({ user, profile }) {
+export default function SettingsSocialLinks({ user }) {
   return (
     <section className="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
       <div className="flex items-center justify-between mb-4 sm:mb-6">
@@ -14,25 +14,25 @@ export default function SettingsSocialLinks({ user, profile }) {
         {[
           {
             label: "Instagram",
-            value: profile.socialHandles.instagram,
+            value: user?.profileId?.socialHandles?.instagram,
             icon: Instagram,
             color: "text-pink-500",
           },
           {
             label: "Twitter",
-            value: profile.socialHandles.twitter,
+            value: user?.profileId?.socialHandles?.twitter,
             icon: Twitter,
             color: "text-blue-400",
           },
           {
             label: "GitHub",
-            value: profile.socialHandles.github,
+            value: user?.profileId?.socialHandles?.github,
             icon: Github,
             color: "text-slate-700 dark:text-slate-300",
           },
           {
             label: "LinkedIn",
-            value: profile.socialHandles.linkedin,
+            value: user?.profileId?.socialHandles?.linkedin,
             icon: Linkedin,
             color: "text-blue-600",
           },
