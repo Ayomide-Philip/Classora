@@ -28,7 +28,7 @@ export const GET = auth(async function GET(req) {
   try {
     await connectDatabase();
     const user = await Users.findOne({ _id: userId })
-      .select("-password -email")
+      .select("-password")
       .populate("board.boardId").populate("profileId");
 
     if (!user) {
