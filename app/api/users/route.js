@@ -228,6 +228,51 @@ export async function PUT(req) {
     if (gender && gender !== profile?.gender) {
       profile.gender = gender;
     }
+    // update profile department
+    if (department && department !== profile?.department) {
+      profile.department = department;
+    }
+    // update profile faculty
+    if (faculty && faculty !== profile?.faculty) {
+      profile.faculty = faculty;
+    }
+    // update profile degree
+    if (degree && degree !== profile?.degree) {
+      profile.degree = degree;
+    }
+    // update profile current level
+    if (currentLevel && currentLevel !== profile?.currentLevel) {
+      profile.currentLevel = currentLevel;
+    }
+    // update profile instagram username
+    if (instagram && instagram !== profile?.socialHandles?.instagram) {
+      profile.socialHandles.instagram = instagram;
+    }
+    // update profile twitter username
+    if (twitter && twitter !== profile?.socialHandles?.twitter) {
+      profile.socialHandles.twitter = twitter;
+    }
+    // update profile github username
+    if (github && github !== profile?.socialHandles?.github) {
+      profile.socialHandles.github = github;
+    }
+    // update profile linkedin username
+    if (linkedin && linkedin !== profile?.socialHandles?.linkedin) {
+      profile.socialHandles.linkedin = linkedin;
+    }
+    // update profile enrollment year
+    if (enrollmentYear && enrollmentYear !== profile?.enrollmentYear) {
+      profile.enrollmentYear = enrollmentYear;
+    }
+
+    if (editing) {
+      return NextResponse.json(
+        { error: "No information was changed" },
+        {
+          status: 400,
+        }
+      );
+    }
 
     return NextResponse.json(
       {
