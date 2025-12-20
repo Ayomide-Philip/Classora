@@ -75,7 +75,21 @@ export async function PUT(req) {
     enrollmentYear,
   } = await req.json();
   return NextResponse.json(
-    { message: "UPDATING user profile", bio, phoneNumber },
+    {
+      message: "UPDATING user profile",
+      bio,
+      phoneNumber,
+      gender,
+      department,
+      faculty,
+      degree,
+      currentLevel,
+      instagram,
+      twitter,
+      github,
+      linkedin,
+      enrollmentYear,
+    },
     {
       status: 200,
     }
