@@ -220,6 +220,10 @@ export async function PUT(req) {
     if (bio && bio !== profile?.bio) {
       profile.bio = bio;
     }
+    // update profile phone number
+    if (phoneNumber && phoneNumber !== profile?.phoneNumber) {
+      profile.phoneNumber = phoneNumber;
+    }
 
     return NextResponse.json(
       {
