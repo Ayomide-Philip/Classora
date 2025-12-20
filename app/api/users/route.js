@@ -61,6 +61,7 @@ export const GET = auth(async function GET(req) {
 export async function PUT(req) {
   // getting all possible data from the frontend
   let {
+    userId,
     bio,
     phoneNumber,
     gender,
@@ -74,6 +75,15 @@ export async function PUT(req) {
     linkedin,
     enrollmentYear,
   } = await req.json();
+  //if no userId
+  if (!userId) {
+    return NextResponse.json(
+      { error: "User Id not provided" },
+      {
+        status: 404,
+      }
+    );
+  }
   // checking if bio exists
   if (bio && bio.trim().length < 10) {
     return NextResponse.json(
