@@ -274,6 +274,8 @@ export async function PUT(req) {
       );
     }
 
+    await profile.save();
+
     return NextResponse.json(
       {
         message: "UPDATING user profile",

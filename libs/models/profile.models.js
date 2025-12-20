@@ -57,6 +57,7 @@ const profileModel = new Schema(
           default: "",
         },
       },
+      default: {},
     },
     enrollmentYear: {
       type: Number,
