@@ -129,6 +129,15 @@ export async function PUT(req) {
       }
     );
   }
+  //current level
+  if (currentLevel && currentLevel.length < 3) {
+    return NextResponse.json(
+      { error: "Current level cant be less than 3 characters" },
+      {
+        status: 400,
+      }
+    );
+  }
   return NextResponse.json(
     {
       message: "UPDATING user profile",
