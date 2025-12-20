@@ -84,11 +84,15 @@ export async function PUT(req) {
     );
   }
   // verify phone number
-    const phoneRegex = "^\\+\\d{1,4}\\d{6,10}$";
-  if(phoneNumber && !phoneRegex.test(phoneNumber)) {
-      return NextResponse.json({error:"Invalid phone number"},{
-          status: 400,
-      });
+  const phoneRegex = "^\\+\\d{1,4}[\\d\\s.-]{6,14}$";
+
+  if (phoneNumber && !phoneRegex.test(phoneNumber)) {
+    return NextResponse.json(
+      { error: "Invalid phone number" },
+      {
+        status: 400,
+      }
+    );
   }
   return NextResponse.json(
     {
