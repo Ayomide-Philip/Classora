@@ -59,6 +59,20 @@ export const GET = auth(async function GET(req) {
 });
 
 export async function PUT(req) {
+  const {
+    bio,
+    phoneNumber,
+    gender,
+    department,
+    faculty,
+    degree,
+    currentLevel,
+    instagram,
+    twitter,
+    github,
+    linkedin,
+    enrollmentYear,
+  } = await req.json();
   return NextResponse.json(
     { message: "UPDATING user profile" },
     {
