@@ -195,24 +195,22 @@ export async function PUT(req) {
     );
   }
 
-  return NextResponse.json(
-    {
-      message: "UPDATING user profile",
-      bio,
-      phoneNumber,
-      gender,
-      department,
-      faculty,
-      degree,
-      currentLevel,
-      instagram,
-      twitter,
-      github,
-      linkedin,
-      enrollmentYear,
-    },
-    {
-      status: 200,
-    }
-  );
+  try {
+    return NextResponse.json(
+      {
+        message: "UPDATING user profile",
+      },
+      {
+        status: 200,
+      }
+    );
+  } catch (err) {
+    console.log(err);
+    return NextResponse.json(
+      { error: "An error occurred while trying to update profile" },
+      {
+        status: 400,
+      }
+    );
+  }
 }
