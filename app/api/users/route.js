@@ -174,6 +174,15 @@ export async function PUT(req) {
       }
     );
   }
+  // enrollement year
+  if (enrollmentYear && typeof enrollmentYear !== "number") {
+    return NextResponse.json(
+      { error: "Enrollement year should be a type number" },
+      {
+        status: 400,
+      }
+    );
+  }
 
   return NextResponse.json(
     {
