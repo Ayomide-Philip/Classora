@@ -102,6 +102,15 @@ export async function PUT(req) {
       }
     );
   }
+  // verifying departement
+  if (department && department.trim().length < 10) {
+    return NextResponse.json(
+      { error: "Departement cant be less than 10 characters" },
+      {
+        status: 400,
+      }
+    );
+  }
   return NextResponse.json(
     {
       message: "UPDATING user profile",
