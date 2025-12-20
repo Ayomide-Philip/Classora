@@ -84,7 +84,7 @@ export async function PUT(req) {
     );
   }
   // verify phone number
-  const phoneRegex = "^\\+\\d{1,4}[\\d\\s.-]{6,14}$";
+  const phoneRegex = new RegExp("^\\+\\d{1,4}[\\d\\s.-]{6,14}$");
 
   if (phoneNumber && !phoneRegex.test(phoneNumber)) {
     return NextResponse.json(
