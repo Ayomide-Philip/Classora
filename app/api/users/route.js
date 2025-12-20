@@ -156,7 +156,15 @@ export async function PUT(req) {
       }
     );
   }
-
+  // GitHub username
+  if (github && github.trim().length < 5) {
+    return NextResponse.json(
+      { error: "Github username cant be less than 5 characters" },
+      {
+        status: 400,
+      }
+    );
+  }
   return NextResponse.json(
     {
       message: "UPDATING user profile",
