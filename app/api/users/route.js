@@ -74,6 +74,22 @@ export async function PUT(req) {
     linkedin,
     enrollmentYear,
   } = await req.json();
+  // checking if bio exists
+  if (bio && bio.trim().length < 10) {
+    return NextResponse.json(
+      { error: "Bio cant be less than 10 characters" },
+      {
+        status: 400,
+      }
+    );
+  }
+  // verify phone number
+    const phoneRegex = "^\\+\\d{1,4}\\d{6,10}$";
+  if(phoneNumber && !phoneRegex.test(phoneNumber)) {
+      return NextResponse.json({error:"Invalid phone number"},{
+          status: 400,
+      });
+  }
   return NextResponse.json(
     {
       message: "UPDATING user profile",
