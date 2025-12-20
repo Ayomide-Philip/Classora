@@ -202,6 +202,14 @@ export async function PUT(req) {
     if (!profile) {
       // find if the user exists
       const user = await Users.findById(userId).select("-password");
+      if (!user) {
+        return NextResponse.json(
+          { error: "User does not exist" },
+          {
+            status: 400,
+          }
+        );
+      }
     }
 
     return NextResponse.json(
