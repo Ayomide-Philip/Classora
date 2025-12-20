@@ -148,12 +148,15 @@ export async function PUT(req) {
     );
   }
   // Twitter username
-    if(twitter && twitter.trim().length < 5) {
-        return NextResponse.json({error:"Twitter username cant be less than 5 characters"},{
-            status: 400,
-        })
-    }
-    
+  if (twitter && twitter.trim().length < 5) {
+    return NextResponse.json(
+      { error: "Twitter username cant be less than 5 characters" },
+      {
+        status: 400,
+      }
+    );
+  }
+
   return NextResponse.json(
     {
       message: "UPDATING user profile",
