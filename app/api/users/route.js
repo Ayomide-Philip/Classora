@@ -60,7 +60,7 @@ export const GET = auth(async function GET(req) {
 
 export async function PUT(req) {
   // getting all possible data from the frontend
-  const {
+  let {
     bio,
     phoneNumber,
     gender,
@@ -175,6 +175,7 @@ export async function PUT(req) {
     );
   }
   // enrollement year
+  enrollmentYear = Number(enrollmentYear);
   if (enrollmentYear && typeof enrollmentYear !== "number") {
     return NextResponse.json(
       { error: "Enrollement year should be a type number" },
