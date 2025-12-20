@@ -59,6 +59,7 @@ export const GET = auth(async function GET(req) {
 });
 
 export async function PUT(req) {
+  // getting all possible data from the frontend
   const {
     bio,
     phoneNumber,
@@ -74,7 +75,7 @@ export async function PUT(req) {
     enrollmentYear,
   } = await req.json();
   return NextResponse.json(
-    { message: "UPDATING user profile" },
+    { message: "UPDATING user profile", bio, phoneNumber },
     {
       status: 200,
     }
