@@ -214,6 +214,12 @@ export async function PUT(req) {
       }
       profile = await Profile.create({ userId: user._id });
     }
+    // if profile exists, update it
+    const editing = true;
+    // update the profile bio
+    if (bio && bio !== profile?.bio) {
+      profile.bio = bio;
+    }
 
     return NextResponse.json(
       {
