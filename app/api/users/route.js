@@ -60,7 +60,7 @@ export const GET = auth(async function GET(req) {
 
 export async function PUT(req) {
   return NextResponse.json(
-    { message: "UPDATING user profie" },
+    { message: "UPDATING user profile" },
     {
       status: 200,
     }
