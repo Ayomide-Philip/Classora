@@ -6,6 +6,7 @@ const profileModel = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Users",
       required: true,
+      unique: true,
     },
     bio: {
       type: String,

@@ -198,7 +198,7 @@ export async function PUT(req) {
   try {
     await connectDatabase();
     // check if the user exist in the database
-    const user = await Users.findById(userId);
+    const user = await Users.findById(userId).select();
     // if not use is  found return error
     if (!user) {
       return NextResponse.json(
@@ -211,6 +211,7 @@ export async function PUT(req) {
     return NextResponse.json(
       {
         message: "UPDATING user profile",
+        user
       },
       {
         status: 200,
