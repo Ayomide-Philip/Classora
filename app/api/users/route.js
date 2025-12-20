@@ -138,6 +138,22 @@ export async function PUT(req) {
       }
     );
   }
+  // instagram username
+  if (instagram && instagram.trim().length < 5) {
+    return NextResponse.json(
+      { error: "Instagram username cant be less than 5 character" },
+      {
+        status: 400,
+      }
+    );
+  }
+  // Twitter username
+    if(twitter && twitter.trim().length < 5) {
+        return NextResponse.json({error:"Twitter username cant be less than 5 characters"},{
+            status: 400,
+        })
+    }
+    
   return NextResponse.json(
     {
       message: "UPDATING user profile",

@@ -1,7 +1,7 @@
 import StudentPageBody from "@/components/dashboard/students/studentsBody";
 import { getUserInfomation } from "@/components/dashboard/userdetails";
 import { BASE_URL } from "@/libs/config";
-import { UserPlus } from "lucide-react";
+import { Users } from "lucide-react";
 import Link from "next/link";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
@@ -38,13 +38,19 @@ export default async function Page() {
                 Manage and view all enrolled students
               </p>
             </div>
-            <Link
-              href="/students/add"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-sky-600 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-sky-600/30 hover:bg-sky-700 hover:shadow-xl hover:shadow-sky-600/40 transition-all active:scale-[0.98]"
-            >
-              <UserPlus className="h-4 w-4" />
-              Add Student
-            </Link>
+            <div className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white px-4 py-2.5 dark:border-slate-800 dark:bg-slate-900">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-100 dark:bg-sky-900/30">
+                <Users className="h-5 w-5 text-sky-600 dark:text-sky-400" />
+              </div>
+              <div>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  Total Students
+                </p>
+                <p className="text-lg font-bold text-slate-900 dark:text-white">
+                  {students?.length}
+                </p>
+              </div>
+            </div>
           </div>
         </header>
 
