@@ -102,10 +102,19 @@ export async function PUT(req) {
       }
     );
   }
-  // verifying departement
+  // verifying department
   if (department && department.trim().length < 10) {
     return NextResponse.json(
-      { error: "Departement cant be less than 10 characters" },
+      { error: "Department cant be less than 10 characters" },
+      {
+        status: 400,
+      }
+    );
+  }
+  //verifying faculty
+  if (faculty && faculty.trim().length < 10) {
+    return NextResponse.json(
+      { error: "Faculty cant be less than 10 characters" },
       {
         status: 400,
       }
