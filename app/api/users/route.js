@@ -224,6 +224,10 @@ export async function PUT(req) {
     if (phoneNumber && phoneNumber !== profile?.phoneNumber) {
       profile.phoneNumber = phoneNumber;
     }
+    // update profile gender
+    if (gender && gender !== profile?.gender) {
+      profile.gender = gender;
+    }
 
     return NextResponse.json(
       {
