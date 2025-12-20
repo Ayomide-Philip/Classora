@@ -85,10 +85,18 @@ export async function PUT(req) {
   }
   // verify phone number
   const phoneRegex = new RegExp("^\\+\\d{1,4}[\\d\\s.-]{6,14}$");
-
   if (phoneNumber && !phoneRegex.test(phoneNumber)) {
     return NextResponse.json(
       { error: "Invalid phone number" },
+      {
+        status: 400,
+      }
+    );
+  }
+  // verifying gender
+  if (gender && gender.trim() !== "Male" && gender.trim() !== "Female") {
+    return NextResponse.json(
+      { error: "Gender can either be male or female" },
       {
         status: 400,
       }
