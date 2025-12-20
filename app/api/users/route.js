@@ -199,9 +199,11 @@ export async function PUT(req) {
     await connectDatabase();
     // check if profile exists
     let profile = await Profile.findOne({ userId: userId });
+    // if profile doesnt exist, create one
     if (!profile) {
       // find if the user exists
       const user = await Users.findById(userId).select("-password");
+      // if user doesnt exist
       if (!user) {
         return NextResponse.json(
           { error: "User does not exist" },
@@ -210,6 +212,7 @@ export async function PUT(req) {
           }
         );
       }
+      profile = await Profile.create({ userId: user._id });
     }
 
     return NextResponse.json(
