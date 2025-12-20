@@ -120,6 +120,15 @@ export async function PUT(req) {
       }
     );
   }
+  // verifying degree
+  if (degree && degree.trim().length < 3) {
+    return NextResponse.json(
+      { error: "Degree cant be less than 3 characters" },
+      {
+        status: 400,
+      }
+    );
+  }
   return NextResponse.json(
     {
       message: "UPDATING user profile",
