@@ -165,6 +165,16 @@ export async function PUT(req) {
       }
     );
   }
+  // Linkedin username
+  if (linkedin && linkedin.trim().length < 5) {
+    return NextResponse.json(
+      { error: "Linkedin username cant be less than 5 characters" },
+      {
+        status: 400,
+      }
+    );
+  }
+
   return NextResponse.json(
     {
       message: "UPDATING user profile",
