@@ -48,7 +48,7 @@ export function PersonalInformation({ user, setEditing }) {
           return (
             <div
               key={idx}
-              className="flex items-start gap-3 p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg"
+              className="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg"
             >
               <Icon className="h-5 w-5 text-slate-500 dark:text-slate-400 mt-0.5" />
               <div className="flex-1">
