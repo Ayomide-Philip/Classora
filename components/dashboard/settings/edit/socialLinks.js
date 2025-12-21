@@ -32,6 +32,25 @@ export default function EditSocialLink({ user, setEditing }) {
     if (linkedin && linkedin.trim().length < 5) {
       return toast.error("Linkedin username cant be less than 5 characters");
     }
+    // updating the data
+    try {
+      const request = await fetch(`/api/users/`, {
+        method: "PUT",
+        body: JSON.stringify({
+          instagram: instagram,
+          twitter: twitter,
+          github: github,
+          linkedin: linkedin,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
+    } catch (err) {
+      console.log(err);
+      return toast.error("Network Error");
+    }
   }
   return (
     <>
