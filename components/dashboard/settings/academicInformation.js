@@ -62,16 +62,17 @@ export default function SettingsAcademicInformation({ user }) {
                 {isRole ? (
                   <span
                     className={`mt-1 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium ${
-                      user.board.role === "owner"
+                      user?.board?.role === "owner"
                         ? "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-200"
                         : "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-200"
                     }`}
                   >
-                    {item.value.charAt(0).toUpperCase() + item.value.slice(1)}
+                    {item?.value?.charAt(0)?.toUpperCase() +
+                      item?.value?.slice(1) || "No Board Yet"}
                   </span>
                 ) : (
                   <p className="text-slate-900 dark:text-white mt-1 capitalize">
-                    {item.value}
+                    {item?.value}
                   </p>
                 )}
               </div>

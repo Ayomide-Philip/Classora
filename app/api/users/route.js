@@ -215,54 +215,66 @@ export async function PUT(req) {
       profile = await Profile.create({ userId: user._id });
     }
     // if profile exists, update it
-    const editing = true;
+    let editing = true;
     // update the profile bio
     if (bio && bio !== profile?.bio) {
       profile.bio = bio;
+      editing = false;
     }
     // update profile phone number
     if (phoneNumber && phoneNumber !== profile?.phoneNumber) {
       profile.phoneNumber = phoneNumber;
+      editing = false;
     }
     // update profile gender
     if (gender && gender !== profile?.gender) {
       profile.gender = gender;
+      editing = false;
     }
     // update profile department
     if (department && department !== profile?.department) {
       profile.department = department;
+      editing = false;
     }
     // update profile faculty
     if (faculty && faculty !== profile?.faculty) {
       profile.faculty = faculty;
+      editing = false;
     }
     // update profile degree
     if (degree && degree !== profile?.degree) {
       profile.degree = degree;
+      editing = false;
     }
     // update profile current level
     if (currentLevel && currentLevel !== profile?.currentLevel) {
       profile.currentLevel = currentLevel;
+      editing = false;
     }
     // update profile instagram username
     if (instagram && instagram !== profile?.socialHandles?.instagram) {
       profile.socialHandles.instagram = instagram;
+      editing = false;
     }
-    // update profile twitter username
+    // update profile Twitter username
     if (twitter && twitter !== profile?.socialHandles?.twitter) {
       profile.socialHandles.twitter = twitter;
+      editing = false;
     }
-    // update profile github username
+    // update profile GitHub username
     if (github && github !== profile?.socialHandles?.github) {
       profile.socialHandles.github = github;
+      editing = false;
     }
     // update profile linkedin username
     if (linkedin && linkedin !== profile?.socialHandles?.linkedin) {
       profile.socialHandles.linkedin = linkedin;
+      editing = false;
     }
     // update profile enrollment year
     if (enrollmentYear && enrollmentYear !== profile?.enrollmentYear) {
       profile.enrollmentYear = enrollmentYear;
+      editing = false;
     }
 
     if (editing) {
