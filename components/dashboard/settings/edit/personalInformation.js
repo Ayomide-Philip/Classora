@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Save } from "lucide-react";
 export default function EditPersonalInformation({ user, setEditing }) {
   const [phoneNumber, setPhoneNumber] = useState(
     user?.profileId?.phoneNumber || ""
@@ -81,6 +82,15 @@ export default function EditPersonalInformation({ user, setEditing }) {
               className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
             />
           </div>
+        </div>
+        <div className="flex items-center justify-end gap-2 mt-4">
+          <button
+            type="submit"
+            className="inline-flex items-center rounded-lg bg-sky-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-sky-700"
+          >
+            <Save className="h-5 w-5 mr-4 " />
+            Save
+          </button>
         </div>
       </form>
     </>
