@@ -1,4 +1,4 @@
-export default function EditPersonalInformation({ user }) {
+export default function EditPersonalInformation({ user, setEditing }) {
   return (
     <section className="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
       <div className="flex items-center justify-between mb-4 sm:mb-6">
@@ -8,7 +8,8 @@ export default function EditPersonalInformation({ user }) {
         <div className="flex items-center gap-2">
           <button
             type="button"
-            className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-900 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700"
+            onClick={() => setEditing(false)}
+            className="rounded-lg border cursor-pointer border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-900 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700"
           >
             Cancel
           </button>
