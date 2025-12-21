@@ -181,8 +181,12 @@ export default async function AssignmentPage({ params }) {
           <h2 className="mb-4 text-lg font-semibold text-slate-900 dark:text-white">
             Assignment Details
           </h2>
-          <div className="prose prose-slate max-w-none whitespace-pre-wrap text-sm text-slate-600 dark:prose-invert dark:text-slate-300">
-            {assignment.description}
+          <div className="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+            {assignment.description.split("\n").map((line, index) => (
+              <p key={index} className={line.trim() === "" ? "h-2" : ""}>
+                {line}
+              </p>
+            ))}
           </div>
         </div>
 
