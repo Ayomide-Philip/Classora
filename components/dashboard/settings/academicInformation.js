@@ -24,7 +24,7 @@ export function AcademicInformation({ user, setEditing }) {
         </h3>
         <button
           onClick={() => setEditing(true)}
-          className="w-full sm:w-auto rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-900 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700 flex items-center justify-center sm:justify-start gap-1"
+          className="w-full cursor-pointer sm:w-auto rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-900 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700 flex items-center justify-center sm:justify-start gap-1"
         >
           <Edit className="h-3.5 w-3.5" /> Edit
         </button>

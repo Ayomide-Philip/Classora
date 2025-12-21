@@ -48,9 +48,15 @@ export default function EditAcademicInformation({ user, setEditing }) {
         },
         credentials: "include",
       });
+      const response = await request.json();
+      if (!request.ok || response?.error) {
+        return toast.error(`${response?.error}`);
+      }
+      toast.success("Profile successfully updated");
+      window.location.reload();
     } catch (err) {
       console.error(err);
-      toast.error("Network Error");
+      return toast.error("Network Error");
     }
   }
 
