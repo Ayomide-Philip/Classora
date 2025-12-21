@@ -11,6 +11,10 @@ export default function EditSocialLink({ user, setEditing }) {
   const [linkedin, setLinkedin] = useState(
     user?.profileId?.socialHandles?.linkedin || ""
   );
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+  }
   return (
     <>
       <div className="flex items-center justify-between mb-4 sm:mb-6">
@@ -28,7 +32,7 @@ export default function EditSocialLink({ user, setEditing }) {
         </div>
       </div>
 
-      <form className="space-y-6">
+      <form className="space-y-6" onSubmit={handleSubmit}>
         <div className="grid md:grid-cols-2 gap-4">
           <div className="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
             <label className="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">
