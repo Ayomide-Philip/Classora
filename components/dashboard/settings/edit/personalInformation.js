@@ -4,7 +4,10 @@ export default function EditPersonalInformation({ user, setEditing }) {
     user?.profileId?.phoneNumber || ""
   );
   const [gender, setGender] = useState(user?.profileId?.gender || "");
-
+  async function handleSubmit(e) {
+    e.preventDefault();
+    alert("Form submitted");
+  }
   return (
     <>
       <div className="flex items-center justify-between mb-4 sm:mb-6">
@@ -19,16 +22,10 @@ export default function EditPersonalInformation({ user, setEditing }) {
           >
             Cancel
           </button>
-          <button
-            type="button"
-            className="rounded-lg bg-sky-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-sky-700"
-          >
-            Save
-          </button>
         </div>
       </div>
 
-      <form className="space-y-6">
+      <form className="space-y-6" onSubmit={handleSubmit}>
         <div className="grid md:grid-cols-2 gap-4">
           <div className="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
             <label className="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">
