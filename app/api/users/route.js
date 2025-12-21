@@ -58,10 +58,19 @@ export const GET = auth(async function GET(req) {
   }
 });
 
-export async function PUT(req) {
+export const PUT = auth(async function PUT(req) {
+  if (!req.auth || !req.auth?.user) {
+    return NextResponse.json(
+      { error: "User is Unauthorized" },
+      {
+        status: 400,
+      }
+    );
+  }
+
+  const userId = req.auth?.user?.id;
   // getting all possible data from the frontend
   let {
-    userId,
     bio,
     phoneNumber,
     gender,
@@ -306,4 +315,4 @@ export async function PUT(req) {
       }
     );
   }
-}
+});
