@@ -5,19 +5,19 @@ import { useState } from "react";
 export default function SettingsPersonalInformation({ user }) {
   const [editing, setEditing] = useState(false);
   return (
-    <>
+    <section className="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
       {editing ? (
         <EditPersonalInformation user={user} setEditing={setEditing} />
       ) : (
         <PersonalInformation user={user} setEditing={setEditing} />
       )}
-    </>
+    </section>
   );
 }
 
 export function PersonalInformation({ user, setEditing }) {
   return (
-    <section className="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+    <>
       <div className="flex items-center justify-between mb-4 sm:mb-6">
         <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
           Personal Information
@@ -63,6 +63,6 @@ export function PersonalInformation({ user, setEditing }) {
           );
         })}
       </div>
-    </section>
+    </>
   );
 }
