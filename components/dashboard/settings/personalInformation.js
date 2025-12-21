@@ -1,6 +1,14 @@
 import { Edit, Mail, Phone, UsersIcon, Hash } from "lucide-react";
 export default function SettingsPersonalInformation({ user }) {
   return (
+    <>
+      <PersonalInformation user={user} />
+    </>
+  );
+}
+
+export function PersonalInformation({ user }) {
+  return (
     <section className="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
       <div className="flex items-center justify-between mb-4 sm:mb-6">
         <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
