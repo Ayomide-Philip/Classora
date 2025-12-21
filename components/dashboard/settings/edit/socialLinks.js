@@ -47,6 +47,12 @@ export default function EditSocialLink({ user, setEditing }) {
         },
         credentials: "include",
       });
+      const response = await request.json();
+      if (!request.ok || response?.error) {
+        return toast.error(`${response?.error}`);
+      }
+      toast.success("Profile updated Successfully.");
+      window.location.reload();
     } catch (err) {
       console.log(err);
       return toast.error("Network Error");
