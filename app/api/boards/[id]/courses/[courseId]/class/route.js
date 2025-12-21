@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { connectDatabase } from "@/libs/connectDatabase";
+import Boards from "@/libs/models/boards.models";
 
 export async function GET(req, { params }) {
   const { id, courseId } = await params;
@@ -21,6 +23,18 @@ export async function GET(req, { params }) {
     );
   }
   try {
+    await connectDatabase();
+    // check if the board exist
+    const board = await Boards.findById(id);
+    // if board doesnt exist return error
+    if (!board) {
+      return NextResponse.json(
+        { error: "Board not found" },
+        {
+          status: 400,
+        }
+      );
+    }
     return NextResponse.json(
       { message: "GET all course classes", id, courseId },
       {
