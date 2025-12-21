@@ -8,7 +8,7 @@ export default function AssignmentsCard({
 }) {
   return (
     <Link
-      href={`/#`}
+      href={`/assignments/${assignment.id}`}
       className="group cursor-pointer rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-sky-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-sky-700 transition-all duration-200 overflow-hidden"
     >
       {/* Card Header */}
