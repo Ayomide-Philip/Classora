@@ -277,37 +277,6 @@ export default async function AssignmentPage({ params }) {
               />
             </div>
           </div>
-
-          {/* Students List */}
-          <div className="mt-6 border-t border-slate-200 pt-6 dark:border-slate-700">
-            <h3 className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-white">
-              <Users className="h-4 w-4" />
-              Students Status
-            </h3>
-            <div className="space-y-2 max-h-64 overflow-y-auto">
-              {assignment.studentsList.map((student) => (
-                <div
-                  key={student.id}
-                  className="flex items-center justify-between rounded-lg bg-slate-50 p-3 dark:bg-slate-800/50"
-                >
-                  <span className="text-sm text-slate-700 dark:text-slate-300">
-                    {student.name}
-                  </span>
-                  {student.markedDone ? (
-                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-green-700 dark:text-green-400">
-                      <CheckCircle2 className="h-4 w-4" />
-                      Done
-                    </span>
-                  ) : (
-                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-amber-700 dark:text-amber-400">
-                      <Circle className="h-4 w-4" />
-                      Pending
-                    </span>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </main>
