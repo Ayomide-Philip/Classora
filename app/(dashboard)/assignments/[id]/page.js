@@ -264,49 +264,6 @@ export default async function AssignmentPage({ params }) {
             </div>
           </div>
         )}
-
-        {/* Grading Rubric Section */}
-        {assignment.rubric && assignment.rubric.length > 0 && (
-          <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
-            <h2 className="mb-3 text-sm font-semibold text-slate-900 dark:text-white">
-              Grading Rubric
-            </h2>
-            <div className="overflow-hidden rounded-lg border border-slate-200 dark:border-slate-700">
-              <table className="w-full">
-                <thead className="bg-slate-50 dark:bg-slate-800/50">
-                  <tr>
-                    <th className="px-4 py-2 text-left text-xs font-semibold text-slate-600 dark:text-slate-300">
-                      Criteria
-                    </th>
-                    <th className="px-4 py-2 text-right text-xs font-semibold text-slate-600 dark:text-slate-300">
-                      Points
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-200 dark:divide-slate-700">
-                  {assignment.rubric.map((item, idx) => (
-                    <tr key={idx} className="bg-white dark:bg-slate-900/50">
-                      <td className="px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300">
-                        {item.criteria}
-                      </td>
-                      <td className="px-4 py-2.5 text-right text-sm font-medium text-slate-900 dark:text-white">
-                        {item.points}
-                      </td>
-                    </tr>
-                  ))}
-                  <tr className="bg-slate-50 dark:bg-slate-800/50">
-                    <td className="px-4 py-2.5 text-sm font-semibold text-slate-900 dark:text-white">
-                      Total
-                    </td>
-                    <td className="px-4 py-2.5 text-right text-sm font-bold text-slate-900 dark:text-white">
-                      {assignment.totalPoints}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        )}
       </div>
     </main>
   );
