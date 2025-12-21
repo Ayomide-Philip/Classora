@@ -51,7 +51,7 @@ export async function GET(req, { params }) {
     // check if the classes exist
     const classes = await Classes.find({ boardId: id, courseId });
     return NextResponse.json(
-      { message: "GET all course classes", id, courseId },
+      { classes },
       {
         status: 200,
       }
