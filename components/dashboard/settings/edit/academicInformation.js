@@ -1,5 +1,3 @@
-import { Save } from "lucide-react";
-
 export default function EditAcademicInformation({ user, setEditing }) {
   return (
     <>

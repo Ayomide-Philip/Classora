@@ -1,31 +1,31 @@
 "use client";
-import {
-  Shield,
-  Edit,
-  Book,
-  Award,
-  Calendar,
-  Clock,
-  Users as UsersIcon,
-} from "lucide-react";
+import { Shield, Edit, Book, Award, Calendar, Clock } from "lucide-react";
 import EditAcademicInformation from "./edit/academicInformation";
+import { useState } from "react";
 export default function SettingsAcademicInformation({ user }) {
+  const [editing, setEditing] = useState(false);
   return (
     <section className="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-      {/* <AcademicInformation user={user} /> */}
-      <EditAcademicInformation user={user} />
+      {editing ? (
+        <EditAcademicInformation user={user} setEditing={setEditing} />
+      ) : (
+        <AcademicInformation user={user} setEditing={setEditing} />
+      )}
     </section>
   );
 }
 
-export function AcademicInformation({ user }) {
+export function AcademicInformation({ user, setEditing }) {
   return (
     <>
       <div className="flex items-center justify-between mb-4 sm:mb-6">
         <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
           Academic Information
         </h3>
-        <button className="w-full sm:w-auto rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-900 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700 flex items-center justify-center sm:justify-start gap-1">
+        <button
+          onClick={() => setEditing(true)}
+          className="w-full sm:w-auto rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-900 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700 flex items-center justify-center sm:justify-start gap-1"
+        >
           <Edit className="h-3.5 w-3.5" /> Edit
         </button>
       </div>
