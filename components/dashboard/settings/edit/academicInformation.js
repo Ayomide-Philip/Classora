@@ -10,14 +10,47 @@ export default function EditAcademicInformation({ user, setEditing }) {
   const [currentLevel, setCurrentLevel] = useState(
     user?.profileId?.currentLevel || ""
   );
-  const [enrollmentYear, setEnrollementYear] = useState(
+  let [enrollmentYear, setEnrollementYear] = useState(
     user?.profileId?.enrollmentYear || ""
   );
 
   async function handleSubmit(e) {
     e.preventDefault();
+    // verifying academic info
     if (department && department.trim().length < 10) {
-      toast.error("Department cant be less than 10 characters long");
+      return toast.error("Department cant be less than 10 characters");
+    }
+    // validating faculty
+    if (faculty && faculty.trim().length < 10) {
+      return toast.error("Faculty cant be less than 10 characters");
+    }
+    // validating degree
+    if (degree && degree.trim().length < 3) {
+      return toast.error("Degree cant be less than 3 characters");
+    }
+    // validating current level
+    if (currentLevel && currentLevel.trim().length < 3) {
+      return toast.error("Current Level cant be less than 3 characters");
+    }
+    // update it in my backend
+    try {
+      const request = await fetch(`/api/users/`, {
+        method: "PUT",
+        body: JSON.stringify({
+          department: department,
+          faculty: faculty,
+          degree: degree,
+          currentLevel: currentLevel,
+          enrollmentYear: enrollmentYear,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
+    } catch (err) {
+      console.error(err);
+      toast.error("Network Error");
     }
   }
 
