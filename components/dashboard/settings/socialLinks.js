@@ -2,6 +2,14 @@ import { Edit, Instagram, Twitter, Github, Linkedin } from "lucide-react";
 export default function SettingsSocialLinks({ user }) {
   return (
     <section className="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+      <SocialLinks user={user} />
+    </section>
+  );
+}
+
+export function SocialLinks({ user }) {
+  return (
+    <>
       <div className="flex items-center justify-between mb-4 sm:mb-6">
         <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
           Social Links
@@ -65,6 +73,6 @@ export default function SettingsSocialLinks({ user }) {
           );
         })}
       </div>
-    </section>
+    </>
   );
 }
