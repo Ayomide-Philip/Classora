@@ -1,4 +1,23 @@
+import { useState } from "react";
+
 export default function EditAcademicInformation({ user, setEditing }) {
+  const [department, setDepartment] = useState(
+    user?.profileId?.department || ""
+  );
+  const [faculty, setFaculty] = useState(user?.profileId?.faculty || "");
+  const [degree, setDegree] = useState(user?.profileId?.degree || "");
+  const [currentLevel, setCurrentLevel] = useState(
+    user?.profileId?.currentLevel || ""
+  );
+  const [enrollmentYear, setEnrollementYear] = useState(
+    user?.profileId?.enrollmentYear || ""
+  );
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    alert("Form Submitted");
+  }
+
   return (
     <>
       <div className="flex items-center justify-between mb-4 sm:mb-6">
@@ -15,8 +34,7 @@ export default function EditAcademicInformation({ user, setEditing }) {
           </button>
         </div>
       </div>
-
-      <form className="space-y-6">
+      <form className="space-y-6" onSubmit={handleSubmit}>
         <div className="grid md:grid-cols-2 gap-4">
           <div className="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
             <label className="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">
@@ -26,7 +44,10 @@ export default function EditAcademicInformation({ user, setEditing }) {
               type="text"
               name="department"
               placeholder="Enter your department"
-              defaultValue={user?.profileId?.department || ""}
+              defaultValue={department}
+              onChange={(e) => {
+                setDepartment(e.target.value);
+              }}
               className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
             />
           </div>
@@ -39,7 +60,10 @@ export default function EditAcademicInformation({ user, setEditing }) {
               type="text"
               name="faculty"
               placeholder="Enter your faculty"
-              defaultValue={user?.profileId?.faculty || ""}
+              defaultValue={faculty}
+              onChange={(e) => {
+                setFaculty(e.target.value);
+              }}
               className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
             />
           </div>
@@ -52,7 +76,10 @@ export default function EditAcademicInformation({ user, setEditing }) {
               type="text"
               name="degree"
               placeholder="Enter your degree"
-              defaultValue={user?.profileId?.degree || ""}
+              defaultValue={degree}
+              onChange={(e) => {
+                setDegree(e.target.value);
+              }}
               className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
             />
           </div>
@@ -65,7 +92,7 @@ export default function EditAcademicInformation({ user, setEditing }) {
               type="text"
               name="currentLevel"
               placeholder="Enter your current level"
-              defaultValue={user?.profileId?.currentLevel || ""}
+              defaultValue={currentLevel}
               className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
             />
           </div>
@@ -78,7 +105,7 @@ export default function EditAcademicInformation({ user, setEditing }) {
               type="text"
               name="enrollmentYear"
               placeholder="Enter enrollment year"
-              defaultValue={user?.profileId?.enrollmentYear || ""}
+              defaultValue={enrollmentYear}
               className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
             />
           </div>
@@ -87,21 +114,18 @@ export default function EditAcademicInformation({ user, setEditing }) {
             <label className="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">
               Board Role
             </label>
-            <select
+            <input
               name="boardRole"
-              defaultValue={user?.board?.role || ""}
+              defaultValue={user?.board?.role || "No Board Yet"}
               className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
-            >
-              <option value="owner">Owner</option>
-              <option value="member">Member</option>
-              <option value="student">Student</option>
-            </select>
+              readOnly
+            />
           </div>
         </div>
         <div className="flex items-center justify-end gap-2 mt-4">
           <button
             type="submit"
-            className="w-full px-6 py-2.5 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 transition"
+            className="w-full cursor-pointer px-6 py-2.5 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 transition"
           >
             Save Changes
           </button>
