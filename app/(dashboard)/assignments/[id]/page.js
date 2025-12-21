@@ -41,6 +41,12 @@ export default async function AssignmentPage({ params }) {
       name: "John Osei",
       role: "Class Representative",
     },
+    course: {
+      id: "math101",
+      code: "MTH 101",
+      title: "Calculus I",
+      lecturer: "Dr. Kwame Mensah",
+    },
     googleFormUrl: "https://forms.gle/example123456789",
     studentsMarkedDone: 28,
     totalStudents: 45,
@@ -92,31 +98,83 @@ export default async function AssignmentPage({ params }) {
         </div>
 
         {/* Assignment Header Card */}
-        <article className="mb-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
-          <div className="mb-6">
+        <article className="mb-6 rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
+          {/* Course Header Section */}
+          <div className="border-b border-slate-200 p-6 dark:border-slate-700">
+            <Link
+              href={`/courses/${assignment.course.id}`}
+              className="group mb-4 block"
+            >
+              <div className="flex items-baseline gap-2">
+                <span className="text-xs font-bold uppercase tracking-widest text-sky-600 dark:text-sky-400">
+                  {assignment.course.code}
+                </span>
+                <span className="text-sm text-slate-500 dark:text-slate-400">
+                  •
+                </span>
+                <h2 className="text-lg font-semibold text-slate-900 group-hover:text-sky-600 dark:text-white dark:group-hover:text-sky-400">
+                  {assignment.course.title}
+                </h2>
+              </div>
+            </Link>
+            <p className="text-sm text-slate-600 dark:text-slate-400">
+              Lecturer:{" "}
+              <span className="font-semibold text-slate-900 dark:text-white">
+                {assignment.course.lecturer}
+              </span>
+            </p>
+          </div>
+
+          {/* Assignment Title Section */}
+          <div className="border-b border-slate-200 p-6 dark:border-slate-700">
             <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
               {assignment.title}
             </h1>
           </div>
 
-          {/* Posted Info */}
-          <div className="flex flex-col gap-3 border-t border-slate-200 pt-6 sm:flex-row sm:items-center sm:justify-between dark:border-slate-700">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-100 dark:bg-sky-900/30">
-                <User className="h-5 w-5 text-sky-600 dark:text-sky-400" />
-              </div>
+          {/* Assignment Meta Section */}
+          <div className="p-6">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+              {/* Posted By */}
               <div>
-                <p className="text-xs text-slate-500 dark:text-slate-400">
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
                   Posted by
                 </p>
-                <p className="text-sm font-semibold text-slate-900 dark:text-white">
-                  {assignment.postedBy.name}
-                </p>
+                <div className="mt-2 flex items-center gap-2">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-sky-100 dark:bg-sky-900/30">
+                    <User className="h-4 w-4 text-sky-600 dark:text-sky-400" />
+                  </div>
+                  <p className="text-sm font-semibold text-slate-900 dark:text-white">
+                    {assignment.postedBy.name}
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-              <Calendar className="h-4 w-4" />
-              {assignment.postedDate}
+
+              {/* Posted Date */}
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                  Posted Date
+                </p>
+                <div className="mt-2 flex items-center gap-2">
+                  <Calendar className="h-4 w-4 text-slate-400 dark:text-slate-600" />
+                  <p className="text-sm font-semibold text-slate-900 dark:text-white">
+                    {assignment.postedDate}
+                  </p>
+                </div>
+              </div>
+
+              {/* Class Progress */}
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                  Submissions
+                </p>
+                <div className="mt-2 flex items-center gap-2">
+                  <Users className="h-4 w-4 text-slate-400 dark:text-slate-600" />
+                  <p className="text-sm font-semibold text-slate-900 dark:text-white">
+                    {assignment.studentsMarkedDone}/{assignment.totalStudents}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </article>
