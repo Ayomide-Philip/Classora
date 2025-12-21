@@ -1,5 +1,4 @@
 export default function AnnoucementsCourses({ annoucements }) {
-  // console.log(annoucements);
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {annoucements.map(({ title, description, tag, createdAt, _id }, idx) => (
