@@ -12,6 +12,29 @@ const assignmentSchema = new Schema(
       ref: "Courses",
       required: true,
     },
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: "Users",
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+      minlength: 4,
+    },
+    description: {
+      type: String,
+      required: true,
+      minlength: 10,
+    },
+    dueDate: {
+      type: Date,
+    },
+    studentsSubmitted: {
+      type: [Schema.Types.ObjectId],
+      ref: "Users",
+      default: [],
+    },
   },
   {
     timestamps: true,
