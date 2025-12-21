@@ -165,7 +165,7 @@ export default async function AssignmentPage({ params }) {
           )}
 
           {/* Assignment Details Grid */}
-          <div className="mt-6 grid grid-cols-2 gap-4 border-t border-slate-200 pt-6 sm:grid-cols-4 dark:border-slate-700">
+          <div className="mt-6 grid grid-cols-2 gap-4 border-t border-slate-200 pt-6 sm:grid-cols-3 lg:grid-cols-6 dark:border-slate-700">
             <div>
               <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
                 <Calendar className="h-3.5 w-3.5" />
@@ -200,6 +200,24 @@ export default async function AssignmentPage({ params }) {
               </div>
               <p className="mt-1 text-sm font-medium text-slate-900 dark:text-white">
                 {assignment.course.instructor}
+              </p>
+            </div>
+            <div>
+              <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
+                <Users className="h-3.5 w-3.5" />
+                Submitted
+              </div>
+              <p className="mt-1 text-sm font-medium text-slate-900 dark:text-white">
+                {assignment.submittedCount}/{assignment.totalStudents}
+              </p>
+            </div>
+            <div>
+              <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
+                <CheckCircle2 className="h-3.5 w-3.5" />
+                Completion
+              </div>
+              <p className="mt-1 text-sm font-medium text-slate-900 dark:text-white">
+                {submissionRate}%
               </p>
             </div>
           </div>
@@ -289,54 +307,6 @@ export default async function AssignmentPage({ params }) {
             </div>
           </div>
         )}
-
-        {/* Submission Stats */}
-        <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
-          <h3 className="mb-4 text-sm font-semibold text-slate-900 dark:text-white">
-            Class Progress
-          </h3>
-          <div className="flex items-center justify-between text-sm">
-            <span className="text-slate-600 dark:text-slate-400">
-              Submissions
-            </span>
-            <span className="font-semibold text-slate-900 dark:text-white">
-              {assignment.submittedCount} / {assignment.totalStudents}
-            </span>
-          </div>
-          <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
-            <div
-              className="h-full bg-sky-500"
-              style={{ width: `${submissionRate}%` }}
-            />
-          </div>
-          <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-            {submissionRate}% submitted • {assignment.gradedCount} graded
-          </p>
-        </div>
-
-        {/* Submission Section */}
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
-          <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-slate-900 dark:text-white">
-            <Upload className="h-5 w-5" />
-            Your Submission
-          </h2>
-          <div className="rounded-lg border-2 border-dashed border-slate-300 bg-slate-50 p-8 text-center dark:border-slate-700 dark:bg-slate-800/50">
-            <Upload className="mx-auto h-12 w-12 text-slate-400" />
-            <p className="mt-3 text-sm font-medium text-slate-900 dark:text-white">
-              No submission yet
-            </p>
-            <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-              Drag and drop your file or click to browse
-            </p>
-            <p className="mt-2 text-xs text-slate-400">
-              Accepted formats: {assignment.allowedFileTypes.join(", ")} • Max
-              size: {assignment.maxFileSize}
-            </p>
-            <button className="mt-4 rounded-full bg-sky-600 px-6 py-2.5 text-sm font-semibold text-white hover:bg-sky-700 transition-colors">
-              Choose File
-            </button>
-          </div>
-        </div>
       </div>
     </main>
   );
