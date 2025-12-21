@@ -1,4 +1,8 @@
 import { Clock, MapPin } from "lucide-react";
+import { BASE_URL } from "@/libs/config";
+import { getUserInfomation } from "@/components/dashboard/userdetails";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 const schedule = [
   {
@@ -18,7 +22,21 @@ const schedule = [
     type: "Lab",
   },
 ];
-export default function CourseSchedule() {
+export default async function CourseSchedule({ courseId }) {
+  const { boardId } = await getUserInfomation();
+  const request = await fetch(
+    `${BASE_URL}/api/boards/${boardId}/courses/${courseId}/class`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Cookie: (await cookies()).toString(),
+      },
+    }
+  );
+
+  const response = await request.json();
+  if (!request.ok || response?.error) return redirect("/courses");
   return (
     <section className="mb-8">
       <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">

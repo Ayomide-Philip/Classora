@@ -120,7 +120,7 @@ export default async function CoursePage({ params }) {
         </Link>
         <CourseHeader course={course} id={id} userId={userId} />
         <CourseProgressOverview assignments={assignments} />
-        <CourseSchedule />
+        <CourseSchedule courseId={id} />
         <CourseAssignments assignments={assignments} />
         <CourseMaterials />
         <CourseInstructor course={course} />
