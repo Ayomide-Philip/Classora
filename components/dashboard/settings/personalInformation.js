@@ -1,8 +1,10 @@
 import { Edit, Mail, Phone, UsersIcon, Hash } from "lucide-react";
+import EditPersonalInformation from "./edit/personalInformation";
 export default function SettingsPersonalInformation({ user }) {
   return (
     <>
       <PersonalInformation user={user} />
+      <EditPersonalInformation user={user} />
     </>
   );
 }
