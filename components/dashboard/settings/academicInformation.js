@@ -7,7 +7,17 @@ import {
   Clock,
   Users as UsersIcon,
 } from "lucide-react";
+import EditAcademicInformation from "./edit/academicInformation";
 export default function SettingsAcademicInformation({ user }) {
+  return (
+    <>
+      {/* <AcademicInformation user={user} /> */}
+      <EditAcademicInformation />
+    </>
+  );
+}
+
+export function AcademicInformation({ user }) {
   return (
     <section className="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
       <div className="flex items-center justify-between mb-4 sm:mb-6">
