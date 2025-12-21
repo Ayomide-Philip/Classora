@@ -5,16 +5,11 @@ import { cookies } from "next/headers";
 import {
   ArrowLeft,
   Calendar,
-  Clock,
-  FileText,
-  Users,
-  AlertCircle,
-  CheckCircle2,
   User,
-  BookOpen,
-  Download,
-  Upload,
-  Eye,
+  ExternalLink,
+  CheckCircle2,
+  Circle,
+  Users,
 } from "lucide-react";
 
 export default async function AssignmentPage({ params }) {
@@ -37,46 +32,25 @@ export default async function AssignmentPage({ params }) {
   // Mock data for demonstration
   const assignment = {
     id: id,
-    title: "Data Structures Implementation",
-    course: {
-      id: "cs301",
-      name: "CS 301 - Data Structures",
-      code: "CS301",
-      instructor: "Dr. Sarah Johnson",
-    },
+    title: "Mathematics Assignment - Chapter 5",
     description:
-      "Implement a binary search tree with insertion, deletion, and traversal methods. Your implementation should include proper error handling, edge case management, and comprehensive documentation.\n\nRequirements:\n- Implement insert() method\n- Implement delete() method\n- Implement inorder, preorder, and postorder traversal\n- Include unit tests for all methods\n- Write documentation for each function\n\nSubmission Format:\n- Submit as a single .zip file containing all source code\n- Include a README.md with instructions on how to run your code\n- Maximum file size: 10MB",
-    postedDate: "Dec 10, 2025",
-    dueDate: "Dec 25, 2025",
-    dueTime: "11:59 PM",
-    totalPoints: 100,
-    submissionType: "File Upload",
-    allowedFileTypes: [".zip", ".rar", ".tar.gz"],
-    maxFileSize: "10MB",
+      "Complete all exercises from Chapter 5 of the textbook. This includes:\n\n1. Pages 45-50: Basic algebraic equations\n2. Pages 51-55: Systems of equations\n3. Pages 56-60: Word problems\n\nPlease show all your working and ensure your answers are clearly labeled.",
+    postedDate: "Dec 20, 2025",
+    postedBy: {
+      id: "rep1",
+      name: "John Osei",
+      role: "Class Representative",
+    },
+    googleFormUrl: "https://forms.gle/example123456789",
+    studentsMarkedDone: 28,
     totalStudents: 45,
-    submittedCount: 32,
-    gradedCount: 20,
-    status: "active", // active, closed, draft
-    attachments: [
-      {
-        id: 1,
-        name: "starter-code.zip",
-        size: "2.3 MB",
-        type: "application/zip",
-      },
-      {
-        id: 2,
-        name: "requirements.pdf",
-        size: "450 KB",
-        type: "application/pdf",
-      },
-    ],
-    rubric: [
-      { criteria: "Code Functionality", points: 40 },
-      { criteria: "Code Quality & Style", points: 20 },
-      { criteria: "Documentation", points: 15 },
-      { criteria: "Unit Tests", points: 15 },
-      { criteria: "Error Handling", points: 10 },
+    isUserDone: false, // This would come from the API based on current user
+    studentsList: [
+      { id: 1, name: "Alice Johnson", markedDone: true },
+      { id: 2, name: "Bob Smith", markedDone: true },
+      { id: 3, name: "Charlie Brown", markedDone: false },
+      { id: 4, name: "Diana Prince", markedDone: true },
+      { id: 5, name: "Edward Norton", markedDone: false },
     ],
   };
 
@@ -84,8 +58,7 @@ export default async function AssignmentPage({ params }) {
     return (
       <main className="px-4 py-10">
         <div className="mx-auto max-w-3xl rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-md dark:border-slate-800 dark:bg-slate-900/80">
-          <AlertCircle className="mx-auto h-12 w-12 text-slate-400" />
-          <h2 className="mt-4 text-xl font-semibold text-slate-900 dark:text-white">
+          <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
             Assignment not found
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
@@ -104,14 +77,6 @@ export default async function AssignmentPage({ params }) {
     );
   }
 
-  const submissionRate = Math.round(
-    (assignment.submittedCount / assignment.totalStudents) * 100
-  );
-  const isOverdue = new Date(assignment.dueDate) < new Date();
-  const daysUntilDue = Math.ceil(
-    (new Date(assignment.dueDate) - new Date()) / (1000 * 60 * 60 * 24)
-  );
-
   return (
     <main className="min-h-screen p-4 sm:p-6">
       <div className="mx-auto max-w-4xl">
@@ -128,142 +93,167 @@ export default async function AssignmentPage({ params }) {
 
         {/* Assignment Header Card */}
         <article className="mb-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
-          <div className="mb-4 flex items-start gap-3">
-            <div className="rounded-lg bg-sky-100 p-2.5 dark:bg-sky-900/30">
-              <FileText className="h-6 w-6 text-sky-600 dark:text-sky-400" />
-            </div>
-            <div className="flex-1">
-              <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
-                {assignment.title}
-              </h1>
-              <Link
-                href={`/courses/${assignment.course.id}`}
-                className="mt-1 inline-flex items-center gap-1.5 text-sm text-sky-600 hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300"
-              >
-                <BookOpen className="h-3.5 w-3.5" />
-                {assignment.course.name}
-              </Link>
-            </div>
+          <div className="mb-6">
+            <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
+              {assignment.title}
+            </h1>
           </div>
 
-          {/* Status Badge */}
-          {isOverdue ? (
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-red-100 px-3 py-1 text-xs font-semibold text-red-700 dark:bg-red-900/30 dark:text-red-400">
-              <AlertCircle className="h-3.5 w-3.5" />
-              Overdue
-            </div>
-          ) : daysUntilDue <= 3 ? (
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
-              <Clock className="h-3.5 w-3.5" />
-              Due Soon - {daysUntilDue} days left
-            </div>
-          ) : (
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700 dark:bg-green-900/30 dark:text-green-400">
-              <CheckCircle2 className="h-3.5 w-3.5" />
-              Active
-            </div>
-          )}
-
-          {/* Assignment Details Grid */}
-          <div className="mt-6 grid grid-cols-2 gap-4 border-t border-slate-200 pt-6 sm:grid-cols-3 lg:grid-cols-6 dark:border-slate-700">
-            <div>
-              <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
-                <Calendar className="h-3.5 w-3.5" />
-                Posted
+          {/* Posted Info */}
+          <div className="flex flex-col gap-3 border-t border-slate-200 pt-6 sm:flex-row sm:items-center sm:justify-between dark:border-slate-700">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-100 dark:bg-sky-900/30">
+                <User className="h-5 w-5 text-sky-600 dark:text-sky-400" />
               </div>
-              <p className="mt-1 text-sm font-medium text-slate-900 dark:text-white">
-                {assignment.postedDate}
-              </p>
-            </div>
-            <div>
-              <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
-                <Clock className="h-3.5 w-3.5" />
-                Due Date
+              <div>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  Posted by
+                </p>
+                <p className="text-sm font-semibold text-slate-900 dark:text-white">
+                  {assignment.postedBy.name}
+                </p>
               </div>
-              <p className="mt-1 text-sm font-medium text-slate-900 dark:text-white">
-                {assignment.dueDate}
-              </p>
             </div>
-            <div>
-              <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
-                <FileText className="h-3.5 w-3.5" />
-                Points
-              </div>
-              <p className="mt-1 text-sm font-medium text-slate-900 dark:text-white">
-                {assignment.totalPoints}
-              </p>
-            </div>
-            <div>
-              <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
-                <User className="h-3.5 w-3.5" />
-                Instructor
-              </div>
-              <p className="mt-1 text-sm font-medium text-slate-900 dark:text-white">
-                {assignment.course.instructor}
-              </p>
-            </div>
-            <div>
-              <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
-                <Users className="h-3.5 w-3.5" />
-                Submitted
-              </div>
-              <p className="mt-1 text-sm font-medium text-slate-900 dark:text-white">
-                {assignment.submittedCount}/{assignment.totalStudents}
-              </p>
-            </div>
-            <div>
-              <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
-                <CheckCircle2 className="h-3.5 w-3.5" />
-                Completion
-              </div>
-              <p className="mt-1 text-sm font-medium text-slate-900 dark:text-white">
-                {submissionRate}%
-              </p>
+            <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+              <Calendar className="h-4 w-4" />
+              {assignment.postedDate}
             </div>
           </div>
         </article>
 
-        {/* Description Section */}
+        {/* Assignment Description */}
         <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
-          <h2 className="mb-3 text-sm font-semibold text-slate-900 dark:text-white">
-            Description
+          <h2 className="mb-4 text-lg font-semibold text-slate-900 dark:text-white">
+            Assignment Details
           </h2>
-          <div className="prose prose-slate max-w-none text-sm text-slate-600 dark:prose-invert dark:text-slate-300">
-            {assignment.description.split("\n").map((para, idx) => (
-              <p key={idx} className="mb-3 leading-relaxed">
-                {para}
-              </p>
-            ))}
+          <div className="prose prose-slate max-w-none whitespace-pre-wrap text-sm text-slate-600 dark:prose-invert dark:text-slate-300">
+            {assignment.description}
           </div>
         </div>
 
-        {/* Attachments Section */}
-        {assignment.attachments && assignment.attachments.length > 0 && (
-          <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
-            <h2 className="mb-3 text-sm font-semibold text-slate-900 dark:text-white">
-              Attachments
+        {/* Google Form Submission */}
+        <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
+          <h2 className="mb-4 text-lg font-semibold text-slate-900 dark:text-white">
+            Submit Your Work
+          </h2>
+          <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">
+            Use the Google Form below to submit this assignment:
+          </p>
+          <a
+            href={assignment.googleFormUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg bg-sky-600 px-6 py-3 text-sm font-semibold text-white hover:bg-sky-700 transition-colors dark:bg-sky-700 dark:hover:bg-sky-600"
+          >
+            <ExternalLink className="h-4 w-4" />
+            Open Google Form
+          </a>
+        </div>
+
+        {/* Mark as Done Section */}
+        <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
+          <h2 className="mb-4 text-lg font-semibold text-slate-900 dark:text-white">
+            Mark as Complete
+          </h2>
+          <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">
+            Click the button below once you have completed and submitted this
+            assignment.
+          </p>
+          <button
+            className={`inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-colors ${
+              assignment.isUserDone
+                ? "border border-slate-300 bg-slate-50 text-slate-700 hover:bg-slate-100 dark:border-slate-600 dark:bg-slate-800/50 dark:text-slate-300 dark:hover:bg-slate-800"
+                : "bg-green-600 text-white hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-600"
+            }`}
+          >
+            {assignment.isUserDone ? (
+              <>
+                <CheckCircle2 className="h-4 w-4" />
+                Marked as Done
+              </>
+            ) : (
+              <>
+                <Circle className="h-4 w-4" />
+                Mark as Done
+              </>
+            )}
+          </button>
+          <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">
+            {assignment.isUserDone
+              ? "You have marked this assignment as complete."
+              : "Mark this assignment as done once you have submitted it."}
+          </p>
+        </div>
+
+        {/* Class Completion Status */}
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
+          <div className="mb-4 flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
+              Class Progress
             </h2>
-            <div className="space-y-2">
-              {assignment.attachments.map((file) => (
-                <button
-                  key={file.id}
-                  className="flex w-full items-center gap-3 rounded-lg border border-slate-200 bg-slate-50 p-3 text-left transition-colors hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800/50 dark:hover:bg-slate-800"
+            <span className="rounded-full bg-sky-100 px-3 py-1 text-sm font-semibold text-sky-700 dark:bg-sky-900/30 dark:text-sky-400">
+              {assignment.studentsMarkedDone} / {assignment.totalStudents}
+            </span>
+          </div>
+
+          {/* Progress Bar */}
+          <div className="mb-4">
+            <div className="flex items-center justify-between text-sm mb-2">
+              <span className="text-slate-600 dark:text-slate-400">
+                Completion Rate
+              </span>
+              <span className="font-semibold text-slate-900 dark:text-white">
+                {Math.round(
+                  (assignment.studentsMarkedDone / assignment.totalStudents) *
+                    100
+                )}
+                %
+              </span>
+            </div>
+            <div className="h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
+              <div
+                className="h-full bg-sky-500"
+                style={{
+                  width: `${
+                    (assignment.studentsMarkedDone / assignment.totalStudents) *
+                    100
+                  }%`,
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Students List */}
+          <div className="mt-6 border-t border-slate-200 pt-6 dark:border-slate-700">
+            <h3 className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-white">
+              <Users className="h-4 w-4" />
+              Students Status
+            </h3>
+            <div className="space-y-2 max-h-64 overflow-y-auto">
+              {assignment.studentsList.map((student) => (
+                <div
+                  key={student.id}
+                  className="flex items-center justify-between rounded-lg bg-slate-50 p-3 dark:bg-slate-800/50"
                 >
-                  <FileText className="h-5 w-5 text-slate-400" />
-                  <div className="flex-1">
-                    <p className="text-sm font-medium text-slate-900 dark:text-white">
-                      {file.name}
-                    </p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">
-                      {file.size}
-                    </p>
-                  </div>
-                  <Download className="h-4 w-4 text-slate-400" />
-                </button>
+                  <span className="text-sm text-slate-700 dark:text-slate-300">
+                    {student.name}
+                  </span>
+                  {student.markedDone ? (
+                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-green-700 dark:text-green-400">
+                      <CheckCircle2 className="h-4 w-4" />
+                      Done
+                    </span>
+                  ) : (
+                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-amber-700 dark:text-amber-400">
+                      <Circle className="h-4 w-4" />
+                      Pending
+                    </span>
+                  )}
+                </div>
               ))}
             </div>
           </div>
-        )}
+        </div>
       </div>
     </main>
   );
