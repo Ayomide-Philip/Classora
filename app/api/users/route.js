@@ -299,7 +299,6 @@ export const PUT = auth(async function PUT(req) {
 
     return NextResponse.json(
       {
-        message: "UPDATING user profile",
         profile,
       },
       {

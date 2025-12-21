@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Save } from "lucide-react";
+import { toast } from "react-toastify";
 export default function EditPersonalInformation({ user, setEditing }) {
   const [phoneNumber, setPhoneNumber] = useState(
     user?.profileId?.phoneNumber || ""
@@ -7,7 +8,36 @@ export default function EditPersonalInformation({ user, setEditing }) {
   const [gender, setGender] = useState(user?.profileId?.gender || "");
   async function handleSubmit(e) {
     e.preventDefault();
-    alert("Form submitted");
+    const phoneRegex = new RegExp("^\\+\\d{1,4}[\\d\\s.-]{6,14}$");
+    if (phoneNumber && !phoneRegex.test(phoneNumber)) {
+      return toast.error("Please enter a valid phone number");
+    }
+    if (gender && gender !== "Male" && gender !== "Female") {
+      return toast.error("Please select a valid gender");
+    }
+
+    try {
+      const request = await fetch(`/api/users/`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          phoneNumber: phoneNumber,
+          gender: gender,
+        }),
+        credentials: "include",
+      });
+      const response = await request.json();
+      if (!request.ok || response?.error) {
+        return toast.error(response?.error || "An error occurred");
+      }
+      toast.success("Personal information updated successfully");
+      window.location.reload();
+    } catch (err) {
+      console.log(err);
+      toast.error("Network Error");
+    }
   }
   return (
     <>
