@@ -67,6 +67,7 @@ export default function EditSocialLink({ user, setEditing }) {
               name="github"
               placeholder="yourusername"
               defaultValue={github}
+              onChange={(e) => setGithub(e.target.value)}
               className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
             />
           </div>
@@ -80,6 +81,7 @@ export default function EditSocialLink({ user, setEditing }) {
               name="linkedin"
               placeholder="linkedin.com/in/yourprofile"
               defaultValue={linkedin}
+              onChange={(e) => setLinkedin(e.target.value)}
               className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
             />
           </div>
