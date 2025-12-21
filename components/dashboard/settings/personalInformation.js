@@ -1,4 +1,4 @@
-import { Edit, Mail, Phone, UsersIcon, Hash, MapPin } from "lucide-react";
+import { Edit, Mail, Phone, UsersIcon, Hash } from "lucide-react";
 export default function SettingsPersonalInformation({ user }) {
   return (
     <section className="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">

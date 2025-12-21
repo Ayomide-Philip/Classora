@@ -43,9 +43,9 @@ export default async function Page() {
             <SettingsPersonalInformation user={user} />
             <SettingsAcademicInformation user={user} />
             <SettingsSocialLinks user={user} />
-            <SettingsNotification user={user} />
+            {user?.board?.role && <SettingsNotification user={user} />}
             <SettingsSecurity />
-            <SettingsBoardInfo user={user} />
+            {user?.board?.role && <SettingsBoardInfo user={user} />}
             <SettingsLogOut />
           </div>
         </div>

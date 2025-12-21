@@ -2,7 +2,6 @@ import StudentPageBody from "@/components/dashboard/students/studentsBody";
 import { getUserInfomation } from "@/components/dashboard/userdetails";
 import { BASE_URL } from "@/libs/config";
 import { Users } from "lucide-react";
-import Link from "next/link";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 

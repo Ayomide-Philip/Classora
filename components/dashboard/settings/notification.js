@@ -14,8 +14,6 @@ export default function SettingsNotification({ user }) {
             label: "Allow Comments",
             enabled: user?.board?.boardId?.allowComments || false,
           },
-          { label: "Assignment Reminders", enabled: true },
-          { label: "Class Announcements", enabled: false },
         ].map((item, idx) => (
           <div
             key={idx}
