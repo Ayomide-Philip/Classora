@@ -1,4 +1,5 @@
 import { Clock, Users, FileText, Calendar, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function AssignmentsCard({
   assignment,
@@ -6,7 +7,10 @@ export default function AssignmentsCard({
   isFullySubmitted,
 }) {
   return (
-    <div className="group cursor-pointer rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-sky-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-sky-700 transition-all duration-200 overflow-hidden">
+    <Link
+      href={`/#`}
+      className="group cursor-pointer rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-sky-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-sky-700 transition-all duration-200 overflow-hidden"
+    >
       {/* Card Header */}
       <div className="p-5">
         <div className="flex items-start justify-between gap-3 mb-3">
@@ -88,6 +92,6 @@ export default function AssignmentsCard({
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
