@@ -99,37 +99,34 @@ export default async function AssignmentPage({ params }) {
 
         {/* Assignment Header Card */}
         <article className="mb-6 rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
-          {/* Course Header Section */}
+          {/* Assignment Header */}
           <div className="border-b border-slate-200 p-6 dark:border-slate-700">
+            {/* Course Info */}
             <Link
               href={`/courses/${assignment.course.id}`}
-              className="group mb-4 block"
+              className="group inline-flex items-center gap-2 rounded-full bg-sky-50 px-4 py-1.5 text-sm font-semibold text-sky-700 hover:bg-sky-100 dark:bg-sky-900/30 dark:text-sky-400 dark:hover:bg-sky-900/50"
             >
-              <div className="flex items-baseline gap-2">
-                <span className="text-xs font-bold uppercase tracking-widest text-sky-600 dark:text-sky-400">
-                  {assignment.course.code}
-                </span>
-                <span className="text-sm text-slate-500 dark:text-slate-400">
-                  •
-                </span>
-                <h2 className="text-lg font-semibold text-slate-900 group-hover:text-sky-600 dark:text-white dark:group-hover:text-sky-400">
-                  {assignment.course.title}
-                </h2>
-              </div>
+              <span className="uppercase tracking-widest">
+                {assignment.course.code}
+              </span>
+              <span className="opacity-60">•</span>
+              <span className="group-hover:underline">
+                {assignment.course.title}
+              </span>
             </Link>
-            <p className="text-sm text-slate-600 dark:text-slate-400">
+
+            {/* Assignment Title */}
+            <h1 className="mt-4 text-3xl font-bold leading-tight text-slate-900 dark:text-white">
+              {assignment.title}
+            </h1>
+
+            {/* Lecturer */}
+            <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
               Lecturer:{" "}
               <span className="font-semibold text-slate-900 dark:text-white">
                 {assignment.course.lecturer}
               </span>
             </p>
-          </div>
-
-          {/* Assignment Title Section */}
-          <div className="border-b border-slate-200 p-6 dark:border-slate-700">
-            <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
-              {assignment.title}
-            </h1>
           </div>
 
           {/* Assignment Meta Section */}
