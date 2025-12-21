@@ -39,6 +39,7 @@ export default function EditSocialLink({ user, setEditing }) {
               name="instagram"
               placeholder="@yourusername"
               defaultValue={instagram}
+              onChange={(e) => setInstagram(e.target.value)}
               className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
             />
           </div>
@@ -52,6 +53,7 @@ export default function EditSocialLink({ user, setEditing }) {
               name="twitter"
               placeholder="@yourusername"
               defaultValue={twitter}
+              onChange={(e) => setTwitter(e.target.value)}
               className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
             />
           </div>
