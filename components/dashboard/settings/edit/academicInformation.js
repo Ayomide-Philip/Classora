@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function EditAcademicInformation({ user, setEditing }) {
   const [department, setDepartment] = useState(
@@ -15,7 +16,9 @@ export default function EditAcademicInformation({ user, setEditing }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    alert("Form Submitted");
+    if (department && department.trim().length < 10) {
+      toast.error("Department cant be less than 10 characters long");
+    }
   }
 
   return (
@@ -93,6 +96,9 @@ export default function EditAcademicInformation({ user, setEditing }) {
               name="currentLevel"
               placeholder="Enter your current level"
               defaultValue={currentLevel}
+              onChange={(e) => {
+                setCurrentLevel(e.target.value);
+              }}
               className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
             />
           </div>
@@ -106,6 +112,9 @@ export default function EditAcademicInformation({ user, setEditing }) {
               name="enrollmentYear"
               placeholder="Enter enrollment year"
               defaultValue={enrollmentYear}
+              onChange={(e) => {
+                setEnrollementYear(e.target.value);
+              }}
               className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
             />
           </div>
