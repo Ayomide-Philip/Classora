@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 export default function EditSocialLink({ user, setEditing }) {
   const [instagram, setInstagram] = useState(
     user?.profileId?.socialHandles?.instagram || ""
@@ -15,6 +16,22 @@ export default function EditSocialLink({ user, setEditing }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    // verifying instagram username
+    if (instagram && instagram.trim().length < 5) {
+      return toast.error("Instagram username cant be less than 5 characters");
+    }
+    // verifying Twitter username
+    if (twitter && twitter.trim().length < 5) {
+      return toast.error("Twitter username cant be less than 5 characters");
+    }
+    // verifying github username
+    if (github && github.trim().length < 5) {
+      return toast.error("Github username cant be less than 5 characters");
+    }
+    // verifying linkedin username
+    if (linkedin && linkedin.trim().length < 5) {
+      return toast.error("Linkedin username cant be less than 5 characters");
+    }
   }
   return (
     <>
