@@ -1,20 +1,31 @@
+"use client";
 import { Edit, Instagram, Twitter, Github, Linkedin } from "lucide-react";
+import { useState } from "react";
+import EditSocialLink from "./edit/socialLinks";
 export default function SettingsSocialLinks({ user }) {
+  const [editing, setEditing] = useState(false);
   return (
     <section className="rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-      <SocialLinks user={user} />
+      {editing ? (
+        <EditSocialLink user={user} setEditing={setEditing} />
+      ) : (
+        <SocialLinks user={user} setEditing={setEditing} />
+      )}
     </section>
   );
 }
 
-export function SocialLinks({ user }) {
+export function SocialLinks({ user, setEditing }) {
   return (
     <>
       <div className="flex items-center justify-between mb-4 sm:mb-6">
         <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
           Social Links
         </h3>
-        <button className="w-full sm:w-auto rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-900 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700 flex items-center justify-center sm:justify-start gap-1">
+        <button
+          onClick={() => setEditing(true)}
+          className="w-full sm:w-auto cursor-pointer rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-900 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700 flex items-center justify-center sm:justify-start gap-1"
+        >
           <Edit className="h-3.5 w-3.5" /> Edit
         </button>
       </div>
