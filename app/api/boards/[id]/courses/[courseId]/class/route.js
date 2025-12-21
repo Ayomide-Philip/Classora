@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { connectDatabase } from "@/libs/connectDatabase";
 import Boards from "@/libs/models/boards.models";
+import Courses from "@/libs/models/courses.models";
 
 export async function GET(req, { params }) {
   const { id, courseId } = await params;
@@ -35,6 +36,12 @@ export async function GET(req, { params }) {
         }
       );
     }
+    // check if the course exist
+    const course = await Courses.findOne({ _id: courseId, boardId: id });
+     // if course doesnt exist return error
+      if (!course) {
+          return next
+      }
     return NextResponse.json(
       { message: "GET all course classes", id, courseId },
       {
