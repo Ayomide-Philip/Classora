@@ -5,14 +5,17 @@ export default function SettingsAccountOverview({ user }) {
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-6">
         <div className="flex items-center gap-4 sm:gap-6">
           <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-linear-to-br from-sky-400 to-sky-600 text-xl sm:text-2xl font-bold text-white shrink-0">
-            AJ
+            {user?.name
+              .split(" ")
+              .map((n) => n[0])
+              .join("")}
           </div>
           <div>
             <h2 className="text-lg sm:text-xl font-semibold text-slate-900 dark:text-white">
-              {user.name}
+              {user?.name}
             </h2>
             <p className="text-sm text-slate-500 dark:text-slate-400">
-              @{user.username}
+              @{user?.username}
             </p>
             <div className="mt-2 flex flex-wrap items-center gap-2">
               <span className="inline-flex items-center gap-1 rounded-full bg-purple-50 px-3 py-1 text-xs font-semibold text-purple-700 dark:bg-purple-900/40 dark:text-purple-200">

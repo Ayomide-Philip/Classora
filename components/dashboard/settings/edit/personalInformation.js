@@ -1,4 +1,10 @@
+import { useState } from "react";
 export default function EditPersonalInformation({ user, setEditing }) {
+  const [phoneNumber, setPhoneNumber] = useState(
+    user?.profileId?.phoneNumber || ""
+  );
+  const [gender, setGender] = useState(user?.profileId?.gender || "");
+
   return (
     <>
       <div className="flex items-center justify-between mb-4 sm:mb-6">
@@ -23,8 +29,6 @@ export default function EditPersonalInformation({ user, setEditing }) {
       </div>
 
       <form className="space-y-6">
-        <input type="hidden" name="userId" defaultValue={user?._id || ""} />
-
         <div className="grid md:grid-cols-2 gap-4">
           <div className="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
             <label className="block text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">
@@ -47,7 +51,8 @@ export default function EditPersonalInformation({ user, setEditing }) {
               type="tel"
               name="phoneNumber"
               placeholder="e.g. +234 801 234 5678"
-              defaultValue={user?.profileId?.phoneNumber || ""}
+              defaultValue={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
               className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
             />
           </div>
@@ -58,13 +63,12 @@ export default function EditPersonalInformation({ user, setEditing }) {
             </label>
             <select
               name="gender"
-              defaultValue={user?.profileId?.gender || ""}
+              defaultValue={gender}
+              onChange={(e) => setGender(e.target.value)}
               className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
             >
-              <option value="">Unchanged</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
-              <option value="Prefer not to say">Prefer not to say</option>
             </select>
           </div>
 
