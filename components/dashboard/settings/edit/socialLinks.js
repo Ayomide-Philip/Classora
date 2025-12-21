@@ -136,7 +136,7 @@ export default function EditSocialLink({ user, setEditing }) {
         <div className="flex items-center justify-end gap-2 mt-4">
           <button
             type="submit"
-            className="w-full px-6 py-2.5 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 transition"
+            className="w-full px-6 py-2.5 cursor-pointer rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 transition"
           >
             Save Changes
           </button>
