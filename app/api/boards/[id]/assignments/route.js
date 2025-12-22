@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
+import { connectDatabase } from "@/libs/connectDatabase";
 
 export async function GET(req, { params }) {
   const { id } = await params;
   try {
+    await connectDatabase();
     return NextResponse.json(
       { error: "GET all assignments" },
       {
