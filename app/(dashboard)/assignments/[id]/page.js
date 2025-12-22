@@ -36,6 +36,7 @@ export default async function AssignmentPage({ params }) {
     description:
       "Complete all exercises from Chapter 5 of the textbook. This includes:\n\n1. Pages 45-50: Basic algebraic equations\n2. Pages 51-55: Systems of equations\n3. Pages 56-60: Word problems\n\nPlease show all your working and ensure your answers are clearly labeled.",
     postedDate: "Dec 20, 2025",
+    dueDate: "Dec 27, 2025",
     postedBy: {
       id: "rep1",
       name: "John Osei",
@@ -156,6 +157,19 @@ export default async function AssignmentPage({ params }) {
                   <Calendar className="h-4 w-4 text-slate-400 dark:text-slate-600" />
                   <p className="text-sm font-semibold text-slate-900 dark:text-white">
                     {assignment.postedDate}
+                  </p>
+                </div>
+              </div>
+
+              {/* Due Date */}
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                  Due Date
+                </p>
+                <div className="mt-2 flex items-center gap-2">
+                  <Calendar className="h-4 w-4 text-red-400 dark:text-red-600" />
+                  <p className="text-sm font-semibold text-slate-900 dark:text-white">
+                    {assignment.dueDate}
                   </p>
                 </div>
               </div>
