@@ -29,6 +29,7 @@ const assignmentSchema = new Schema(
     },
     dueDate: {
       type: Date,
+      default: null,
     },
     studentsSubmitted: {
       type: [Schema.Types.ObjectId],
