@@ -35,6 +35,15 @@ const assignmentSchema = new Schema(
       ref: "Users",
       default: [],
     },
+    submitMode: {
+      type: String,
+      enum: ["googleForm", "directSubmission", "unknown"],
+      default: "unknown",
+    },
+    googleFormUrl: {
+      type: String,
+      default: null,
+    },
   },
   {
     timestamps: true,
