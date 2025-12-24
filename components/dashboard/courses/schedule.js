@@ -4,24 +4,6 @@ import { getUserInfomation } from "@/components/dashboard/userdetails";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-const schedule = [
-  {
-    day: "Monday",
-    time: "09:00 - 10:30",
-    venue: "Science Block A, Room 201",
-  },
-  {
-    day: "Wednesday",
-    time: "09:00 - 10:30",
-    venue: "Science Block A, Room 201",
-  },
-  {
-    day: "Friday",
-    time: "14:00 - 16:00",
-    venue: "Physics Lab 3",
-    type: "Lab",
-  },
-];
 export default async function CourseSchedule({ courseId }) {
   const { boardId } = await getUserInfomation();
   const request = await fetch(

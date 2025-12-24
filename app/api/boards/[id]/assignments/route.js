@@ -44,3 +44,12 @@ export async function GET(req, { params }) {
     );
   }
 }
+
+export async function POST(req, { params }) {
+  return NextResponse.json(
+    { message: "Post a new assignment" },
+    {
+      status: 200,
+    }
+  );
+}
