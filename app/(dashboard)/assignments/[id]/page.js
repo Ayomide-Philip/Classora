@@ -229,6 +229,8 @@ export default async function Page({ params }) {
         <MarkAsCompleted
           studentsSubmitted={studentsSubmitted}
           userId={usersId}
+          boardId={boardId}
+          courseId={id}
         />
       </div>
     </main>

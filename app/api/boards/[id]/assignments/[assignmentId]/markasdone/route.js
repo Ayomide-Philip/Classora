@@ -2,9 +2,18 @@ import { NextResponse } from "next/server";
 import { connectDatabase } from "@/libs/connectDatabase";
 import Boards from "@/libs/models/boards.models";
 import Assignments from "@/libs/models/assignments.models";
+import { auth } from "@/auth";
 
-export async function PUT(req, { params }) {
-  const { userId } = await req.json();
+export const PUT = auth(async function PUT(req, { params }) {
+  if (!req.auth || !req.auth.user) {
+    return NextResponse.json(
+      { error: "User is unauthorized" },
+      {
+        status: 400,
+      }
+    );
+  }
+  const userId = req?.auth?.user?.id;
   const { id, assignmentId } = await params;
   // board it does not exist
   if (!id) {
@@ -79,4 +88,4 @@ export async function PUT(req, { params }) {
       }
     );
   }
-}
+});

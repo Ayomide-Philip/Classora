@@ -1,6 +1,31 @@
 "use client";
 import { CheckCircle2, Circle } from "lucide-react";
-export default function MarkAsCompleted({ studentsSubmitted, userId }) {
+import { toast } from "react-toastify";
+export default function MarkAsCompleted({
+  studentsSubmitted,
+  userId,
+  boardId,
+  courseId,
+}) {
+  async function handleSubmitAssignments() {
+    const request = await fetch(
+      `/api/boards/${boardId}/assignments/${courseId}/markasdone`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      }
+    );
+    const response = await request.json();
+    if (!request.ok || response?.error) {
+      return toast.error(response?.error);
+    }
+    toast.success(response?.message);
+    window.location.reload();
+  }
+
   return (
     <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
       <h2 className="mb-4 text-lg font-semibold text-slate-900 dark:text-white">
@@ -17,9 +42,7 @@ export default function MarkAsCompleted({ studentsSubmitted, userId }) {
             : "bg-green-600 text-white hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-600"
         }`}
         disabled={studentsSubmitted.includes(userId)}
-        onClick={() => {
-          alert("clicked");
-        }}
+        onClick={handleSubmitAssignments}
       >
         {studentsSubmitted.includes(userId) ? (
           <>
