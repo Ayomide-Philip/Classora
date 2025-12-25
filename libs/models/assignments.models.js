@@ -20,7 +20,7 @@ const assignmentSchema = new Schema(
     title: {
       type: String,
       required: true,
-      minlength: 4,
+      minlength: 5,
     },
     description: {
       type: String,
