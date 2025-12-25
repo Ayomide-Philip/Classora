@@ -27,7 +27,6 @@ export default async function Page({ params }) {
   if (response.error || !request.ok) {
     return redirect("/students");
   }
-  console.log(response);
   const { student } = response;
 
   return (

@@ -164,6 +164,31 @@ export default async function Page({ params }) {
                   </p>
                 </div>
               </div>
+
+              {/* Submission Mode */}
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                  Submission Mode
+                </p>
+                <div className="mt-2">
+                  {submitMode === "googleForm" ? (
+                    <span className="inline-flex items-center gap-2 rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700 dark:bg-sky-900/30 dark:text-sky-400">
+                      <ExternalLink className="h-4 w-4" />
+                      Google Form
+                    </span>
+                  ) : submitMode === "directSubmission" ? (
+                    <span className="inline-flex items-center gap-2 rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-700 dark:bg-green-900/30 dark:text-green-400">
+                      <CheckCircle2 className="h-4 w-4" />
+                      Direct Submission
+                    </span>
+                  ) : (
+                    <span className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                      <Circle className="h-4 w-4" />
+                      Not Specified
+                    </span>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </article>
@@ -180,8 +205,6 @@ export default async function Page({ params }) {
             ))}
           </div>
         </div>
-
-        
 
         {googleFormUrl && (
           <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
