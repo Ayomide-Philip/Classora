@@ -20,7 +20,6 @@ export default async function Page() {
   return (
     <main className="min-h-screen p-4 sm:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className="mb-8">
           <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
             Assignments
@@ -30,7 +29,6 @@ export default async function Page() {
           </p>
         </div>
 
-        {/* Assignments Grid */}
         <AssignmentGrid assignments={assignments} />
       </div>
     </main>
