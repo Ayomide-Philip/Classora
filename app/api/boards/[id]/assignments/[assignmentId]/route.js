@@ -4,6 +4,7 @@ import Boards from "@/libs/models/boards.models";
 import Assignments from "@/libs/models/assignments.models";
 import Users from "@/libs/models/user.models";
 import Courses from "@/libs/models/courses.models";
+import { auth } from "@/auth";
 
 export async function GET(req, { params }) {
   const { id, assignmentId } = await params;
@@ -73,8 +74,16 @@ export async function GET(req, { params }) {
   }
 }
 
-export async function DELETE(req, { params }) {
-  const { userId } = await req.json();
+export const DELETE = auth(async function DELETE(req, { params }) {
+  if (!req.auth || !req.auth.user) {
+    return NextResponse.json(
+      { error: "User is unauthorized" },
+      {
+        status: 400,
+      }
+    );
+  }
+  const userId = req?.auth?.user?.id;
   const { id, assignmentId } = await params;
   // if board id doesnt exist
   if (!id) {
@@ -168,4 +177,4 @@ export async function DELETE(req, { params }) {
       }
     );
   }
-}
+});
