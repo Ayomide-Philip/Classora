@@ -20,10 +20,21 @@ export async function GET(req, { params }) {
       }
     );
   }
-  return NextResponse.json(
-    { message: "GET board by ID", id, assignmentId },
-    {
-      status: 200,
-    }
-  );
+
+  try {
+    return NextResponse.json(
+      { message: "GET board by ID", id, assignmentId },
+      {
+        status: 200,
+      }
+    );
+  } catch (err) {
+    console.error(err);
+    return NextResponse.json(
+      { error: "Unable to get assignments" },
+      {
+        status: 400,
+      }
+    );
+  }
 }
