@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { connectDatabase } from "@/libs/connectDatabase";
 import Boards from "@/libs/models/boards.models";
 import Courses from "@/libs/models/courses.models";
+import Assignments from "@/libs/models/assignments.models";
 
 export async function GET(req, { params }) {
   const { id, courseId } = await params;
@@ -39,7 +40,7 @@ export async function GET(req, { params }) {
     }
 
     // check if the course exist
-    const course = await Courses.findOne({ _id: courseId, boardId: id });
+    const course = await Courses.findOne({ _id: courseId, boardId: id }).populate("assignments");
     if (!course) {
       return NextResponse.json(
         { error: "Could not find a course" },

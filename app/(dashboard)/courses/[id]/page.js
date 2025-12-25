@@ -32,6 +32,7 @@ export default async function CoursePage({ params }) {
 
   const response = await request.json();
   const { course } = response;
+  console.log(course);
 
   if (response?.error || !request.ok) return <CourseNotFound />;
   // const course = {
@@ -119,9 +120,12 @@ export default async function CoursePage({ params }) {
           Back to Courses
         </Link>
         <CourseHeader course={course} id={id} userId={userId} />
-        <CourseProgressOverview assignments={assignments} />
+        <CourseProgressOverview
+          assignments={course?.assignments}
+          userId={userId}
+        />
         <CourseSchedule courseId={id} />
-        <CourseAssignments assignments={assignments} />
+        {/* <CourseAssignments assignments={assignments} /> */}
         <CourseMaterials />
         <CourseInstructor course={course} />
       </div>

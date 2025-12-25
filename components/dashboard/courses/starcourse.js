@@ -3,7 +3,6 @@ import { Star } from "lucide-react";
 import { getUserInfomation } from "@/components/dashboard/userdetails";
 import { useEffect, useState } from "react";
 export default function StarCourse({ course, id, userId }) {
-  console.log(course);
   const [stared, setStared] = useState(course?.stared);
 
   async function starCourse() {
