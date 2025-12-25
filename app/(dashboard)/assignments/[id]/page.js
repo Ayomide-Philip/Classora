@@ -10,9 +10,9 @@ import {
   CheckCircle2,
   Circle,
   Users,
-  Trash2,
 } from "lucide-react";
 import MarkAsCompleted from "@/components/dashboard/assignments/markAsComplete";
+import DeleteAssignments from "@/components/dashboard/assignments/deleteassigment";
 
 export default async function Page({ params }) {
   const { id } = await params;
@@ -77,12 +77,7 @@ export default async function Page({ params }) {
             Back to Assignments
           </Link>
 
-          <button
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 hover:border-red-300 hover:bg-red-50 hover:text-red-600 active:scale-95 transition-all dark:border-slate-700 dark:bg-slate-900 dark:text-slate-400 dark:hover:border-red-900/30 dark:hover:bg-red-950/20 dark:hover:text-red-400"
-            title="Delete assignment"
-          >
-            <Trash2 className="h-4 w-4" />
-          </button>
+          <DeleteAssignments />
         </div>
 
         <article className="mb-6 rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
