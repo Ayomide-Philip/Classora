@@ -1,17 +1,13 @@
 import { Clock, Users, FileText, Calendar, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-export default function AssignmentsCard({
-  assignment,
-  submissionRate,
-  isFullySubmitted,
-}) {
+export default function AssignmentsCard({ assignment }) {
+  const { boardId, courseId, studentsSubmitted } = assignment;
   return (
     <Link
-      href={`/assignments/${assignment.id}`}
+      href={`/assignments/${assignment._id}`}
       className="group cursor-pointer rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-sky-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-sky-700 transition-all duration-200 overflow-hidden"
     >
-      {/* Card Header */}
       <div className="p-5">
         <div className="flex items-start justify-between gap-3 mb-3">
           <div className="p-2 rounded-lg bg-sky-100 dark:bg-sky-900/30">
@@ -21,20 +17,18 @@ export default function AssignmentsCard({
         </div>
 
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white line-clamp-2 mb-1">
-          {assignment.title}
+          {assignment?.title}
         </h3>
         <p className="text-xs text-slate-500 dark:text-slate-400 mb-3">
-          {assignment.course}
+          {assignment?.courseId?.courseTitle}
         </p>
         <p className="text-sm text-slate-600 dark:text-slate-400 line-clamp-2">
-          {assignment.description}
+          {assignment.description.split(".")[0]}.
         </p>
       </div>
 
-      {/* Divider */}
       <div className="border-t border-slate-200 dark:border-slate-800"></div>
 
-      {/* Card Stats */}
       <div className="p-5 space-y-3">
         <div className="flex items-center justify-between text-xs">
           <span className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400">
@@ -42,7 +36,11 @@ export default function AssignmentsCard({
             Expires
           </span>
           <span className="font-medium text-slate-900 dark:text-white">
-            {assignment.expiresAt.split(" at ")[0]}
+            {new Date(assignment?.dueDate).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            })}
           </span>
         </div>
 
@@ -52,7 +50,11 @@ export default function AssignmentsCard({
             Posted
           </span>
           <span className="font-medium text-slate-900 dark:text-white">
-            {assignment.postedDate}
+            {new Date(assignment?.createdAt).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            })}
           </span>
         </div>
 
@@ -62,11 +64,10 @@ export default function AssignmentsCard({
             Submissions
           </span>
           <span className="font-medium text-slate-900 dark:text-white">
-            {assignment.submittedCount} / {assignment.totalStudents}
+            {studentsSubmitted.length} / {boardId?.students?.length}
           </span>
         </div>
 
-        {/* Progress Bar */}
         <div className="pt-2">
           <div className="flex items-center justify-between text-xs mb-2">
             <span className="text-slate-500 dark:text-slate-400">
@@ -74,20 +75,26 @@ export default function AssignmentsCard({
             </span>
             <span
               className={`font-semibold ${
-                isFullySubmitted
+                studentsSubmitted.length === boardId?.students?.length
                   ? "text-green-600 dark:text-green-400"
                   : "text-sky-600 dark:text-sky-400"
               }`}
             >
-              {submissionRate}%
+              {(studentsSubmitted.length / boardId?.students?.length) * 100}%
             </span>
           </div>
           <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
             <div
               className={`h-full transition-all duration-300 ${
-                isFullySubmitted ? "bg-green-500" : "bg-sky-500"
+                studentsSubmitted.length === boardId?.students?.length
+                  ? "bg-green-500"
+                  : "bg-sky-500"
               }`}
-              style={{ width: `${submissionRate}%` }}
+              style={{
+                width: `${
+                  (studentsSubmitted.length / boardId?.students?.length) * 100
+                }%`,
+              }}
             />
           </div>
         </div>
