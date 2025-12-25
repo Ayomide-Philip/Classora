@@ -62,18 +62,23 @@ export function PendingAssignments({ assignments, userId }) {
             Pending ({pendingAssignment.length})
           </h3>
           <div className="space-y-2">
-            {pendingAssignment.map((a, idx) => (
+            {pendingAssignment.map(({ title, dueDate }, idx) => (
               <div
                 key={idx}
                 className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
               >
                 <Circle className="h-5 w-5 text-slate-300 dark:text-slate-600 shrink-0" />
                 <div className="flex-1 min-w-0">
-                  <p className="font-medium text-slate-900 dark:text-white truncate">
-                    {a.title}
+                  <p className="font-medium text-slate-900 dark:text-white truncate capitalize">
+                    {title}
                   </p>
                   <p className="text-xs text-slate-500 dark:text-slate-400">
-                    Due: {a.dueDate}
+                    Due:{" "}
+                    {new Date(dueDate).toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
+                    })}
                   </p>
                 </div>
                 <ChevronRight className="h-4 w-4 text-slate-400" />
