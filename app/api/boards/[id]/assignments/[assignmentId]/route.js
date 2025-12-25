@@ -72,3 +72,5 @@ export async function GET(req, { params }) {
     );
   }
 }
+
+export async function DELETE(req, { params }) {}

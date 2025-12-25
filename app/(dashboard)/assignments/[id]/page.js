@@ -53,7 +53,6 @@ export default async function Page({ params }) {
     );
   }
   const {
-    _id,
     boardId: board,
     courseId,
     userId,
