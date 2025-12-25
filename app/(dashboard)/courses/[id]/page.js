@@ -32,7 +32,6 @@ export default async function CoursePage({ params }) {
 
   const response = await request.json();
   const { course } = response;
-  console.log(course);
 
   if (response?.error || !request.ok) return <CourseNotFound />;
   // const course = {
@@ -50,65 +49,6 @@ export default async function CoursePage({ params }) {
   //     "An introductory course covering the fundamental principles of physics including mechanics, thermodynamics, waves, and basic electromagnetism. Students will develop problem-solving skills through theoretical concepts and practical experiments.",
   // };
 
-  const assignments = [
-    {
-      id: 1,
-      title: "Problem Set 1: Kinematics",
-      dueDate: "Sep 10",
-      status: "completed",
-      score: "92/100",
-    },
-    {
-      id: 2,
-      title: "Lab Report 1: Free Fall",
-      dueDate: "Sep 20",
-      status: "completed",
-      score: "88/100",
-    },
-    {
-      id: 3,
-      title: "Problem Set 2: Forces",
-      dueDate: "Sep 28",
-      status: "completed",
-      score: "95/100",
-    },
-    {
-      id: 4,
-      title: "Midterm Exam",
-      dueDate: "Oct 15",
-      status: "completed",
-      score: "87/100",
-    },
-    {
-      id: 5,
-      title: "Problem Set 3: Energy",
-      dueDate: "Oct 25",
-      status: "completed",
-      score: "90/100",
-    },
-    {
-      id: 6,
-      title: "Lab Report 2: Pendulum",
-      dueDate: "Nov 5",
-      status: "pending",
-      score: null,
-    },
-    {
-      id: 7,
-      title: "Problem Set 4: Waves",
-      dueDate: "Nov 15",
-      status: "pending",
-      score: null,
-    },
-    {
-      id: 8,
-      title: "Final Project",
-      dueDate: "Dec 10",
-      status: "pending",
-      score: null,
-    },
-  ];
-
   return (
     <main className="px-4 py-6 sm:py-8 md:px-8 pb-24">
       <div className="mx-auto max-w-4xl">
@@ -125,7 +65,7 @@ export default async function CoursePage({ params }) {
           userId={userId}
         />
         <CourseSchedule courseId={id} />
-        {/* <CourseAssignments assignments={assignments} /> */}
+        <CourseAssignments assignments={course?.assignments} userId={userId} />
         <CourseMaterials />
         <CourseInstructor course={course} />
       </div>
