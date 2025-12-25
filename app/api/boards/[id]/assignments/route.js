@@ -233,8 +233,12 @@ export async function POST(req, { params }) {
       googleFormUrl,
     });
 
+    if (courses.assignments) {
+      courses.assignments.push(assignments._id);
+    }
+    await courses.save();
     return NextResponse.json(
-      { message: "Post a new assignment", assignments },
+      { message: "Successfully created new assignments", assignments, courses },
       {
         status: 200,
       }
