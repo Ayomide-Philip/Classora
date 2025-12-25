@@ -133,7 +133,6 @@ export default async function AssignmentPage({ params }) {
           {/* Assignment Meta Section */}
           <div className="p-6">
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-              {/* Posted By */}
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
                   Posted by
@@ -148,7 +147,6 @@ export default async function AssignmentPage({ params }) {
                 </div>
               </div>
 
-              {/* Posted Date */}
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
                   Posted Date
@@ -161,7 +159,6 @@ export default async function AssignmentPage({ params }) {
                 </div>
               </div>
 
-              {/* Due Date */}
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
                   Due Date
@@ -174,7 +171,6 @@ export default async function AssignmentPage({ params }) {
                 </div>
               </div>
 
-              {/* Class Progress */}
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
                   Submissions
@@ -190,7 +186,6 @@ export default async function AssignmentPage({ params }) {
           </div>
         </article>
 
-        {/* Assignment Description */}
         <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
           <h2 className="mb-4 text-lg font-semibold text-slate-900 dark:text-white">
             Assignment Details
@@ -204,7 +199,6 @@ export default async function AssignmentPage({ params }) {
           </div>
         </div>
 
-        {/* Google Form Submission */}
         <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
           <h2 className="mb-4 text-lg font-semibold text-slate-900 dark:text-white">
             Submit Your Work
@@ -223,7 +217,6 @@ export default async function AssignmentPage({ params }) {
           </a>
         </div>
 
-        {/* Mark as Done Section */}
         <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
           <h2 className="mb-4 text-lg font-semibold text-slate-900 dark:text-white">
             Mark as Complete
@@ -256,45 +249,6 @@ export default async function AssignmentPage({ params }) {
               ? "You have marked this assignment as complete."
               : "Mark this assignment as done once you have submitted it."}
           </p>
-        </div>
-
-        {/* Class Completion Status */}
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
-          <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
-              Class Progress
-            </h2>
-            <span className="rounded-full bg-sky-100 px-3 py-1 text-sm font-semibold text-sky-700 dark:bg-sky-900/30 dark:text-sky-400">
-              {assignment.studentsMarkedDone} / {assignment.totalStudents}
-            </span>
-          </div>
-
-          {/* Progress Bar */}
-          <div className="mb-4">
-            <div className="flex items-center justify-between text-sm mb-2">
-              <span className="text-slate-600 dark:text-slate-400">
-                Completion Rate
-              </span>
-              <span className="font-semibold text-slate-900 dark:text-white">
-                {Math.round(
-                  (assignment.studentsMarkedDone / assignment.totalStudents) *
-                    100
-                )}
-                %
-              </span>
-            </div>
-            <div className="h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
-              <div
-                className="h-full bg-sky-500"
-                style={{
-                  width: `${
-                    (assignment.studentsMarkedDone / assignment.totalStudents) *
-                    100
-                  }%`,
-                }}
-              />
-            </div>
-          </div>
         </div>
       </div>
     </main>
