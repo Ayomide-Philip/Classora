@@ -77,7 +77,7 @@ export default async function Page({ params }) {
             Back to Assignments
           </Link>
 
-          <DeleteAssignments />
+          <DeleteAssignments boardId={boardId} courseId={id} />
         </div>
 
         <article className="mb-6 rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
