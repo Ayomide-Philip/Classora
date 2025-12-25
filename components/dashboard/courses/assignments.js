@@ -74,7 +74,7 @@ export function CompletedCourseAssignments({ assignments, userId }) {
             Completed ({completedAssignment.length})
           </h3>
           <div className="space-y-2">
-            {completedAssignment.map((a, idx) => (
+            {completedAssignment.map(({ title, dueDate }, idx) => (
               <div
                 key={idx}
                 className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
@@ -84,10 +84,15 @@ export function CompletedCourseAssignments({ assignments, userId }) {
                 />
                 <div className="flex-1 min-w-0">
                   <p className="font-medium text-slate-900 dark:text-white truncate">
-                    {a.title}
+                    {title}
                   </p>
                   <p className="text-xs text-slate-500 dark:text-slate-400">
-                    Submitted: {a.dueDate}
+                    Due:{" "}
+                    {new Date(dueDate).toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
+                    })}
                   </p>
                 </div>
               </div>
