@@ -18,7 +18,7 @@ export default function DeleteAssignments({ boardId, courseId }) {
       return toast.error(response?.error);
     }
     toast.success(response?.message);
-    window.location.reload();
+    window.location.href = "/assignments";
   }
   return (
     <button
