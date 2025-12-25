@@ -2,7 +2,7 @@ import { Clock, Users, FileText, Calendar, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export default function AssignmentsCard({ assignment }) {
-  const { boardId, courseId, studentsSubmitted } = assignment;
+  const { boardId, studentsSubmitted } = assignment;
   return (
     <Link
       href={`/assignments/${assignment._id}`}

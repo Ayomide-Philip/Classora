@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { connectDatabase } from "@/libs/connectDatabase";
 import Boards from "@/libs/models/boards.models";
 import Assignments from "@/libs/models/assignments.models";
+import Users from "@/libs/models/user.models";
+import Courses from "@/libs/models/courses.models";
 
 export async function GET(req, { params }) {
   const { id, assignmentId } = await params;
@@ -41,7 +43,10 @@ export async function GET(req, { params }) {
     const assignment = await Assignments.findOne({
       _id: assignmentId,
       boardId: id,
-    });
+    })
+      .populate("boardId", "students")
+      .populate("courseId", "courseTitle courseCode courseCoordinator")
+      .populate("userId", "name");
     //if no assignments return an error
     if (!assignment) {
       return NextResponse.json(
@@ -58,7 +63,7 @@ export async function GET(req, { params }) {
       }
     );
   } catch (err) {
-    console.error(err);
+    console.log(err);
     return NextResponse.json(
       { error: "Unable to get assignments" },
       {
