@@ -3,7 +3,8 @@ import { connectDatabase } from "@/libs/connectDatabase";
 import Courses from "@/libs/models/courses.models";
 import Boards from "@/libs/models/boards.models";
 import { auth } from "@/auth";
-import Users from "@/libs/models/user.models";
+import Users from "@/libs/models/user.models"
+import Assignments from "@/libs/models/assignments.models";
 
 export async function GET(req, { params }) {
   const { id } = await params;
@@ -19,7 +20,7 @@ export async function GET(req, { params }) {
       );
     }
     // check for all course where boardId = id
-    const course = await Courses.find({ boardId: id }).populate("boardId");
+    const course = await Courses.find({ boardId: id }).populate("boardId").populate("assignments");
 
     return NextResponse.json(
       { course },

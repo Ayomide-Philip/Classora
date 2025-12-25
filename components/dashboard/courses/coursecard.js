@@ -1,7 +1,7 @@
 import { FileText, ChevronRight, Star, School } from "lucide-react";
 import Link from "next/link";
 
-export default function CourseCard({ course }) {
+export default function CourseCard({ course, userId }) {
   let {
     _id,
     courseTitle,
@@ -32,7 +32,6 @@ export default function CourseCard({ course }) {
           </span>
         </div>
 
-        {/* Title & Teacher */}
         <h2 className="text-base font-semibold text-slate-900 dark:text-white leading-tight">
           {courseTitle}
         </h2>
@@ -40,42 +39,8 @@ export default function CourseCard({ course }) {
           {courseCoordinator}
         </p>
 
-        {/* Assignment progress */}
-        <div className="mt-4">
-          <div className="flex items-center justify-between text-xs mb-2">
-            <span className="text-slate-500 dark:text-slate-400">
-              Assignments
-            </span>
-            <span className="font-medium text-slate-700 dark:text-slate-300">
-              {assignments?.length} of {assignments?.length}
-            </span>
-          </div>
-          {/* Progress dots */}
-          <div className="flex gap-1.5">
-            {assignments?.length <= 0 ? (
-              <>
-                <div
-                  className={`h-1.5 flex-1 rounded-full transition-colors bg-slate-200 dark:bg-slate-700`}
-                />
-              </>
-            ) : (
-              <>
-                {assignments.map((_, i) => (
-                  <div
-                    key={i}
-                    className={`h-1.5 flex-1 rounded-full transition-colors ${
-                      i < assignments?.length
-                        ? "bg-sky-500"
-                        : "bg-slate-200 dark:bg-slate-700"
-                    }`}
-                  />
-                ))}
-              </>
-            )}
-          </div>
-        </div>
+        <AssignmentsProgress assignments={assignments} userId={userId} />
 
-        {/* Bottom info row */}
         <div className="mt-4 flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
           <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
             <span className="flex items-center gap-1">
@@ -96,5 +61,46 @@ export default function CourseCard({ course }) {
         </div>
       </div>
     </Link>
+  );
+}
+
+export function AssignmentsProgress({ assignments, userId }) {
+  let numberOfAssignmentsSubmitted = assignments.filter((assignment) => {
+    return assignment.studentsSubmitted.find((a) => {
+      return a === userId;
+    });
+  });
+
+  return (
+    <div className="mt-4">
+      <div className="flex items-center justify-between text-xs mb-2">
+        <span className="text-slate-500 dark:text-slate-400">Assignments</span>
+        <span className="font-medium text-slate-700 dark:text-slate-300">
+          {numberOfAssignmentsSubmitted?.length} of {assignments?.length}
+        </span>
+      </div>
+      <div className="flex gap-1.5">
+        {assignments?.length <= 0 ? (
+          <>
+            <div
+              className={`h-1.5 flex-1 rounded-full transition-colors bg-slate-200 dark:bg-slate-700`}
+            />
+          </>
+        ) : (
+          <>
+            {assignments.map((_, i) => (
+              <div
+                key={i}
+                className={`h-1.5 flex-1 rounded-full transition-colors ${
+                  i < numberOfAssignmentsSubmitted?.length
+                    ? "bg-sky-500"
+                    : "bg-slate-200 dark:bg-slate-700"
+                }`}
+              />
+            ))}
+          </>
+        )}
+      </div>
+    </div>
   );
 }

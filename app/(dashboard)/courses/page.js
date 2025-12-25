@@ -6,7 +6,7 @@ import EmptyCourse from "@/components/dashboard/courses/emptyCourse";
 import CreateButton from "@/components/dashboard/createButton";
 
 export default async function Page() {
-  const { boardId, role } = await getUserInfomation();
+  const { boardId, role, userId } = await getUserInfomation();
   if (!boardId) {
     return redirect("/overview");
   }
@@ -41,7 +41,7 @@ export default async function Page() {
         ) : (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {course.map((course, idx) => {
-              return <CourseCard course={course} key={idx} />;
+              return <CourseCard course={course} userId={userId} key={idx} />;
             })}
           </div>
         )}
