@@ -1,4 +1,7 @@
 import { NextResponse } from "next/server";
+import { connectDatabase } from "@/libs/connectDatabase";
+import Boards from "@/libs/models/boards.models";
+import Assignments from "@/libs/models/assignments.models";
 
 export async function GET(req, { params }) {
   const { id, assignmentId } = await params;
@@ -22,8 +25,34 @@ export async function GET(req, { params }) {
   }
 
   try {
+    await connectDatabase();
+    // check if the board exist
+    const board = await Boards.findById(id);
+    // return an error if board is not found
+    if (!board) {
+      return NextResponse.json(
+        { error: "Board not found" },
+        {
+          status: 400,
+        }
+      );
+    }
+    // find the assignments
+    const assignment = await Assignments.findOne({
+      _id: assignmentId,
+      boardId: id,
+    });
+    //if no assignments return an error
+    if (!assignment) {
+      return NextResponse.json(
+        { error: "Assignment not found" },
+        {
+          status: 400,
+        }
+      );
+    }
     return NextResponse.json(
-      { message: "GET board by ID", id, assignmentId },
+      { assignment: assignment },
       {
         status: 200,
       }
