@@ -198,7 +198,8 @@ export async function POST(req, { params }) {
     if (dueDate) {
       const inputtedDate = new Date(dueDate);
       const currentDate = new Date();
-      if (inputtedDate < currentDate) {
+      // if the inputted date is less than the current date
+      if (inputtedDate <= currentDate) {
         return NextResponse.json(
           { error: "Due date should be in the future" },
           {
@@ -206,21 +207,34 @@ export async function POST(req, { params }) {
           }
         );
       }
+      // there should be one-hour difference between current date and due date
+      if (
+        inputtedDate.getDate() === currentDate.getDate() &&
+        inputtedDate.getHours() === currentDate.getHours() &&
+        inputtedDate.getMinutes() - currentDate.getMinutes() < 30
+      ) {
+        return NextResponse.json(
+          { error: "There should be at least 30 minute difference" },
+          {
+            status: 400,
+          }
+        );
+      }
     }
     // create a new assignments
-    // const assignments = await Assignments.create({
-    //   boardId: id,
-    //   courseId,
-    //   userId,
-    //   title,
-    //   description,
-    //   dueDate,
-    //   submitMode,
-    //   googleFormUrl,
-    // });
+    const assignments = await Assignments.create({
+      boardId: id,
+      courseId,
+      userId,
+      title,
+      description,
+      dueDate,
+      submitMode,
+      googleFormUrl,
+    });
 
     return NextResponse.json(
-      { message: "Post a new assignment" },
+      { message: "Post a new assignment", assignments },
       {
         status: 200,
       }
