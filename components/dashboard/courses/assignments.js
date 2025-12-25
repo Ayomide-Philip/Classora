@@ -47,34 +47,22 @@ export default async function CourseAssignments({ assignments, userId }) {
 }
 
 export function PendingAssignments({ assignments, userId }) {
-  console.log(assignments);
+  const pendingAssignment = assignments.filter((assignment) => {
+    if (new Date() < new Date(assignment?.dueDate)) {
+      return !assignment.studentsSubmitted.includes(userId);
+    }
+  });
+  console.log(pendingAssignment);
 
-  function getPendingAssignments() {
-    let pendingAssignments = [];
-    assignments.filter((assignment) => {
-      if (new Date() < new Date(assignment?.dueDate)) {
-        assignment?.studentsSubmitted.filter((student) => {
-          if (student === userId) {
-            return;
-          } else {
-            pendingAssignments.push(assignment);
-          }
-        });
-      }
-    });
-    console.log(pendingAssignments);
-  }
-
-  getPendingAssignments();
   return (
     <>
       {assignments.length > 0 && (
         <div className="mb-4">
           <h3 className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3">
-            Pending ({assignments.length})
+            Pending ({pendingAssignment.length})
           </h3>
           <div className="space-y-2">
-            {assignments.map((a, idx) => (
+            {pendingAssignment.map((a, idx) => (
               <div
                 key={idx}
                 className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
