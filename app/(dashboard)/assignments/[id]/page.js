@@ -106,7 +106,7 @@ export default async function Page({ params }) {
           </div>
 
           <div className="p-6">
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
                   Posted by
@@ -218,7 +218,7 @@ export default async function Page({ params }) {
               href={googleFormUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-sky-600 px-6 py-3 text-sm font-semibold text-white hover:bg-sky-700 transition-colors dark:bg-sky-700 dark:hover:bg-sky-600"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-sky-600 px-6 py-3 text-sm font-semibold text-white hover:bg-sky-700 transition-colors dark:bg-sky-700 dark:hover:bg-sky-600"
             >
               <ExternalLink className="h-4 w-4" />
               Open Google Form
