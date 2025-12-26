@@ -77,10 +77,9 @@ export default async function Page({ params }) {
             Back to Assignments
           </Link>
 
-          {role === "admin" ||
-            (role === "owner" && (
-              <DeleteAssignments boardId={boardId} courseId={id} />
-            ))}
+          {role === "admin" || role === "owner" ? (
+            <DeleteAssignments boardId={boardId} courseId={id} />
+          ) : null}
         </div>
 
         <article className="mb-6 rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
