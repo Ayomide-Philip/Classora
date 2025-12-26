@@ -41,7 +41,7 @@ export default async function Page() {
                 <ClipboardList className="h-10 w-10 text-sky-600 dark:text-sky-400" />
               </div>
 
-              <h3 className="mt-6 text-xl font-semibold text-slate-900 dark:text-white">
+              <h3 className="mt-6 capitalize text-xl font-semibold text-slate-900 dark:text-white">
                 No assignments yet
               </h3>
 

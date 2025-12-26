@@ -16,7 +16,7 @@ import DeleteAssignments from "@/components/dashboard/assignments/deleteassigmen
 
 export default async function Page({ params }) {
   const { id } = await params;
-  let { boardId, userId: usersId } = await getUserInfomation();
+  let { boardId, userId: usersId, role } = await getUserInfomation();
 
   const request = await fetch(
     `${BASE_URL}/api/boards/${boardId}/assignments/${id}`,
@@ -77,7 +77,10 @@ export default async function Page({ params }) {
             Back to Assignments
           </Link>
 
-          <DeleteAssignments boardId={boardId} courseId={id} />
+          {role === "admin" ||
+            (role === "owner" && (
+              <DeleteAssignments boardId={boardId} courseId={id} />
+            ))}
         </div>
 
         <article className="mb-6 rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
