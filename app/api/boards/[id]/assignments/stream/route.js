@@ -33,7 +33,8 @@ export async function GET(req, { params }) {
     // return all assignments that belongs to this board
     const assignments = await Assignments.find({ boardId: id })
       .populate("boardId", "students")
-      .populate("courseId", "courseTitle").sort({createdAt: -1});
+      .populate("courseId", "courseTitle")
+      .sort({ createdAt: -1 });
     const stream = new ReadableStream({
       start(controller) {
         // Send initial message
@@ -46,12 +47,18 @@ export async function GET(req, { params }) {
         // Send updates every second
         interval = setInterval(async () => {
           try {
-            const assignments = await Assignments.find({ boardId: id })
+            const newAssignments = await Assignments.find({ boardId: id })
               .populate("boardId", "students")
-              .populate("courseId", "courseTitle").sort({createdAt: -1});
+              .populate("courseId", "courseTitle")
+              .sort({ createdAt: -1 });
+            const assignmentsDifference = newAssignments.filter(
+              (newAssignment) => {
+                return !assignments.includes(newAssignment);
+              }
+            );
             controller.enqueue(
               new TextEncoder().encode(
-                `data: ${JSON.stringify({ assignments })}\n\n`
+                `data: ${JSON.stringify({ assignments: newAssignments })}\n\n`
               )
             );
           } catch (err) {
