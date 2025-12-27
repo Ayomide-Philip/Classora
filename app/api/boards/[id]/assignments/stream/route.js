@@ -51,11 +51,7 @@ export async function GET(req, { params }) {
               .populate("boardId", "students")
               .populate("courseId", "courseTitle")
               .sort({ createdAt: -1 });
-            const assignmentsDifference = newAssignments.filter(
-              (newAssignment) => {
-                return !assignments.includes(newAssignment);
-              }
-            );
+
             controller.enqueue(
               new TextEncoder().encode(
                 `data: ${JSON.stringify({ assignments: newAssignments })}\n\n`
