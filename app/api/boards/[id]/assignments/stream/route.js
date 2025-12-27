@@ -33,12 +33,14 @@ export async function GET(req, { params }) {
     // return all assignments that belongs to this board
     const assignments = await Assignments.find({ boardId: id })
       .populate("boardId", "students")
-      .populate("courseId", "courseTitle");
+      .populate("courseId", "courseTitle").sort({createdAt: -1});
     const stream = new ReadableStream({
       start(controller) {
         // Send initial message
         controller.enqueue(
-          new TextEncoder().encode(`data: ${JSON.stringify(assignments)}\n\n`)
+          new TextEncoder().encode(
+            `data: ${JSON.stringify({ assignments })}\n\n`
+          )
         );
 
         // Send updates every second
@@ -46,10 +48,10 @@ export async function GET(req, { params }) {
           try {
             const assignments = await Assignments.find({ boardId: id })
               .populate("boardId", "students")
-              .populate("courseId", "courseTitle");
+              .populate("courseId", "courseTitle").sort({createdAt: -1});
             controller.enqueue(
               new TextEncoder().encode(
-                `data: ${JSON.stringify(assignments)}\n\n`
+                `data: ${JSON.stringify({ assignments })}\n\n`
               )
             );
           } catch (err) {
@@ -71,13 +73,6 @@ export async function GET(req, { params }) {
         Connection: "keep-alive",
       },
     });
-
-    return NextResponse.json(
-      { assignments },
-      {
-        status: 200,
-      }
-    );
   } catch (err) {
     console.log(err);
     return NextResponse.json(

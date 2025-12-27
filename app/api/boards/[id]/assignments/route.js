@@ -31,7 +31,7 @@ export async function GET(req, { params }) {
     // return all assignments that belongs to this board
     const assignments = await Assignments.find({ boardId: id })
       .populate("boardId", "students")
-      .populate("courseId", "courseTitle");
+      .populate("courseId", "courseTitle").sort({createdAt: -1});
     return NextResponse.json(
       { assignments },
       {
