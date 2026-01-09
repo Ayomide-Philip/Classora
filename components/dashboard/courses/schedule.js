@@ -26,7 +26,7 @@ export default async function CourseSchedule({ courseId }) {
         Schedule
       </h2>
       <div className="space-y-3">
-        {classes && classes.length > 0 ? (
+        {classes && classes?.length > 0 ? (
           <>
             {classes.map(({ venue, day, type, time }, idx) => (
               <div

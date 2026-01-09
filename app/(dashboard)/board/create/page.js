@@ -9,7 +9,7 @@ import { redirect } from "next/navigation";
 export default async function Page() {
   // getting the board id
   const { boardId, role } = await getUserInfomation();
-  if (role !== "admin" || role !== "owner") return redirect("/courses");
+  if (role !== "admin" && role !== "owner") return redirect("/courses");
   if (!boardId) {
     return redirect("/overview");
   }
